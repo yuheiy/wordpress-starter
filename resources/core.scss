@@ -1,0 +1,37 @@
+@use "sass:map";
+@use "sass:selector";
+
+// Media query
+
+// prettier-ignore
+$mq-breakpoints: (
+  xs: 0,
+  sm: 768px,
+  md: 1024px,
+  lg: 1440px,
+  xl: 1680px,
+);
+
+@mixin breakpoint($key, $until: false) {
+  @if map.has-key($mq-breakpoints, $key) == false {
+    @error "`#{$key}` does not exist in `$mq-breakpoints`";
+  }
+  $breakpoint: map.get($mq-breakpoints, $key);
+  $is-zero: $breakpoint == 0;
+
+  @if $is-zero and $until {
+    @error "Breakpoints are not available for screens smaller than 0px";
+  }
+
+  @if $is-zero {
+    @content;
+  } @else if $until {
+    @media not all and (min-width: #{$breakpoint}) {
+      @content;
+    }
+  } @else {
+    @media (min-width: #{$breakpoint}) {
+      @content;
+    }
+  }
+}

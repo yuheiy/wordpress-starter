@@ -1,0 +1,79 @@
+{
+  "scripts": {
+    "clean": "rimraf my-theme/assets",
+    "prestart": "npm run clean",
+    "start": "webpack-dev-server",
+    "prebuild": "npm run clean",
+    "build": "cross-env NODE_ENV=production webpack --mode production",
+    "typecheck": "tsc --project . --noEmit",
+    "format": "prettier --write .",
+    "test": "jest",
+    "postinstall": "bash scripts/install-acf-pro.sh"
+  },
+  "dependencies": {
+    "focus-visible": "^5.1.0",
+    "gsap": "^3.5.0",
+    "luxon": "^1.24.1",
+    "normalize.css": "^8.0.1",
+    "quicklink": "^2.0.0",
+    "tiny-invariant": "^1.1.0"
+  },
+  "devDependencies": {
+    "@prettier/plugin-php": "^0.14.3",
+    "@types/jest": "^26.0.10",
+    "@types/lodash": "^4.14.159",
+    "@types/luxon": "^1.24.3",
+    "@types/node": "^14.6.0",
+    "@types/webpack-env": "^1.15.2",
+    "@wordpress/env": "^1.6.0",
+    "address": "^1.1.2",
+    "autoprefixer": "^9.8.6",
+    "cross-env": "^7.0.2",
+    "css-loader": "^4.2.1",
+    "file-loader": "^6.0.0",
+    "get-port": "^5.1.1",
+    "husky": "^4.2.5",
+    "jest": "^26.4.0",
+    "lint-staged": "^10.2.11",
+    "mini-css-extract-plugin": "^0.10.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "plop": "^2.7.4",
+    "postcss": "^7.0.32",
+    "prettier": "^2.0.5",
+    "prettier-plugin-svelte": "^1.1.0",
+    "rimraf": "^3.0.2",
+    "sass": "^1.26.10",
+    "style-loader": "^1.2.1",
+    "svelte": "^3.24.1",
+    "svelte-loader": "^2.13.6",
+    "svelte-preprocess": "^4.0.12",
+    "terser-webpack-plugin": "^4.1.0",
+    "ts-jest": "^26.2.0",
+    "ts-loader": "^8.0.2",
+    "typescript": "^3.9.7",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-manifest-plugin": "^2.2.0"
+  },
+  "engines": {
+    "node": ">=12"
+  },
+  "private": true,
+  "browserslist": [
+    "> 0.5% in JP",
+    "last 2 versions and > 0.01%",
+    "Firefox ESR",
+    "not dead",
+    "not ie 11",
+    "not ie_mob 11"
+  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,js,json,yml,php,svelte}": "prettier --write"
+  }
+}

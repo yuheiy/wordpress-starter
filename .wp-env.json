@@ -1,0 +1,4 @@
+{
+  "plugins": ["./plugins/advanced-custom-fields-pro"],
+  "themes": ["./my-theme"]
+}
