@@ -5,7 +5,8 @@
     "start": "webpack-dev-server",
     "prebuild": "npm run clean",
     "build": "cross-env NODE_ENV=production webpack --mode production",
-    "typecheck": "tsc --project . --noEmit",
+    "type-check": "tsc --project . --noEmit",
+    "svelte-check": "svelte-check",
     "format": "prettier --write .",
     "test": "jest",
     "postinstall": "bash scripts/install-acf-pro.sh"
@@ -45,6 +46,7 @@
     "sass": "^1.26.10",
     "style-loader": "^1.2.1",
     "svelte": "^3.24.1",
+    "svelte-check": "^1.0.20",
     "svelte-loader": "^2.13.6",
     "svelte-preprocess": "^4.0.12",
     "terser-webpack-plugin": "^4.1.0",

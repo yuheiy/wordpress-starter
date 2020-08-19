@@ -12,7 +12,8 @@ jobs:
         with:
           node-version: 12.x
       - run: npm install
-      - run: npm run typecheck
+      - run: npm run type-check
+      - run: npm run svelte-check
       - run: npm test
       - run: npm run build
 
