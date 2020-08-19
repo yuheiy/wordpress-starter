@@ -10,7 +10,9 @@ const routesFilePath = path.join(routesDir, "index.ts");
 const readRouteMap = async () => {
   const filePaths = await globby(path.join(routesDir, "*.svelte"));
   return filePaths.map((filePath) => {
-    return [path.parse(filePath).name, path.relative(routesDir, filePath)];
+    const { name } = path.parse(filePath);
+    const filename = path.relative(routesDir, filePath);
+    return { name, filename };
   });
 };
 
@@ -24,8 +26,8 @@ const indent = (lines) => {
 const generate = (routeMap) => {
   return `export default new Map([
 ${routeMap
-  .map(([name, filename]) =>
-    indent(`[
+  .map(({ name, filename }) => {
+    return indent(`[
   "${name}",
   async () =>
     (
@@ -33,8 +35,8 @@ ${routeMap
         /* webpackChunkName: "${name}" */ "./${filename}"
       )
     ).default,
-],`)
-  )
+],`);
+  })
   .join("\n")}
 ]);
 `;
