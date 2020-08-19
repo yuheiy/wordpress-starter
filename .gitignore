@@ -105,4 +105,5 @@ dist
 
 # Project specific output
 /my-theme/assets/
+/resources/routes/index.ts
 /plugins/advanced-custom-fields-pro/

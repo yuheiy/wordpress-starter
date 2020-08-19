@@ -1,7 +1,7 @@
 import "focus-visible";
 import invariant from "tiny-invariant";
 import { listen } from "quicklink";
-import { routes } from "./routes";
+import routes from "./routes";
 
 // assign all asset files to `webpack-manifest.json`
 require.context(
@@ -20,15 +20,17 @@ const appElement: HTMLElement | null = document.querySelector("#app");
 invariant(appElement);
 
 invariant(appElement.dataset.route);
-const App = routes.get(appElement.dataset.route);
-invariant(App);
+const action = routes.get(appElement.dataset.route);
+invariant(action);
 
 invariant(appElement.dataset.props);
 const props = JSON.parse(appElement.dataset.props);
 
-const app = new App({
-  target: appElement,
-  props,
+const app = action().then((App: any) => {
+  new App({
+    target: appElement,
+    props,
+  });
 });
 
 if (process.env.NODE_ENV === "development") {
