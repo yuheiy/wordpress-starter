@@ -55,8 +55,6 @@ add_action('wp_head', function () {
 
   $twitter_card = 'summary_large_image';
 
-  echo determine_locale();
-
   foreach (
     [
       ['<meta name="description" content="%s">', esc_attr($description)],
