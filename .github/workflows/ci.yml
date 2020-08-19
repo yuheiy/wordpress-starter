@@ -12,6 +12,7 @@ jobs:
         with:
           node-version: 12.x
       - run: npm install
+      - run: NODE_ENV=production npm run route-map
       - run: npm run type-check
       - run: npm run svelte-check
       - run: npm test
