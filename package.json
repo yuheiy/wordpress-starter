@@ -9,7 +9,7 @@
     "svelte-check": "svelte-check",
     "format": "prettier --write .",
     "test": "jest",
-    "postinstall": "bash scripts/install-acf-pro.sh"
+    "//postinstall": "bash scripts/install-acf-pro.sh"
   },
   "dependencies": {
     "focus-visible": "^5.1.0",
