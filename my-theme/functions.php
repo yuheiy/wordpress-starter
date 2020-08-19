@@ -35,6 +35,7 @@ function default_app_props()
   $news_post_type = get_post_type_object('news');
   $news_archive_url = get_post_type_archive_link('news');
   $sample_page = get_page_by_title('Sample Page');
+  set_post_link($sample_page);
 
   return [
     'name' => get_bloginfo('name'),
@@ -48,12 +49,11 @@ function default_app_props()
     'news_archive_url' => strip_origin_from_url($news_archive_url),
 
     'sample_page' => $sample_page,
-    'sample_url' => strip_origin_from_url(get_permalink($sample_page)),
 
     'header_nav_items' => [
       [
         'label' => $sample_page->post_title,
-        'link' => strip_origin_from_url(get_permalink($sample_page)),
+        'link' => $sample_page->link,
         'current' => $sample_page->ID === get_queried_object_id(),
       ],
       [

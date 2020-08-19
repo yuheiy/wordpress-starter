@@ -3,7 +3,6 @@
   export let news_posts;
   export let news_archive_url;
   export let sample_page;
-  export let sample_url;
 </script>
 
 <style lang="scss">
@@ -36,7 +35,7 @@
       eaque laudantium id officia! Dolores ex expedita ratione. Hic.
     </p>
     <p>
-      <a href={sample_url}>Learn more</a>
+      <a href={sample_page.link}>Learn more</a>
     </p>
   </section>
 
