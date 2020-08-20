@@ -96,7 +96,7 @@ module.exports = async () => {
     plugins: [
       !isDev &&
         new MiniCssExtractPlugin({
-          filename: "[name].css",
+          filename: "[name].[contenthash:8].css",
         }),
       new ManifestPlugin({
         fileName: "webpack-manifest.json",
