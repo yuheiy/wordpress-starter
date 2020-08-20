@@ -20,17 +20,15 @@ const appElement: HTMLElement | null = document.querySelector("#app");
 invariant(appElement);
 
 invariant(appElement.dataset.route);
-const action = routes.get(appElement.dataset.route);
-invariant(action);
+const App = routes.get(appElement.dataset.route);
+invariant(App);
 
 invariant(appElement.dataset.props);
 const props = JSON.parse(appElement.dataset.props);
 
-const app = action().then((App: any) => {
-  new App({
-    target: appElement,
-    props,
-  });
+const app = new App({
+  target: appElement,
+  props,
 });
 
 if (process.env.NODE_ENV === "development") {
