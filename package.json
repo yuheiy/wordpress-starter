@@ -1,10 +1,10 @@
 {
   "scripts": {
-    "start": "npm-run-all clean --parallel webpack:server route-map",
-    "build": "cross-env NODE_ENV=production npm-run-all clean --parallel webpack:build route-map",
+    "start": "npm-run-all clean --parallel route-map webpack-server",
+    "build": "cross-env NODE_ENV=production npm-run-all clean route-map webpack-build",
     "clean": "rimraf my-theme/assets",
-    "webpack:server": "webpack-dev-server",
-    "webpack:build": "webpack --mode production",
+    "webpack-server": "webpack-dev-server",
+    "webpack-build": "webpack --mode production",
     "route-map": "node scripts/generate-route-map.js",
     "type-check": "tsc --project . --noEmit",
     "svelte-check": "svelte-check",
