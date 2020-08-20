@@ -4,7 +4,7 @@
   export let posts;
   export let news_category_terms;
   export let pagination_links;
-  export let news_archive_url;
+  export let news_post_type;
 </script>
 
 <style lang="scss">
@@ -40,12 +40,12 @@
 </style>
 
 <Layout {...$$props}>
-  <h1>News</h1>
+  <h1>{news_post_type.label}</h1>
 
   <ul class="sub-list">
     <li>
       <a
-        href={news_archive_url}
+        href={news_post_type.link}
         aria-current={news_category_terms.every((term) => !term.queried)}>
         All
       </a>

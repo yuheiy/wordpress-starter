@@ -3,7 +3,7 @@
   import Layout from "../components/Layout.svelte";
 
   export let post;
-  export let news_archive_url;
+  export let news_post_type;
 
   $: postDate = DateTime.fromSQL(post.post_date_gmt, { zone: "utc" }).setZone();
 </script>
@@ -29,7 +29,7 @@
   <div class="stack">
     <footer>
       <p>
-        <a href={news_archive_url}>← News</a>
+        <a href={news_post_type.link}>← {news_post_type.label}</a>
       </p>
     </footer>
 
@@ -47,11 +47,5 @@
         {@html post.post_content}
       </div>
     </article>
-
-    <footer>
-      <p>
-        <a href={news_archive_url}>← News</a>
-      </p>
-    </footer>
   </div>
 </Layout>

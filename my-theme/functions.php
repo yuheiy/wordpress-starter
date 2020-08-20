@@ -33,7 +33,7 @@ add_action('after_setup_theme', function () {
 function default_app_props()
 {
   $news_post_type = get_post_type_object('news');
-  $news_archive_url = strip_origin_from_url(get_post_type_archive_link('news'));
+  set_post_type_link($news_post_type);
   $sample_page = get_page_by_title('Sample Page');
   set_post_link($sample_page);
 
@@ -46,7 +46,7 @@ function default_app_props()
 
     'is_home' => is_home(),
 
-    'news_archive_url' => $news_archive_url,
+    'news_post_type' => $news_post_type,
 
     'sample_page' => $sample_page,
 
@@ -58,7 +58,7 @@ function default_app_props()
       ],
       [
         'label' => $news_post_type->label,
-        'link' => $news_archive_url,
+        'link' => $news_post_type->link,
         'current' =>
           is_post_type_archive('news') ||
           is_tax('news_category') ||
@@ -73,7 +73,7 @@ function default_app_props()
       ],
       [
         'label' => $news_post_type->label,
-        'link' => $news_archive_url,
+        'link' => $news_post_type->link,
       ],
     ],
   ];
@@ -105,4 +105,11 @@ function set_post_acf($post)
   if (function_exists('get_fields')) {
     $post->acf = get_fields($post->ID);
   }
+}
+
+function set_post_type_link($post_type_object)
+{
+  $post_type_object->link = strip_origin_from_url(
+    get_post_type_archive_link($post_type_object->name)
+  );
 }

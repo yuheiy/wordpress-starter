@@ -4,7 +4,7 @@
 
   export let name;
   export let news_posts;
-  export let news_archive_url;
+  export let news_post_type;
   export let sample_page;
 </script>
 
@@ -47,7 +47,7 @@
   </section>
 
   <section>
-    <h2>News</h2>
+    <h2>{news_post_type.label}</h2>
     <ol>
       {#each news_posts as post}
         <li>
@@ -56,7 +56,7 @@
       {/each}
     </ol>
     <p>
-      <a href={news_archive_url}>View all</a>
+      <a href={news_post_type.link}>View all</a>
     </p>
   </section>
 </Layout>
