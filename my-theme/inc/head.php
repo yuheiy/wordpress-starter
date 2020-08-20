@@ -32,7 +32,7 @@ add_action('wp_head', function () {
 
   $description = get_bloginfo('description');
 
-  if (is_singular()) {
+  if (is_single()) {
     $type = 'article';
   } else {
     $type = 'website';
