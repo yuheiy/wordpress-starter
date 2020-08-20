@@ -23,6 +23,16 @@ WordPressテーマ構築のための開発環境です。[wp-env](https://ja.wor
 
 ソースコードを次のように変更してください。
 
+`.wp-env.json`:
+
+```diff
+{
+- "plugins": [],
++ "plugins": ["./plugins/advanced-custom-fields-pro"],
+  "themes": ["./my-theme"]
+}
+```
+
 `scripts/install-acf-pro.sh`:
 
 ```diff
@@ -38,12 +48,26 @@ WordPressテーマ構築のための開発環境です。[wp-env](https://ja.wor
 +   "postinstall": "bash scripts/install-acf-pro.sh"
 ```
 
+`my-theme/acf-json`ディレクトリの作成：
+
+```sh
+mkdir my-theme/acf-json
+touch my-theme/acf-json/.gitkeep
+```
+
+`acf-json`ディレクトリの作成によって[Synchronized JSON](https://www.advancedcustomfields.com/resources/synchronized-json/)を有効化し、ダッシュボード上での操作がJSONファイルと同期されるようにします。
+
 ### 依存パッケージのインストール
 
-この手順の前に「ACF PROの設定」を完了させてください。
+`wp-env`コマンドを実行するためにグローバル環境にインストールします。
 
 ```sh
 npm install -g @wordpress/env
+```
+
+ローカルインストールの前に[ACF PROの設定](#acf-proの設定)を完了させてください。
+
+```sh
 npm install
 ```
 
@@ -80,7 +104,7 @@ http://localhost:8888/wp-admin/
 
 ### データベースおよびメディアファイルのエクスポート
 
-WordPressのローカル環境における、現在の状態のデータベースとメディアファイルを`scripts/snapshot`ディレクトリに出力します。これによって別のローカル環境でも同様の状態を再現できるようになります。WordPressのローカル環境が起動されている必要があります。
+WordPressのローカル環境における、現在の状態のデータベースとメディアファイルを`scripts/snapshot`ディレクトリに出力できます。これによって別のローカル環境でも同様の状態を再現できるようになります。WordPressのローカル環境が起動されている必要があります。
 
 ```sh
 bash scripts/wp-export.sh
@@ -88,7 +112,7 @@ bash scripts/wp-export.sh
 
 ### データベースおよびメディアファイルのインポート
 
-前回にエクスポートされた際のデータベースとメディアファイルの状態を復元します。WordPressのローカル環境が起動されている必要があります。
+前回にエクスポートされた際のデータベースとメディアファイルの状態を復元できます。WordPressのローカル環境が起動されている必要があります。
 
 ```sh
 bash scripts/wp-import.sh
@@ -96,15 +120,130 @@ bash scripts/wp-import.sh
 
 ## ディレクトリ構造
 
-TODO
+```
+├── my-theme/
+│   ├── assets/
+│   │   ├── favicon.[contenthash].svg
+│   │   ├── main.[contenthash].js
+│   │   ├── main.[contenthash].css
+│   │   └── webpack-manifest.json
+│   ├── inc/
+│   │   └── news.php
+│   ├── archive-news.php
+│   ├── functions.php
+│   ├── index.php
+│   ├── single-news.php
+│   └── style.css
+├── resources/
+│   ├── components/
+│   │   ├── GlobalStyle.svelte
+│   │   ├── Header.svelte
+│   │   └── Layout.svelte
+│   ├── routes/
+│   │   ├── index/
+│   │   │   └── Button.svelte
+│   │   ├── archive-news.svelte
+│   │   ├── index.svelte
+│   │   ├── index.ts
+│   │   └── single-news.svelte
+│   ├── favicon.svg
+│   └── main.ts
+├── .wp-env.json
+└── package.json
+```
+
+### `my-theme`ディレクトリ
+
+WordPressのテーマディレクトリです。ビルドされたファイルもこのディレクトリに出力されます。
+
+### `my-theme/assets`ディレクトリ
+
+webpackでビルドされたファイルが出力されます。
+
+### `my-theme/inc`ディレクトリ
+
+`functions.php`から読み込むファイルを配置します。
+
+### `resources`ディレクトリ
+
+webpackがビルドする対象にするソースファイルを配置します。画像ファイルなどもこのディレクトリに含めることで、JavaScriptファイルやWordPressテーマファイルのPHPから読み込めるようになります。読み込み方法については[Cache Busting](#cache-busting)を参照してください。
+
+### `resources/components`ディレクトリ
+
+複数のページで再利用されるコンポーネントを配置します。
+
+### `resources/routes`ディレクトリ
+
+[WordPressのテンプレートファイル](https://wpdocs.osdn.jp/%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%E9%9A%8E%E5%B1%A4)に対応するSvelteのルートコンポーネントを配置します。
+
+特定のルート固有のコンポーネントや画像ファイルなどは、当ディレクトリ内にテンプレートファイルと同名のディレクトリを作成して格納することを推奨します（例：`resources/routes/index/Button.svelte`）。
+
+### `.wp-env.json`
+
+wp-envの設定ファイルです。WordPressプラグインの情報などを記述します。
 
 ## Cache busting
 
-TODO
+同じ名前のファイルの内容が変更された際に、ブラウザに保存された前回のキャッシュを無効化するため、`resources`ディレクトリに配置されたファイルは`main.bb785f51.js`のようにファイル名にフィンガープリントが付与された状態で出力されます。
+
+参考：[アセットパイプライン - Railsガイド § 1.2 フィンガープリントと注意点](https://railsguides.jp/asset_pipeline.html#%E3%83%95%E3%82%A3%E3%83%B3%E3%82%AC%E3%83%BC%E3%83%97%E3%83%AA%E3%83%B3%E3%83%88%E3%81%A8%E6%B3%A8%E6%84%8F%E7%82%B9)
+
+ソースファイル内では次のようにしてファイル名を参照します。
+
+TypeScript：
+
+```typescript
+import cover from "../cover.jpg";
+// -> /wp-content/themes/my-theme/assets/cover.[contenthash].jpg
+
+const img = document.createElement("img");
+img.src = cover;
+```
+
+Svelteのテンプレート：
+
+```svelte
+<script>
+  import cover from "../cover.jpg";
+  // -> /wp-content/themes/my-theme/assets/cover.[contenthash].jpg
+</script>
+
+<img src={cover} alt="">
+```
+
+Svelteの`style`要素：
+
+```svelte
+<style lang="scss">
+  section {
+    background-image: url("../cover.jpg");
+    // -> /wp-content/themes/my-theme/assets/cover.[contenthash].jpg
+  }
+</style>
+
+<section>
+  ...
+</section>
+```
+
+WordPressテーマのPHPファイル：
+
+```php
+$manifest = webpack_manifest();
+echo $manifest['cover.jpg'];
+
+function webpack_manifest()
+{
+  return json_decode(
+    file_get_contents(get_theme_file_path('/assets/webpack-manifest.json')),
+    true
+  );
+}
+```
 
 ## テンプレートファイルの作成
 
-コードジェネレータを使ってファイルのテンプレートを生成できます。次のようなコマンドを実行すると、新しいルートと対応するファイルが出力されます。
+コードジェネレータを使ってソースファイルのテンプレートを生成できます。次のようなコマンドを実行すると、新しいルートに対応するファイルが出力されます。
 
 ```sh
 npx plop route archive-product
@@ -120,4 +259,4 @@ npm run build
 
 ## デプロイ
 
-「本番用ビルド」を実行した上で、`my-theme`ディレクトリを`wp-content/themes`ディレクトリにアップロードしてください。
+[本番用ビルド](#本番用ビルド)を実行した上で、`my-theme`ディレクトリを`wp-content/themes`ディレクトリ内にアップロードしてください。
