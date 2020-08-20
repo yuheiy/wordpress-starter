@@ -33,7 +33,7 @@ add_action('after_setup_theme', function () {
 function default_app_props()
 {
   $news_post_type = get_post_type_object('news');
-  $news_archive_url = get_post_type_archive_link('news');
+  $news_archive_url = strip_origin_from_url(get_post_type_archive_link('news'));
   $sample_page = get_page_by_title('Sample Page');
   set_post_link($sample_page);
 
@@ -46,7 +46,7 @@ function default_app_props()
 
     'is_home' => is_home(),
 
-    'news_archive_url' => strip_origin_from_url($news_archive_url),
+    'news_archive_url' => $news_archive_url,
 
     'sample_page' => $sample_page,
 
@@ -58,7 +58,7 @@ function default_app_props()
       ],
       [
         'label' => $news_post_type->label,
-        'link' => strip_origin_from_url($news_archive_url),
+        'link' => $news_archive_url,
         'current' =>
           is_post_type_archive('news') ||
           is_tax('news_category') ||
@@ -69,13 +69,11 @@ function default_app_props()
     'footer_nav_items' => [
       [
         'label' => $sample_page->post_title,
-        'link' => strip_origin_from_url(get_permalink($sample_page)),
-        'current' => $sample_page->ID === get_queried_object_id(),
+        'link' => $sample_page->link,
       ],
       [
         'label' => $news_post_type->label,
-        'link' => strip_origin_from_url($news_archive_url),
-        'current' => is_post_type_archive('news') || is_singular('news'),
+        'link' => $news_archive_url,
       ],
     ],
   ];
