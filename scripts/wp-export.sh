@@ -7,7 +7,7 @@ SQL_FILE="wordpress.sql"
 script_dir="$(cd $(dirname "${BASH_SOURCE[0]}"); pwd)"
 container_id="$(docker ps -f name=_wordpress_ -q)"
 
-rm -r "$script_dir/snapshot"
+rm -rf "$script_dir/snapshot"
 mkdir "$script_dir/snapshot"
 
 wp-env run cli "rm -f $SQL_FILE"
