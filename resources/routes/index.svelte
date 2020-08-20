@@ -1,5 +1,8 @@
 <script>
   import Layout from "../components/Layout.svelte";
+  import ogp from "../ogp.png";
+
+  export let name;
   export let news_posts;
   export let news_archive_url;
   export let sample_page;
@@ -13,7 +16,7 @@
     font-weight: bold;
   }
 
-  section + section {
+  * + section {
     margin-top: 40px;
   }
 
@@ -27,6 +30,10 @@
 </style>
 
 <Layout {...$$props}>
+  <h1>
+    <img src={ogp} alt={name} />
+  </h1>
+
   <section>
     <h2>{sample_page.post_title}</h2>
     <p>
