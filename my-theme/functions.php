@@ -83,13 +83,13 @@ function strip_origin_from_url($url)
 {
   $parsed = parse_url($url);
   $result = '';
-  if (array_key_exists('path', $parsed)) {
+  if (isset($parsed['path'])) {
     $result .= $parsed['path'];
   }
-  if (array_key_exists('query', $parsed)) {
+  if (isset($parsed['query'])) {
     $result .= '?' . $parsed['query'];
   }
-  if (array_key_exists('fragment', $parsed)) {
+  if (isset($parsed['fragment'])) {
     $result .= '#' . $parsed['fragment'];
   }
   return $result;
