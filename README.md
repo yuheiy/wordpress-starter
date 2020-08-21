@@ -91,7 +91,7 @@ http://localhost:8888/wp-admin/
 
 ### データベースおよびメディアファイルのエクスポート
 
-WordPressのローカル環境における、現在の状態のデータベースとメディアファイルを`scripts/snapshot`ディレクトリに出力できます。これによって別のローカル環境でも同様の状態を再現できるようになります。WordPressのローカル環境が起動されている必要があります。
+WordPressのローカル環境における現在の状態のデータベースとメディアファイルを`scripts/snapshot`ディレクトリに出力できます。これによって別のローカル環境でも同様の状態を再現できるようになります。
 
 ```sh
 bash scripts/wp-export.sh
@@ -99,7 +99,7 @@ bash scripts/wp-export.sh
 
 ### データベースおよびメディアファイルのインポート
 
-前回にエクスポートされた際のデータベースとメディアファイルの状態を復元できます。WordPressのローカル環境が起動されている必要があります。
+前回にエクスポートされた際のデータベースとメディアファイルの状態を復元できます。
 
 ```sh
 bash scripts/wp-import.sh
@@ -113,6 +113,11 @@ bash scripts/wp-import.sh
 wp-env clean all
 bash scripts/wp-setup.sh
 ```
+
+続けて次の操作をダッシュボードから手動で行う必要があります。
+
+- リライトルールをフラッシュするために、[パーマリンク設定](http://localhost:8888/wp-admin/options-permalink.php)の「変更を保存」を実行する
+- News投稿に任意のCategoryを入力する
 
 ## ディレクトリ構造
 

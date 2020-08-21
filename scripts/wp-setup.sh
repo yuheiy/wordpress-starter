@@ -24,12 +24,3 @@ wp-env run cli "wp post create --post_type=news --post_status=publish --post_tit
 wp-env run cli "wp term create news_category \"Media\""
 wp-env run cli "wp term create news_category \"Event\""
 wp-env run cli "wp term create news_category \"Press Release\""
-
-
-
-# ダッシュボードから手動で行う必要がある操作：
-
-# リライトルールをフラッシュするために、「パーマリンク設定」の「変更を保存」を実行する
-# http://localhost:8888/wp-admin/options-permalink.php
-
-# News投稿に任意のCategoryを入力する
