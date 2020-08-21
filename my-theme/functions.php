@@ -107,6 +107,22 @@ function set_post_acf($post)
   }
 }
 
+function set_post_terms($post, $taxonomy)
+{
+  if ($terms = get_the_terms($post, $taxonomy)) {
+    foreach ($terms as $term) {
+      set_term_link($term);
+    }
+  }
+  $property = $taxonomy . '_terms';
+  $post->$property = $terms;
+}
+
+function set_term_link($term)
+{
+  $term->link = strip_origin_from_url(get_term_link($term));
+}
+
 function set_post_type_link($post_type_object)
 {
   $post_type_object->link = strip_origin_from_url(

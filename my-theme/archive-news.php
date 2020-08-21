@@ -56,11 +56,6 @@ function get_first_element_child($html)
   return $node;
 }
 
-function set_term_link($term)
-{
-  $term->link = strip_origin_from_url(get_term_link($term));
-}
-
 function set_term_queried($term)
 {
   $term->queried = $term->slug === get_query_var($term->taxonomy);

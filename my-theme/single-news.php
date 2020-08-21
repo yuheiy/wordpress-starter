@@ -3,6 +3,7 @@
 <div id="app" data-route="single-news" data-props="<?php
 $post = get_post();
 set_post_acf($post);
+set_post_terms($post, 'news_category');
 
 echo esc_attr(
   json_encode(

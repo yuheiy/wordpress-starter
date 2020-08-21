@@ -16,6 +16,18 @@
     font-weight: bold;
   }
 
+  .meta,
+  .meta ul {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -20px;
+  }
+
+  .meta > *,
+  .meta ul > * {
+    margin-left: 20px;
+  }
+
   .stack > * + * {
     margin-top: 40px;
   }
@@ -36,11 +48,24 @@
     <article>
       <header>
         <h1>{post.post_title}</h1>
-        <p>
-          <time datetime={postDate.toISO()}>
-            {postDate.toFormat('yyyy/M/d')}
-          </time>
-        </p>
+        <div class="meta">
+          <p>
+            <time datetime={postDate.toISO()}>
+              {postDate.toFormat('yyyy/M/d')}
+            </time>
+          </p>
+          {#if post.news_category_terms}
+            <div>
+              <ul>
+                {#each post.news_category_terms as term}
+                  <li>
+                    <a href={term.link}>{term.name}</a>
+                  </li>
+                {/each}
+              </ul>
+            </div>
+          {/if}
+        </div>
       </header>
 
       <div>
