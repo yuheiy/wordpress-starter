@@ -47,15 +47,6 @@ WordPressテーマ構築のための開発環境です。[wp-env](https://ja.wor
 +   "postinstall": "bash scripts/install-acf-pro.sh"
 ```
 
-`my-theme/acf-json`ディレクトリの作成：
-
-```sh
-mkdir my-theme/acf-json
-touch my-theme/acf-json/.gitkeep
-```
-
-`acf-json`ディレクトリの作成によって[Synchronized JSON](https://www.advancedcustomfields.com/resources/synchronized-json/)を有効化し、ダッシュボード上での操作がJSONファイルと同期されるようにします。
-
 ### 依存パッケージのインストール
 
 `wp-env`コマンドを実行するためにグローバル環境にインストールします。
@@ -121,6 +112,7 @@ bash scripts/wp-import.sh
 
 ```
 ├── my-theme/
+│   ├── acf-json/
 │   ├── assets/
 │   │   ├── favicon.[contenthash].svg
 │   │   ├── main.[contenthash].js
@@ -154,6 +146,10 @@ bash scripts/wp-import.sh
 ### `my-theme`ディレクトリ
 
 WordPressのテーマディレクトリです。ビルドされたファイルもこのディレクトリに出力されます。
+
+### `my-theme/acf-json`ディレクトリ
+
+このディレクトリが存在しているとACF PROの[Synchronized JSON](https://www.advancedcustomfields.com/resources/synchronized-json/)が有効化され、ダッシュボードから入力された内容がこのディレクトリ内のJSONファイルとして自動的に同期されるようになります。
 
 ### `my-theme/assets`ディレクトリ
 
