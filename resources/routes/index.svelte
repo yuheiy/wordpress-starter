@@ -37,12 +37,11 @@
   <section>
     <h2>{sample_page.post_title}</h2>
     <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, odit,
-      sint cupiditate ratione autem praesentium et unde quas nulla vel sequi
-      eaque laudantium id officia! Dolores ex expedita ratione. Hic.
+      これはサンプルページです。同じ位置に固定され、(多くのテーマでは)
+      サイトナビゲーションメニューに含まれる点がブログ投稿とは異なります。まずは、サイト訪問者に対して自分のことを説明する自己紹介ページを作成するのが一般的です。たとえば以下のようなものです。
     </p>
     <p>
-      <a href={sample_page.link}>Learn more</a>
+      <a href={sample_page.link}>さらに詳しく</a>
     </p>
   </section>
 
@@ -56,7 +55,7 @@
       {/each}
     </ol>
     <p>
-      <a href={news_post_type.link}>View all</a>
+      <a href={news_post_type.link}>さらに表示</a>
     </p>
   </section>
 </Layout>

@@ -123,7 +123,7 @@ bash scripts/wp-setup.sh
 続けて次の操作をダッシュボードから手動で行う必要があります。
 
 - リライトルールをフラッシュするために、[パーマリンク設定](http://localhost:8888/wp-admin/options-permalink.php)の「変更を保存」を実行する
-- News投稿に任意のCategoryを入力する
+- ニュース投稿に任意のCategoryを入力する
 
 ## ディレクトリ構造
 

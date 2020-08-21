@@ -47,7 +47,7 @@
       <a
         href={news_post_type.link}
         aria-current={news_category_terms.every((term) => !term.queried)}>
-        All
+        すべて
       </a>
     </li>
     {#each news_category_terms as term}

@@ -2,7 +2,7 @@
 
 add_action('init', function () {
   register_post_type('news', [
-    'label' => 'News',
+    'label' => 'ニュース',
     'public' => true,
     'supports' => ['title'],
     'has_archive' => true,
@@ -12,7 +12,7 @@ add_action('init', function () {
     'news_category',
     ['news'],
     [
-      'label' => 'Category',
+      'label' => 'カテゴリー',
       'public' => true,
       'rewrite' => ['slug' => 'news/category'],
     ]

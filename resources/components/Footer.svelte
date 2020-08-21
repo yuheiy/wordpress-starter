@@ -29,7 +29,7 @@
 <footer>
   <ul>
     <li>
-      <a href={home_url}>Home</a>
+      <a href={home_url}>ホーム</a>
     </li>
     {#each footer_nav_items as item}
       <li>
