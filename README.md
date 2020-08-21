@@ -80,7 +80,7 @@ wp-env stop
 
 データベースの操作・環境の再構築などについては[@wordpress/envの公式ドキュメント](https://ja.wordpress.org/team/handbook/block-editor/packages/packages-env/)を参照してください。
 
-次にフロントエンドの開発用サーバーを起動します。WordPressのローカル環境が起動されている必要があります。URLはターミナルに出力されます。
+次にフロントエンドの開発用サーバーを起動します。URLはターミナルに出力されます。
 
 ```sh
 npm start
@@ -120,10 +120,10 @@ wp-env clean all
 bash scripts/wp-setup.sh
 ```
 
-続けて次の操作をダッシュボードから手動で行う必要があります。
+続けて、ダッシュボードから手動で次の操作を行う必要があります。
 
 - リライトルールをフラッシュするために、[パーマリンク設定](http://localhost:8888/wp-admin/options-permalink.php)の「変更を保存」を実行する
-- ニュース投稿に任意のCategoryを入力する
+- ニュース投稿に任意のカテゴリーを入力する
 
 ## ディレクトリ構造
 
