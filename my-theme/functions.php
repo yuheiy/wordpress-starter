@@ -34,7 +34,7 @@ function default_app_props()
 {
   $news_post_type = get_post_type_object('news');
   set_post_type_link($news_post_type);
-  $sample_page = get_page_by_title('Sample Page');
+  $sample_page = get_page_by_title('サンプルページ');
   set_post_link($sample_page);
 
   return [

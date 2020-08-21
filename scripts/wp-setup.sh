@@ -27,9 +27,9 @@ wp-env run cli "wp term create news_category \"Press Release\""
 
 
 
-# 管理画面から手動で行う必要がある操作：
+# ダッシュボードから手動で行う必要がある操作：
 
 # リライトルールをフラッシュするために、「パーマリンク設定」の「変更を保存」を実行する
 # http://localhost:8888/wp-admin/options-permalink.php
 
-# News投稿に本文・Categoryを入力する
+# News投稿に任意のCategoryを入力する

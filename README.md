@@ -26,11 +26,8 @@ WordPressテーマ構築のための開発環境です。[wp-env](https://ja.wor
 `.wp-env.json`:
 
 ```diff
-{
 - "plugins": [],
 + "plugins": ["./plugins/advanced-custom-fields-pro"],
-  "themes": ["./my-theme"]
-}
 ```
 
 `scripts/install-acf-pro.sh`:
@@ -106,6 +103,15 @@ bash scripts/wp-export.sh
 
 ```sh
 bash scripts/wp-import.sh
+```
+
+## データベースのリセット
+
+データベースを初期化して再セットアップできます。
+
+```sh
+wp-env clean all
+bash scripts/wp-setup.sh
 ```
 
 ## ディレクトリ構造
