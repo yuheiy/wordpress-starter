@@ -1,13 +1,13 @@
 const path = require("path");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const sveltePreprocess = require("svelte-preprocess");
 const autoprefixer = require("autoprefixer");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TerserJSPlugin = require("terser-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const ManifestPlugin = require("webpack-manifest-plugin");
+const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 const getPort = require("get-port");
 const address = require("address");
-const sveltePreprocess = require("svelte-preprocess");
-const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 
 const isDev = process.env.NODE_ENV !== "production";
 
@@ -95,14 +95,14 @@ module.exports = async () => {
       minimizer: [new TerserJSPlugin(), new OptimizeCSSAssetsPlugin()],
     },
     plugins: [
-      !isDev &&
-        new MiniCssExtractPlugin({
-          filename: "[name].[contenthash:8].css",
-        }),
       new ManifestPlugin({
         fileName: "webpack-manifest.json",
         writeToFileEmit: true,
       }),
+      !isDev &&
+        new MiniCssExtractPlugin({
+          filename: "[name].[contenthash:8].css",
+        }),
       process.env.ANALYZE === "true" &&
         !isDev &&
         new BundleAnalyzerPlugin({
