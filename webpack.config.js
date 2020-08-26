@@ -7,6 +7,7 @@ const ManifestPlugin = require("webpack-manifest-plugin");
 const getPort = require("get-port");
 const address = require("address");
 const sveltePreprocess = require("svelte-preprocess");
+const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 
 const isDev = process.env.NODE_ENV !== "production";
 
@@ -102,6 +103,12 @@ module.exports = async () => {
         fileName: "webpack-manifest.json",
         writeToFileEmit: true,
       }),
+      process.env.ANALYZE === "true" &&
+        !isDev &&
+        new BundleAnalyzerPlugin({
+          analyzerMode: "static",
+          reportFilename: path.join(__dirname, "resources", "analyze.html"),
+        }),
     ].filter(Boolean),
     devServer: {
       compress: true,
