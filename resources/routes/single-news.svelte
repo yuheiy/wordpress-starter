@@ -40,9 +40,7 @@
 <Layout {...$$props}>
   <div class="stack">
     <footer>
-      <p>
-        <a href={news_post_type.link}>← {news_post_type.label}</a>
-      </p>
+      <p><a href={news_post_type.link}>← {news_post_type.label}</a></p>
     </footer>
 
     <article>
@@ -58,9 +56,7 @@
             <div>
               <ul>
                 {#each post.news_category_terms as term}
-                  <li>
-                    <a href={term.link}>{term.name}</a>
-                  </li>
+                  <li><a href={term.link}>{term.name}</a></li>
                 {/each}
               </ul>
             </div>

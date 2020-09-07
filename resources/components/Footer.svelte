@@ -28,13 +28,9 @@
 
 <footer>
   <ul>
-    <li>
-      <a href={home_url}>ホーム</a>
-    </li>
+    <li><a href={home_url}>ホーム</a></li>
     {#each footer_nav_items as item}
-      <li>
-        <a href={item.link}>{item.label}</a>
-      </li>
+      <li><a href={item.link}>{item.label}</a></li>
     {/each}
   </ul>
 </footer>

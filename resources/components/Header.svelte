@@ -39,9 +39,7 @@
 
 <header>
   <nav>
-    <p>
-      <a href={is_home ? null : home_url}>{name}</a>
-    </p>
+    <p><a href={is_home ? null : home_url}>{name}</a></p>
     <ul>
       {#each header_nav_items as item}
         <li>

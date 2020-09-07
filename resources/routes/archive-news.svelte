@@ -51,17 +51,13 @@
       </a>
     </li>
     {#each news_category_terms as term}
-      <li>
-        <a href={term.link} aria-current={term.queried}>{term.name}</a>
-      </li>
+      <li><a href={term.link} aria-current={term.queried}>{term.name}</a></li>
     {/each}
   </ul>
 
   <ol class="main-list">
     {#each posts as post}
-      <li>
-        <a href={post.link}>{post.post_title}</a>
-      </li>
+      <li><a href={post.link}>{post.post_title}</a></li>
     {/each}
   </ol>
 
