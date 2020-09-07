@@ -16,14 +16,24 @@ if (process.env.NODE_ENV !== "production") {
   });
 }
 
-const appElement: HTMLElement | null = document.querySelector("#app");
-invariant(appElement);
+const appElement = document.querySelector("#app");
+invariant(appElement, "`#app` element must exist");
+invariant(
+  appElement instanceof HTMLElement,
+  "`#app` element must be HTMLElement"
+);
 
-invariant(appElement.dataset.route);
+invariant(
+  appElement.dataset.route,
+  "`#app` element must have `data-route` attribute"
+);
 const App = routes.get(appElement.dataset.route);
-invariant(App);
+invariant(App, `\`${appElement.dataset.route}\` does not exist in the routes`);
 
-invariant(appElement.dataset.props);
+invariant(
+  appElement.dataset.props,
+  "`#app` element must have `data-props` attribute"
+);
 const props = JSON.parse(appElement.dataset.props);
 
 const app = new App({
