@@ -87,7 +87,7 @@ module.exports = async () => {
       alias: {
         svelte: path.join(__dirname, "node_modules", "svelte"),
       },
-      extensions: [".mjs", ".js", ".ts"],
+      extensions: [".js", ".ts"],
       mainFields: ["svelte", "browser", "module", "main"],
     },
     devtool: isDev && "cheap-module-eval-source-map",
