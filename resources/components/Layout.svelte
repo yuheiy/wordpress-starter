@@ -9,7 +9,7 @@
   export let header_nav_items;
   export let footer_nav_items;
 
-  if (process.env.NODE_ENV === "development") {
+  if (process.env.NODE_ENV !== "production") {
     console.log($$props);
   }
 </script>

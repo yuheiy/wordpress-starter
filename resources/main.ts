@@ -10,7 +10,7 @@ require.context(
   /\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$/
 );
 
-if (process.env.NODE_ENV === "development") {
+if (process.env.NODE_ENV !== "production") {
   console.log({
     NODE_ENV: process.env.NODE_ENV,
   });
@@ -31,7 +31,7 @@ const app = new App({
   props,
 });
 
-if (process.env.NODE_ENV === "development") {
+if (process.env.NODE_ENV !== "production") {
   (window as any).app = app;
 }
 
