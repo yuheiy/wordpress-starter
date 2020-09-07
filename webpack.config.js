@@ -69,7 +69,7 @@ module.exports = async () => {
           ],
         },
         {
-          exclude: [/\.(js|ts)$/, /\.json$/, /\.svelte$/, /\.css$/],
+          exclude: [/\.(js|mjs|ts)$/, /\.json$/, /\.svelte$/, /\.css$/],
           use: [
             {
               loader: "file-loader",
@@ -87,7 +87,7 @@ module.exports = async () => {
       alias: {
         svelte: path.join(__dirname, "node_modules", "svelte"),
       },
-      extensions: [".js", ".ts"],
+      extensions: [".mjs", ".js", ".ts"],
       mainFields: ["svelte", "browser", "module", "main"],
     },
     devtool: isDev && "cheap-module-eval-source-map",
