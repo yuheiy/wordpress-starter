@@ -16,12 +16,8 @@ if (process.env.NODE_ENV !== "production") {
   });
 }
 
-const appElement = document.querySelector("#app");
+const appElement = document.querySelector<HTMLElement>("#app");
 invariant(appElement, "`#app` element must exist");
-invariant(
-  appElement instanceof HTMLElement,
-  "`#app` element must be HTMLElement"
-);
 
 invariant(
   appElement.dataset.route,
