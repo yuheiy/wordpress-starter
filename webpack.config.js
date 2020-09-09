@@ -128,7 +128,7 @@ module.exports = async () => {
         },
       },
       transportMode: "ws",
-      stats: "errors-only",
+      stats: "errors-warnings",
       host: "0.0.0.0",
       port: webpackPort,
       public: webpackNetworkHost,
