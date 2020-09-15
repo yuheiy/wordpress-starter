@@ -1,6 +1,5 @@
 import "focus-visible";
 import invariant from "tiny-invariant";
-import { listen } from "quicklink";
 import routes from "./routes";
 
 // assign all asset files to `webpack-manifest.json`
@@ -40,7 +39,3 @@ const app = new App({
 if (process.env.NODE_ENV !== "production") {
   (window as any).app = app;
 }
-
-window.addEventListener("load", () => {
-  listen();
-});

@@ -16,7 +16,6 @@
     "gsap": "^3.5.1",
     "luxon": "^1.25.0",
     "normalize.css": "^8.0.1",
-    "quicklink": "^2.0.0",
     "tiny-invariant": "^1.1.0"
   },
   "devDependencies": {
