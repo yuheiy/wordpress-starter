@@ -2,7 +2,7 @@ import "focus-visible";
 import invariant from "tiny-invariant";
 import routes from "./routes";
 
-// assign all asset files to `webpack-manifest.json`
+// load all asset files to be passed to file-loader
 require.context(
   ".",
   true,
