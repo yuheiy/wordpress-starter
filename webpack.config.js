@@ -9,13 +9,12 @@ const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 const getPort = require("get-port");
 const address = require("address");
 
-const isDev = process.env.NODE_ENV !== "production";
-
 const wordpressPort = 8888;
 const wordpressLocalHost = `localhost:${wordpressPort}`;
 const wordpressLocalOrigin = `http://${wordpressLocalHost}`;
 
-module.exports = async () => {
+module.exports = async (_env, { mode }) => {
+  const isDev = mode !== "production";
   const webpackPort = isDev && (await getPort({ port: 3000 }));
   const webpackNetworkHost = webpackPort && `${address.ip()}:${webpackPort}`;
   const webpackNetworkOrigin = webpackPort && `http://${webpackNetworkHost}`;
