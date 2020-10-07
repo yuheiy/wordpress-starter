@@ -1,5 +1,7 @@
 const path = require("path");
 const sveltePreprocess = require("svelte-preprocess");
+const sass = require("sass");
+const Fiber = require("fibers");
 const autoprefixer = require("autoprefixer");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TerserJSPlugin = require("terser-webpack-plugin");
@@ -52,6 +54,10 @@ module.exports = async (_env, { mode }) => {
                 preprocess: sveltePreprocess({
                   postcss: {
                     plugins: [autoprefixer({ cascade: false })],
+                  },
+                  sass: {
+                    implementation: sass,
+                    fiber: Fiber,
                   },
                 }),
                 emitCss: true,
