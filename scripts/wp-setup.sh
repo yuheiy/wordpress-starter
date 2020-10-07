@@ -1,9 +1,15 @@
+#!/bin/bash
+
+set -eu
+
 wp-env run cli "wp option update blogname \"The Boilerplate for WordPress\""
 wp-env run cli "wp option update permalink_structure \"/%postname%/\""
 wp-env run cli "wp option update timezone_string \"Asia/Tokyo\""
 
 wp-env run cli "wp language core install ja"
-wp-env run cli "wp language core activate ja"
+wp-env run cli "wp site switch-language ja"
+
+wp-env run cli "wp theme activate my-theme"
 
 wp-env run cli "wp post create --post_type=news --post_status=publish --post_title=\"ニュース 1\""
 wp-env run cli "wp post create --post_type=news --post_status=publish --post_title=\"ニュース 2\""
