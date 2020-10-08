@@ -7,7 +7,7 @@ if (
     'type' => 'array',
   ])
 ) {
-  $pagination_links = array_map(function ($html) {
+  $pagination_links = array_map(function (string $html): array {
     $node = get_first_element_child($html);
     $label = $node->textContent;
     $href = strip_origin_from_url($node->getAttribute('href'));
@@ -23,14 +23,14 @@ if (
 echo esc_attr(
   json_encode(
     array_merge(default_app_props(), [
-      'posts' => array_map(function ($post) {
+      'posts' => array_map(function (WP_Post $post): WP_Post {
         set_post_link($post);
         set_post_acf($post);
         return $post;
       }, $wp_query->posts),
 
       'news_category_terms' => array_map(
-        function ($term) {
+        function (object $term): object {
           set_term_link($term);
           set_term_queried($term);
           return $term;
@@ -45,7 +45,7 @@ echo esc_attr(
   )
 );
 
-function get_first_element_child($html)
+function get_first_element_child(string $html): DOMNode
 {
   $dom = new DOMDocument();
   @$dom->loadHTML(
@@ -56,7 +56,7 @@ function get_first_element_child($html)
   return $node;
 }
 
-function set_term_queried($term)
+function set_term_queried(object $term): void
 {
   $term->queried = $term->slug === get_query_var($term->taxonomy);
 }

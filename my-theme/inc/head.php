@@ -1,7 +1,7 @@
 <?php
 
 // canonical
-add_action('wp_head', function () {
+add_action('wp_head', function (): void {
   if (is_singular()) {
     // デフォルトで出力される
     // https://github.com/WordPress/WordPress/blob/106a6ba9e1e7bfc15a177aeef3e140433d7e47df/wp-includes/link-template.php#L3830-L3852
@@ -18,7 +18,7 @@ add_action('wp_head', function () {
 });
 
 // ogp
-add_action('wp_head', function () {
+add_action('wp_head', function (): void {
   if (is_singular()) {
     $title = get_the_title();
   } elseif (
@@ -74,7 +74,7 @@ add_action('wp_head', function () {
 });
 
 // resources
-add_action('wp_head', function () {
+add_action('wp_head', function (): void {
   $manifest = webpack_manifest();
 
   echo sprintf(
@@ -100,18 +100,18 @@ add_action('wp_head', function () {
   ) . "\n";
 });
 
-add_filter('document_title_parts', function ($title) {
+add_filter('document_title_parts', function (array $title): array {
   if (isset($title['tagline'])) {
     unset($title['tagline']);
   }
   return $title;
 });
 
-add_filter('document_title_separator', function () {
+add_filter('document_title_separator', function (): string {
   return '|';
 });
 
-function webpack_manifest()
+function webpack_manifest(): array
 {
   return json_decode(
     file_get_contents(get_theme_file_path('/assets/webpack-manifest.json')),
@@ -119,7 +119,7 @@ function webpack_manifest()
   );
 }
 
-function requested_url()
+function requested_url(): string
 {
   $result = is_ssl() ? 'https://' : 'http://';
   $result .= $_SERVER['HTTP_HOST'];

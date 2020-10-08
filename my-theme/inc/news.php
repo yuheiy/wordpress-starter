@@ -1,6 +1,6 @@
 <?php
 
-add_action('init', function () {
+add_action('init', function (): void {
   register_post_type('news', [
     'label' => 'ニュース',
     'public' => true,
@@ -25,7 +25,7 @@ add_action('init', function () {
   );
 });
 
-add_action('pre_get_posts', function ($query) {
+add_action('pre_get_posts', function (WP_Query $query): void {
   if (is_admin() || !$query->is_main_query()) {
     return;
   }

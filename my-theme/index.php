@@ -4,7 +4,7 @@
   json_encode(
     array_merge(default_app_props(), [
       'news_posts' => array_map(
-        function ($post) {
+        function (WP_Post $post): WP_Post {
           set_post_link($post);
           set_post_acf($post);
           return $post;

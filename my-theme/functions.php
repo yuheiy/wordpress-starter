@@ -16,7 +16,7 @@ remove_action('wp_head', 'wp_shortlink_wp_head', 10, 0);
 remove_action('wp_head', 'wp_oembed_add_discovery_links');
 remove_action('wp_head', 'wp_oembed_add_host_js');
 
-add_action('after_setup_theme', function () {
+add_action('after_setup_theme', function (): void {
   add_theme_support('title-tag');
   add_theme_support('html5', [
     'search-form',
@@ -29,12 +29,10 @@ add_action('after_setup_theme', function () {
   ]);
 });
 
-function default_app_props()
+function default_app_props(): array
 {
-  $news_post_type = get_post_type_object('news');
-  set_post_type_link($news_post_type);
-  $sample_page = get_page_by_title('Sample Page');
-  set_post_link($sample_page);
+  set_post_type_link($news_post_type = get_post_type_object('news'));
+  set_post_link($sample_page = get_page_by_title('Sample Page'));
 
   return [
     'name' => get_bloginfo('name'),
@@ -78,7 +76,7 @@ function default_app_props()
   ];
 }
 
-function strip_origin_from_url($url)
+function strip_origin_from_url(string $url): string
 {
   $parsed = parse_url($url);
   $result = '';
@@ -94,19 +92,19 @@ function strip_origin_from_url($url)
   return $result;
 }
 
-function set_post_link($post)
+function set_post_link(WP_Post $post): void
 {
   $post->link = strip_origin_from_url(get_permalink($post));
 }
 
-function set_post_acf($post)
+function set_post_acf(WP_Post $post): void
 {
   if (function_exists('get_fields')) {
     $post->acf = get_fields($post->ID);
   }
 }
 
-function set_post_terms($post, $taxonomy)
+function set_post_terms(WP_Post $post, object $taxonomy): void
 {
   if ($terms = get_the_terms($post, $taxonomy)) {
     foreach ($terms as $term) {
@@ -117,12 +115,12 @@ function set_post_terms($post, $taxonomy)
   $post->$property = $terms;
 }
 
-function set_term_link($term)
+function set_term_link(object $term): void
 {
   $term->link = strip_origin_from_url(get_term_link($term));
 }
 
-function set_post_type_link($post_type_object)
+function set_post_type_link(object $post_type_object): void
 {
   $post_type_object->link = strip_origin_from_url(
     get_post_type_archive_link($post_type_object->name)
