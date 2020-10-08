@@ -7,13 +7,13 @@
   @use "../core" as *;
 
   h1 {
-    margin-bottom: 20px;
-    font-size: 32px;
+    margin-bottom: rem(20);
+    font-size: rem(32);
     font-weight: bold;
   }
 
   .body > :global(*) + :global(*) {
-    margin-top: 20px;
+    margin-top: rem(20);
   }
 </style>
 

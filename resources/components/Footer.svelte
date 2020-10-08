@@ -7,18 +7,18 @@
   @use "../core" as *;
 
   footer {
-    padding: 20px;
+    padding: rem(20);
     background-color: #eee;
   }
 
   ul {
     display: flex;
     flex-wrap: wrap;
-    margin-left: -20px;
+    margin-left: rem(-20);
   }
 
   li {
-    margin-left: 20px;
+    margin-left: rem(20);
   }
 
   a {

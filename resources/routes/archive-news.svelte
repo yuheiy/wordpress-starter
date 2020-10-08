@@ -11,7 +11,7 @@
   @use "../core" as *;
 
   h1 {
-    font-size: 32px;
+    font-size: rem(32);
     font-weight: bold;
   }
 
@@ -25,17 +25,17 @@
 
   .main-list,
   .sub-list {
-    margin-top: 20px;
+    margin-top: rem(20);
   }
 
   .sub-list {
     display: flex;
     flex-wrap: wrap;
-    margin-left: -20px;
+    margin-left: rem(-20);
   }
 
   .sub-list li {
-    margin-left: 20px;
+    margin-left: rem(20);
   }
 </style>
 

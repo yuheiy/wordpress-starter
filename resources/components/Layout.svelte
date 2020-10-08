@@ -18,7 +18,7 @@
   @use "../core" as *;
 
   main {
-    padding: 20px;
+    padding: rem(20);
   }
 </style>
 

@@ -9,23 +9,23 @@
   @use "../core" as *;
 
   header {
-    padding: 20px;
+    padding: rem(20);
     background-color: #eee;
   }
 
   p {
-    font-size: 20px;
+    font-size: rem(20);
   }
 
   ul {
     display: flex;
     flex-wrap: wrap;
-    margin-top: 15px;
-    margin-left: -20px;
+    margin-top: rem(15);
+    margin-left: rem(-20);
   }
 
   li {
-    margin-left: 20px;
+    margin-left: rem(20);
   }
 
   ul a {

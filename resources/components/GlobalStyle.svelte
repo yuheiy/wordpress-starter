@@ -11,7 +11,7 @@
   }
 
   :target {
-    scroll-margin-top: 15px;
+    scroll-margin-top: rem(15);
   }
 
   html {

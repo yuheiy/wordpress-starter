@@ -6,7 +6,7 @@
   @use "../core" as *;
 
   h1 {
-    font-size: 32px;
+    font-size: rem(32);
     font-weight: bold;
   }
 </style>

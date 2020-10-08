@@ -12,7 +12,7 @@
   @use "../core" as *;
 
   h1 {
-    font-size: 32px;
+    font-size: rem(32);
     font-weight: bold;
   }
 
@@ -20,16 +20,16 @@
   .meta ul {
     display: flex;
     flex-wrap: wrap;
-    margin-left: -20px;
+    margin-left: rem(-20);
   }
 
   .meta > *,
   .meta ul > * {
-    margin-left: 20px;
+    margin-left: rem(20);
   }
 
   .stack > * + * {
-    margin-top: 40px;
+    margin-top: rem(40);
   }
 
   a {

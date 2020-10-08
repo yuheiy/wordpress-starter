@@ -12,16 +12,16 @@
   @use "../core" as *;
 
   h2 {
-    font-size: 32px;
+    font-size: rem(32);
     font-weight: bold;
   }
 
   * + section {
-    margin-top: 40px;
+    margin-top: rem(40);
   }
 
   section > * + * {
-    margin-top: 20px;
+    margin-top: rem(20);
   }
 
   a {
