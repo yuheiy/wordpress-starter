@@ -1,5 +1,6 @@
 module.exports = (plop) => {
-  plop.setGenerator("route", {
+  plop.setGenerator("r", {
+    description: "route",
     prompts: [
       {
         type: "input",

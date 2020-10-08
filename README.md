@@ -260,7 +260,7 @@ function webpack_manifest()
 コードジェネレータを使ってソースファイルのテンプレートを生成できます。次のようなコマンドを実行すると、新しいルートに対応するファイルが出力されます。
 
 ```sh
-npx plop route archive-product
+npx plop r archive-product
 ```
 
 ## 本番用ビルド
