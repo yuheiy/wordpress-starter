@@ -184,13 +184,13 @@ webpackがビルドする対象にするソースファイルを配置します�
 
 複数のページで再利用されるコンポーネントを配置します。
 
-特定のコンポーネント固有のファイルは、当ディレクトリ内にコンポーネントファイルと同名のディレクトリを作成して格納することを推奨します（例：`resources/components/Header/logo.png`）。
+特定のコンポーネント固有のファイルは、当ディレクトリ内にコンポーネントファイルと同名のディレクトリを作成して格納することを推奨します（例: `resources/components/Header/logo.png`）。
 
 ### `resources/routes`ディレクトリ
 
 [WordPressのテンプレートファイル](https://wpdocs.osdn.jp/%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%E9%9A%8E%E5%B1%A4)に対応するSvelteのルートコンポーネントを配置します。
 
-特定のルート固有のファイルは、当ディレクトリ内にテンプレートファイルと同名のディレクトリを作成して格納することを推奨します（例：`resources/routes/index/Button.svelte`）。
+特定のルート固有のファイルは、当ディレクトリ内にテンプレートファイルと同名のディレクトリを作成して格納することを推奨します（例: `resources/routes/index/Button.svelte`）。
 
 ### `.wp-env.json`
 
@@ -200,11 +200,11 @@ wp-envの設定ファイルです。WordPressプラグインの情報などを�
 
 同じ名前のファイルの内容が変更された際に、ブラウザに保存された前回のキャッシュを無効化するため、`resources`ディレクトリに配置されたファイルは`main.bb785f51.js`のようにファイル名にフィンガープリントが付与された状態で出力されます。
 
-参考：[アセットパイプライン - Railsガイド § 1.2 フィンガープリントと注意点](https://railsguides.jp/asset_pipeline.html#%E3%83%95%E3%82%A3%E3%83%B3%E3%82%AC%E3%83%BC%E3%83%97%E3%83%AA%E3%83%B3%E3%83%88%E3%81%A8%E6%B3%A8%E6%84%8F%E7%82%B9)
+参考: [アセットパイプライン - Railsガイド § 1.2 フィンガープリントと注意点](https://railsguides.jp/asset_pipeline.html#%E3%83%95%E3%82%A3%E3%83%B3%E3%82%AC%E3%83%BC%E3%83%97%E3%83%AA%E3%83%B3%E3%83%88%E3%81%A8%E6%B3%A8%E6%84%8F%E7%82%B9)
 
 ソースファイル内では次のようにしてファイル名を参照します。また存在しないファイルを指定した場合はエラーが出力されます。
 
-TypeScript：
+TypeScript:
 
 ```typescript
 import cover from "../cover.jpg";
@@ -214,7 +214,7 @@ const img = document.createElement("img");
 img.src = cover;
 ```
 
-Svelteのテンプレート：
+Svelteのテンプレート:
 
 ```svelte
 <script>
@@ -225,7 +225,7 @@ Svelteのテンプレート：
 <img src={cover} alt="">
 ```
 
-Svelteの`style`要素：
+Svelteの`style`要素:
 
 ```svelte
 <style lang="scss">
@@ -240,7 +240,7 @@ Svelteの`style`要素：
 </section>
 ```
 
-WordPressテーマのPHPファイル：
+WordPressテーマのPHPファイル:
 
 ```php
 $manifest = webpack_manifest();
