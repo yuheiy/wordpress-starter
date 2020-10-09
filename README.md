@@ -117,6 +117,7 @@ bash scripts/wp-import.sh
 
 ```sh
 wp-env clean all
+wp-env start
 bash scripts/wp-setup.sh
 ```
 
