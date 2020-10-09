@@ -111,12 +111,12 @@ bash scripts/wp-export.sh
 bash scripts/wp-import.sh
 ```
 
-## データベースの初期化
+## Dockerの初期化
 
-データベースをリセットして再セットアップできます。
+Dockerを初期化した上でデータベースを再セットアップできます。
 
 ```sh
-wp-env clean all
+wp-env destroy
 wp-env start
 bash scripts/wp-setup.sh
 ```
