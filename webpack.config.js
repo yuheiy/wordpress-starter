@@ -8,7 +8,7 @@ const TerserJSPlugin = require("terser-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const ManifestPlugin = require("webpack-manifest-plugin");
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
-const getPort = require("get-port");
+const detectPort = require("detect-port");
 const address = require("address");
 
 const wordpressPort = 8888;
@@ -17,7 +17,7 @@ const wordpressLocalOrigin = `http://${wordpressLocalHost}`;
 
 module.exports = async (_env, { mode }) => {
   const isDev = mode !== "production";
-  const webpackPort = isDev && (await getPort({ port: 3000 }));
+  const webpackPort = isDev && (await detectPort(3000));
   const webpackNetworkHost = webpackPort && `${address.ip()}:${webpackPort}`;
   const webpackNetworkOrigin = webpackPort && `http://${webpackNetworkHost}`;
 
