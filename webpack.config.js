@@ -5,7 +5,7 @@ const Fiber = require("fibers");
 const autoprefixer = require("autoprefixer");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TerserJSPlugin = require("terser-webpack-plugin");
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const ManifestPlugin = require("webpack-manifest-plugin");
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 const detectPort = require("detect-port");
@@ -97,7 +97,7 @@ module.exports = async (_env, { mode }) => {
     },
     devtool: isDev && "cheap-module-eval-source-map",
     optimization: {
-      minimizer: [new TerserJSPlugin(), new OptimizeCSSAssetsPlugin()],
+      minimizer: [new TerserJSPlugin(), new CssMinimizerPlugin()],
     },
     plugins: [
       new ManifestPlugin({
