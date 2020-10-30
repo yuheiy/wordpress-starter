@@ -1,8 +1,8 @@
 <?php
 
-require __DIR__ . '/inc/news.php';
-require __DIR__ . '/inc/head.php';
-require __DIR__ . '/inc/admin.php';
+require get_theme_file_path('/inc/news.php');
+require get_theme_file_path('/inc/head.php');
+require get_theme_file_path('/inc/admin.php');
 
 remove_action('wp_head', 'rest_output_link_wp_head');
 remove_action('template_redirect', 'rest_output_link_header', 11);
