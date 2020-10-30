@@ -4,8 +4,6 @@ require get_theme_file_path('/inc/news.php');
 require get_theme_file_path('/inc/head.php');
 require get_theme_file_path('/inc/admin.php');
 
-remove_action('wp_head', 'rest_output_link_wp_head');
-remove_action('template_redirect', 'rest_output_link_header', 11);
 remove_action('wp_head', 'feed_links_extra', 3);
 remove_action('wp_head', 'rsd_link');
 remove_action('wp_head', 'wlwmanifest_link');
