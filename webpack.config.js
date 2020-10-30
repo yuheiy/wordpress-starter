@@ -56,7 +56,6 @@ module.exports = async (_env, { mode }) => {
                   plugins: [
                     autoprefixer({
                       cascade: false,
-                      grid: "autoplace",
                     }),
                   ],
                 },
