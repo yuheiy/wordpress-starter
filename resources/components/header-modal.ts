@@ -29,8 +29,8 @@ export default class extends Controller {
       return;
     }
 
-    lockBodyScroll();
     this.lastFocus = document.activeElement;
+    lockBodyScroll();
     this.outsideTarget.inert = true;
     this.rootTarget.inert = false;
     this.firstFocusTarget.focus();
