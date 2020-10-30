@@ -1,6 +1,6 @@
 # boilerplate-wordpress
 
-WordPressテーマ構築のための開発環境です。[wp-env](https://ja.wordpress.org/team/handbook/block-editor/packages/packages-env/)と[webpack-dev-server](https://webpack.js.org/configuration/dev-server/)によるローカル開発環境が組み込まれています。WordPressテーマ内での[Svelte](https://svelte.dev/)を利用した[クライアントサイドレンダリング](https://developers.google.com/web/updates/2019/02/rendering-on-the-web?hl=ja#csr)を前提にしています。
+WordPressテーマ構築のための開発環境です。[wp-env](https://ja.wordpress.org/team/handbook/block-editor/packages/packages-env/)と[webpack-dev-server](https://webpack.js.org/configuration/dev-server/)によるローカル開発環境が組み込まれています。[Timber](https://www.upstatement.com/timber/)の採用によって[Twig](https://twig.symfony.com/)でのテンプレートの記述ができるようになっています。
 
 ## 導入
 
@@ -16,7 +16,7 @@ WordPressテーマ構築のための開発環境です。[wp-env](https://ja.wor
 次の環境での開発を推奨します。
 
 - VS Code
-  - [Svelte for VS Code](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode)
+  - [Twig Language](https://marketplace.visualstudio.com/items?itemName=mblode.twig-language)
   - [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 
 ### [ACF PRO](https://www.advancedcustomfields.com/pro/)の設定
@@ -138,23 +138,23 @@ bash scripts/wp-setup.sh
 │   │   └── webpack-manifest.json
 │   ├── inc/
 │   │   └── news.php
-│   ├── archive-news.php
+│   ├── templates/
+│   │   ├── archive-news.twig
+│   │   ├── index.twig
+│   │   └── single-news.twig
+│   ├── archive.php
 │   ├── functions.php
 │   ├── index.php
-│   ├── single-news.php
+│   ├── single.php
 │   └── style.css
 ├── resources/
 │   ├── components/
-│   │   ├── GlobalStyle.svelte
-│   │   ├── Header.svelte
-│   │   └── Layout.svelte
-│   ├── routes/
-│   │   ├── index/
-│   │   │   └── Button.svelte
-│   │   ├── archive-news.svelte
-│   │   ├── index.svelte
-│   │   ├── index.ts
-│   │   └── single-news.svelte
+│   │   ├── footer.scss
+│   │   ├── header-modal.scss
+│   │   ├── header-modal.ts
+│   │   └── header.scss
+│   ├── styles/
+│   │   └── base.scss
 │   ├── favicon.svg
 │   └── main.ts
 ├── .wp-env.json
@@ -177,6 +177,10 @@ webpackでビルドされたファイルが出力されます。
 
 `functions.php`から読み込むファイルを配置します。
 
+### `my-theme/templates`ディレクトリ
+
+Twigテンプレートを配置します。
+
 ### `resources`ディレクトリ
 
 webpackがビルドする対象にするソースファイルを配置します。画像ファイルなどもこのディレクトリに含めることで、JavaScriptファイルやWordPressテーマファイルのPHPから読み込めるようになります。読み込み方法については[Cache Busting](#cache-busting)を参照してください。
@@ -187,15 +191,9 @@ webpackがビルドする対象にするソースファイルを配置します�
 
 特定のコンポーネント固有のファイルは、当ディレクトリ内にコンポーネントファイルと同名のディレクトリを作成して格納することを推奨します（例: `resources/components/Header/logo.png`）。
 
-### `resources/routes`ディレクトリ
-
-[WordPressのテンプレートファイル](https://wpdocs.osdn.jp/%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%E9%9A%8E%E5%B1%A4)に対応するSvelteのルートコンポーネントを配置します。
-
-特定のルート固有のファイルは、当ディレクトリ内にテンプレートファイルと同名のディレクトリを作成して格納することを推奨します（例: `resources/routes/index/Button.svelte`）。
-
 ### `.wp-env.json`
 
-wp-envの設定ファイルです。WordPressプラグインの情報などを記述します。
+wp-envの設定ファイルです。WordPressのバージョンやプラグインのリストなどを記述します。
 
 ## Cache busting
 
@@ -203,65 +201,51 @@ wp-envの設定ファイルです。WordPressプラグインの情報などを�
 
 参考: [アセットパイプライン - Railsガイド § 1.2 フィンガープリントと注意点](https://railsguides.jp/asset_pipeline.html#%E3%83%95%E3%82%A3%E3%83%B3%E3%82%AC%E3%83%BC%E3%83%97%E3%83%AA%E3%83%B3%E3%83%88%E3%81%A8%E6%B3%A8%E6%84%8F%E7%82%B9)
 
-ソースファイル内では次のようにしてファイル名を参照します。また存在しないファイルを指定した場合はエラーが出力されます。
+ソースファイル内では次のようにしてファイル名を参照します。いずれにおいても存在しないファイルを指定した場合はエラーが出力されます。
+
+Twig:
+
+```twig
+<img src="{{ asset_path('components/header/background.svg') }}" alt="">
+{# -> /wp-content/themes/my-theme/assets/components/header/background.[contenthash].svg #}
+```
+
+Sass:
+
+```scss
+// resources/components/header.scss
+
+.header {
+  background-image: url("./header/background.svg");
+  // -> /wp-content/themes/my-theme/assets/components/header/background.[contenthash].svg
+}
+```
 
 TypeScript:
 
 ```typescript
-import cover from "../cover.jpg";
-// -> /wp-content/themes/my-theme/assets/cover.[contenthash].jpg
+// resources/components/header.ts
+
+import background from "./header/background.svg";
 
 const img = document.createElement("img");
-img.src = cover;
+img.src = background;
+// -> /wp-content/themes/my-theme/assets/components/header/background.[contenthash].svg
 ```
 
-Svelteのテンプレート:
-
-```svelte
-<script>
-  import cover from "../cover.jpg";
-  // -> /wp-content/themes/my-theme/assets/cover.[contenthash].jpg
-</script>
-
-<img src={cover} alt="">
-```
-
-Svelteの`style`要素:
-
-```svelte
-<style lang="scss">
-  section {
-    background-image: url("../cover.jpg");
-    // -> /wp-content/themes/my-theme/assets/cover.[contenthash].jpg
-  }
-</style>
-
-<section>
-  ...
-</section>
-```
-
-WordPressテーマのPHPファイル:
+PHP:
 
 ```php
 $manifest = webpack_manifest();
-echo $manifest['cover.jpg'];
-
-function webpack_manifest()
-{
-  return json_decode(
-    file_get_contents(get_theme_file_path('/assets/webpack-manifest.json')),
-    true
-  );
-}
+echo $manifest['components/header/background.svg'];
 ```
 
 ## テンプレートファイルの作成
 
-コードジェネレータを使ってソースファイルのテンプレートを生成できます。次のようなコマンドを実行すると、新しいルートに対応するファイルが出力されます。
+コードジェネレータを使ってソースファイルのテンプレートを生成できます。次のようなコマンドを実行すると、新しいコンポーネントに対応するファイルが出力されます。
 
 ```sh
-npx plop r archive-product
+npx plop c my-component
 ```
 
 ## 本番用ビルド

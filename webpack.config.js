@@ -1,5 +1,4 @@
 const path = require("path");
-const sveltePreprocess = require("svelte-preprocess");
 const sass = require("sass");
 const Fiber = require("fibers");
 const autoprefixer = require("autoprefixer");
@@ -46,35 +45,36 @@ module.exports = async (_env, { mode }) => {
           ],
         },
         {
-          test: /\.svelte$/,
+          test: /\.(scss|css)$/,
           use: [
+            isDev ? "style-loader" : MiniCssExtractPlugin.loader,
+            "css-loader",
             {
-              loader: "svelte-loader",
+              loader: "postcss-loader",
               options: {
-                preprocess: sveltePreprocess({
-                  postcss: {
-                    plugins: [autoprefixer({ cascade: false })],
-                  },
-                  sass: {
-                    implementation: sass,
-                    fiber: Fiber,
-                  },
-                }),
-                emitCss: true,
-                hotReload: false, // pending https://github.com/sveltejs/svelte/issues/622
+                postcssOptions: {
+                  plugins: [
+                    autoprefixer({
+                      cascade: false,
+                      grid: "autoplace",
+                    }),
+                  ],
+                },
+              },
+            },
+            {
+              loader: "sass-loader",
+              options: {
+                implementation: sass,
+                sassOptions: {
+                  fiber: Fiber,
+                },
               },
             },
           ],
         },
         {
-          test: /\.css$/,
-          use: [
-            isDev ? "style-loader" : MiniCssExtractPlugin.loader,
-            "css-loader",
-          ],
-        },
-        {
-          exclude: [/\.(js|mjs|ts)$/, /\.json$/, /\.svelte$/, /\.css$/],
+          exclude: [/\.(js|mjs|jsx|ts|tsx)$/, /\.json$/, /\.(scss|css)$/],
           use: [
             {
               loader: "file-loader",
@@ -89,11 +89,7 @@ module.exports = async (_env, { mode }) => {
       ],
     },
     resolve: {
-      alias: {
-        svelte: path.join(__dirname, "node_modules", "svelte"),
-      },
       extensions: [".js", ".ts"],
-      mainFields: ["svelte", "browser", "module", "main"],
     },
     devtool: isDev && "cheap-module-eval-source-map",
     optimization: {

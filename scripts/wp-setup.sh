@@ -11,6 +11,9 @@ wp-env run cli "wp site switch-language ja"
 
 wp-env run cli "wp theme activate my-theme"
 
+wp-env run cli "wp post create --post_type=page --post_status=publish --post_title=\"私たちについて\" --post_name=\"about\""
+wp-env run cli "wp post update 3 --post_title=\"プライバシーポリシー\" --post_status=publish"
+
 wp-env run cli "wp post create --post_type=news --post_status=publish --post_title=\"ニュース 1\""
 wp-env run cli "wp post create --post_type=news --post_status=publish --post_title=\"ニュース 2\""
 wp-env run cli "wp post create --post_type=news --post_status=publish --post_title=\"ニュース 3\""

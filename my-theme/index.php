@@ -1,21 +1,14 @@
-<?php get_header(); ?>
+<?php
 
-<div id="app" data-route="index" data-props="<?php echo esc_attr(
-  json_encode(
-    array_merge(default_app_props(), [
-      'news_posts' => array_map(
-        function (WP_Post $post): WP_Post {
-          set_post_link($post);
-          set_post_acf($post);
-          return $post;
-        },
-        get_posts([
-          'post_type' => 'news',
-          'posts_per_page' => 4,
-        ])
-      ),
-    ])
-  )
-); ?>"></div>
+$context = default_timber_context();
 
-<?php get_footer();
+$news_posts = Timber::get_posts([
+  'post_type' => 'news',
+  'posts_per_page' => 3,
+]);
+foreach ($news_posts as $post) {
+  strip_origin_from_post_link($post);
+}
+$context['news_posts'] = $news_posts;
+
+Timber::render('index.twig', $context);

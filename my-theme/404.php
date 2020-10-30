@@ -1,7 +1,5 @@
-<?php get_header(); ?>
+<?php
 
-<div id="app" data-route="404" data-props="<?php echo esc_attr(
-  json_encode(array_merge(default_app_props(), []))
-); ?>"></div>
+$context = default_timber_context();
 
-<?php get_footer();
+Timber::render('404.twig', $context);

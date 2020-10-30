@@ -1,0 +1,16 @@
+// https://github.com/ampproject/amphtml/blob/438fd47f265f7aff4b116a9498d8b0d661a980bb/css/ampshared.css#L186-L216
+.visually-hidden {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 4px;
+  height: 4px;
+  opacity: 0;
+  overflow: hidden;
+  border: none;
+  margin: 0;
+  padding: 0;
+  display: block;
+  visibility: visible;
+  pointer-events: none;
+}

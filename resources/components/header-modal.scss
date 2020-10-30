@@ -1,0 +1,60 @@
+@use "../styles/core" as *;
+
+.header-modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding-top: rem(8);
+  padding-bottom: rem(8);
+  overflow: auto;
+  color: #fff;
+  background-color: rgba(#000, 0.8);
+}
+
+body:not([data-header-modal-rendered="true"]) .header-modal {
+  display: none;
+}
+
+body[data-header-modal-rendered="true"] .header-modal {
+  transition: opacity 0.2s ease-out;
+}
+
+.header-modal[inert] {
+  opacity: 0;
+}
+
+.header-modal__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-modal__title-link {
+  padding-top: rem(8);
+  padding-bottom: rem(8);
+  font-weight: bold;
+}
+
+.header-modal__close-button {
+  margin-left: rem(16);
+  padding: rem(4) rem(8);
+  border: 1px solid;
+  border-radius: rem(4);
+}
+
+.header-modal__nav-list {
+  margin-top: rem(32);
+}
+
+.header-modal__nav-item + .header-modal__nav-item {
+  margin-top: rem(8);
+}
+
+.header-modal__nav-link {
+  display: block;
+  width: fit-content;
+  padding-top: rem(8);
+  padding-bottom: rem(8);
+}

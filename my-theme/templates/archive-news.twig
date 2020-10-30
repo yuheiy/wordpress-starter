@@ -1,0 +1,19 @@
+{% extends "base.twig" %}
+
+{% block main %}
+  <div class="center">
+    <h1>{{ news_post_type.label }}</h1>
+
+    <ol>
+      {% for post in posts %}
+        <li><a href="{{ post.link }}">{{ post.title }}</a></li>
+      {% endfor %}
+    </ol>
+
+    <ol>
+      {% for page in posts.pagination.pages %}
+        <li><a class="{{ page.class }}" {% if page.link %}href="{{ page.link }}"{% endif %}>{{ page.title }}</a></li>
+      {% endfor %}
+    </ol>
+  </div>
+{% endblock %}

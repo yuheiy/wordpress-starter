@@ -1,6 +1,22 @@
 import "focus-visible";
-import invariant from "tiny-invariant";
-import routes from "./routes";
+import "wicg-inert";
+import { Application } from "stimulus";
+import { definitionsFromContext } from "./lib/stimulus-webpack-helpers";
+
+declare global {
+  interface HTMLElement {
+    inert: boolean;
+  }
+}
+
+require("../node_modules/normalize.css/normalize.css");
+require("./styles/base.scss");
+importAll(require.context("./styles/utilities", false, /\.scss$/));
+importAll(require.context("./components", false, /\.scss$/));
+
+function importAll(r: __WebpackModuleApi.RequireContext) {
+  r.keys().forEach(r);
+}
 
 // load all asset files to be passed to file-loader
 require.context(
@@ -15,27 +31,11 @@ if (process.env.NODE_ENV !== "production") {
   });
 }
 
-const appElement = document.querySelector<HTMLElement>("#app");
-invariant(appElement, "`#app` element must exist");
-
-invariant(
-  appElement.dataset.route,
-  "`#app` element must have `data-route` attribute"
+const application = Application.start();
+application.load(
+  definitionsFromContext(require.context("./components", false, /\.ts$/))
 );
-const App = routes.get(appElement.dataset.route);
-invariant(App, `\`${appElement.dataset.route}\` does not exist in the routes`);
-
-invariant(
-  appElement.dataset.props,
-  "`#app` element must have `data-props` attribute"
-);
-const props = JSON.parse(appElement.dataset.props);
-
-const app = new App({
-  target: appElement,
-  props,
-});
 
 if (process.env.NODE_ENV !== "production") {
-  (window as any).app = app;
+  (window as any).application = application;
 }

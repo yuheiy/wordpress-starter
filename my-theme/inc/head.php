@@ -110,19 +110,3 @@ add_filter('document_title_parts', function (array $title): array {
 add_filter('document_title_separator', function (): string {
   return '|';
 });
-
-function webpack_manifest(): array
-{
-  return json_decode(
-    file_get_contents(get_theme_file_path('/assets/webpack-manifest.json')),
-    true
-  );
-}
-
-function requested_url(): string
-{
-  $result = is_ssl() ? 'https://' : 'http://';
-  $result .= $_SERVER['HTTP_HOST'];
-  $result .= $_SERVER['REQUEST_URI'];
-  return $result;
-}

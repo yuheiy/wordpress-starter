@@ -4,8 +4,6 @@ declare namespace NodeJS {
   }
 }
 
-declare module "*.svelte";
-
 declare module "*.jpg" {
   const src: string;
   export default src;

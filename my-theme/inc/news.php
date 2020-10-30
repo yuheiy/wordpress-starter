@@ -4,8 +4,9 @@ add_action('init', function (): void {
   register_post_type('news', [
     'label' => 'ニュース',
     'public' => true,
-    'supports' => ['title'],
+    'supports' => ['title', 'editor'],
     'has_archive' => true,
+    'show_in_rest' => true,
   ]);
 
   register_taxonomy(

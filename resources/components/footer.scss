@@ -1,0 +1,33 @@
+@use "../styles/core" as *;
+
+.footer {
+  padding-top: rem(8);
+  padding-bottom: rem(8);
+  background-color: #eee;
+}
+
+.footer__title {
+  font-weight: bold;
+}
+
+.footer__title-link {
+  display: block;
+  width: fit-content;
+  padding-top: rem(8);
+  padding-bottom: rem(8);
+}
+
+.footer__nav-list {
+  margin-top: rem(32);
+}
+
+.footer__nav-item + .footer__nav-item {
+  margin-top: rem(8);
+}
+
+.footer__nav-link {
+  display: block;
+  width: fit-content;
+  padding-top: rem(8);
+  padding-bottom: rem(8);
+}

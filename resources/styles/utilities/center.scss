@@ -1,0 +1,25 @@
+/**
+ * Usage:
+ *
+ * <div class="center">
+ *   <div class="my-component">foo</div>
+ *   <div class="my-component">bar</div>
+ *   <div class="my-component">baz</div>
+ * </div>
+ */
+
+@use "../core" as *;
+
+.center {
+  box-sizing: content-box;
+  display: block;
+  max-width: rem(1120);
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: rem(16);
+  padding-left: rem(16);
+}
+
+.center--wide {
+  max-width: rem(1280);
+}

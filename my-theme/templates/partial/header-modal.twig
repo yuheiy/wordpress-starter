@@ -1,0 +1,15 @@
+<div class="header-modal" inert role="dialog" aria-label="メニュー" aria-modal="true" data-target="header-modal.root">
+  <div class="center center--wide">
+    <div class="header-modal__header">
+      <a class="header-modal__title-link" href="{{ site.home_url }}" data-target="header-modal.firstFocus">{{ site.title }}</a>
+      <button class="header-modal__close-button" type="button" data-action="header-modal#close">閉じる</button>
+    </div>
+  </div>
+  <div class="center">
+    <ul class="header-modal__nav-list">
+      <li class="header-modal__nav-item"><a class="header-modal__nav-link" href="{{ about_post.link }}">{{ about_post.title }}</a></li>
+      <li class="header-modal__nav-item"><a class="header-modal__nav-link" href="{{ news_post_type.link }}">{{ news_post_type.label }}</a></li>
+      <li class="header-modal__nav-item"><a class="header-modal__nav-link" href="{{ privacy_policy_post.link }}">{{ privacy_policy_post.title }}</a></li>
+    </ul>
+  </div>
+</div>
