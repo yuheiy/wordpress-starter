@@ -10,10 +10,6 @@ export default class extends Controller {
   readonly firstFocusTarget!: HTMLElement;
   lastFocus: Element | null = null;
 
-  get isOpen() {
-    return !this.rootTarget.inert;
-  }
-
   connect() {
     this.setRendered();
   }
@@ -44,13 +40,11 @@ export default class extends Controller {
     unlockBodyScroll();
     this.outsideTarget.inert = false;
     this.rootTarget.inert = true;
-    if (this.lastFocus instanceof HTMLElement) {
-      this.lastFocus.focus();
-      this.lastFocus = null;
-    }
+    (this.lastFocus as HTMLElement).focus();
+    this.lastFocus = null;
   }
 
-  onKeyDown(event: KeyboardEvent) {
+  closeIfEscapeKeyIsPressed(event: KeyboardEvent) {
     if (!this.isOpen) {
       return;
     }
@@ -58,6 +52,10 @@ export default class extends Controller {
     if (event.key === "Escape") {
       this.close();
     }
+  }
+
+  get isOpen() {
+    return !this.rootTarget.inert;
   }
 }
 
