@@ -35,6 +35,10 @@ add_filter('timber/twig', function (object $twig): object {
     })
   );
 
+  $twig->addFilter(
+    new Timber\Twig_Filter('strip_origin_from_url', 'strip_origin_from_url')
+  );
+
   return $twig;
 });
 
@@ -76,6 +80,16 @@ function set_post_type_link(Timber\PostType $post_type): void
   $post_type->link = strip_origin_from_url(
     get_post_type_archive_link($post_type->slug)
   );
+}
+
+function strip_origin_from_term_link(Timber\Term $term): void
+{
+  $term->link = strip_origin_from_url($term->link);
+}
+
+function set_term_queried(Timber\Term $term): void
+{
+  $term->queried = $term->slug === get_query_var($term->taxonomy);
 }
 
 function strip_origin_from_url(string $url): string
