@@ -39,7 +39,7 @@ add_action('wp_head', function (): void {
   }
 
   $manifest = webpack_manifest();
-  $image = site_url($manifest['ogp.png']);
+  $image = home_url($manifest['ogp.png']);
 
   $site_name = get_bloginfo('name');
 
@@ -50,7 +50,7 @@ add_action('wp_head', function (): void {
   } elseif (is_singular()) {
     $url = get_permalink();
   } else {
-    $url = requested_url();
+    $url = Timber\URLHelper::get_current_url();
   }
 
   $twitter_card = 'summary_large_image';

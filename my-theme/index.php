@@ -7,7 +7,7 @@ $news_posts = Timber::get_posts([
   'posts_per_page' => 3,
 ]);
 foreach ($news_posts as $post) {
-  strip_origin_from_post_link($post);
+  force_rel_path($post);
 }
 $context['news_posts'] = $news_posts;
 

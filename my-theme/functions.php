@@ -25,7 +25,7 @@ add_action('after_setup_theme', function (): void {
 
 add_filter('timber/twig', function (object $twig): object {
   $twig->addFunction(
-    new Timber\Twig_Function('asset_path', function ($key) {
+    new Timber\Twig_Function('asset_path', function (string $key): string {
       $manifest = webpack_manifest();
       assert(
         isset($manifest[$key]),
@@ -36,77 +36,13 @@ add_filter('timber/twig', function (object $twig): object {
   );
 
   $twig->addFilter(
-    new Timber\Twig_Filter('strip_origin_from_url', 'strip_origin_from_url')
+    new Timber\Twig_Filter('rel_url', function (string $url): string {
+      return Timber\URLHelper::get_rel_url($url, true);
+    })
   );
 
   return $twig;
 });
-
-function default_timber_context(): array
-{
-  $context = Timber::context();
-
-  $home_url = strip_origin_from_url(home_url('/'));
-  $context['site']->home_url = $home_url;
-
-  $about_post = Timber::get_post([
-    'post_type' => 'page',
-    'title' => '私たちについて',
-  ]);
-  strip_origin_from_post_link($about_post);
-  $context['about_post'] = $about_post;
-
-  $privacy_policy_post = Timber::get_post([
-    'post_type' => 'page',
-    'title' => 'プライバシーポリシー',
-  ]);
-  strip_origin_from_post_link($privacy_policy_post);
-  $context['privacy_policy_post'] = $privacy_policy_post;
-
-  $news_post_type = new Timber\PostType('news');
-  set_post_type_link($news_post_type);
-  $context['news_post_type'] = $news_post_type;
-
-  return $context;
-}
-
-function strip_origin_from_post_link(Timber\Post $post): void
-{
-  $post->link = strip_origin_from_url($post->link);
-}
-
-function set_post_type_link(Timber\PostType $post_type): void
-{
-  $post_type->link = strip_origin_from_url(
-    get_post_type_archive_link($post_type->slug)
-  );
-}
-
-function strip_origin_from_term_link(Timber\Term $term): void
-{
-  $term->link = strip_origin_from_url($term->link);
-}
-
-function set_term_queried(Timber\Term $term): void
-{
-  $term->queried = $term->slug === get_query_var($term->taxonomy);
-}
-
-function strip_origin_from_url(string $url): string
-{
-  $parsed = parse_url($url);
-  $result = '';
-  if (isset($parsed['path'])) {
-    $result .= $parsed['path'];
-  }
-  if (isset($parsed['query'])) {
-    $result .= '?' . $parsed['query'];
-  }
-  if (isset($parsed['fragment'])) {
-    $result .= '#' . $parsed['fragment'];
-  }
-  return $result;
-}
 
 function webpack_manifest(): array
 {
@@ -116,12 +52,48 @@ function webpack_manifest(): array
   );
 }
 
-function requested_url(): string
+function default_timber_context(): array
 {
-  $result = is_ssl() ? 'https://' : 'http://';
-  $result .= $_SERVER['HTTP_HOST'];
-  $result .= $_SERVER['REQUEST_URI'];
-  return $result;
+  $context = Timber::context();
+
+  $home_url = home_url('/');
+  $context['home_path'] = Timber\URLHelper::get_rel_url($home_url, true);
+
+  $about_post = Timber::get_post([
+    'post_type' => 'page',
+    'title' => '私たちについて',
+  ]);
+  force_rel_path($about_post);
+  $context['about_post'] = $about_post;
+
+  $privacy_policy_post = Timber::get_post([
+    'post_type' => 'page',
+    'title' => 'プライバシーポリシー',
+  ]);
+  force_rel_path($privacy_policy_post);
+  $context['privacy_policy_post'] = $privacy_policy_post;
+
+  $news_post_type = new Timber\PostType('news');
+  set_post_type_path($news_post_type);
+  $context['news_post_type'] = $news_post_type;
+
+  return $context;
+}
+
+function set_post_type_path(Timber\PostType $post_type): void
+{
+  $url = get_post_type_archive_link($post_type->slug);
+  $post_type->path = Timber\URLHelper::get_rel_url($url, true);
+}
+
+function set_term_queried(Timber\Term $term): void
+{
+  $term->queried = $term->slug === get_query_var($term->taxonomy);
+}
+
+function force_rel_path(object $with_path): void
+{
+  $with_path->path = Timber\URLHelper::get_rel_url($with_path->path, true);
 }
 
 require get_theme_file_path('/inc/news.php');

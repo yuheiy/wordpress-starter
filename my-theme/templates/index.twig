@@ -8,17 +8,17 @@
 
     <section>
       <h2>{{ about_post.title }}</h2>
-      <p><a href="{{ about_post.link }}">さらに詳しく</a></p>
+      <p><a href="{{ about_post.path }}">さらに詳しく</a></p>
     </section>
 
     <section>
       <h2>{{ news_post_type.label }}</h2>
       <ol>
         {% for post in news_posts %}
-          <li><a href="{{ post.link }}">{{ post.title }}</a></li>
+          <li><a href="{{ post.path }}">{{ post.title }}</a></li>
         {% endfor %}
       </ol>
-      <p><a href="{{ news_post_type.link }}">さらに表示</a></p>
+      <p><a href="{{ news_post_type.path }}">さらに表示</a></p>
     </section>
   </div>
 {% endblock %}

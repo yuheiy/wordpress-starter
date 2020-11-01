@@ -5,22 +5,22 @@
     <h1>{{ news_post_type.label }}</h1>
 
     <ul>
-      <li><a {% if not is_news_archive %}href="{{ news_post_type.link }}"{% endif %}>すべて</a></li>
+      <li><a {% if not is_news_archive %}href="{{ news_post_type.path }}"{% endif %}>すべて</a></li>
       {% for term in news_category_terms %}
-        <li><a {% if not term.queried %}href="{{ term.link }}"{% endif %}>{{ term.name }}</a></li>
+        <li><a {% if not term.queried %}href="{{ term.path }}"{% endif %}>{{ term.name }}</a></li>
       {% endfor %}
     </ul>
 
     <ol>
       {% for post in posts %}
-        <li><a href="{{ post.link }}">{{ post.title }}</a></li>
+        <li><a href="{{ post.path }}">{{ post.title }}</a></li>
       {% endfor %}
     </ol>
 
     {% if posts.pagination.pages %}
       <ol>
         {% for page in posts.pagination.pages %}
-          <li><a class="{{ page.class }}" {% if page.link %}href="{{ page.link|strip_origin_from_url }}"{% endif %}>{{ page.title }}</a></li>
+          <li><a class="{{ page.class }}" {% if page.link %}href="{{ page.link|rel_url }}"{% endif %}>{{ page.title }}</a></li>
         {% endfor %}
       </ol>
     {% endif %}

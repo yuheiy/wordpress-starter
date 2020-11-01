@@ -3,7 +3,7 @@
 $context = default_timber_context();
 
 foreach ($context['posts'] as $post) {
-  strip_origin_from_post_link($post);
+  force_rel_path($post);
 }
 
 if (is_post_type_archive('news') || is_tax('news_category')) {
@@ -12,7 +12,7 @@ if (is_post_type_archive('news') || is_tax('news_category')) {
   $context['news_category_terms'] = array_map(
     function (object $term): Timber\Term {
       $timber_term = new Timber\Term($term->term_id);
-      strip_origin_from_term_link($timber_term);
+      force_rel_path($timber_term);
       set_term_queried($timber_term);
       return $timber_term;
     },
