@@ -183,13 +183,19 @@ Twigテンプレートを配置します。
 
 ### `resources`ディレクトリ
 
-webpackがビルドする対象にするソースファイルを配置します。画像ファイルなどもこのディレクトリに含めることで、JavaScriptファイルやWordPressテーマファイルのPHPから読み込めるようになります。読み込み方法については[Cache Busting](#cache-busting)を参照してください。
+webpackのビルド対象にするソースファイルを配置します。画像ファイルなどもこのディレクトリに含めることで、PHPファイルやTypeScriptファイルからフィンガープリント付きのパスを読み込めるようになります。読み込み方法については[Cache Busting](#cache-busting)を参照してください。
 
 ### `resources/components`ディレクトリ
 
-複数のページで再利用されるコンポーネントを配置します。
+コンポーネントのCSSファイルおよびStimulusコントローラーのTypeScriptファイルを配置します。
 
-特定のコンポーネント固有のファイルは、当ディレクトリ内にコンポーネントファイルと同名のディレクトリを作成して格納することを推奨します（例: `resources/components/Header/logo.png`）。
+- `resources/components/header-modal.scss`
+- `resources/components/header-modal.ts`
+
+特定のコンポーネントに関係するそれ以外のファイルは、コンポーネントと同名のディレクトリを作成の上でその中に配置します。
+
+- `resources/components/header-modal/background.svg`
+- `resources/components/header-modal/sub-module.ts`
 
 ### `.wp-env.json`
 
@@ -197,11 +203,11 @@ wp-envの設定ファイルです。WordPressのバージョンやプラグイ�
 
 ## Cache busting
 
-同じ名前のファイルの内容が変更された際に、ブラウザに保存された前回のキャッシュを無効化するため、`resources`ディレクトリに配置されたファイルは`main.bb785f51.js`のようにファイル名にフィンガープリントが付与された状態で出力されます。
+`resources`ディレクトリに配置されたファイルは、`main.bb785f51.js`のようにファイル名にフィンガープリントが付与された状態で出力されます。これはソースファイルの内容が変更された際に、出力するファイル名を変更することでブラウザに保存された前回のキャッシュを無効化するためです。
 
 参考: [アセットパイプライン - Railsガイド § 1.2 フィンガープリントと注意点](https://railsguides.jp/asset_pipeline.html#%E3%83%95%E3%82%A3%E3%83%B3%E3%82%AC%E3%83%BC%E3%83%97%E3%83%AA%E3%83%B3%E3%83%88%E3%81%A8%E6%B3%A8%E6%84%8F%E7%82%B9)
 
-ソースファイル内では次のようにしてファイル名を参照します。いずれにおいても存在しないファイルを指定した場合はエラーが出力されます。
+ソースファイル内では次のようにしてファイル名を参照します。存在しないファイルを指定した場合はエラーが出力されます。
 
 Twig:
 
