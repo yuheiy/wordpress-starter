@@ -195,11 +195,10 @@ webpackのビルド対象にするソースファイルを配置します。画�
 
 ### `resources/controllers`ディレクトリ
 
-Stimulusコントローラーおよびそれにまつわるファイルを配置します。
+Stimulusコントローラーおよびそれに関連するファイルを配置します。Stimulusコントローラー以外のファイルは、コントローラーと同名のディレクトリを作成の上でその中に配置します。
 
 - `resources/controllers/header-modal.ts`
 - `resources/controllers/header-modal/sub-module.ts`
-- `resources/controllers/mixins/intersection.ts`
 
 ### `.wp-env.json`
 
