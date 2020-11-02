@@ -151,8 +151,9 @@ bash scripts/wp-setup.sh
 │   ├── components/
 │   │   ├── footer.scss
 │   │   ├── header-modal.scss
-│   │   ├── header-modal.ts
 │   │   └── header.scss
+│   ├── controllers/
+│   │   └── header-modal.ts
 │   ├── styles/
 │   │   └── base.scss
 │   ├── favicon.svg
@@ -187,15 +188,18 @@ webpackのビルド対象にするソースファイルを配置します。画�
 
 ### `resources/components`ディレクトリ
 
-コンポーネントのCSSファイルおよびStimulusコントローラーのTypeScriptファイルを配置します。
+コンポーネントのCSSファイルおよび関連する画像ファイル等を配置します。コンポーネントのCSSファイル以外は、コンポーネントと同名のディレクトリを作成の上でその中に配置します。
 
 - `resources/components/header-modal.scss`
-- `resources/components/header-modal.ts`
-
-特定のコンポーネントに関係するそれ以外のファイルは、コンポーネントと同名のディレクトリを作成の上でその中に配置します。
-
 - `resources/components/header-modal/background.svg`
-- `resources/components/header-modal/sub-module.ts`
+
+### `resources/controllers`ディレクトリ
+
+Stimulusコントローラーおよびそれにまつわるファイルを配置します。
+
+- `resources/controllers/header-modal.ts`
+- `resources/controllers/header-modal/sub-module.ts`
+- `resources/controllers/mixins/intersection.ts`
 
 ### `.wp-env.json`
 
@@ -230,9 +234,9 @@ Sass:
 TypeScript:
 
 ```typescript
-// resources/components/header.ts
+// resources/controllers/header.ts
 
-import background from "./header/background.svg";
+import background from "../components/header/background.svg";
 
 const img = document.createElement("img");
 img.src = background;

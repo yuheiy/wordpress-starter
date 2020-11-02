@@ -53,7 +53,7 @@ module.exports = (plop) => {
       if (types.includes("controller")) {
         result.push({
           type: "add",
-          path: "resources/components/{{kebabCase name}}.ts",
+          path: "resources/controllers/{{kebabCase name}}.ts",
           templateFile: "plop-templates/component/controller.ts.hbs",
           skipIfExists: true,
         });

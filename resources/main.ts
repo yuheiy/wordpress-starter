@@ -33,7 +33,7 @@ if (process.env.NODE_ENV !== "production") {
 
 const application = Application.start();
 application.load(
-  definitionsFromContext(require.context("./components", false, /\.ts$/))
+  definitionsFromContext(require.context("./controllers", false, /\.ts$/))
 );
 
 if (process.env.NODE_ENV !== "production") {
