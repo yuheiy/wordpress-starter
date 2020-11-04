@@ -16,7 +16,7 @@ export default class extends Controller {
   }
 
   private async setRendered() {
-    // ページ読み込み時のフラッシュを防止
+    // ページ読み込み時のチラつきを防止
     await firstFrame;
     const readyClass = this.data.get("ready-class");
     invariant(readyClass);

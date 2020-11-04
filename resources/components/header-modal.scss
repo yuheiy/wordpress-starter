@@ -14,7 +14,7 @@
   transition: opacity 0.2s ease-out;
 }
 
-// ページ読み込み時のフラッシュを防止
+// ページ読み込み時のチラつきを防止
 body:not(.header-modal-ready) .header-modal {
   display: none;
 }
