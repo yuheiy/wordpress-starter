@@ -15,6 +15,7 @@
     "focus-visible": "^5.2.0",
     "normalize.css": "^8.0.1",
     "stimulus": "^1.1.1",
+    "tiny-invariant": "^1.1.0",
     "wicg-inert": "^3.0.3"
   },
   "devDependencies": {
