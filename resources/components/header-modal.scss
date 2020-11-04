@@ -11,14 +11,12 @@
   overflow: auto;
   color: #fff;
   background-color: rgba(#000, 0.8);
+  transition: opacity 0.2s ease-out;
 }
 
+// ページ読み込み時のフラッシュを防止
 body:not(.header-modal-ready) .header-modal {
   display: none;
-}
-
-body.header-modal-ready .header-modal {
-  transition: opacity 0.2s ease-out;
 }
 
 .header-modal[inert] {
