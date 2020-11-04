@@ -13,11 +13,11 @@
   background-color: rgba(#000, 0.8);
 }
 
-body:not([data-header-modal-rendered="true"]) .header-modal {
+body:not(.header-modal-ready) .header-modal {
   display: none;
 }
 
-body[data-header-modal-rendered="true"] .header-modal {
+body.header-modal-ready .header-modal {
   transition: opacity 0.2s ease-out;
 }
 

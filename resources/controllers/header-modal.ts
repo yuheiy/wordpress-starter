@@ -18,7 +18,9 @@ export default class extends Controller {
   private async setRendered() {
     // ページ読み込み時のフラッシュを防止
     await firstFrame;
-    this.data.set("rendered", "true");
+    const readyClass = this.data.get("ready-class");
+    invariant(readyClass);
+    this.element.classList.add(readyClass);
   }
 
   open() {

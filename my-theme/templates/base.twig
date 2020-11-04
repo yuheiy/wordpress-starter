@@ -10,6 +10,7 @@
     class="{{ body_class }}"
     data-controller="header-modal"
     data-action="keydown@window->header-modal#closeIfEscapeKeyIsPressed"
+    data-header-modal-ready-class="header-modal-ready"
   >
     <div data-target="header-modal.outside">
       {% include 'partial/header.twig' %}
