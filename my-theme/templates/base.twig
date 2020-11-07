@@ -12,6 +12,8 @@
     data-action="keydown@window->header-modal#closeIfEscapeKeyIsPressed"
     data-header-modal-ready-class="header-modal-ready"
   >
+    {{ function('wp_body_open') }}
+
     <div data-target="header-modal.outside">
       {% include 'partial/header.twig' %}
 
