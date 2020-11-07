@@ -46,6 +46,10 @@ add_filter('timber/twig', function (object $twig): object {
   return $twig;
 });
 
+require get_theme_file_path('/inc/news.php');
+require get_theme_file_path('/inc/head.php');
+require get_theme_file_path('/inc/admin.php');
+
 function webpackManifest(): array
 {
   return json_decode(
@@ -97,7 +101,3 @@ function forceRelPath(object $withPath): void
 {
   $withPath->path = Timber\URLHelper::get_rel_url($withPath->path, true);
 }
-
-require get_theme_file_path('/inc/news.php');
-require get_theme_file_path('/inc/head.php');
-require get_theme_file_path('/inc/admin.php');
