@@ -80,8 +80,8 @@ add_action('wp_head', function (): void {
   $manifest = webpackManifest();
 
   echo sprintf(
-    '<link rel="icon" href="%s" type="image/svg+xml">',
-    esc_url($manifest['favicon.svg'])
+    '<link rel="icon" href="%s">',
+    esc_url($manifest['favicon.ico'])
   ) . "\n";
 
   echo sprintf(
