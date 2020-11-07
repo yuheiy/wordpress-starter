@@ -44,7 +44,7 @@ module.exports = (plop) => {
       if (types.includes("style")) {
         result.push({
           type: "add",
-          path: "resources/components/{{kebabCase name}}.scss",
+          path: "resources/assets/components/{{kebabCase name}}.scss",
           templateFile: "plop-templates/component/style.scss.hbs",
           skipIfExists: true,
         });
@@ -53,7 +53,7 @@ module.exports = (plop) => {
       if (types.includes("controller")) {
         result.push({
           type: "add",
-          path: "resources/controllers/{{kebabCase name}}.ts",
+          path: "resources/assets/controllers/{{kebabCase name}}.ts",
           templateFile: "plop-templates/component/controller.ts.hbs",
           skipIfExists: true,
         });

@@ -9,7 +9,7 @@ declare global {
   }
 }
 
-require("../node_modules/normalize.css/normalize.css");
+require("../../node_modules/normalize.css/normalize.css");
 require("./styles/base.scss");
 importAll(require.context("./styles/utilities", false, /\.scss$/));
 importAll(require.context("./components", false, /\.scss$/));

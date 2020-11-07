@@ -21,7 +21,7 @@ module.exports = async (_env, { mode }) => {
   const webpackNetworkOrigin = webpackPort && `http://${webpackNetworkHost}`;
 
   return {
-    context: path.join(__dirname, "resources"),
+    context: path.join(__dirname, "resources", "assets"),
     entry: "./main.ts",
     output: {
       path: path.join(__dirname, "my-theme", "assets"),
@@ -107,7 +107,12 @@ module.exports = async (_env, { mode }) => {
         !isDev &&
         new BundleAnalyzerPlugin({
           analyzerMode: "static",
-          reportFilename: path.join(__dirname, "resources", "analyze.html"),
+          reportFilename: path.join(
+            __dirname,
+            "resources",
+            "assets",
+            "analyze.html"
+          ),
         }),
     ].filter(Boolean),
     devServer: {

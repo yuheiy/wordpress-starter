@@ -148,16 +148,17 @@ bash scripts/wp-setup.sh
 │   ├── single.php
 │   └── style.css
 ├── resources/
-│   ├── components/
-│   │   ├── footer.scss
-│   │   ├── header-modal.scss
-│   │   └── header.scss
-│   ├── controllers/
-│   │   └── header-modal.ts
-│   ├── styles/
-│   │   └── base.scss
-│   ├── favicon.svg
-│   └── main.ts
+│   └── assets/
+│       ├── components/
+│       │   ├── footer.scss
+│       │   ├── header-modal.scss
+│       │   └── header.scss
+│       ├── controllers/
+│       │   └── header-modal.ts
+│       ├── styles/
+│       │   └── base.scss
+│       ├── favicon.svg
+│       └── main.ts
 ├── .wp-env.json
 └── package.json
 ```
@@ -182,23 +183,23 @@ webpackでビルドされたファイルが出力されます。
 
 Twigテンプレートを配置します。
 
-### `resources`ディレクトリ
+### `resources/assets`ディレクトリ
 
 webpackのビルド対象にするソースファイルを配置します。画像ファイルなどもこのディレクトリに含めることで、PHPファイルやTypeScriptファイルからフィンガープリント付きのパスを読み込めるようになります。読み込み方法については[Cache Busting](#cache-busting)を参照してください。
 
-### `resources/components`ディレクトリ
+### `resources/assets/components`ディレクトリ
 
 コンポーネントのCSSファイルおよび関連する画像ファイル等を配置します。コンポーネントのCSSファイル以外は、コンポーネントと同名のディレクトリを作成の上でその中に配置します。
 
-- `resources/components/header-modal.scss`
-- `resources/components/header-modal/background.svg`
+- `resources/assets/components/header-modal.scss`
+- `resources/assets/components/header-modal/background.svg`
 
-### `resources/controllers`ディレクトリ
+### `resources/assets/controllers`ディレクトリ
 
 Stimulusコントローラーおよびそれに関連するファイルを配置します。Stimulusコントローラー以外のファイルは、コントローラーと同名のディレクトリを作成の上でその中に配置します。
 
-- `resources/controllers/header-modal.ts`
-- `resources/controllers/header-modal/sub-module.ts`
+- `resources/assets/controllers/header-modal.ts`
+- `resources/assets/controllers/header-modal/sub-module.ts`
 
 ### `.wp-env.json`
 
@@ -206,7 +207,7 @@ wp-envの設定ファイルです。WordPressのバージョンやプラグイ�
 
 ## Cache busting
 
-`resources`ディレクトリに配置されたファイルは、`main.bb785f51.js`のようにファイル名にフィンガープリントが付与された状態で出力されます。これはソースファイルの内容が変更された際に出力するファイル名を変更することで、ブラウザに保存された前回のキャッシュを無効化するためです。
+`resources/assets`ディレクトリに配置されたファイルは、`main.bb785f51.js`のようにファイル名にフィンガープリントが付与された状態で出力されます。これはソースファイルの内容が変更された際に出力するファイル名を変更することで、ブラウザに保存された前回のキャッシュを無効化するためです。
 
 参考: [アセットパイプライン - Railsガイド § 1.2 フィンガープリントと注意点](https://railsguides.jp/asset_pipeline.html#%E3%83%95%E3%82%A3%E3%83%B3%E3%82%AC%E3%83%BC%E3%83%97%E3%83%AA%E3%83%B3%E3%83%88%E3%81%A8%E6%B3%A8%E6%84%8F%E7%82%B9)
 
@@ -222,7 +223,7 @@ Twig:
 Sass:
 
 ```scss
-// resources/components/header.scss
+// resources/assets/components/header.scss
 
 .header {
   background-image: url("./header/background.svg");
@@ -233,7 +234,7 @@ Sass:
 TypeScript:
 
 ```typescript
-// resources/controllers/header.ts
+// resources/assets/controllers/header.ts
 
 import background from "../components/header/background.svg";
 
