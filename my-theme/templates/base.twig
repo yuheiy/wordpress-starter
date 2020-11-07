@@ -3,7 +3,7 @@
   <head>
     <meta charset="{{ site.charset }}">
     <meta name="viewport" content="width=device-width">
-    {{ function('wp_head') }}
+    {{ wp_head() }}
   </head>
 
   <body
@@ -26,6 +26,6 @@
 
     {% include 'partial/header-modal.twig' %}
 
-    {{ function('wp_footer') }}
+    {{ wp_footer() }}
   </body>
 </html>
