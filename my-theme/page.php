@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 $context = defaultTimberContext();
 
 $post = Timber::get_post();

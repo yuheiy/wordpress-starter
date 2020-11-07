@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 add_action('admin_menu', function (): void {
   remove_menu_page('edit.php');
   remove_menu_page('edit-comments.php');

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 add_action('init', function (): void {
   register_post_type('news', [
     'label' => 'ニュース',

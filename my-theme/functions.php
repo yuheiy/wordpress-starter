@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 Timber::$dirname = 'templates';
 
 remove_action('wp_head', 'feed_links_extra', 3);

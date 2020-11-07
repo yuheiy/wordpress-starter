@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 $context = defaultTimberContext();
 
 foreach ($context['posts'] as $post) {

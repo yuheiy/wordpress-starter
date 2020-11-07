@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 // canonical
 add_action('wp_head', function (): void {
   if (is_singular()) {
