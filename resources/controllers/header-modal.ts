@@ -12,10 +12,10 @@ export default class extends Controller {
   lastFocus: Element | null = null;
 
   connect() {
-    this.setRendered();
+    this.setReady();
   }
 
-  private async setRendered() {
+  async setReady() {
     // ページ読み込み時のチラつきを防止
     await firstFrame;
     const readyClass = this.data.get("ready-class");
@@ -28,11 +28,8 @@ export default class extends Controller {
       return;
     }
 
-    this.lastFocus = document.activeElement;
+    this.activate();
     lockBodyScroll();
-    this.outsideTarget.inert = true;
-    this.rootTarget.inert = false;
-    this.firstFocusTarget.focus();
   }
 
   close() {
@@ -40,12 +37,8 @@ export default class extends Controller {
       return;
     }
 
+    this.deactivate();
     unlockBodyScroll();
-    this.outsideTarget.inert = false;
-    this.rootTarget.inert = true;
-    invariant(this.lastFocus instanceof HTMLElement);
-    this.lastFocus.focus();
-    this.lastFocus = null;
   }
 
   closeIfEscapeKeyIsPressed(event: unknown) {
@@ -62,6 +55,21 @@ export default class extends Controller {
 
   get isOpen() {
     return !this.rootTarget.inert;
+  }
+
+  activate() {
+    this.lastFocus = document.activeElement;
+    this.outsideTarget.inert = true;
+    this.rootTarget.inert = false;
+    this.firstFocusTarget.focus();
+  }
+
+  deactivate() {
+    this.outsideTarget.inert = false;
+    this.rootTarget.inert = true;
+    invariant(this.lastFocus instanceof HTMLElement);
+    this.lastFocus.focus();
+    this.lastFocus = null;
   }
 }
 
