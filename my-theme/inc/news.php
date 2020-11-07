@@ -18,6 +18,7 @@ add_action('init', function (): void {
       'label' => 'カテゴリー',
       'public' => true,
       'rewrite' => ['slug' => 'news/category'],
+      'show_in_rest' => true,
     ]
   );
 
