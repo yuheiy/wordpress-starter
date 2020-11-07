@@ -26,7 +26,7 @@ add_action('after_setup_theme', function (): void {
 add_filter('timber/twig', function (object $twig): object {
   $twig->addFunction(
     new Timber\Twig_Function('asset_path', function (string $key): string {
-      $manifest = webpack_manifest();
+      $manifest = webpackManifest();
       assert(
         isset($manifest[$key]),
         sprintf('%s does not exist in webpack-manifest.json', $key)
@@ -44,7 +44,7 @@ add_filter('timber/twig', function (object $twig): object {
   return $twig;
 });
 
-function webpack_manifest(): array
+function webpackManifest(): array
 {
   return json_decode(
     file_get_contents(get_theme_file_path('/assets/webpack-manifest.json')),
@@ -52,48 +52,48 @@ function webpack_manifest(): array
   );
 }
 
-function default_timber_context(): array
+function defaultTimberContext(): array
 {
   $context = Timber::context();
 
-  $home_url = home_url('/');
-  $context['home_path'] = Timber\URLHelper::get_rel_url($home_url, true);
+  $homeUrl = home_url('/');
+  $context['home_path'] = Timber\URLHelper::get_rel_url($homeUrl, true);
 
-  $about_post = Timber::get_post([
+  $aboutPost = Timber::get_post([
     'post_type' => 'page',
     'title' => '私たちについて',
   ]);
-  force_rel_path($about_post);
-  $context['about_post'] = $about_post;
+  forceRelPath($aboutPost);
+  $context['about_post'] = $aboutPost;
 
-  $privacy_policy_post = Timber::get_post([
+  $privacyPolicyPost = Timber::get_post([
     'post_type' => 'page',
     'title' => 'プライバシーポリシー',
   ]);
-  force_rel_path($privacy_policy_post);
-  $context['privacy_policy_post'] = $privacy_policy_post;
+  forceRelPath($privacyPolicyPost);
+  $context['privacy_policy_post'] = $privacyPolicyPost;
 
-  $news_post_type = new Timber\PostType('news');
-  set_post_type_path($news_post_type);
-  $context['news_post_type'] = $news_post_type;
+  $newsPostType = new Timber\PostType('news');
+  setPostTypePath($newsPostType);
+  $context['news_post_type'] = $newsPostType;
 
   return $context;
 }
 
-function set_post_type_path(Timber\PostType $post_type): void
+function setPostTypePath(Timber\PostType $postType): void
 {
-  $url = get_post_type_archive_link($post_type->slug);
-  $post_type->path = Timber\URLHelper::get_rel_url($url, true);
+  $url = get_post_type_archive_link($postType->slug);
+  $postType->path = Timber\URLHelper::get_rel_url($url, true);
 }
 
-function set_term_queried(Timber\Term $term): void
+function setTermQueried(Timber\Term $term): void
 {
   $term->queried = $term->slug === get_query_var($term->taxonomy);
 }
 
-function force_rel_path(object $with_path): void
+function forceRelPath(object $withPath): void
 {
-  $with_path->path = Timber\URLHelper::get_rel_url($with_path->path, true);
+  $withPath->path = Timber\URLHelper::get_rel_url($withPath->path, true);
 }
 
 require get_theme_file_path('/inc/news.php');

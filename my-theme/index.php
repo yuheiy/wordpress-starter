@@ -1,14 +1,14 @@
 <?php
 
-$context = default_timber_context();
+$context = defaultTimberContext();
 
-$news_posts = Timber::get_posts([
+$newsPosts = Timber::get_posts([
   'post_type' => 'news',
   'posts_per_page' => 3,
 ]);
-foreach ($news_posts as $post) {
-  force_rel_path($post);
+foreach ($newsPosts as $newsPost) {
+  forceRelPath($newsPost);
 }
-$context['news_posts'] = $news_posts;
+$context['news_posts'] = $newsPosts;
 
 Timber::render('index.twig', $context);

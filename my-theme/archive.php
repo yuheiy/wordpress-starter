@@ -1,9 +1,9 @@
 <?php
 
-$context = default_timber_context();
+$context = defaultTimberContext();
 
 foreach ($context['posts'] as $post) {
-  force_rel_path($post);
+  forceRelPath($post);
 }
 
 if (is_post_type_archive('news') || is_tax('news_category')) {
@@ -11,10 +11,10 @@ if (is_post_type_archive('news') || is_tax('news_category')) {
 
   $context['news_category_terms'] = array_map(
     function (object $term): Timber\Term {
-      $timber_term = new Timber\Term($term->term_id);
-      force_rel_path($timber_term);
-      set_term_queried($timber_term);
-      return $timber_term;
+      $timberTerm = new Timber\Term($term->term_id);
+      forceRelPath($timberTerm);
+      setTermQueried($timberTerm);
+      return $timberTerm;
     },
     get_terms([
       'taxonomy' => 'news_category',

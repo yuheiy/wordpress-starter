@@ -245,7 +245,7 @@ img.src = background;
 PHP:
 
 ```php
-$manifest = webpack_manifest();
+$manifest = webpackManifest();
 echo $manifest['components/header/background.svg'];
 ```
 

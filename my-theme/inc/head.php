@@ -22,10 +22,10 @@ add_action('wp_head', function (): void {
   if (is_singular()) {
     $title = get_the_title();
   } elseif (
-    ($post_type = get_query_var('post_type')) &&
-    is_post_type_archive($post_type)
+    ($postType = get_query_var('post_type')) &&
+    is_post_type_archive($postType)
   ) {
-    $title = get_post_type_object($post_type)->label;
+    $title = get_post_type_object($postType)->label;
   } else {
     $title = get_bloginfo('name');
   }
@@ -38,10 +38,10 @@ add_action('wp_head', function (): void {
     $type = 'website';
   }
 
-  $manifest = webpack_manifest();
+  $manifest = webpackManifest();
   $image = home_url($manifest['ogp.png']);
 
-  $site_name = get_bloginfo('name');
+  $siteName = get_bloginfo('name');
 
   $locale = get_locale();
 
@@ -53,18 +53,18 @@ add_action('wp_head', function (): void {
     $url = Timber\URLHelper::get_current_url();
   }
 
-  $twitter_card = 'summary_large_image';
+  $twitterCard = 'summary_large_image';
 
   foreach (
     [
       ['<meta name="description" content="%s">', esc_attr($description)],
-      ['<meta name="twitter:card" content="%s">', esc_attr($twitter_card)],
+      ['<meta name="twitter:card" content="%s">', esc_attr($twitterCard)],
       ['<meta property="og:title" content="%s">', esc_attr($title)],
       ['<meta property="og:type" content="%s">', esc_attr($type)],
       ['<meta property="og:image" content="%s">', esc_url($image)],
       ['<meta property="og:url" content="%s">', esc_url($url)],
       ['<meta property="og:description" content="%s">', esc_attr($description)],
-      ['<meta property="og:site_name" content="%s">', esc_attr($site_name)],
+      ['<meta property="og:site_name" content="%s">', esc_attr($siteName)],
       ['<meta property="og:locale" content="%s">', esc_attr($locale)],
     ]
     as list($format, $value)
@@ -75,7 +75,7 @@ add_action('wp_head', function (): void {
 
 // resources
 add_action('wp_head', function (): void {
-  $manifest = webpack_manifest();
+  $manifest = webpackManifest();
 
   echo sprintf(
     '<link rel="icon" href="%s" type="image/svg+xml">',

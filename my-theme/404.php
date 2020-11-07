@@ -1,5 +1,5 @@
 <?php
 
-$context = default_timber_context();
+$context = defaultTimberContext();
 
 Timber::render('404.twig', $context);
