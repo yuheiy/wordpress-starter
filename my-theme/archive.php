@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-$context = defaultTimberContext();
+$context = Timber::context();
 
 foreach ($context['posts'] as $post) {
   forceRelPath($post);

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-$context = defaultTimberContext();
+$context = Timber::context();
 
 $post = Timber::get_post();
 forceRelPath($post);

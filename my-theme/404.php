@@ -2,6 +2,6 @@
 
 declare(strict_types=1);
 
-$context = defaultTimberContext();
+$context = Timber::context();
 
 Timber::render('404.twig', $context);

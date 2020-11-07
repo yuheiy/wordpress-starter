@@ -25,6 +25,31 @@ add_action('after_setup_theme', function (): void {
   ]);
 });
 
+add_filter('timber/context', function (array $context): array {
+  $homeUrl = home_url('/');
+  $context['home_path'] = Timber\URLHelper::get_rel_url($homeUrl, true);
+
+  $aboutPost = Timber::get_post([
+    'post_type' => 'page',
+    'title' => '私たちについて',
+  ]);
+  forceRelPath($aboutPost);
+  $context['about_post'] = $aboutPost;
+
+  $privacyPolicyPost = Timber::get_post([
+    'post_type' => 'page',
+    'title' => 'プライバシーポリシー',
+  ]);
+  forceRelPath($privacyPolicyPost);
+  $context['privacy_policy_post'] = $privacyPolicyPost;
+
+  $newsPostType = new Timber\PostType('news');
+  setPostTypePath($newsPostType);
+  $context['news_post_type'] = $newsPostType;
+
+  return $context;
+});
+
 add_filter('timber/twig', function (object $twig): object {
   $twig->addFunction(
     new Timber\Twig_Function('asset_path', function (string $key): string {
@@ -56,34 +81,6 @@ function webpackManifest(): array
     file_get_contents(get_theme_file_path('/assets/webpack-manifest.json')),
     true
   );
-}
-
-function defaultTimberContext(): array
-{
-  $context = Timber::context();
-
-  $homeUrl = home_url('/');
-  $context['home_path'] = Timber\URLHelper::get_rel_url($homeUrl, true);
-
-  $aboutPost = Timber::get_post([
-    'post_type' => 'page',
-    'title' => '私たちについて',
-  ]);
-  forceRelPath($aboutPost);
-  $context['about_post'] = $aboutPost;
-
-  $privacyPolicyPost = Timber::get_post([
-    'post_type' => 'page',
-    'title' => 'プライバシーポリシー',
-  ]);
-  forceRelPath($privacyPolicyPost);
-  $context['privacy_policy_post'] = $privacyPolicyPost;
-
-  $newsPostType = new Timber\PostType('news');
-  setPostTypePath($newsPostType);
-  $context['news_post_type'] = $newsPostType;
-
-  return $context;
 }
 
 function setPostTypePath(Timber\PostType $postType): void
