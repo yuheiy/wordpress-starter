@@ -12,46 +12,32 @@
   @return $px / $context * 1em;
 }
 
-// https://css-tricks.com/snippets/sass/strip-unit-function/
-@function strip-unit($number) {
-  @if type-of($number) == "number" and not unitless($number) {
-    @return $number / ($number * 0 + 1);
-  }
-
-  @return $number;
-}
-
 // Length
 
-$-min-screen-width: rem(375);
-$-max-screen-width: rem(1440);
-$-fluid-progress: "((100vw - #{$-min-screen-width}) / #{strip-unit($-max-screen-width - $-min-screen-width)})";
+$viewport-width-narrow: rem(375);
+$viewport-width-wide: rem(1440);
 
-// Usage:
-//   margin-top: fluid-length(20, 40);
-//   font-size: fluid-length(16, 24);
-@function fluid-length($min, $max) {
-  @if (math.is-unitless($min)) {
-    $min: rem($min);
-  }
-  @if (math.is-unitless($max)) {
-    $max: rem($max);
-  }
-  @if ($min == $max) {
-    @error "$min and $max must be different";
-  }
-  @if (math.unit($min) != math.unit($max)) {
-    @error "$min and $max must have the same unit";
+// https://css-tricks.com/linearly-scale-font-size-with-css-clamp-based-on-the-viewport/
+@function fluid-length($at-narrow, $at-wide) {
+  @if (math.unit($at-narrow) != "rem") {
+    @error "$at-narrow must have rem unit";
   }
 
-  $adjuster: "(#{strip-unit($max - $min)} * #{$-fluid-progress})";
-  $calculator: min;
-  @if ($max < $min) {
-    $calculator: max;
+  @if (math.unit($at-wide) != "rem") {
+    @error "$at-wide must have rem unit";
   }
+
+  @if ($at-narrow == $at-wide) {
+    @error "The values of $at-narrow and $at-wide must be different";
+  }
+
+  $slope: ($at-wide - $at-narrow) /
+    ($viewport-width-wide - $viewport-width-narrow);
+  $intersection: ($viewport-width-narrow * -1) * $slope + $at-narrow;
+  $caller: if($at-narrow < $at-wide, min, max);
 
   @return string.unquote(
-    "#{$calculator}(calc(#{$min} + #{$adjuster}), #{$max})"
+    "#{$caller}(#{$intersection} + #{$slope * 100vw}, #{$at-wide})"
   );
 }
 
