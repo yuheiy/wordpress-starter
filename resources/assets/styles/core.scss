@@ -2,7 +2,7 @@
 @use "sass:math";
 @use "sass:string";
 
-// Unit
+// Units
 
 @function rem($px) {
   @return $px / 16 * 1rem;
@@ -12,7 +12,7 @@
   @return $px / $context * 1em;
 }
 
-// Length
+// Lengths
 
 $viewport-width-narrow: rem(375);
 $viewport-width-wide: rem(1440);
@@ -41,11 +41,10 @@ $viewport-width-wide: rem(1440);
   );
 }
 
-// Media query
+// Media Queries
 
 // Use em units to avoid px-zooming bugs.
 // https://zellwk.com/blog/media-query-units/
-// prettier-ignore
 $mq-breakpoints: (
   xs: 0,
   sm: em(768),
@@ -58,6 +57,7 @@ $mq-breakpoints: (
   @if map.has-key($mq-breakpoints, $key) == false {
     @error "`#{$key}` does not exist in `$mq-breakpoints`";
   }
+
   $breakpoint: map.get($mq-breakpoints, $key);
   $is-zero: $breakpoint == 0;
 
