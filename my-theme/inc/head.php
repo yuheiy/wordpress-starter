@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 // canonical
-add_action('wp_head', function (): void {
+add_action("wp_head", function (): void {
   if (is_singular()) {
     // デフォルトで出力される
     // https://github.com/WordPress/WordPress/blob/106a6ba9e1e7bfc15a177aeef3e140433d7e47df/wp-includes/link-template.php#L3830-L3852
@@ -11,7 +11,7 @@ add_action('wp_head', function (): void {
   }
 
   if (is_home()) {
-    $url = home_url('/');
+    $url = home_url("/");
   }
 
   if (isset($url)) {
@@ -20,42 +20,42 @@ add_action('wp_head', function (): void {
 });
 
 // ogp
-add_action('wp_head', function (): void {
+add_action("wp_head", function (): void {
   if (is_singular()) {
     $title = get_the_title();
   } elseif (
-    ($postType = get_query_var('post_type')) &&
+    ($postType = get_query_var("post_type")) &&
     is_post_type_archive($postType)
   ) {
     $title = get_post_type_object($postType)->label;
   } else {
-    $title = get_bloginfo('name');
+    $title = get_bloginfo("name");
   }
 
-  $description = get_bloginfo('description');
+  $description = get_bloginfo("description");
 
   if (is_single()) {
-    $type = 'article';
+    $type = "article";
   } else {
-    $type = 'website';
+    $type = "website";
   }
 
   $manifest = webpackManifest();
-  $image = home_url($manifest['ogp.png']);
+  $image = home_url($manifest["ogp.png"]);
 
-  $siteName = get_bloginfo('name');
+  $siteName = get_bloginfo("name");
 
   $locale = get_locale();
 
   if (is_home()) {
-    $url = home_url('/');
+    $url = home_url("/");
   } elseif (is_singular()) {
     $url = get_permalink();
   } else {
     $url = Timber\URLHelper::get_current_url();
   }
 
-  $twitterCard = 'summary_large_image';
+  $twitterCard = "summary_large_image";
 
   foreach (
     [
@@ -76,39 +76,39 @@ add_action('wp_head', function (): void {
 });
 
 // resources
-add_action('wp_head', function (): void {
+add_action("wp_head", function (): void {
   $manifest = webpackManifest();
 
   echo sprintf(
     '<link rel="icon" href="%s">',
-    esc_url($manifest['favicon.ico'])
+    esc_url($manifest["favicon.ico"])
   ) . "\n";
 
   echo sprintf(
     '<link rel="apple-touch-icon" href="%s">',
-    esc_url($manifest['apple-touch-icon.png'])
+    esc_url($manifest["apple-touch-icon.png"])
   ) . "\n";
 
-  if (isset($manifest['main.css'])) {
+  if (isset($manifest["main.css"])) {
     echo sprintf(
       '<link rel="stylesheet" href="%s">',
-      esc_url($manifest['main.css'])
+      esc_url($manifest["main.css"])
     ) . "\n";
   }
 
   echo sprintf(
     '<script defer src="%s"></script>',
-    esc_url($manifest['main.js'])
+    esc_url($manifest["main.js"])
   ) . "\n";
 });
 
-add_filter('document_title_parts', function (array $title): array {
-  if (isset($title['tagline'])) {
-    unset($title['tagline']);
+add_filter("document_title_parts", function (array $title): array {
+  if (isset($title["tagline"])) {
+    unset($title["tagline"]);
   }
   return $title;
 });
 
-add_filter('document_title_separator', function (): string {
-  return '|';
+add_filter("document_title_separator", function (): string {
+  return "|";
 });

@@ -2,68 +2,68 @@
 
 declare(strict_types=1);
 
-Timber::$dirname = 'templates';
+Timber::$dirname = "templates";
 
-remove_action('wp_head', 'feed_links_extra', 3);
-remove_action('wp_head', 'rsd_link');
-remove_action('wp_head', 'wlwmanifest_link');
-remove_action('wp_head', 'print_emoji_detection_script', 7);
-remove_action('wp_print_styles', 'print_emoji_styles');
-add_filter('emoji_svg_url', '__return_false');
-remove_action('wp_head', 'wp_shortlink_wp_head', 10, 0);
+remove_action("wp_head", "feed_links_extra", 3);
+remove_action("wp_head", "rsd_link");
+remove_action("wp_head", "wlwmanifest_link");
+remove_action("wp_head", "print_emoji_detection_script", 7);
+remove_action("wp_print_styles", "print_emoji_styles");
+add_filter("emoji_svg_url", "__return_false");
+remove_action("wp_head", "wp_shortlink_wp_head", 10, 0);
 
-add_action('after_setup_theme', function (): void {
-  add_theme_support('title-tag');
-  add_theme_support('html5', [
-    'search-form',
-    'comment-form',
-    'comment-list',
-    'gallery',
-    'caption',
-    'style',
-    'script',
+add_action("after_setup_theme", function (): void {
+  add_theme_support("title-tag");
+  add_theme_support("html5", [
+    "search-form",
+    "comment-form",
+    "comment-list",
+    "gallery",
+    "caption",
+    "style",
+    "script",
   ]);
 });
 
-add_filter('timber/context', function (array $context): array {
-  $homeUrl = home_url('/');
-  $context['home_path'] = Timber\URLHelper::get_rel_url($homeUrl, true);
+add_filter("timber/context", function (array $context): array {
+  $homeUrl = home_url("/");
+  $context["home_path"] = Timber\URLHelper::get_rel_url($homeUrl, true);
 
   $aboutPost = Timber::get_post([
-    'post_type' => 'page',
-    'title' => '私たちについて',
+    "post_type" => "page",
+    "title" => "私たちについて",
   ]);
   forceRelPath($aboutPost);
-  $context['about_post'] = $aboutPost;
+  $context["about_post"] = $aboutPost;
 
   $privacyPolicyPost = Timber::get_post([
-    'post_type' => 'page',
-    'title' => 'プライバシーポリシー',
+    "post_type" => "page",
+    "title" => "プライバシーポリシー",
   ]);
   forceRelPath($privacyPolicyPost);
-  $context['privacy_policy_post'] = $privacyPolicyPost;
+  $context["privacy_policy_post"] = $privacyPolicyPost;
 
-  $newsPostType = new Timber\PostType('news');
+  $newsPostType = new Timber\PostType("news");
   setPostTypePath($newsPostType);
-  $context['news_post_type'] = $newsPostType;
+  $context["news_post_type"] = $newsPostType;
 
   return $context;
 });
 
-add_filter('timber/twig', function (object $twig): object {
+add_filter("timber/twig", function (object $twig): object {
   $twig->addFunction(
-    new Timber\Twig_Function('asset_path', function (string $key): string {
+    new Timber\Twig_Function("asset_path", function (string $key): string {
       $manifest = webpackManifest();
       assert(
         isset($manifest[$key]),
-        sprintf('%s does not exist in webpack-manifest.json', $key)
+        sprintf("%s does not exist in webpack-manifest.json", $key)
       );
       return $manifest[$key];
     })
   );
 
   $twig->addFilter(
-    new Timber\Twig_Filter('rel_url', function (string $url): string {
+    new Timber\Twig_Filter("rel_url", function (string $url): string {
       return Timber\URLHelper::get_rel_url($url, true);
     })
   );
@@ -71,14 +71,14 @@ add_filter('timber/twig', function (object $twig): object {
   return $twig;
 });
 
-require get_theme_file_path('/inc/news.php');
-require get_theme_file_path('/inc/head.php');
-require get_theme_file_path('/inc/admin.php');
+require get_theme_file_path("/inc/news.php");
+require get_theme_file_path("/inc/head.php");
+require get_theme_file_path("/inc/admin.php");
 
 function webpackManifest(): array
 {
   return json_decode(
-    file_get_contents(get_theme_file_path('/assets/webpack-manifest.json')),
+    file_get_contents(get_theme_file_path("/assets/webpack-manifest.json")),
     true
   );
 }

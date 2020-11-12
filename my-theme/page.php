@@ -6,6 +6,6 @@ $context = Timber::context();
 
 $post = Timber::get_post();
 forceRelPath($post);
-$context['post'] = $post;
+$context["post"] = $post;
 
-Timber::render('page-' . $post->post_name . '.twig', $context);
+Timber::render("page-" . $post->post_name . ".twig", $context);

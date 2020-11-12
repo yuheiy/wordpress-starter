@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 $context = Timber::context();
 
-foreach ($context['posts'] as $post) {
+foreach ($context["posts"] as $post) {
   forceRelPath($post);
 }
 
-if (is_post_type_archive('news') || is_tax('news_category')) {
-  $context['is_news_archive'] = is_post_type_archive('news');
+if (is_post_type_archive("news") || is_tax("news_category")) {
+  $context["is_news_archive"] = is_post_type_archive("news");
 
-  $context['news_category_terms'] = array_map(
+  $context["news_category_terms"] = array_map(
     function (object $term): Timber\Term {
       $timberTerm = new Timber\Term($term->term_id);
       forceRelPath($timberTerm);
@@ -19,23 +19,23 @@ if (is_post_type_archive('news') || is_tax('news_category')) {
       return $timberTerm;
     },
     get_terms([
-      'taxonomy' => 'news_category',
+      "taxonomy" => "news_category",
     ])
   );
 }
 
 $templates = [];
 if (is_post_type_archive()) {
-  array_unshift($templates, 'archive-' . get_post_type() . '.twig');
+  array_unshift($templates, "archive-" . get_post_type() . ".twig");
 } elseif (is_tax()) {
   array_unshift(
     $templates,
-    'taxonomy-' .
+    "taxonomy-" .
       get_queried_object()->taxonomy .
-      '-' .
+      "-" .
       get_queried_object()->slug .
-      '.twig',
-    'taxonomy-' . get_queried_object()->taxonomy . '.twig'
+      ".twig",
+    "taxonomy-" . get_queried_object()->taxonomy . ".twig"
   );
 }
 
