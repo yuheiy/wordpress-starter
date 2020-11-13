@@ -58,11 +58,43 @@ npm install -g @wordpress/env
 npm install
 ```
 
-### データベースおよびメディアファイルの初期化
+## Dockerコンテナのセットアップ
 
-`scripts/snapshot`ディレクトリに前回の状態が保存されていれば復元ができます。[データベースおよびメディアファイルのインポート](#データベースおよびメディアファイルのインポート)を参照してください。
+[開発用サーバーの起動](#開発用サーバーの起動)の前に、Dockerコンテナの初期化およびデータベースのセットアップを行ってください。あらかじめDockerクライアントが起動されている必要があります。
 
-`scripts/snapshot`ディレクトリが存在しない場合には、[データベースの初期化](#データベースの初期化)を行ってください。
+```sh
+wp-env start
+bash scripts/wp-setup.sh
+```
+
+すでに初期化済みのDockerコンテナを破棄した上で再セットアップを行いたい場合は、前のコマンドより先に次のコマンドを実行してください。
+
+```sh
+wp-env destroy
+```
+
+続けて、ダッシュボードから手動で次の操作を行う必要があります。
+
+- リライトルールをフラッシュするために、[パーマリンク設定](http://localhost:8888/wp-admin/options-permalink.php)の「変更を保存」を実行する
+- ニュース投稿に任意のカテゴリーを入力する
+
+### データベースおよびメディアファイルのエクスポート
+
+WordPressローカル環境のデータベースとメディアファイルの状態を`scripts/snapshot`ディレクトリに出力できます。これをGitリポジトリにコミットすることによって、別のローカル環境でも同様の状態を再現できるようになります。
+
+```sh
+wp-env start
+bash scripts/wp-export.sh
+```
+
+### データベースおよびメディアファイルのインポート
+
+[データベースおよびメディアファイルのエクスポート](#データベースおよびメディアファイルのエクスポート)が実行されて`scripts/snapshot`ディレクトリに前回の状態が保存されていれば、それをもとにしてデータベースとメディアファイルを復元できます。
+
+```sh
+wp-env start
+bash scripts/wp-import.sh
+```
 
 ## 開発用サーバーの起動
 
@@ -78,7 +110,7 @@ wp-env start
 wp-env stop
 ```
 
-データベースの操作・環境の再構築などについては[@wordpress/envの公式ドキュメント](https://ja.wordpress.org/team/handbook/block-editor/packages/packages-env/)を参照してください。
+データベースの操作、環境の再構築などについては[@wordpress/envの公式ドキュメント](https://ja.wordpress.org/team/handbook/block-editor/packages/packages-env/)を参照してください。
 
 次にフロントエンドの開発用サーバーを起動します。URLはターミナルに出力されます。
 
@@ -94,37 +126,6 @@ http://localhost:8888/wp-admin/
 
 - ID: `admin`
 - パスワード: `password`
-
-### データベースおよびメディアファイルのエクスポート
-
-WordPressのローカル環境における現在の状態のデータベースとメディアファイルを`scripts/snapshot`ディレクトリに出力できます。これによって別のローカル環境でも同様の状態を再現できるようになります。
-
-```sh
-bash scripts/wp-export.sh
-```
-
-### データベースおよびメディアファイルのインポート
-
-`scripts/snapshot`ディレクトリ内のデータから、前回にエクスポートされた際のデータベースとメディアファイルの状態を復元できます。
-
-```sh
-bash scripts/wp-import.sh
-```
-
-## Dockerの初期化
-
-Dockerを初期化した上でデータベースを再セットアップできます。
-
-```sh
-wp-env destroy
-wp-env start
-bash scripts/wp-setup.sh
-```
-
-続けて、ダッシュボードから手動で次の操作を行う必要があります。
-
-- リライトルールをフラッシュするために、[パーマリンク設定](http://localhost:8888/wp-admin/options-permalink.php)の「変更を保存」を実行する
-- ニュース投稿に任意のカテゴリーを入力する
 
 ## ディレクトリ構造
 
