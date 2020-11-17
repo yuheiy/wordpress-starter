@@ -79,27 +79,24 @@ add_action("wp_head", function (): void {
 add_action("wp_head", function (): void {
   $manifest = webpackManifest();
 
-  echo sprintf(
-    '<link rel="icon" href="%s">',
-    esc_url($manifest["favicon.ico"])
-  ) . "\n";
-
-  echo sprintf(
-    '<link rel="apple-touch-icon" href="%s">',
-    esc_url($manifest["apple-touch-icon.png"])
-  ) . "\n";
-
-  if (array_key_exists("main.css", $manifest)) {
-    echo sprintf(
-      '<link rel="stylesheet" href="%s">',
-      esc_url($manifest["main.css"])
-    ) . "\n";
+  foreach (
+    [
+      ['<link rel="icon" href="%s">', esc_url($manifest["favicon.ico"])],
+      [
+        '<link rel="apple-touch-icon" href="%s">',
+        esc_url($manifest["apple-touch-icon.png"]),
+      ],
+      array_key_exists("main.css", $manifest)
+        ? ['<link rel="stylesheet" href="%s">', esc_url($manifest["main.css"])]
+        : null,
+      ['<script defer src="%s"></script>', esc_url($manifest["main.js"])],
+    ]
+    as list($format, $value)
+  ) {
+    if (isset($format)) {
+      echo sprintf($format, $value) . "\n";
+    }
   }
-
-  echo sprintf(
-    '<script defer src="%s"></script>',
-    esc_url($manifest["main.js"])
-  ) . "\n";
 });
 
 add_filter("document_title_parts", function (array $title): array {
