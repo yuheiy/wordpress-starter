@@ -55,7 +55,7 @@ add_filter("timber/twig", function (object $twig): object {
     new Timber\Twig_Function("asset_path", function (string $key): string {
       $manifest = webpackManifest();
       assert(
-        isset($manifest[$key]),
+        array_key_exists($key, $manifest),
         sprintf("%s does not exist in webpack-manifest.json", $key)
       );
       return $manifest[$key];

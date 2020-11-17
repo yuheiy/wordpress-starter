@@ -89,7 +89,7 @@ add_action("wp_head", function (): void {
     esc_url($manifest["apple-touch-icon.png"])
   ) . "\n";
 
-  if (isset($manifest["main.css"])) {
+  if (array_key_exists("main.css", $manifest)) {
     echo sprintf(
       '<link rel="stylesheet" href="%s">',
       esc_url($manifest["main.css"])
@@ -103,7 +103,7 @@ add_action("wp_head", function (): void {
 });
 
 add_filter("document_title_parts", function (array $title): array {
-  if (isset($title["tagline"])) {
+  if (array_key_exists("tagline", $title)) {
     unset($title["tagline"]);
   }
   return $title;
