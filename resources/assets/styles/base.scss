@@ -6,10 +6,6 @@
   box-sizing: border-box;
 }
 
-:target {
-  scroll-margin-top: rem(16);
-}
-
 html {
   font-family: sans-serif;
   line-height: 1.5;
@@ -17,6 +13,15 @@ html {
   line-break: normal;
   overflow-wrap: break-word;
   text-underline-offset: 0.125em;
+}
+
+// https://developer.paciellogroup.com/blog/2018/03/focus-visible-and-backwards-compatibility/
+:focus:not(:focus-visible) {
+  outline: 0;
+}
+
+:target {
+  scroll-margin-top: rem(16);
 }
 
 h1,
@@ -186,9 +191,4 @@ fieldset {
 
 [hidden][hidden] {
   display: none !important;
-}
-
-// https://github.com/WICG/focus-visible
-[data-js-focus-visible] :focus:not([data-focus-visible-added]) {
-  outline: 0;
 }

@@ -1,4 +1,3 @@
-import "focus-visible";
 import "wicg-inert";
 import { Application } from "stimulus";
 import { definitionsFromContext } from "./lib/stimulus-webpack-helpers";
