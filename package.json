@@ -5,7 +5,7 @@
     "start": "webpack-dev-server",
     "prebuild": "npm run clean",
     "build": "webpack --mode production",
-    "typecheck": "tsc --project . --noEmit",
+    "type-check": "tsc --project . --noEmit",
     "format": "prettier --write .",
     "test": "jest",
     "//postinstall": "bash scripts/install-acf-pro.sh"
