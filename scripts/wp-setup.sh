@@ -1,6 +1,7 @@
 #!/bin/bash
 
 set -eu
+set -o pipefail
 
 wp-env run cli "wp option update blogname \"The Boilerplate for WordPress\""
 wp-env run cli "wp option update permalink_structure \"/%postname%/\""

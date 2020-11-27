@@ -1,6 +1,7 @@
 #!/bin/bash
 
 set -eu
+set -o pipefail
 
 SQL_FILE="wordpress.sql"
 
@@ -8,8 +9,8 @@ script_dir="$(cd $(dirname "${BASH_SOURCE[0]}"); pwd)"
 snapshot_dir="$script_dir/snapshot"
 container_id="$(docker ps -f name=_wordpress_ -q)"
 
-rm -rf $snapshot_dir
-mkdir $snapshot_dir
+rm -rf "$snapshot_dir"
+mkdir "$snapshot_dir"
 
 wp-env run cli "rm -f $SQL_FILE"
 wp-env run cli "wp db export $SQL_FILE"
