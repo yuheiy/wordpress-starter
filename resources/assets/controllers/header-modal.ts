@@ -6,9 +6,11 @@ const firstFrame = new Promise((resolve) => afterFrame(resolve));
 
 export default class extends Controller {
   static targets = ["outside", "root", "firstFocus"];
+  static classes = ["ready"];
   readonly outsideTarget!: HTMLElement;
   readonly rootTarget!: HTMLElement;
   readonly firstFocusTarget!: HTMLElement;
+  readonly readyClass!: string;
   lastFocus: Element | null = null;
 
   connect() {
@@ -18,9 +20,7 @@ export default class extends Controller {
   async setReady() {
     // ページ読み込み時のチラつきを防止
     await firstFrame;
-    const readyClass = this.data.get("ready-class");
-    invariant(readyClass);
-    this.element.classList.add(readyClass);
+    this.element.classList.add(this.readyClass);
   }
 
   open() {

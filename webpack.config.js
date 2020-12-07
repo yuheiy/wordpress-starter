@@ -5,7 +5,7 @@ const autoprefixer = require("autoprefixer");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TerserJSPlugin = require("terser-webpack-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
-const ManifestPlugin = require("webpack-manifest-plugin");
+const { WebpackManifestPlugin } = require("webpack-manifest-plugin");
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 const detectPort = require("detect-port");
 const address = require("address");
@@ -95,7 +95,7 @@ module.exports = async (_env, { mode }) => {
       minimizer: [new TerserJSPlugin(), new CssMinimizerPlugin()],
     },
     plugins: [
-      new ManifestPlugin({
+      new WebpackManifestPlugin({
         fileName: "webpack-manifest.json",
         writeToFileEmit: true,
       }),
