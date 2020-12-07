@@ -59,19 +59,28 @@ add_action("wp_head", function (): void {
 
   foreach (
     [
-      ['<meta name="description" content="%s">', esc_attr($description)],
-      ['<meta name="twitter:card" content="%s">', esc_attr($twitterCard)],
-      ['<meta property="og:title" content="%s">', esc_attr($title)],
-      ['<meta property="og:type" content="%s">', esc_attr($type)],
-      ['<meta property="og:image" content="%s">', esc_url($image)],
-      ['<meta property="og:url" content="%s">', esc_url($url)],
-      ['<meta property="og:description" content="%s">', esc_attr($description)],
-      ['<meta property="og:site_name" content="%s">', esc_attr($siteName)],
-      ['<meta property="og:locale" content="%s">', esc_attr($locale)],
+      sprintf('<meta name="description" content="%s">', esc_attr($description)),
+      sprintf(
+        '<meta name="twitter:card" content="%s">',
+        esc_attr($twitterCard)
+      ),
+      sprintf('<meta property="og:title" content="%s">', esc_attr($title)),
+      sprintf('<meta property="og:type" content="%s">', esc_attr($type)),
+      sprintf('<meta property="og:image" content="%s">', esc_url($image)),
+      sprintf('<meta property="og:url" content="%s">', esc_url($url)),
+      sprintf(
+        '<meta property="og:description" content="%s">',
+        esc_attr($description)
+      ),
+      sprintf(
+        '<meta property="og:site_name" content="%s">',
+        esc_attr($siteName)
+      ),
+      sprintf('<meta property="og:locale" content="%s">', esc_attr($locale)),
     ]
-    as list($format, $value)
+    as $html
   ) {
-    echo sprintf($format, $value) . "\n";
+    echo $html . "\n";
   }
 });
 
@@ -81,20 +90,26 @@ add_action("wp_head", function (): void {
 
   foreach (
     [
-      ['<link rel="icon" href="%s">', esc_url($manifest["favicon.ico"])],
-      [
+      sprintf('<link rel="icon" href="%s">', esc_url($manifest["favicon.ico"])),
+      sprintf(
         '<link rel="apple-touch-icon" href="%s">',
-        esc_url($manifest["apple-touch-icon.png"]),
-      ],
+        esc_url($manifest["apple-touch-icon.png"])
+      ),
       array_key_exists("main.css", $manifest)
-        ? ['<link rel="stylesheet" href="%s">', esc_url($manifest["main.css"])]
+        ? sprintf(
+          '<link rel="stylesheet" href="%s">',
+          esc_url($manifest["main.css"])
+        )
         : null,
-      ['<script defer src="%s"></script>', esc_url($manifest["main.js"])],
+      sprintf(
+        '<script defer src="%s"></script>',
+        esc_url($manifest["main.js"])
+      ),
     ]
-    as list($format, $value)
+    as $html
   ) {
-    if (isset($format)) {
-      echo sprintf($format, $value) . "\n";
+    if ($html) {
+      echo $html . "\n";
     }
   }
 });
