@@ -1,28 +1,15 @@
 module.exports = {
   rules: [
     {
-      name: "sass-utilities",
-      dependencies: [
-        "resources/assets/styles/utilities/*.scss",
-        "!resources/assets/styles/utilities/index.scss",
-      ],
+      name: "sass-imports",
+      dependencies: {
+        utility: ["resources/assets/styles/utilities/*.scss"],
+        component: ["resources/assets/components/*.scss"],
+      },
       outputs: [
         {
-          path: "resources/assets/styles/utilities/index.scss",
-          template: "resources/assets/styles/utilities/index.scss.hbs",
-        },
-      ],
-    },
-    {
-      name: "sass-components",
-      dependencies: [
-        "resources/assets/components/*.scss",
-        "!resources/assets/components/index.scss",
-      ],
-      outputs: [
-        {
-          path: "resources/assets/components/index.scss",
-          template: "resources/assets/components/index.scss.hbs",
+          path: "resources/assets/main.scss",
+          template: "resources/assets/main.scss.hbs",
         },
       ],
     },
