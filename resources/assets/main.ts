@@ -1,7 +1,7 @@
 import "./main.scss";
 import "wicg-inert";
 import { Application } from "stimulus";
-import { controllers } from "./controllers";
+import { definitions } from "./controllers";
 
 declare global {
   interface HTMLElement {
@@ -23,7 +23,7 @@ if (process.env.NODE_ENV !== "production") {
 }
 
 const application = Application.start();
-controllers.forEach(async (definitionLoaded) => {
+definitions.forEach(async (definitionLoaded) => {
   application.load(await definitionLoaded);
 });
 
