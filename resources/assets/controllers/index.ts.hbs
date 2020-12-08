@@ -1,0 +1,8 @@
+export const controllers = [
+{{#each dependencies}}
+  import("./{{stripExt (relativePath this.path)}}").then((module) => ({
+    identifier: "{{this.parsedPath.name}}",
+    controllerConstructor: module.default,
+  })),
+{{/each}}
+];

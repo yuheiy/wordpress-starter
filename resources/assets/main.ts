@@ -1,20 +1,12 @@
+import "./main.scss";
 import "wicg-inert";
 import { Application } from "stimulus";
-import { definitionsFromContext } from "./lib/stimulus-webpack-helpers";
+import { controllers } from "./controllers";
 
 declare global {
   interface HTMLElement {
     inert: boolean;
   }
-}
-
-require("../../node_modules/normalize.css/normalize.css");
-require("./styles/base.scss");
-importAll(require.context("./styles/utilities", false, /\.scss$/));
-importAll(require.context("./components", false, /\.scss$/));
-
-function importAll(r: __WebpackModuleApi.RequireContext) {
-  r.keys().forEach(r);
 }
 
 // load all asset files to be passed to file-loader
@@ -31,9 +23,9 @@ if (process.env.NODE_ENV !== "production") {
 }
 
 const application = Application.start();
-application.load(
-  definitionsFromContext(require.context("./controllers", false, /\.ts$/))
-);
+controllers.forEach(async (definitionLoaded) => {
+  application.load(await definitionLoaded);
+});
 
 if (process.env.NODE_ENV !== "production") {
   (window as any).application = application;

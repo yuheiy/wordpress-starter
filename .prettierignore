@@ -4,3 +4,6 @@ my-theme/acf-json
 my-theme/assets
 plugins/advanced-custom-fields-pro
 resources/assets/analyze.html
+resources/assets/components/index.scss
+resources/assets/controllers/index.ts
+resources/assets/styles/utilities/index.scss

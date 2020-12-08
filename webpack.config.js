@@ -61,6 +61,7 @@ module.exports = async (_env, { mode }) => {
                 },
               },
             },
+            "resolve-url-loader",
             {
               loader: "sass-loader",
               options: {
@@ -68,6 +69,7 @@ module.exports = async (_env, { mode }) => {
                 sassOptions: {
                   fiber: Fiber,
                 },
+                sourceMap: true, // required for resolve-url-loader
               },
             },
           ],
