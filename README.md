@@ -253,10 +253,14 @@ echo $manifest['components/header/background.svg'];
 
 ## テンプレートファイルの作成
 
-コードジェネレータを使ってソースファイルのテンプレートを生成できます。次のようなコマンドを実行すると、新しいコンポーネントに対応するファイルが出力されます。
+コードジェネレータを使ってソースファイルのテンプレートを生成できます。次のようなコマンドを実行すると対応するファイルが出力されます。
 
 ```sh
-npx plop c my-component
+npx plop ct my-component
+```
+
+```sh
+npx plop cr my-controller
 ```
 
 ## 本番用ビルド

@@ -1,9 +1,5 @@
 module.exports = (plop) => {
-  plop.setHelper("includes", (array, element) => {
-    return array.includes(element);
-  });
-
-  plop.setGenerator("c", {
+  plop.setGenerator("ct", {
     description: "component",
     prompts: [
       {
@@ -21,10 +17,6 @@ module.exports = (plop) => {
           {
             name: "style",
             checked: true,
-          },
-          {
-            name: "controller",
-            checked: false,
           },
         ],
       },
@@ -50,16 +42,24 @@ module.exports = (plop) => {
         });
       }
 
-      if (types.includes("controller")) {
-        result.push({
-          type: "add",
-          path: "resources/assets/controllers/{{kebabCase name}}.ts",
-          templateFile: "plop-templates/component/controller.ts.hbs",
-          skipIfExists: true,
-        });
-      }
-
       return result;
     },
+  });
+
+  plop.setGenerator("cr", {
+    description: "controller",
+    prompts: [
+      {
+        type: "input",
+        name: "name",
+      },
+    ],
+    actions: [
+      {
+        type: "add",
+        path: "resources/assets/controllers/{{kebabCase name}}.ts",
+        templateFile: "plop-templates/controller/controller.ts.hbs",
+      },
+    ],
   });
 };
