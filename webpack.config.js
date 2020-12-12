@@ -45,7 +45,7 @@ module.exports = async (_env, { mode }) => {
           ],
         },
         {
-          test: /\.(scss|css)$/,
+          test: /\.scss$/,
           use: [
             isDev ? "style-loader" : MiniCssExtractPlugin.loader,
             "css-loader",
@@ -75,7 +75,7 @@ module.exports = async (_env, { mode }) => {
           ],
         },
         {
-          exclude: [/\.(js|mjs|jsx|ts|tsx)$/, /\.json$/, /\.(scss|css)$/],
+          exclude: [/\.(ts|m?js)$/, /\.json$/, /\.scss$/],
           use: [
             {
               loader: "file-loader",
