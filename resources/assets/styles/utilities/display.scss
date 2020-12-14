@@ -1,12 +1,12 @@
 /**
  * Usage:
  *
- * <div class="hidden md:block">Hello</div>
+ * <div class="hidden block@md">Hello</div>
  *
  * Display variants:
  *
  * <div class="{display}"></div>
- * <div class="{breakpoint}:{display}"></div>
+ * <div class="{display}@{breakpoint}"></div>
  */
 
 @use "../core" as *;
@@ -20,11 +20,11 @@ $display-values: (
 
 @each $breakpoint-key, $breakpoint in $mq-breakpoints {
   $uses-media-query: $breakpoint != 0;
-  $breakpoint-prefix: if($uses-media-query, "#{$breakpoint-key}\\:", null);
+  $breakpoint-suffix: if($uses-media-query, "\\@#{$breakpoint-key}", null);
 
   @include breakpoint($breakpoint-key) {
     @each $name, $value in $display-values {
-      .#{$breakpoint-prefix}#{$name} {
+      .#{$name}#{$breakpoint-suffix} {
         display: $value;
       }
     }
