@@ -46,7 +46,7 @@ $viewport-width-wide: rem(1440);
 // Use em units to avoid px-zooming bugs.
 // https://zellwk.com/blog/media-query-units/
 $mq-breakpoints: (
-  xs: 0,
+  none: null,
   sm: em(768),
   md: em(1024),
   lg: em(1440),
@@ -54,26 +54,23 @@ $mq-breakpoints: (
 );
 
 @mixin breakpoint($key, $until: false) {
-  @if map.has-key($mq-breakpoints, $key) == false {
+  @if not map.has-key($mq-breakpoints, $key) {
     @error "`#{$key}` does not exist in `$mq-breakpoints`";
   }
 
   $breakpoint: map.get($mq-breakpoints, $key);
-  $is-zero: $breakpoint == 0;
 
-  @if $is-zero and $until {
-    @error "Breakpoints are not available for screens smaller than 0px";
-  }
-
-  @if $is-zero {
-    @content;
-  } @else if $until {
-    @media not all and (min-width: #{$breakpoint}) {
-      @content;
+  @if $breakpoint {
+    @if $until {
+      @media not all and (min-width: $breakpoint) {
+        @content;
+      }
+    } @else {
+      @media (min-width: $breakpoint) {
+        @content;
+      }
     }
   } @else {
-    @media (min-width: #{$breakpoint}) {
-      @content;
-    }
+    @content;
   }
 }
