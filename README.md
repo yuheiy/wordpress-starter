@@ -130,38 +130,52 @@ http://localhost:8888/wp-admin/
 ## ディレクトリ構造
 
 ```
+.
 ├── my-theme/
-│   ├── acf-json/
 │   ├── assets/
-│   │   ├── favicon.[contenthash].svg
-│   │   ├── main.[contenthash].js
+│   │   ├── favicon.[contenthash].ico
 │   │   ├── main.[contenthash].css
+│   │   ├── main.[contenthash].js
+│   │   ├── ogp.[contenthash].png
 │   │   └── webpack-manifest.json
 │   ├── inc/
 │   │   └── news.php
 │   ├── templates/
-│   │   ├── archive-news.twig
-│   │   ├── index.twig
-│   │   └── single-news.twig
-│   ├── archive.php
+│   │   ├── base.twig
+│   │   └── index.twig
+│   ├── acf-json/
 │   ├── functions.php
 │   ├── index.php
-│   ├── single.php
 │   └── style.css
 ├── resources/
 │   └── assets/
-│       ├── components/
-│       │   ├── footer.scss
-│       │   ├── header-modal.scss
-│       │   └── header.scss
-│       ├── controllers/
-│       │   └── header-modal.ts
-│       ├── styles/
-│       │   └── base.scss
-│       ├── favicon.svg
-│       └── main.ts
-├── .wp-env.json
-└── package.json
+│       ├── components/
+│       │   └── my-component.scss
+│       ├── controllers/
+│       │   ├── my-controller.ts
+│       │   ├── index.ts
+│       │   └── index.ts.hbs
+│       ├── styles/
+│       │   ├── utilities/
+│       │   │   └── my-utility.scss
+│       │   ├── base.scss
+│       │   └── core.scss
+│       ├── favicon.ico
+│       ├── main.scss
+│       ├── main.scss.hbs
+│       ├── main.ts
+│       └── ogp.png
+├── scripts/
+│   ├── snapshot/
+│   │   ├── uploads/
+│   │   └── wordpress.sql
+│   ├── wp-export.sh
+│   ├── wp-import.sh
+│   └── wp-setup.sh
+├── .wp-env.js
+├── drygen.config.js
+├── package.json
+└── webpack.config.js
 ```
 
 ### `my-theme`ディレクトリ
