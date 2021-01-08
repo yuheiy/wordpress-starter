@@ -12,20 +12,20 @@
 @use "../core" as *;
 
 $display-values: (
-  block: block,
-  inline: inline,
-  hidden: none,
-  inline-block: inline-block,
+	block: block,
+	inline: inline,
+	hidden: none,
+	inline-block: inline-block,
 );
 
 @each $breakpoint-key, $breakpoint in $mq-breakpoints {
-  $breakpoint-suffix: if($breakpoint, "\\@#{$breakpoint-key}", null);
+	$breakpoint-suffix: if($breakpoint, "\\@#{$breakpoint-key}", null);
 
-  @include breakpoint($breakpoint-key) {
-    @each $name, $value in $display-values {
-      .#{$name}#{$breakpoint-suffix} {
-        display: $value;
-      }
-    }
-  }
+	@include breakpoint($breakpoint-key) {
+		@each $name, $value in $display-values {
+			.#{$name}#{$breakpoint-suffix} {
+				display: $value;
+			}
+		}
+	}
 }

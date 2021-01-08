@@ -8,11 +8,11 @@
  */
 
 :focus + .next-focus-ring {
-  outline: dotted 1px;
-  outline: -webkit-focus-ring-color auto 5px;
+	outline: dotted 1px;
+	outline: -webkit-focus-ring-color auto 5px;
 }
 
 // https://developer.paciellogroup.com/blog/2018/03/focus-visible-and-backwards-compatibility/
 :focus:not(:focus-visible) + .next-focus-ring {
-  outline: 0;
+	outline: 0;
 }

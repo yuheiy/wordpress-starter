@@ -5,11 +5,11 @@
 // Units
 
 @function rem($px) {
-  @return $px / 16 * 1rem;
+	@return $px / 16 * 1rem;
 }
 
 @function em($px, $context: 16) {
-  @return $px / $context * 1em;
+	@return $px / $context * 1em;
 }
 
 // Lengths
@@ -19,26 +19,26 @@ $viewport-width-wide: rem(1440);
 
 // https://css-tricks.com/linearly-scale-font-size-with-css-clamp-based-on-the-viewport/
 @function fluid-length($at-narrow, $at-wide) {
-  @if (math.unit($at-narrow) != "rem") {
-    @error "$at-narrow must have rem unit";
-  }
+	@if (math.unit($at-narrow) != "rem") {
+		@error "$at-narrow must have rem unit";
+	}
 
-  @if (math.unit($at-wide) != "rem") {
-    @error "$at-wide must have rem unit";
-  }
+	@if (math.unit($at-wide) != "rem") {
+		@error "$at-wide must have rem unit";
+	}
 
-  @if ($at-narrow == $at-wide) {
-    @error "The values of $at-narrow and $at-wide must be different";
-  }
+	@if ($at-narrow == $at-wide) {
+		@error "The values of $at-narrow and $at-wide must be different";
+	}
 
-  $slope: ($at-wide - $at-narrow) /
-    ($viewport-width-wide - $viewport-width-narrow);
-  $intersection: ($viewport-width-narrow * -1) * $slope + $at-narrow;
-  $caller: if($at-narrow < $at-wide, min, max);
+	$slope: ($at-wide - $at-narrow) /
+		($viewport-width-wide - $viewport-width-narrow);
+	$intersection: ($viewport-width-narrow * -1) * $slope + $at-narrow;
+	$caller: if($at-narrow < $at-wide, min, max);
 
-  @return string.unquote(
-    "#{$caller}(#{$intersection} + #{$slope * 100vw}, #{$at-wide})"
-  );
+	@return string.unquote(
+		"#{$caller}(#{$intersection} + #{$slope * 100vw}, #{$at-wide})"
+	);
 }
 
 // Media Queries
@@ -46,31 +46,31 @@ $viewport-width-wide: rem(1440);
 // Use em units to avoid px-zooming bugs.
 // https://zellwk.com/blog/media-query-units/
 $mq-breakpoints: (
-  none: null,
-  sm: em(768),
-  md: em(1024),
-  lg: em(1440),
-  xl: em(1680),
+	none: null,
+	sm: em(768),
+	md: em(1024),
+	lg: em(1440),
+	xl: em(1680),
 );
 
 @mixin breakpoint($key, $until: false) {
-  @if not map.has-key($mq-breakpoints, $key) {
-    @error "`#{$key}` does not exist in `$mq-breakpoints`";
-  }
+	@if not map.has-key($mq-breakpoints, $key) {
+		@error "`#{$key}` does not exist in `$mq-breakpoints`";
+	}
 
-  $breakpoint: map.get($mq-breakpoints, $key);
+	$breakpoint: map.get($mq-breakpoints, $key);
 
-  @if $breakpoint {
-    @if $until {
-      @media not all and (min-width: $breakpoint) {
-        @content;
-      }
-    } @else {
-      @media (min-width: $breakpoint) {
-        @content;
-      }
-    }
-  } @else {
-    @content;
-  }
+	@if $breakpoint {
+		@if $until {
+			@media not all and (min-width: $breakpoint) {
+				@content;
+			}
+		} @else {
+			@media (min-width: $breakpoint) {
+				@content;
+			}
+		}
+	} @else {
+		@content;
+	}
 }

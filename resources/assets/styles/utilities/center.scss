@@ -11,15 +11,15 @@
 @use "../core" as *;
 
 .center {
-  box-sizing: content-box;
-  display: block;
-  max-width: rem(1120);
-  margin-right: auto;
-  margin-left: auto;
-  padding-right: rem(16);
-  padding-left: rem(16);
+	box-sizing: content-box;
+	display: block;
+	max-width: rem(1120);
+	margin-right: auto;
+	margin-left: auto;
+	padding-right: rem(16);
+	padding-left: rem(16);
 }
 
 .center--wide {
-  max-width: rem(1280);
+	max-width: rem(1280);
 }

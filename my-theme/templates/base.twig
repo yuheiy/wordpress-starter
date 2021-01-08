@@ -1,33 +1,33 @@
 <!DOCTYPE html>
 <html {{ site.language_attributes }}>
-  <head>
-    <meta charset="{{ site.charset }}">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    {{ function('wp_head') }}
-  </head>
+	<head>
+		<meta charset="{{ site.charset }}">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		{{ function('wp_head') }}
+	</head>
 
-  <body
-    class="{{ body_class }}"
-    data-controller="header-modal"
-    data-action="keydown@window->header-modal#closeIfEscapeKeyIsPressed"
-    data-header-modal-ready-class="header-modal-ready"
-  >
-    {{ function('wp_body_open') }}
+	<body
+		class="{{ body_class }}"
+		data-controller="header-modal"
+		data-action="keydown@window->header-modal#closeIfEscapeKeyIsPressed"
+		data-header-modal-ready-class="header-modal-ready"
+	>
+		{{ function('wp_body_open') }}
 
-    <div data-header-modal-target="outside">
-      {% include 'partial/header.twig' %}
+		<div data-header-modal-target="outside">
+			{% include 'partial/header.twig' %}
 
-      {% block before_main %}{% endblock %}
-      <main>
-        {% block main %}{% endblock %}
-      </main>
-      {% block after_main %}{% endblock %}
+			{% block before_main %}{% endblock %}
+			<main>
+			{% block main %}{% endblock %}
+			</main>
+			{% block after_main %}{% endblock %}
 
-      {% include 'partial/footer.twig' %}
-    </div>
+			{% include 'partial/footer.twig' %}
+		</div>
 
-    {% include 'partial/header-modal.twig' %}
+		{% include 'partial/header-modal.twig' %}
 
-    {{ function('wp_footer') }}
-  </body>
+		{{ function('wp_footer') }}
+	</body>
 </html>

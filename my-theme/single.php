@@ -9,10 +9,10 @@ forceRelPath($post);
 $context["post"] = $post;
 
 Timber::render(
-  [
-    "single-" . $post->ID . ".twig",
-    "single-" . $post->post_type . ".twig",
-    "single-" . $post->slug . ".twig",
-  ],
-  $context
+	[
+		"single-" . $post->ID . ".twig",
+		"single-" . $post->post_type . ".twig",
+		"single-" . $post->slug . ".twig",
+	],
+	$context
 );

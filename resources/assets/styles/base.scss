@@ -3,30 +3,30 @@
 *,
 ::before,
 ::after {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 html {
-  height: 100%;
-  font-family: sans-serif;
-  line-height: 1.5;
-  text-align: left;
-  line-break: normal;
-  overflow-wrap: break-word;
-  text-underline-offset: 0.125em;
+	height: 100%;
+	font-family: sans-serif;
+	line-height: 1.5;
+	text-align: left;
+	line-break: normal;
+	overflow-wrap: break-word;
+	text-underline-offset: 0.125em;
 }
 
 // https://developer.paciellogroup.com/blog/2018/03/focus-visible-and-backwards-compatibility/
 :focus:not(:focus-visible) {
-  outline: 0;
+	outline: 0;
 }
 
 :target {
-  scroll-margin-top: rem(16);
+	scroll-margin-top: rem(16);
 }
 
 body {
-  height: 100%;
+	height: 100%;
 }
 
 h1,
@@ -44,7 +44,7 @@ dl,
 dd,
 figure,
 pre {
-  margin: 0;
+	margin: 0;
 }
 
 h1,
@@ -53,37 +53,37 @@ h3,
 h4,
 h5,
 h6 {
-  font-size: inherit;
-  font-weight: inherit;
+	font-size: inherit;
+	font-weight: inherit;
 }
 
 hr {
-  border: 0;
+	border: 0;
 }
 
 ol,
 ul {
-  padding: 0;
+	padding: 0;
 }
 
 li {
-  // https://standard.shiftbrain.com/blog/reset-and-restore-list-item-marker
-  list-style-type: none;
+	// https://standard.shiftbrain.com/blog/reset-and-restore-list-item-marker
+	list-style-type: none;
 }
 
 a {
-  color: currentcolor;
-  text-decoration: none;
+	color: currentcolor;
+	text-decoration: none;
 }
 
 u,
 ins {
-  text-decoration: none;
+	text-decoration: none;
 }
 
 strong,
 b {
-  font-weight: inherit;
+	font-weight: inherit;
 }
 
 i,
@@ -92,27 +92,27 @@ em,
 var,
 address,
 dfn {
-  font-style: inherit;
+	font-style: inherit;
 }
 
 code,
 kbd,
 samp {
-  font-size: inherit;
+	font-size: inherit;
 }
 
 mark {
-  color: currentcolor;
-  background-color: transparent;
+	color: currentcolor;
+	background-color: transparent;
 }
 
 small {
-  font-size: inherit;
+	font-size: inherit;
 }
 
 s,
 del {
-  text-decoration: none;
+	text-decoration: none;
 }
 
 img,
@@ -123,77 +123,77 @@ audio,
 iframe,
 embed,
 object {
-  display: block;
-  max-width: 100%;
+	display: block;
+	max-width: 100%;
 }
 
 img,
 svg,
 video,
 canvas {
-  height: auto;
+	height: auto;
 }
 
 audio {
-  width: 100%;
+	width: 100%;
 }
 
 svg {
-  fill: currentcolor;
+	fill: currentcolor;
 }
 
 table {
-  border-color: currentcolor;
-  border-spacing: 0;
-  border-collapse: collapse;
+	border-color: currentcolor;
+	border-spacing: 0;
+	border-collapse: collapse;
 }
 
 td,
 th {
-  padding: 0;
+	padding: 0;
 }
 
 th {
-  font-weight: inherit;
-  text-align: inherit;
+	font-weight: inherit;
+	text-align: inherit;
 }
 
 input,
 textarea,
 select,
 button {
-  padding: 0;
-  font: inherit;
-  letter-spacing: inherit;
-  color: currentcolor;
-  background-color: transparent;
-  border: 0;
+	padding: 0;
+	font: inherit;
+	letter-spacing: inherit;
+	color: currentcolor;
+	background-color: transparent;
+	border: 0;
 }
 
 input[type="search"] {
-  -webkit-appearance: none;
+	-webkit-appearance: none;
 }
 
 button:not(:disabled):not([aria-disabled="true"]) {
-  cursor: pointer;
+	cursor: pointer;
 }
 
 select {
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  border-radius: 0;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	border-radius: 0;
 }
 
 textarea {
-  resize: vertical;
+	resize: vertical;
 }
 
 fieldset {
-  margin: 0;
-  padding: 0;
-  border: 0;
+	margin: 0;
+	padding: 0;
+	border: 0;
 }
 
 [hidden][hidden] {
-  display: none !important;
+	display: none !important;
 }

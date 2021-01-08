@@ -8,8 +8,8 @@ plugin_dir="$root_dir/plugins"
 acf_plugin_dir="$plugin_dir/advanced-custom-fields-pro"
 
 if [ -e "$acf_plugin_dir" ]; then
-  echo "Advanced Custom Fields PRO is already installed"
-  exit 0
+	echo "Advanced Custom Fields PRO is already installed"
+	exit 0
 fi
 
 acf_zip_file="$root_dir/advanced-custom-fields-pro.zip"
