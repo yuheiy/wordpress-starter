@@ -90,7 +90,7 @@ module.exports = async (_env, { mode }) => {
 			],
 		},
 		resolve: {
-			extensions: [".js", ".ts"],
+			extensions: [".ts", ".mjs", ".js"],
 		},
 		devtool: isDev && "cheap-module-eval-source-map",
 		optimization: {
