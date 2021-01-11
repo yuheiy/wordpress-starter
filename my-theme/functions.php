@@ -4,6 +4,14 @@ declare(strict_types=1);
 
 Timber::$dirname = "templates";
 
+// remove unnecessary outputs
+add_action(
+	"wp_enqueue_scripts",
+	function () {
+		wp_dequeue_style("wp-block-library");
+	},
+	100
+);
 remove_action("wp_head", "feed_links_extra", 3);
 remove_action("wp_head", "rsd_link");
 remove_action("wp_head", "wlwmanifest_link");
