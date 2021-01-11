@@ -64,10 +64,6 @@ add_action("wp_head", function (): void {
 				esc_attr($description)
 			),
 			sprintf(
-				'<meta name="twitter:card" content="%s">',
-				esc_attr($twitterCard)
-			),
-			sprintf(
 				'<meta property="og:title" content="%s">',
 				esc_attr($title)
 			),
@@ -85,6 +81,10 @@ add_action("wp_head", function (): void {
 			sprintf(
 				'<meta property="og:locale" content="%s">',
 				esc_attr($locale)
+			),
+			sprintf(
+				'<meta name="twitter:card" content="%s">',
+				esc_attr($twitterCard)
 			),
 		]
 		as $html
