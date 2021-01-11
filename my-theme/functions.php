@@ -14,15 +14,19 @@ remove_action("wp_head", "wp_shortlink_wp_head", 10, 0);
 
 add_action("after_setup_theme", function (): void {
 	add_theme_support("title-tag");
+
 	add_theme_support("html5", [
-		"search-form",
+		"navigation-widgets",
 		"comment-form",
 		"comment-list",
+		"search-form",
 		"gallery",
 		"caption",
 		"style",
 		"script",
 	]);
+
+	add_theme_support("responsive-embeds");
 });
 
 add_filter("timber/context", function (array $context): array {
