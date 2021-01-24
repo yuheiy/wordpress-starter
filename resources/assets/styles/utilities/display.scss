@@ -9,7 +9,7 @@
  * <div class="{display}@{breakpoint}"></div>
  */
 
-@use "../core" as *;
+@use "../abstracts" as *;
 
 $display-values: (
 	block: block,

@@ -158,8 +158,8 @@ http://localhost:8888/wp-admin/
 │       ├── styles/
 │       │   ├── utilities/
 │       │   │   └── my-utility.scss
-│       │   ├── base.scss
-│       │   └── core.scss
+│       │   ├── abstracts.scss
+│       │   └── base.scss
 │       ├── favicon.ico
 │       ├── main.scss
 │       ├── main.scss.hbs
