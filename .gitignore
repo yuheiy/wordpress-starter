@@ -118,6 +118,5 @@ dist
 # Project specific output
 /my-theme/assets/
 /plugins/advanced-custom-fields-pro/
-/resources/assets/analyze.html
 /resources/assets/main.scss
 /resources/assets/controllers/index.ts

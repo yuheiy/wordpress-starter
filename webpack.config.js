@@ -6,7 +6,6 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TerserJSPlugin = require("terser-webpack-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const { WebpackManifestPlugin } = require("webpack-manifest-plugin");
-const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 const detectPort = require("detect-port");
 const address = require("address");
 
@@ -14,8 +13,8 @@ const wordpressPort = 8888;
 const wordpressLocalHost = `localhost:${wordpressPort}`;
 const wordpressLocalOrigin = `http://${wordpressLocalHost}`;
 
-module.exports = async (_env, { mode }) => {
-	const isDev = mode !== "production";
+module.exports = async (env) => {
+	const isDev = !env.WEBPACK_BUILD;
 	const webpackPort = isDev && (await detectPort(3000));
 	const webpackNetworkHost = webpackPort && `${address.ip()}:${webpackPort}`;
 	const webpackNetworkOrigin = webpackPort && `http://${webpackNetworkHost}`;
@@ -104,17 +103,6 @@ module.exports = async (_env, { mode }) => {
 			!isDev &&
 				new MiniCssExtractPlugin({
 					filename: "[name].[contenthash:8].css",
-				}),
-			process.env.ANALYZE === "true" &&
-				!isDev &&
-				new BundleAnalyzerPlugin({
-					analyzerMode: "static",
-					reportFilename: path.join(
-						__dirname,
-						"resources",
-						"assets",
-						"analyze.html"
-					),
 				}),
 		].filter(Boolean),
 		devServer: {
