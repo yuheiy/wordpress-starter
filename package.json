@@ -3,7 +3,7 @@
 		"clean": "rimraf my-theme/assets",
 		"drygen": "drygen",
 		"start": "npm-run-all clean drygen --parallel start:*",
-		"start:webpack": "webpack serve",
+		"start:webpack": "webpack serve --mode development",
 		"start:drygen": "drygen --watch",
 		"build": "npm-run-all clean drygen build:webpack",
 		"build:webpack": "webpack --mode production",
