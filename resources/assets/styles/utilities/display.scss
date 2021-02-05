@@ -5,8 +5,8 @@
  *
  * Display variants:
  *
- * <div class="{display}"></div>
- * <div class="{display}@{breakpoint}"></div>
+ * <div class="{value}"></div>
+ * <div class="{value}@{breakpoint}"></div>
  */
 
 @use "../abstracts" as *;
@@ -23,7 +23,9 @@ $display-values: (
 
 	@include breakpoint($breakpoint-key) {
 		@each $name, $value in $display-values {
-			.#{$name}#{$breakpoint-suffix} {
+			$base: $name;
+
+			.#{$base}#{$breakpoint-suffix} {
 				display: $value;
 			}
 		}
