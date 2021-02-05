@@ -15,7 +15,7 @@
 		{{ function('wp_body_open') }}
 
 		<div data-header-modal-target="outside">
-			{% include 'partial/header.twig' %}
+			{% include 'components/header.twig' %}
 
 			{% block before_main %}{% endblock %}
 			<main>
@@ -23,10 +23,10 @@
 			</main>
 			{% block after_main %}{% endblock %}
 
-			{% include 'partial/footer.twig' %}
+			{% include 'components/footer.twig' %}
 		</div>
 
-		{% include 'partial/header-modal.twig' %}
+		{% include 'components/header-modal.twig' %}
 
 		{{ function('wp_footer') }}
 	</body>

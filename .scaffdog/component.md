@@ -6,7 +6,7 @@ questions:
     name: Please enter component name.
 ---
 
-# `my-theme/templates/partial/{{ inputs.name | kebab }}.twig`
+# `my-theme/templates/components/{{ inputs.name | kebab }}.twig`
 
 ```twig
 <div class="{{ inputs.name | kebab }}"></div>
