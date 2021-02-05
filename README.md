@@ -152,9 +152,9 @@ http://localhost:8888/wp-admin/
 │       ├── components/
 │       │   └── my-component.scss
 │       ├── controllers/
-│       │   ├── my-controller.ts
-│       │   ├── index.ts
-│       │   └── index.ts.hbs
+│       │   ├── my-controller.js
+│       │   ├── index.js
+│       │   └── index.js.hbs
 │       ├── styles/
 │       │   ├── utilities/
 │       │   │   └── my-utility.scss
@@ -163,7 +163,7 @@ http://localhost:8888/wp-admin/
 │       ├── favicon.ico
 │       ├── main.scss
 │       ├── main.scss.hbs
-│       ├── main.ts
+│       ├── main.js
 │       └── ogp.png
 ├── scripts/
 │   ├── snapshot/
@@ -200,7 +200,7 @@ Twigテンプレートを配置します。
 
 ### `resources/assets`ディレクトリ
 
-webpackのビルド対象にするソースファイルを配置します。画像ファイルなどもこのディレクトリに含めることで、PHPファイルやTypeScriptファイルからフィンガープリント付きのパスを読み込めるようになります。読み込み方法については[Cache Busting](#cache-busting)を参照してください。
+webpackのビルド対象にするソースファイルを配置します。画像ファイルなどもこのディレクトリに含めることで、PHPファイルやJavaScriptファイルからフィンガープリント付きのパスを読み込めるようになります。読み込み方法については[Cache Busting](#cache-busting)を参照してください。
 
 ### `resources/assets/components`ディレクトリ
 
@@ -213,8 +213,8 @@ webpackのビルド対象にするソースファイルを配置します。画�
 
 Stimulusコントローラーおよびそれに関連するファイルを配置します。Stimulusコントローラー以外のファイルは、コントローラーと同名のディレクトリを作成の上でその中に配置します。
 
-- `resources/assets/controllers/header-modal.ts`
-- `resources/assets/controllers/header-modal/sub-module.ts`
+- `resources/assets/controllers/header-modal.js`
+- `resources/assets/controllers/header-modal/sub-module.js`
 
 ### `.wp-env.json`
 
@@ -246,10 +246,10 @@ Sass:
 }
 ```
 
-TypeScript:
+JavaScript:
 
-```typescript
-// resources/assets/controllers/header.ts
+```javascript
+// resources/assets/controllers/header.js
 
 import background from "../components/header/background.svg";
 

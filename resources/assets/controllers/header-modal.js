@@ -1,17 +1,11 @@
 import afterFrame from "afterframe";
 import { Controller } from "stimulus";
-import invariant from "tiny-invariant";
 
 const firstFrame = new Promise((resolve) => afterFrame(resolve));
 
 export default class extends Controller {
 	static targets = ["outside", "root", "firstFocus"];
 	static classes = ["ready"];
-	readonly outsideTarget!: HTMLElement;
-	readonly rootTarget!: HTMLElement;
-	readonly firstFocusTarget!: HTMLElement;
-	readonly readyClass!: string;
-	lastFocus: Element | null = null;
 
 	connect() {
 		this.setReady();
@@ -41,9 +35,7 @@ export default class extends Controller {
 		unlockBodyScroll();
 	}
 
-	closeIfEscapeKeyIsPressed(event: unknown) {
-		invariant(event instanceof KeyboardEvent);
-
+	closeIfEscapeKeyIsPressed(event) {
 		if (!this.isOpen) {
 			return;
 		}
@@ -67,7 +59,6 @@ export default class extends Controller {
 	deactivate() {
 		this.outsideTarget.inert = false;
 		this.rootTarget.inert = true;
-		invariant(this.lastFocus instanceof HTMLElement);
 		this.lastFocus.focus();
 		this.lastFocus = null;
 	}

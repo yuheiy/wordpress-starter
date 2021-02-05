@@ -4,4 +4,4 @@ my-theme/acf-json
 my-theme/assets
 plugins/advanced-custom-fields-pro
 resources/assets/main.scss
-resources/assets/controllers/index.ts
+resources/assets/controllers/index.js

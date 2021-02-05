@@ -21,7 +21,7 @@ module.exports = async (env) => {
 
 	return {
 		context: path.join(__dirname, "resources", "assets"),
-		entry: "./main.ts",
+		entry: "./main.js",
 		output: {
 			path: path.join(__dirname, "my-theme", "assets"),
 			filename: isDev ? "[name].js" : "[name].[contenthash:8].js",
@@ -33,15 +33,22 @@ module.exports = async (env) => {
 		module: {
 			rules: [
 				{
-					test: /\.ts$/,
-					use: [
-						{
-							loader: "ts-loader",
-							options: {
-								transpileOnly: true,
-							},
+					test: /\.m?js$/,
+					include: path.join(__dirname, "resources", "assets"),
+					use: {
+						loader: "babel-loader",
+						options: {
+							plugins: [
+								[
+									"@babel/plugin-proposal-class-properties",
+									{
+										loose: true,
+									},
+								],
+							],
+							cacheDirectory: true,
 						},
-					],
+					},
 				},
 				{
 					test: /\.scss$/,
@@ -74,7 +81,7 @@ module.exports = async (env) => {
 					],
 				},
 				{
-					exclude: [/\.(ts|m?js)$/, /\.json$/, /\.scss$/],
+					exclude: [/\.m?js$/, /\.json$/, /\.scss$/],
 					use: [
 						{
 							loader: "file-loader",
@@ -89,7 +96,7 @@ module.exports = async (env) => {
 			],
 		},
 		resolve: {
-			extensions: [".ts", ".mjs", ".js"],
+			extensions: [".mjs", ".js"],
 		},
 		devtool: isDev && "cheap-module-eval-source-map",
 		optimization: {
