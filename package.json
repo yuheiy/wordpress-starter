@@ -3,10 +3,10 @@
 		"clean": "rimraf my-theme/assets",
 		"drygen": "drygen",
 		"start": "npm-run-all clean drygen --parallel start:*",
-		"start:webpack": "webpack serve --mode development",
+		"start:webpack": "webpack serve",
 		"start:drygen": "drygen --watch",
 		"build": "npm-run-all clean drygen build:webpack",
-		"build:webpack": "webpack --mode production",
+		"build:webpack": "webpack",
 		"format": "prettier --write .",
 		"test": "jest",
 		"//postinstall": "bash scripts/install-acf-pro.sh"

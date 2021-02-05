@@ -20,6 +20,7 @@ module.exports = async (env) => {
 	const webpackNetworkOrigin = webpackPort && `http://${webpackNetworkHost}`;
 
 	return {
+		mode: isDev ? "development" : "production",
 		context: path.join(__dirname, "resources", "assets"),
 		entry: "./main.js",
 		output: {
