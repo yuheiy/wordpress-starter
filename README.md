@@ -267,15 +267,13 @@ echo $manifest['components/header/background.svg'];
 
 ## テンプレートファイルの作成
 
-コードジェネレータを使ってソースファイルのテンプレートを生成できます。次のようなコマンドを実行すると対応するファイルが出力されます。
+次のコマンドを実行すると、コードジェネレータを使ってソースファイルのテンプレートを生成できます。
 
 ```sh
-npx plop ct my-component
+npx scaffdog generate
 ```
 
-```sh
-npx plop cr my-controller
-```
+テンプレートは`.scaffdog`ディレクトリに配置されています。
 
 ## 本番用ビルド
 
