@@ -14,8 +14,8 @@
 
 // Lengths
 
-$viewport-width-narrow: rem(375);
-$viewport-width-wide: rem(1440);
+$viewport-width-at-narrow: rem(375);
+$viewport-width-at-wide: rem(1440);
 
 // https://css-tricks.com/linearly-scale-font-size-with-css-clamp-based-on-the-viewport/
 @function fluid-length($at-narrow, $at-wide) {
@@ -32,8 +32,8 @@ $viewport-width-wide: rem(1440);
 	}
 
 	$slope: ($at-wide - $at-narrow) /
-		($viewport-width-wide - $viewport-width-narrow);
-	$intersection: ($viewport-width-narrow * -1) * $slope + $at-narrow;
+		($viewport-width-at-wide - $viewport-width-at-narrow);
+	$intersection: ($viewport-width-at-narrow * -1) * $slope + $at-narrow;
 	$caller: if($at-narrow < $at-wide, min, max);
 
 	@return string.unquote(
@@ -41,7 +41,7 @@ $viewport-width-wide: rem(1440);
 	);
 }
 
-// Media Queries
+// Media queries
 
 // Use em units to avoid px-zooming bugs.
 // https://zellwk.com/blog/media-query-units/
@@ -53,12 +53,12 @@ $mq-breakpoints: (
 	xl: em(1680),
 );
 
-@mixin breakpoint($key, $until: false) {
-	@if not map.has-key($mq-breakpoints, $key) {
-		@error "`#{$key}` does not exist in `$mq-breakpoints`";
+@mixin breakpoint($name, $until: false) {
+	@if not map.has-key($mq-breakpoints, $name) {
+		@error "`#{$name}` does not exist in `$mq-breakpoints`";
 	}
 
-	$breakpoint: map.get($mq-breakpoints, $key);
+	$breakpoint: map.get($mq-breakpoints, $name);
 
 	@if $breakpoint {
 		@if $until {
