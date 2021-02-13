@@ -150,19 +150,22 @@ http://localhost:8888/wp-admin/
 ├── resources/
 │   └── assets/
 │       ├── components/
+│       │   ├── index.scss
+│       │   ├── index.scss.hbs
 │       │   └── my-component.scss
 │       ├── controllers/
-│       │   ├── my-controller.js
 │       │   ├── index.js
-│       │   └── index.js.hbs
+│       │   ├── index.js.hbs
+│       │   └── my-controller.js
 │       ├── styles/
 │       │   ├── utilities/
+│       │   │   ├── index.scss
+│       │   │   ├── index.scss.hbs
 │       │   │   └── my-utility.scss
 │       │   ├── abstracts.scss
 │       │   └── base.scss
 │       ├── favicon.ico
 │       ├── main.scss
-│       ├── main.scss.hbs
 │       ├── main.js
 │       └── ogp.png
 ├── scripts/

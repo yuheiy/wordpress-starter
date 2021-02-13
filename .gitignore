@@ -118,5 +118,6 @@ dist
 # Project specific output
 /my-theme/assets/
 /plugins/advanced-custom-fields-pro/
-/resources/assets/main.scss
+/resources/assets/components/index.scss
+/resources/assets/styles/utilities/index.scss
 /resources/assets/controllers/index.js
