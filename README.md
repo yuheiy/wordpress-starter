@@ -1,6 +1,6 @@
 # boilerplate-wordpress
 
-WordPressテーマ構築のための開発環境です。[wp-env](https://ja.wordpress.org/team/handbook/block-editor/packages/packages-env/)と[webpack-dev-server](https://webpack.js.org/configuration/dev-server/)によるローカル開発環境が組み込まれています。[Timber](https://www.upstatement.com/timber/)の採用によって[Twig](https://twig.symfony.com/)でのテンプレートの記述ができるようになっています。
+WordPressテーマ構築のための開発環境です。[wp-env](https://ja.wordpress.org/team/handbook/block-editor/packages/packages-env/)と[webpack-dev-server](https://webpack.js.org/configuration/dev-server/)によるローカル開発環境が組み込まれています。[Timber](https://www.upstatement.com/timber/)の採用によって[Twig](https://twig.symfony.com/)を使ったテンプレートの記述ができるようになっています。
 
 ## 導入
 
@@ -89,7 +89,7 @@ bash scripts/wp-export.sh
 
 ### データベースおよびメディアファイルのインポート
 
-[データベースおよびメディアファイルのエクスポート](#データベースおよびメディアファイルのエクスポート)が実行されて`scripts/snapshot`ディレクトリに前回の状態が保存されていれば、それをもとにしてデータベースとメディアファイルを復元できます。
+`scripts/snapshot`ディレクトリに前回の状態が保存されていれば、それを基としてデータベースとメディアファイルを復元できます。あらかじめ[データベースおよびメディアファイルのエクスポート](#データベースおよびメディアファイルのエクスポート)が実行されている必要があります。
 
 ```sh
 wp-env start
@@ -110,7 +110,7 @@ wp-env start
 wp-env stop
 ```
 
-データベースの操作、環境の再構築などについては[@wordpress/envの公式ドキュメント](https://ja.wordpress.org/team/handbook/block-editor/packages/packages-env/)を参照してください。
+データベースの操作や環境の再構築などについては[@wordpress/envの公式ドキュメント](https://ja.wordpress.org/team/handbook/block-editor/packages/packages-env/)を参照してください。
 
 次にフロントエンドの開発用サーバーを起動します。URLはターミナルに出力されます。
 
@@ -183,11 +183,11 @@ http://localhost:8888/wp-admin/
 
 ### `my-theme`ディレクトリ
 
-WordPressのテーマディレクトリです。ビルドされたファイルもこのディレクトリに出力されます。
+WordPressのテーマディレクトリです。ビルドされたファイルも同ディレクトリに出力されます。
 
 ### `my-theme/acf-json`ディレクトリ
 
-このディレクトリが存在しているとACF PROの[Synchronized JSON](https://www.advancedcustomfields.com/resources/synchronized-json/)が有効化され、ダッシュボードから入力された内容がこのディレクトリ内のJSONファイルとして自動的に同期されるようになります。
+このディレクトリが存在しているとACF PROの[Synchronized JSON](https://www.advancedcustomfields.com/resources/synchronized-json/)が有効化されます。それによって、ダッシュボードから入力された内容がこのディレクトリ内のJSONファイルとして自動的に同期されるようになります。
 
 ### `my-theme/assets`ディレクトリ
 
@@ -203,7 +203,7 @@ Twigテンプレートを配置します。
 
 ### `resources/assets`ディレクトリ
 
-webpackのビルド対象にするソースファイルを配置します。画像ファイルなどもこのディレクトリに含めることで、PHPファイルやJavaScriptファイルからフィンガープリント付きのパスを読み込めるようになります。読み込み方法については[Cache Busting](#cache-busting)を参照してください。
+webpackのビルド対象にするソースファイルを配置します。画像ファイルなども同ディレクトリに含めることで、PHPファイルやJavaScriptファイルからフィンガープリント付きのパスを取得できるようになります。読み込み方法については[Cache Busting](#cache-busting)を参照してください。
 
 ### `resources/assets/components`ディレクトリ
 
@@ -268,7 +268,7 @@ $manifest = webpackManifest();
 echo $manifest['components/header/background.svg'];
 ```
 
-## テンプレートファイルの作成
+## テンプレートファイルの生成
 
 次のコマンドを実行すると、コードジェネレータを使ってソースファイルのテンプレートを生成できます。
 
@@ -288,4 +288,4 @@ npm run build
 
 ## デプロイ
 
-[本番用ビルド](#本番用ビルド)を実行した上で、`my-theme`ディレクトリを`wp-content/themes`ディレクトリ内にアップロードしてください。
+[本番用ビルド](#本番用ビルド)を実行した上で、`my-theme`ディレクトリを`wp-content/themes`ディレクトリ直下にアップロードしてください。
