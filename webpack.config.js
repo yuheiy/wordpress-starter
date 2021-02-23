@@ -39,14 +39,11 @@ module.exports = async (env) => {
 					use: {
 						loader: "babel-loader",
 						options: {
-							plugins: [
-								[
-									"@babel/plugin-proposal-class-properties",
-									{
-										loose: true,
-									},
-								],
-							],
+							assumptions: {
+								setPublicClassFields: true,
+								privateFieldsAsProperties: true,
+							},
+							plugins: ["@babel/plugin-proposal-class-properties"],
 							cacheDirectory: true,
 						},
 					},

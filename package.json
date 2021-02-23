@@ -19,8 +19,8 @@
 		"wicg-inert": "^3.1.1"
 	},
 	"devDependencies": {
-		"@babel/core": "^7.12.17",
-		"@babel/plugin-proposal-class-properties": "^7.12.13",
+		"@babel/core": "^7.13.1",
+		"@babel/plugin-proposal-class-properties": "^7.13.0",
 		"@prettier/plugin-php": "^0.16.1",
 		"address": "^1.1.2",
 		"autoprefixer": "^10.2.4",
