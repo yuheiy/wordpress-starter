@@ -9,6 +9,7 @@
 		"build:webpack": "webpack",
 		"format": "prettier --write .",
 		"test": "jest",
+		"prepare": "git config --local core.hooksPath .githook || echo \"Can not set git hooks\"",
 		"//postinstall": "bash scripts/install-acf-pro.sh"
 	},
 	"dependencies": {
@@ -31,7 +32,6 @@
 		"drygen": "0.0.2",
 		"fibers": "^5.0.0",
 		"file-loader": "^6.2.0",
-		"husky": "^4.3.8",
 		"jest": "^26.6.3",
 		"mini-css-extract-plugin": "^1.3.8",
 		"npm-run-all": "^4.1.5",
@@ -63,10 +63,5 @@
 		"not dead",
 		"not ie 11",
 		"not ie_mob 11"
-	],
-	"husky": {
-		"hooks": {
-			"pre-commit": "pretty-quick --staged"
-		}
-	}
+	]
 }
