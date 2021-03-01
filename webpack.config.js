@@ -14,7 +14,7 @@ const wordpressLocalHost = `localhost:${wordpressPort}`;
 const wordpressLocalOrigin = `http://${wordpressLocalHost}`;
 
 module.exports = async (env) => {
-	const isDev = !env.WEBPACK_BUILD;
+	const isDev = Boolean(env.WEBPACK_SERVE);
 	const webpackPort = isDev && (await detectPort(3000));
 	const webpackNetworkHost = webpackPort && `${address.ip()}:${webpackPort}`;
 	const webpackNetworkOrigin = webpackPort && `http://${webpackNetworkHost}`;
