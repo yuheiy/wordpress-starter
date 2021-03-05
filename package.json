@@ -1,6 +1,6 @@
 {
 	"scripts": {
-		"clean": "rimraf my-theme/assets",
+		"clean": "rimraf my-theme/assets/",
 		"drygen": "drygen",
 		"start": "npm-run-all clean drygen --parallel start:*",
 		"start:webpack": "webpack serve",
