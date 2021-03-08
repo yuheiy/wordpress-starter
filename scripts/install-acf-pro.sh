@@ -3,6 +3,8 @@
 set -eu
 set -o pipefail
 
+ACF_KEY="SET_YOUR_KEY"
+
 root_dir="$(dirname "$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null && pwd)")"
 plugin_dir="$root_dir/plugins"
 acf_plugin_dir="$plugin_dir/advanced-custom-fields-pro"
@@ -15,6 +17,6 @@ fi
 acf_zip_file="$root_dir/advanced-custom-fields-pro.zip"
 
 rm -rf "$acf_plugin_dir"
-curl "https://connect.advancedcustomfields.com/v2/plugins/download?p=pro&k=SET_YOUR_KEY" > "$acf_zip_file"
+curl "https://connect.advancedcustomfields.com/v2/plugins/download?p=pro&k=$ACF_KEY" > "$acf_zip_file"
 unzip "$acf_zip_file" -d "$plugin_dir"
 rm "$acf_zip_file"
