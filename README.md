@@ -33,8 +33,8 @@ WordPressテーマ構築のための開発環境です。[wp-env](https://ja.wor
 `scripts/install-acf-pro.sh`:
 
 ```diff
--curl "https://connect.advancedcustomfields.com/v2/plugins/download?p=pro&k=SET_YOUR_KEY" > "$root_dir/advanced-custom-fields-pro.zip"
-+curl "https://connect.advancedcustomfields.com/v2/plugins/download?p=pro&k=XXXXXXXX" > "$root_dir/advanced-custom-fields-pro.zip"
+-ACF_KEY="SET_YOUR_KEY"
++ACF_KEY="XXXXXXXX"
 ```
 
 `package.json`:
