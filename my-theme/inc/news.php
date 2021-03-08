@@ -18,7 +18,7 @@ add_action("init", function (): void {
 			"label" => "カテゴリー",
 			"rewrite" => ["slug" => "news/category"],
 			"show_in_rest" => true,
-			"hierarchical" => true
+			"hierarchical" => true,
 		]
 	);
 
