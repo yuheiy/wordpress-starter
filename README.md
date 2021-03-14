@@ -243,7 +243,7 @@ Sass:
 ```scss
 // resources/assets/components/header.scss
 
-.header {
+.c-header {
   background-image: url("./header/background.svg");
   // -> /wp-content/themes/my-theme/assets/components/header/background.[contenthash].svg
 }

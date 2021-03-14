@@ -1,6 +1,6 @@
 @use "../styles/abstracts" as *;
 
-.header-modal {
+.c-header-modal {
 	position: fixed;
 	top: 0;
 	right: 0;
@@ -15,42 +15,42 @@
 }
 
 // ページ読み込み時のチラつきを防止
-body:not(.header-modal-ready) .header-modal {
+body:not(.header-modal-ready) .c-header-modal {
 	display: none;
 }
 
-.header-modal[inert] {
+.c-header-modal[inert] {
 	opacity: 0;
 }
 
-.header-modal__header {
+.c-header-modal__header {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 }
 
-.header-modal__title-link {
+.c-header-modal__title-link {
 	padding-top: rem(8);
 	padding-bottom: rem(8);
 	font-weight: bold;
 }
 
-.header-modal__close-button {
+.c-header-modal__close-button {
 	margin-left: rem(16);
 	padding: rem(4) rem(8);
 	border: 1px solid;
 	border-radius: rem(4);
 }
 
-.header-modal__nav-list {
+.c-header-modal__nav-list {
 	margin-top: rem(32);
 }
 
-.header-modal__nav-item + .header-modal__nav-item {
+.c-header-modal__nav-item + .c-header-modal__nav-item {
 	margin-top: rem(8);
 }
 
-.header-modal__nav-link {
+.c-header-modal__nav-link {
 	display: block;
 	width: fit-content;
 	padding-top: rem(8);

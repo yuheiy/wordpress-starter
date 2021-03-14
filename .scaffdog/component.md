@@ -9,7 +9,7 @@ questions:
 # `my-theme/templates/components/{{ inputs.name | kebab }}.twig`
 
 ```twig
-<div class="{{ inputs.name | kebab }}"></div>
+<div class="c-{{ inputs.name | kebab }}"></div>
 
 ```
 
@@ -18,10 +18,10 @@ questions:
 ```scss
 @use "../styles/abstracts" as *;
 
-.{{ inputs.name | kebab }} {
+.c-{{ inputs.name | kebab }} {
 }
 
-.{{ inputs.name | kebab }}__ {
+.c-{{ inputs.name | kebab }}__ {
 }
 
 ```
