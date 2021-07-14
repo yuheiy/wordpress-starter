@@ -92,13 +92,7 @@ add_action("wp_head", function () {
 
 	$locale = get_locale();
 
-	if (is_home()) {
-		$url = home_url("/");
-	} elseif (is_singular()) {
-		$url = get_permalink();
-	} else {
-		$url = Timber\URLHelper::get_current_url();
-	}
+	$url = Timber\URLHelper::get_current_url();
 
 	$twitter_card = "summary_large_image";
 
