@@ -29,6 +29,14 @@ add_action("after_setup_theme", function () {
 	add_theme_support("customize-selective-refresh-widgets");
 });
 
+add_action(
+	"after_setup_theme",
+	function () {
+		$GLOBALS["content_width"] = 1280;
+	},
+	0
+);
+
 if (WP_DEBUG) {
 	add_action("wp_head", function () {
 		echo '<script type="module" src="http://localhost:3000/@vite/client"></script>' .
