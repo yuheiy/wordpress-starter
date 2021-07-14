@@ -8,7 +8,7 @@ remove_action("wp_print_styles", "print_emoji_styles");
 add_filter("emoji_svg_url", "__return_false");
 
 add_action("after_setup_theme", function () {
-	load_theme_textdomain("my-theme", get_theme_file_uri("languages"));
+	load_theme_textdomain("my-theme", get_theme_file_path("languages"));
 
 	add_theme_support("automatic-feed-links");
 
