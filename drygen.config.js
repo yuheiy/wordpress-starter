@@ -5,7 +5,10 @@ module.exports = {
 	rules: [
 		{
 			name: "scss/components",
-			dependencies: ["theme/assets/components/*/*.scss"],
+			dependencies: [
+				"theme/assets/components/**/*.scss",
+				"!theme/assets/components/components.scss",
+			],
 			outputs: [
 				{
 					path: "theme/assets/components/components.scss",
@@ -14,22 +17,19 @@ module.exports = {
 			],
 		},
 		...["settings", "tools", "blocks", "objects", "scopes", "themes"].map(
-			(type) => {
-				const outputPath = `theme/assets/styles/${type}.scss`;
-				return {
-					name: `scss/${type}`,
-					dependencies: [
-						`theme/assets/styles/${type}/**/*.scss`,
-						`!${outputPath}`,
-					],
-					outputs: [
-						{
-							path: outputPath,
-							template: "theme/assets/styles/import.scss.ejs",
-						},
-					],
-				};
-			}
+			(type) => ({
+				name: `scss/${type}`,
+				dependencies: [
+					`theme/assets/styles/${type}/**/*.scss`,
+					`!theme/assets/styles/${type}.scss`,
+				],
+				outputs: [
+					{
+						path: `theme/assets/styles/${type}.scss`,
+						template: "theme/assets/styles/import.scss.ejs",
+					},
+				],
+			})
 		),
 	],
 };
