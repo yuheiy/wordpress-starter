@@ -137,16 +137,6 @@ add_action("wp_head", function () {
 		'<meta property="og:locale" content="%s">',
 		esc_attr($locale)
 	) . "\n";
-
-	echo sprintf(
-		'<link rel="icon" href="%s">',
-		get_theme_file_uri("assets/favicon.ico")
-	) . "\n";
-
-	echo sprintf(
-		'<link rel="apple-touch-icon" href="%s">',
-		get_theme_file_uri("assets/apple-touch-icon.png")
-	) . "\n";
 });
 
 add_action("timber/context", function ($context) {
