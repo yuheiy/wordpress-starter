@@ -4,7 +4,7 @@ add_action("init", function () {
 	register_post_type("feature", [
 		"label" => "特集",
 		"public" => true,
-		"supports" => ["title", "editor"],
+		"supports" => ["title", "editor", "thumbnail"],
 		"has_archive" => true,
 		"show_in_rest" => true,
 	]);
