@@ -1,0 +1,45 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+	<main>
+		<p>
+			<img src="{{ theme.link }}/assets/ogp.png" alt="" decoding="async" />
+		</p>
+
+		<h1>
+			Home
+		</h1>
+
+		<section>
+			<h2>
+				{{ feature_post_type.label }}
+			</h2>
+
+			<ol>
+				{% for post in feature_posts %}
+					<li><a href="{{ post.link }}">{{ post.title }}</a></li>
+				{% endfor %}
+			</ol>
+
+			<p>
+				<a href="{{ feature_post_type.archive_link }}">さらに表示</a>
+			</p>
+		</section>
+
+		<section>
+			<h2>
+				最新記事
+			</h2>
+
+			<ol>
+				{% for post in posts %}
+					<li><a href="{{ post.link }}">{{ post.title }}</a></li>
+				{% endfor %}
+			</ol>
+
+			<p>
+				<a href="{{ default_post_type.archive_link }}">さらに表示</a>
+			</p>
+		</section>
+	</main>
+{% endblock %}

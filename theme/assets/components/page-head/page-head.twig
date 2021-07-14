@@ -1,0 +1,10 @@
+<header class="c-page-head">
+	<p>
+		<a href="{{ site.link }}">{{ site.name }}</a>
+	</p>
+	<ul>
+		{% for item in menus.page_head %}
+			<li><a href="{{ item.link }}">{{ item.label }}</a></li>
+		{% endfor %}
+	</ul>
+</header>

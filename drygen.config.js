@@ -1,43 +1,29 @@
+/**
+ * @type {import("drygen").UserConfig}
+ */
 module.exports = {
 	rules: [
 		{
-			name: "sass-utilities",
-			dependencies: [
-				"resources/assets/styles/utilities/*.scss",
-				"!resources/assets/styles/utilities/index.scss",
-			],
+			name: "scss/components",
+			dependencies: ["theme/assets/components/*/*.scss"],
 			outputs: [
 				{
-					path: "resources/assets/styles/utilities/index.scss",
-					template: "resources/assets/styles/utilities/index.scss.hbs",
+					path: "theme/assets/components/components.scss",
+					template: "theme/assets/styles/import.scss.ejs",
 				},
 			],
 		},
-		{
-			name: "sass-components",
-			dependencies: [
-				"resources/assets/components/*.scss",
-				"!resources/assets/components/index.scss",
-			],
-			outputs: [
-				{
-					path: "resources/assets/components/index.scss",
-					template: "resources/assets/components/index.scss.hbs",
-				},
-			],
-		},
-		{
-			name: "stimulus-controllers",
-			dependencies: [
-				"resources/assets/controllers/*.js",
-				"!resources/assets/controllers/index.js",
-			],
-			outputs: [
-				{
-					path: "resources/assets/controllers/index.js",
-					template: "resources/assets/controllers/index.js.hbs",
-				},
-			],
-		},
+		...["settings", "tools", "blocks", "objects", "scopes", "themes"].map(
+			(type) => ({
+				name: `scss/${type}`,
+				dependencies: [`theme/assets/styles/${type}/*.scss`],
+				outputs: [
+					{
+						path: `theme/assets/styles/${type}.scss`,
+						template: "theme/assets/styles/import.scss.ejs",
+					},
+				],
+			})
+		),
 	],
 };

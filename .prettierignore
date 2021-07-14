@@ -1,8 +1,3 @@
-*.md
-*.hbs
-my-theme/acf-json
-my-theme/assets
-plugins/advanced-custom-fields-pro
-resources/assets/components/index.scss
-resources/assets/styles/utilities/index.scss
-resources/assets/controllers/index.js
+*.ejs
+theme/acf-json/
+theme/build/

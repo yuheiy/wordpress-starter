@@ -1,0 +1,10 @@
+<footer class="c-page-foot">
+	<p>
+		<a href="{{ site.link }}">{{ site.name }}</a>
+	</p>
+	<ul>
+		{% for item in menus.page_foot %}
+			<li><a href="{{ item.link }}">{{ item.label }}</a></li>
+		{% endfor %}
+	</ul>
+</footer>

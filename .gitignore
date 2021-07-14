@@ -5,6 +5,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
+.pnpm-debug.log*
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
@@ -71,6 +72,7 @@ web_modules/
 # dotenv environment variables file
 .env
 .env.test
+.env.production
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache
@@ -82,7 +84,7 @@ out
 
 # Nuxt.js build / generate output
 .nuxt
-dist
+# dist
 
 # Gatsby files
 .cache/
@@ -115,9 +117,12 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
-# Project specific output
-/my-theme/assets/
-/plugins/advanced-custom-fields-pro/
-/resources/assets/components/index.scss
-/resources/assets/styles/utilities/index.scss
-/resources/assets/controllers/index.js
+# Project specific outputs
+/theme/build/
+/theme/assets/components/components.scss
+/theme/assets/styles/settings.scss
+/theme/assets/styles/tools.scss
+/theme/assets/styles/blocks.scss
+/theme/assets/styles/objects.scss
+/theme/assets/styles/scopes.scss
+/theme/assets/styles/themes.scss
