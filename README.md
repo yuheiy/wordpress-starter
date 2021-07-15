@@ -12,6 +12,7 @@ WordPress テーマ構築のための開発環境です。[wp-env](https://ja.wo
 推奨開発環境:
 
 - [Visual Studio Code](https://code.visualstudio.com/)
+  - [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
   - [TWIG pack](https://marketplace.visualstudio.com/items?itemName=bajdzis.vscode-twig-pack)
 
 依存パッケージのインストール:
