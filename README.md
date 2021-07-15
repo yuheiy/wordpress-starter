@@ -17,7 +17,7 @@ WordPress テーマ構築のための開発環境です。[wp-env](https://ja.wo
 依存パッケージのインストール:
 
 ```sh
-$ npm install --global wp-env
+$ npm install --global @wordpress/env
 $ npm install
 ```
 
