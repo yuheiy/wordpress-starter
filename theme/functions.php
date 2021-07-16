@@ -134,12 +134,10 @@ add_action("wp_head", function () {
 });
 
 add_action("timber/context", function ($context) {
-	$default_post_type = new Timber\PostType("post");
-	extend_archive_link_to_timber_post_type($default_post_type);
+	$default_post_type = new MyPostType("post");
 	$context["default_post_type"] = $default_post_type;
 
-	$feature_post_type = new Timber\PostType("feature");
-	extend_archive_link_to_timber_post_type($feature_post_type);
+	$feature_post_type = new MyPostType("feature");
 	$context["feature_post_type"] = $feature_post_type;
 
 	$privacy_policy_post = Timber::get_post([
@@ -151,21 +149,21 @@ add_action("timber/context", function ($context) {
 		"page_head" => [
 			[
 				"label" => $default_post_type->label,
-				"link" => $default_post_type->archive_link,
+				"link" => $default_post_type->archive_link(),
 			],
 			[
 				"label" => $feature_post_type->label,
-				"link" => $feature_post_type->archive_link,
+				"link" => $feature_post_type->archive_link(),
 			],
 		],
 		"page_foot" => [
 			[
 				"label" => $default_post_type->label,
-				"link" => $default_post_type->archive_link,
+				"link" => $default_post_type->archive_link(),
 			],
 			[
 				"label" => $feature_post_type->label,
-				"link" => $feature_post_type->archive_link,
+				"link" => $feature_post_type->archive_link(),
 			],
 			[
 				"label" => $privacy_policy_post->title,
@@ -177,17 +175,20 @@ add_action("timber/context", function ($context) {
 	return $context;
 });
 
+class MyPostType extends Timber\PostType
+{
+	public function archive_link()
+	{
+		return get_post_type_archive_link($this->slug);
+	}
+}
+
 function vite_manifest()
 {
 	return json_decode(
 		file_get_contents(get_theme_file_path("build/manifest.json")),
 		true
 	);
-}
-
-function extend_archive_link_to_timber_post_type($post_type)
-{
-	$post_type->archive_link = get_post_type_archive_link($post_type->slug);
 }
 
 require get_theme_file_path("inc/feature.php");
