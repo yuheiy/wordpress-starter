@@ -134,9 +134,6 @@ add_action("wp_head", function () {
 });
 
 add_action("timber/context", function ($context) {
-	$default_post_type = new MyPostType("post");
-	$context["default_post_type"] = $default_post_type;
-
 	$feature_post_type = new MyPostType("feature");
 	$context["feature_post_type"] = $feature_post_type;
 
@@ -148,19 +145,11 @@ add_action("timber/context", function ($context) {
 	$context["menus"] = [
 		"page_head" => [
 			[
-				"label" => $default_post_type->label,
-				"link" => $default_post_type->archive_link(),
-			],
-			[
 				"label" => $feature_post_type->label,
 				"link" => $feature_post_type->archive_link(),
 			],
 		],
 		"page_foot" => [
-			[
-				"label" => $default_post_type->label,
-				"link" => $default_post_type->archive_link(),
-			],
 			[
 				"label" => $feature_post_type->label,
 				"link" => $feature_post_type->archive_link(),
