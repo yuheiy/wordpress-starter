@@ -129,22 +129,21 @@ add_action("timber/context", function ($context) {
 		"title" => "プライバシーポリシー",
 	]);
 
-	$context["menus"] = [
-		"page_head" => [
-			[
-				"label" => $feature_post_type->label,
-				"link" => $feature_post_type->archive_link(),
-			],
+	$context["page_head_menu"] = [
+		[
+			"label" => $feature_post_type->label,
+			"link" => $feature_post_type->archive_link(),
 		],
-		"page_foot" => [
-			[
-				"label" => $feature_post_type->label,
-				"link" => $feature_post_type->archive_link(),
-			],
-			[
-				"label" => $privacy_policy_post->title,
-				"link" => $privacy_policy_post->link,
-			],
+	];
+
+	$context["page_foot_menu"] = [
+		[
+			"label" => $feature_post_type->label,
+			"link" => $feature_post_type->archive_link(),
+		],
+		[
+			"label" => $privacy_policy_post->title,
+			"link" => $privacy_policy_post->link,
 		],
 	];
 
