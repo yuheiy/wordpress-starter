@@ -7,6 +7,10 @@ remove_action("wp_head", "print_emoji_detection_script", 7);
 remove_action("wp_print_styles", "print_emoji_styles");
 add_filter("emoji_svg_url", "__return_false");
 
+if (!isset($content_width)) {
+	$content_width = 1280;
+}
+
 add_action("after_setup_theme", function () {
 	load_theme_textdomain("my-theme", get_theme_file_path("languages"));
 
@@ -28,14 +32,6 @@ add_action("after_setup_theme", function () {
 
 	add_theme_support("customize-selective-refresh-widgets");
 });
-
-add_action(
-	"after_setup_theme",
-	function () {
-		$GLOBALS["content_width"] = 1280;
-	},
-	0
-);
 
 if (SCRIPT_DEBUG) {
 	add_action("wp_head", function () {
