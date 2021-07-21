@@ -2,11 +2,6 @@
 
 Timber::$dirname = ["templates", "assets"];
 
-// remove emoji outputs
-remove_action("wp_head", "print_emoji_detection_script", 7);
-remove_action("wp_print_styles", "print_emoji_styles");
-add_filter("emoji_svg_url", "__return_false");
-
 if (!isset($content_width)) {
 	$content_width = 1280;
 }
