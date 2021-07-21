@@ -35,28 +35,25 @@ add_action("after_setup_theme", function () {
 
 if (WP_DEBUG && SCRIPT_DEBUG) {
 	add_action("wp_head", function () {
-		echo '<script type="module" src="http://localhost:3000/@vite/client"></script>' .
-			"\n";
-		echo '<script type="module" src="http://localhost:3000/theme/assets/main.ts"></script>' .
-			"\n";
+		?>
+		<script type="module" src="http://localhost:3000/@vite/client"></script>
+		<script type="module" src="http://localhost:3000/theme/assets/main.ts"></script>
+		<?php
 	});
 } else {
 	add_action("wp_head", function () {
 		$manifest = vite_manifest();
 
-		foreach ($manifest["theme/assets/main.ts"]["css"] as $css_path) {
-			echo sprintf(
-				'<link rel="stylesheet" href="%s">',
-				get_theme_file_uri("build/" . $css_path)
-			) . "\n";
-		}
-
-		echo sprintf(
-			'<script type="module" src="%s"></script>',
-			get_theme_file_uri(
-				"build/" . $manifest["theme/assets/main.ts"]["file"]
-			)
-		) . "\n";
+		foreach ($manifest["theme/assets/main.ts"]["css"] as $css_path) { ?>
+			<link rel="stylesheet" href="<?= esc_attr(
+   	get_theme_file_uri("build/" . $css_path)
+   ) ?>">
+			<?php }
+		?>
+		<script type="module" src="<?= esc_attr(
+  	get_theme_file_uri("build/" . $manifest["theme/assets/main.ts"]["file"])
+  ) ?>"></script>
+		<?php
 	});
 }
 
@@ -82,42 +79,17 @@ add_action("wp_head", function () {
 	$url = Timber\URLHelper::get_current_url();
 
 	$twitter_card = "summary_large_image";
-
-	echo sprintf(
-		'<meta name="description" content="%s">',
-		esc_attr($description)
-	) . "\n";
-
-	echo sprintf(
-		'<meta name="twitter:card" content="%s">',
-		esc_attr($twitter_card)
-	) . "\n";
-
-	echo sprintf('<meta property="og:title" content="%s">', esc_attr($title)) .
-		"\n";
-
-	echo sprintf('<meta property="og:type" content="%s">', esc_attr($type)) .
-		"\n";
-
-	echo sprintf('<meta property="og:image" content="%s">', esc_url($image)) .
-		"\n";
-
-	echo sprintf('<meta property="og:url" content="%s">', esc_url($url)) . "\n";
-
-	echo sprintf(
-		'<meta property="og:description" content="%s">',
-		esc_attr($description)
-	) . "\n";
-
-	echo sprintf(
-		'<meta property="og:site_name" content="%s">',
-		esc_attr($site_name)
-	) . "\n";
-
-	echo sprintf(
-		'<meta property="og:locale" content="%s">',
-		esc_attr($locale)
-	) . "\n";
+	?>
+	<meta name="description" content="<?= esc_attr($description) ?>">
+	<meta name="twitter:card" content="<?= esc_attr($twitter_card) ?>">
+	<meta property="og:title" content="<?= esc_attr($title) ?>">
+	<meta property="og:type" content="<?= esc_attr($type) ?>">
+	<meta property="og:image" content="<?= esc_url($image) ?>">
+	<meta property="og:url" content="<?= esc_url($url) ?>">
+	<meta property="og:description" content="<?= esc_attr($description) ?>">
+	<meta property="og:site_name" content="<?= esc_attr($site_name) ?>">
+	<meta property="og:locale" content="<?= esc_attr($locale) ?>">
+	<?php
 });
 
 add_action("timber/context", function ($context) {
