@@ -65,14 +65,7 @@ if (WP_DEBUG) {
 }
 
 add_action("wp_head", function () {
-	if (is_singular()) {
-		$title = get_the_title();
-	} elseif (
-		($post_type = get_query_var("post_type")) &&
-		is_post_type_archive($post_type)
-	) {
-		$title = get_post_type_object($post_type)->label;
-	} else {
+	if (!($title = trim(wp_title("", false)))) {
 		$title = get_bloginfo("name");
 	}
 
