@@ -33,7 +33,7 @@ add_action("after_setup_theme", function () {
 	add_theme_support("customize-selective-refresh-widgets");
 });
 
-if (SCRIPT_DEBUG) {
+if (WP_DEBUG && SCRIPT_DEBUG) {
 	add_action("wp_head", function () {
 		echo '<script type="module" src="http://localhost:3000/@vite/client"></script>' .
 			"\n";
