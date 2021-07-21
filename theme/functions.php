@@ -37,7 +37,7 @@ add_action(
 	0
 );
 
-if (WP_DEBUG) {
+if (SCRIPT_DEBUG) {
 	add_action("wp_head", function () {
 		echo '<script type="module" src="http://localhost:3000/@vite/client"></script>' .
 			"\n";
