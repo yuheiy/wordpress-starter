@@ -28,27 +28,67 @@ add_action("after_setup_theme", function () {
 	add_theme_support("customize-selective-refresh-widgets");
 });
 
+add_filter(
+	"script_loader_tag",
+	function ($tag, $handle, $src) {
+		if (
+			in_array($handle, ["theme-vite-script", "theme-main-script"], true)
+		) {
+			$type_attr = " type='module'";
+			$tag = sprintf(
+				"<script%s src='%s' id='%s-js'></script>\n",
+				$type_attr,
+				$src,
+				esc_attr($handle)
+			);
+		}
+
+		return $tag;
+	},
+	10,
+	3
+);
+
 if (WP_DEBUG && SCRIPT_DEBUG) {
-	add_action("wp_head", function () {
-		?>
-		<script type="module" src="http://localhost:3000/@vite/client"></script>
-		<script type="module" src="http://localhost:3000/theme/assets/main.ts"></script>
-		<?php
+	add_action("wp_enqueue_scripts", function () {
+		wp_enqueue_script(
+			"theme-vite-script",
+			"http://localhost:3000/@vite/client",
+			[],
+			null
+		);
+
+		wp_enqueue_script(
+			"theme-main-script",
+			"http://localhost:3000/theme/assets/main.ts",
+			["theme-vite-script"],
+			null
+		);
 	});
 } else {
-	add_action("wp_head", function () {
+	add_action("wp_enqueue_scripts", function () {
 		$manifest = vite_manifest();
 
-		foreach ($manifest["theme/assets/main.ts"]["css"] as $css_path) { ?>
-			<link rel="stylesheet" href="<?= esc_attr(
-   	get_theme_file_uri("build/" . $css_path)
-   ) ?>">
-			<?php }
-		?>
-		<script type="module" src="<?= esc_attr(
-  	get_theme_file_uri("build/" . $manifest["theme/assets/main.ts"]["file"])
-  ) ?>"></script>
-		<?php
+		foreach (
+			$manifest["theme/assets/main.ts"]["css"]
+			as $key => $css_path
+		) {
+			wp_enqueue_style(
+				sprintf("theme-main-%s-style", $key),
+				get_theme_file_uri("build/" . $css_path),
+				[],
+				null
+			);
+		}
+
+		wp_enqueue_script(
+			"theme-main-script",
+			get_theme_file_uri(
+				"build/" . $manifest["theme/assets/main.ts"]["file"]
+			),
+			[],
+			null
+		);
 	});
 }
 
