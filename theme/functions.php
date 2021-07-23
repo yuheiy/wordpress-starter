@@ -49,7 +49,7 @@ add_filter(
 	3
 );
 
-if (WP_DEBUG && SCRIPT_DEBUG) {
+if (IS_DEVELOPMENT) {
 	add_action("wp_enqueue_scripts", function () {
 		wp_enqueue_script(
 			"theme-vite-script",
