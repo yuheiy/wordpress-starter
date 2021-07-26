@@ -7,7 +7,7 @@ if (!isset($content_width)) {
 }
 
 add_action("after_setup_theme", function () {
-	load_theme_textdomain("my-theme", get_theme_file_path("languages"));
+	load_theme_textdomain("theme", get_theme_file_path("languages"));
 
 	add_theme_support("automatic-feed-links");
 
