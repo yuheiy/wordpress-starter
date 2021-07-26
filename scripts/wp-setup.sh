@@ -21,15 +21,15 @@ wp-env run cli "wp option update timezone_string \"Asia/Tokyo\""
 # posts
 wp-env run cli "wp post update 3 --post_title=\"プライバシーポリシー\" --post_status=publish"
 
-docker cp "$fixtures_dir/post-content.txt" "$container_id:/var/www/html/post-content.txt"
+docker cp "$fixtures_dir/" "$container_id:/var/www/html/fixtures/"
 
-wp-env run cli "wp post create post-content.txt --post_title=\"投稿 1\" --post_status=publish"
-wp-env run cli "wp post create post-content.txt --post_title=\"投稿 2\" --post_status=publish"
-wp-env run cli "wp post create post-content.txt --post_title=\"投稿 3\" --post_status=publish"
+wp-env run cli "wp post create fixtures/post-content.txt --post_title=\"投稿 1\" --post_status=publish"
+wp-env run cli "wp post create fixtures/post-content.txt --post_title=\"投稿 2\" --post_status=publish"
+wp-env run cli "wp post create fixtures/post-content.txt --post_title=\"投稿 3\" --post_status=publish"
 
-wp-env run cli "wp post create post-content.txt --post_title=\"特集 1\" --post_status=publish --post_type=feature"
-wp-env run cli "wp post create post-content.txt --post_title=\"特集 2\" --post_status=publish --post_type=feature"
-wp-env run cli "wp post create post-content.txt --post_title=\"特集 3\" --post_status=publish --post_type=feature"
+wp-env run cli "wp post create fixtures/post-content-feature.txt --post_title=\"特集 1\" --post_status=publish --post_type=feature"
+wp-env run cli "wp post create fixtures/post-content-feature.txt --post_title=\"特集 2\" --post_status=publish --post_type=feature"
+wp-env run cli "wp post create fixtures/post-content-feature.txt --post_title=\"特集 3\" --post_status=publish --post_type=feature"
 
 # menu
 wp-env run cli "wp menu create head"
