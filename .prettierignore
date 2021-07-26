@@ -1,3 +1,4 @@
 *.ejs
+plugins/advanced-custom-fields-pro/
 theme/acf-json/
 theme/build/

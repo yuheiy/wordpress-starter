@@ -118,6 +118,7 @@ out
 .pnp.*
 
 # Project specific outputs
+/plugins/advanced-custom-fields-pro/
 /theme/build/
 /theme/assets/components/components.scss
 /theme/assets/styles/settings.scss

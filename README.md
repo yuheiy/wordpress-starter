@@ -36,15 +36,29 @@ WordPress 環境が http://localhost:8888 に起動されます。
 
 ソースコードを次のように変更してください。
 
+`package.json`:
+
+```diff
+-	"//postinstall": "bash scripts/install-acf-pro.sh"
++	"postinstall": "bash scripts/install-acf-pro.sh"
+```
+
+`scripts/install-acf-pro.sh`:
+
+```diff
+-ACF_KEY="SET_YOUR_KEY"
++ACF_KEY="XXXXXXXX"
+```
+
 `.wp-env.json`:
 
 ```diff
 {
 	"plugins": [
 		"https://downloads.wordpress.org/plugin/timber-library.1.18.2.zip"
-+		"https://connect.advancedcustomfields.com/v2/plugins/download?p=pro&k=XXXXXXXX&name=acf-pro.zip"
++		"./plugins/advanced-custom-fields-pro"
 	],
-	"themes": ["./theme"]
+	...
 }
 ```
 
