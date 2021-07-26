@@ -3,8 +3,8 @@
 		<a href="{{ site.link }}">{{ site.name }}</a>
 	</p>
 	<ul>
-		{% for item in page_head_menu %}
-			<li><a href="{{ item.link }}">{{ item.label }}</a></li>
+		{% for item in page_head_menu.items %}
+			<li><a href="{{ item.link }}">{{ item.title }}</a></li>
 		{% endfor %}
 	</ul>
 </header>

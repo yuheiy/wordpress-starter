@@ -30,3 +30,15 @@ wp-env run cli "wp post create post-content.txt --post_title=\"投稿 3\" --post
 wp-env run cli "wp post create post-content.txt --post_title=\"特集 1\" --post_status=publish --post_type=feature"
 wp-env run cli "wp post create post-content.txt --post_title=\"特集 2\" --post_status=publish --post_type=feature"
 wp-env run cli "wp post create post-content.txt --post_title=\"特集 3\" --post_status=publish --post_type=feature"
+
+# menu
+wp-env run cli "wp menu create head"
+wp-env run cli "wp menu location assign head page-head-menu"
+# https://github.com/wp-cli/entity-command/issues/214
+# wp menu item add-archive ...
+
+wp-env run cli "wp menu create foot"
+wp-env run cli "wp menu location assign foot page-foot-menu"
+# https://github.com/wp-cli/entity-command/issues/214
+# wp menu item add-archive ...
+wp-env run cli "wp menu item add-post foot 3"

@@ -15,6 +15,11 @@ add_action("after_setup_theme", function () {
 
 	add_theme_support("post-thumbnails");
 
+	register_nav_menus([
+		"page-head-menu" => "Menu in page-head",
+		"page-foot-menu" => "Menu in page-foot",
+	]);
+
 	add_theme_support("html5", [
 		"comment-form",
 		"comment-list",
@@ -131,28 +136,9 @@ add_action("timber/context", function ($context) {
 	$feature_post_type = new MyPostType("feature");
 	$context["feature_post_type"] = $feature_post_type;
 
-	$privacy_policy_post = Timber::get_post([
-		"post_type" => "page",
-		"title" => "プライバシーポリシー",
-	]);
+	$context["page_head_menu"] = new Timber\Menu("page-head-menu");
 
-	$context["page_head_menu"] = [
-		[
-			"label" => $feature_post_type->label,
-			"link" => $feature_post_type->archive_link(),
-		],
-	];
-
-	$context["page_foot_menu"] = [
-		[
-			"label" => $feature_post_type->label,
-			"link" => $feature_post_type->archive_link(),
-		],
-		[
-			"label" => $privacy_policy_post->title,
-			"link" => $privacy_policy_post->link,
-		],
-	];
+	$context["page_foot_menu"] = new Timber\Menu("page-foot-menu");
 
 	return $context;
 });
