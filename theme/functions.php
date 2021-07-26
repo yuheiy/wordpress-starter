@@ -72,7 +72,7 @@ if (IS_DEVELOPMENT) {
 	});
 } else {
 	add_action("wp_enqueue_scripts", function () {
-		$manifest = vite_manifest();
+		$manifest = theme_vite_manifest();
 
 		foreach (
 			$manifest["theme/assets/main.ts"]["css"]
@@ -151,7 +151,7 @@ class MyPostType extends Timber\PostType
 	}
 }
 
-function vite_manifest()
+function theme_vite_manifest()
 {
 	return json_decode(
 		file_get_contents(get_theme_file_path("assets/build/manifest.json")),
