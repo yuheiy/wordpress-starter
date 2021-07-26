@@ -3,33 +3,31 @@
  */
 module.exports = {
 	rules: [
-		{
-			name: "scss/components",
+		...["blocks", "components"].map((type) => ({
+			name: `scss/${type}`,
 			dependencies: [
-				"theme/assets/components/**/*.scss",
-				"!theme/assets/components/components.scss",
+				`theme/assets/${type}/**/*.scss`,
+				`!theme/assets/${type}/${type}.scss`,
 			],
 			outputs: [
 				{
-					path: "theme/assets/components/components.scss",
+					path: `theme/assets/${type}/${type}.scss`,
 					template: "theme/assets/styles/import.scss.ejs",
 				},
 			],
-		},
-		...["settings", "tools", "blocks", "objects", "scopes", "themes"].map(
-			(type) => ({
-				name: `scss/${type}`,
-				dependencies: [
-					`theme/assets/styles/${type}/**/*.scss`,
-					`!theme/assets/styles/${type}.scss`,
-				],
-				outputs: [
-					{
-						path: `theme/assets/styles/${type}.scss`,
-						template: "theme/assets/styles/import.scss.ejs",
-					},
-				],
-			})
-		),
+		})),
+		...["settings", "tools", "objects", "scopes", "themes"].map((type) => ({
+			name: `scss/${type}`,
+			dependencies: [
+				`theme/assets/styles/${type}/**/*.scss`,
+				`!theme/assets/styles/${type}.scss`,
+			],
+			outputs: [
+				{
+					path: `theme/assets/styles/${type}.scss`,
+					template: "theme/assets/styles/import.scss.ejs",
+				},
+			],
+		})),
 	],
 };
