@@ -75,7 +75,7 @@ if (IS_DEVELOPMENT) {
 		) {
 			wp_enqueue_style(
 				sprintf("theme-main-%s-style", $key),
-				get_theme_file_uri("build/" . $css_path),
+				get_theme_file_uri("assets/build/" . $css_path),
 				[],
 				null
 			);
@@ -84,7 +84,7 @@ if (IS_DEVELOPMENT) {
 		wp_enqueue_script(
 			"theme-main-script",
 			get_theme_file_uri(
-				"build/" . $manifest["theme/assets/main.ts"]["file"]
+				"assets/build/" . $manifest["theme/assets/main.ts"]["file"]
 			),
 			[],
 			null
@@ -168,7 +168,7 @@ class MyPostType extends Timber\PostType
 function vite_manifest()
 {
 	return json_decode(
-		file_get_contents(get_theme_file_path("build/manifest.json")),
+		file_get_contents(get_theme_file_path("assets/build/manifest.json")),
 		true
 	);
 }

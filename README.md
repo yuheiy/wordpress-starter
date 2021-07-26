@@ -112,7 +112,7 @@ http://localhost:8888/wp-admin/
 
 ## 本番用ビルド
 
-次のコマンドを実行すると、ビルド済みのファイルが `theme/build` ディレクトリに出力されます。
+次のコマンドを実行すると、ビルド済みのファイルが `theme/assets/build` ディレクトリに出力されます。
 
 ```sh
 $ npm run build
