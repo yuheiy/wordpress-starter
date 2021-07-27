@@ -6,26 +6,26 @@ module.exports = {
 		...["blocks", "components"].map((type) => ({
 			name: `scss/${type}`,
 			dependencies: [
-				`theme/assets/${type}/**/*.scss`,
-				`!theme/assets/${type}/${type}.scss`,
+				`mytheme/assets/${type}/**/*.scss`,
+				`!mytheme/assets/${type}/${type}.scss`,
 			],
 			outputs: [
 				{
-					path: `theme/assets/${type}/${type}.scss`,
-					template: "theme/assets/styles/import.scss.ejs",
+					path: `mytheme/assets/${type}/${type}.scss`,
+					template: "mytheme/assets/styles/import.scss.ejs",
 				},
 			],
 		})),
 		...["settings", "tools", "objects", "scopes", "themes"].map((type) => ({
 			name: `scss/${type}`,
 			dependencies: [
-				`theme/assets/styles/${type}/**/*.scss`,
-				`!theme/assets/styles/${type}.scss`,
+				`mytheme/assets/styles/${type}/**/*.scss`,
+				`!mytheme/assets/styles/${type}.scss`,
 			],
 			outputs: [
 				{
-					path: `theme/assets/styles/${type}.scss`,
-					template: "theme/assets/styles/import.scss.ejs",
+					path: `mytheme/assets/styles/${type}.scss`,
+					template: "mytheme/assets/styles/import.scss.ejs",
 				},
 			],
 		})),

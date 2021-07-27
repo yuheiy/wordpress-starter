@@ -7,7 +7,7 @@ if (!isset($content_width)) {
 }
 
 add_action("after_setup_theme", function () {
-	load_theme_textdomain("theme", get_theme_file_path("languages"));
+	load_theme_textdomain("mytheme", get_theme_file_path("languages"));
 
 	add_theme_support("automatic-feed-links");
 
@@ -38,7 +38,11 @@ add_filter(
 	"script_loader_tag",
 	function ($tag, $handle, $src) {
 		if (
-			in_array($handle, ["theme-vite-script", "theme-main-script"], true)
+			in_array(
+				$handle,
+				["mytheme-vite-script", "mytheme-main-script"],
+				true
+			)
 		) {
 			$type_attr = " type='module'";
 			$tag = sprintf(
@@ -58,29 +62,29 @@ add_filter(
 if (IS_DEVELOPMENT) {
 	add_action("wp_enqueue_scripts", function () {
 		wp_enqueue_script(
-			"theme-vite-script",
+			"mytheme-vite-script",
 			"http://localhost:3000/@vite/client",
 			[],
 			null
 		);
 
 		wp_enqueue_script(
-			"theme-main-script",
-			"http://localhost:3000/theme/assets/main.ts",
-			["theme-vite-script"],
+			"mytheme-main-script",
+			"http://localhost:3000/mytheme/assets/main.ts",
+			["mytheme-vite-script"],
 			null
 		);
 	});
 } else {
 	add_action("wp_enqueue_scripts", function () {
-		$manifest = theme_vite_manifest();
+		$manifest = mytheme_vite_manifest();
 
 		foreach (
-			$manifest["theme/assets/main.ts"]["css"]
+			$manifest["mytheme/assets/main.ts"]["css"]
 			as $key => $css_path
 		) {
 			wp_enqueue_style(
-				sprintf("theme-main-%s-style", $key),
+				sprintf("mytheme-main-%s-style", $key),
 				get_theme_file_uri("assets/build/" . $css_path),
 				[],
 				null
@@ -88,9 +92,9 @@ if (IS_DEVELOPMENT) {
 		}
 
 		wp_enqueue_script(
-			"theme-main-script",
+			"mytheme-main-script",
 			get_theme_file_uri(
-				"assets/build/" . $manifest["theme/assets/main.ts"]["file"]
+				"assets/build/" . $manifest["mytheme/assets/main.ts"]["file"]
 			),
 			[],
 			null
@@ -152,7 +156,7 @@ class MyPostType extends Timber\PostType
 	}
 }
 
-function theme_vite_manifest()
+function mytheme_vite_manifest()
 {
 	return json_decode(
 		file_get_contents(get_theme_file_path("assets/build/manifest.json")),

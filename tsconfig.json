@@ -15,5 +15,5 @@
 		"forceConsistentCasingInFileNames": true,
 		"resolveJsonModule": true
 	},
-	"include": ["theme/assets"]
+	"include": ["mytheme/assets"]
 }

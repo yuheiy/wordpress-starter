@@ -119,11 +119,11 @@ out
 
 # Project specific outputs
 /plugins/advanced-custom-fields-pro/
-/theme/assets/build/
-/theme/assets/blocks/blocks.scss
-/theme/assets/components/components.scss
-/theme/assets/styles/settings.scss
-/theme/assets/styles/tools.scss
-/theme/assets/styles/objects.scss
-/theme/assets/styles/scopes.scss
-/theme/assets/styles/themes.scss
+/mytheme/assets/build/
+/mytheme/assets/blocks/blocks.scss
+/mytheme/assets/components/components.scss
+/mytheme/assets/styles/settings.scss
+/mytheme/assets/styles/tools.scss
+/mytheme/assets/styles/objects.scss
+/mytheme/assets/styles/scopes.scss
+/mytheme/assets/styles/themes.scss

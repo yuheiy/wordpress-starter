@@ -2,13 +2,13 @@ import { defineConfig } from "vite";
 import liveReload from "vite-plugin-live-reload";
 
 export default defineConfig({
-	plugins: [liveReload("theme/**/*.{php,twig}")],
+	plugins: [liveReload("mytheme/**/*.{php,twig}")],
 	logLevel: "warn",
 	build: {
-		outDir: "theme/assets/build",
+		outDir: "mytheme/assets/build",
 		assetsDir: ".",
 		rollupOptions: {
-			input: "theme/assets/main.ts",
+			input: "mytheme/assets/main.ts",
 		},
 		manifest: true,
 		terserOptions: {
