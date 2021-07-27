@@ -36,18 +36,17 @@ WordPress 環境が http://localhost:8888 に起動されます。
 
 ソースコードを次のように変更してください。
 
+`.env`:
+
+```diff
++ACF_KEY=SET_YOUR_KEY
+```
+
 `package.json`:
 
 ```diff
 -	"//postinstall": "bash scripts/install-acf-pro.sh"
 +	"postinstall": "bash scripts/install-acf-pro.sh"
-```
-
-`scripts/install-acf-pro.sh`:
-
-```diff
--ACF_KEY="SET_YOUR_KEY"
-+ACF_KEY="XXXXXXXX"
 ```
 
 `.wp-env.json`:
@@ -60,6 +59,12 @@ WordPress 環境が http://localhost:8888 に起動されます。
 	],
 	...
 }
+```
+
+設定後に次のコマンドを実行します。
+
+```bash
+npm install
 ```
 
 ## wp-env の使い方
