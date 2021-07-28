@@ -138,8 +138,7 @@ add_action("wp_head", function () {
 });
 
 add_action("timber/context", function ($context) {
-	$feature_post_type = new MyPostType("feature");
-	$context["feature_post_type"] = $feature_post_type;
+	$context["mytheme_feature_post_type"] = new MyPostType("mytheme_feature");
 
 	$context["page_head_menu"] = new Timber\Menu("page-head-menu");
 

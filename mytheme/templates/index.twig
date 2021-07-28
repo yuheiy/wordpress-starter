@@ -12,17 +12,17 @@
 
 		<section>
 			<h2>
-				{{ feature_post_type.label }}
+				{{ mytheme_feature_post_type.label }}
 			</h2>
 
 			<ol>
-				{% for post in feature_posts %}
+				{% for post in mytheme_feature_posts %}
 					<li><a href="{{ post.link }}">{{ post.title }}</a></li>
 				{% endfor %}
 			</ol>
 
 			<p>
-				<a href="{{ feature_post_type.archive_link }}">さらに表示</a>
+				<a href="{{ mytheme_feature_post_type.archive_link }}">さらに表示</a>
 			</p>
 		</section>
 

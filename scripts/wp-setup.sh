@@ -27,9 +27,9 @@ wp-env run cli "wp post create fixtures/post-content.txt --post_title=\"投稿 1
 wp-env run cli "wp post create fixtures/post-content.txt --post_title=\"投稿 2\" --post_status=publish"
 wp-env run cli "wp post create fixtures/post-content.txt --post_title=\"投稿 3\" --post_status=publish"
 
-wp-env run cli "wp post create fixtures/post-content-feature.txt --post_title=\"特集 1\" --post_status=publish --post_type=feature"
-wp-env run cli "wp post create fixtures/post-content-feature.txt --post_title=\"特集 2\" --post_status=publish --post_type=feature"
-wp-env run cli "wp post create fixtures/post-content-feature.txt --post_title=\"特集 3\" --post_status=publish --post_type=feature"
+wp-env run cli "wp post create fixtures/post-content-feature.txt --post_title=\"特集 1\" --post_status=publish --post_type=mytheme_feature"
+wp-env run cli "wp post create fixtures/post-content-feature.txt --post_title=\"特集 2\" --post_status=publish --post_type=mytheme_feature"
+wp-env run cli "wp post create fixtures/post-content-feature.txt --post_title=\"特集 3\" --post_status=publish --post_type=mytheme_feature"
 
 # menu
 wp-env run cli "wp menu create head"
