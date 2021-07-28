@@ -2,43 +2,44 @@
 
 set -e
 
+if [ "$1" ]; then
+	environment="$1"
+else
+	environment="development"
+fi
+
+case "$environment" in
+	"development"|"tests")
+		;;
+	*)
+		echo "Error: \$environment should be \"development\" or \"tests\""
+		exit 1
+esac
+
+case "$environment" in
+	"development")
+		container_id="$(docker ps -f name=_wordpress_ -q)"
+		;;
+	"tests")
+		container_id="$(docker ps -f name=_tests-wordpress_ -q)"
+		;;
+esac
+
+case "$environment" in
+	"development")
+		cli_command="cli"
+		;;
+	"tests")
+		cli_command="tests-cli"
+		;;
+esac
+
+# cleanup
+wp-env clean "$environment"
+
+# preparation
 script_dir="$(cd $(dirname "${BASH_SOURCE[0]}"); pwd)"
-fixtures_dir="$script_dir/fixtures"
-container_id="$(docker ps -f name=_wordpress_ -q)"
+docker cp "$script_dir/_wp-setup/" "$container_id:/var/www/html/"
 
-# language
-wp-env run cli "wp language core install ja"
-wp-env run cli "wp site switch-language ja"
-
-# theme
-wp-env run cli "wp theme activate mytheme"
-
-# options
-wp-env run cli "wp option update blogname \"The Boilerplate for WordPress\""
-wp-env run cli "wp option update permalink_structure \"/%postname%/\""
-wp-env run cli "wp option update timezone_string \"Asia/Tokyo\""
-
-# posts
-wp-env run cli "wp post update 3 --post_title=\"プライバシーポリシー\" --post_status=publish"
-
-docker cp "$fixtures_dir/" "$container_id:/var/www/html/fixtures/"
-
-wp-env run cli "wp post create fixtures/post-content.txt --post_title=\"投稿 1\" --post_status=publish"
-wp-env run cli "wp post create fixtures/post-content.txt --post_title=\"投稿 2\" --post_status=publish"
-wp-env run cli "wp post create fixtures/post-content.txt --post_title=\"投稿 3\" --post_status=publish"
-
-wp-env run cli "wp post create fixtures/post-content-feature.txt --post_title=\"特集 1\" --post_status=publish --post_type=mytheme_feature"
-wp-env run cli "wp post create fixtures/post-content-feature.txt --post_title=\"特集 2\" --post_status=publish --post_type=mytheme_feature"
-wp-env run cli "wp post create fixtures/post-content-feature.txt --post_title=\"特集 3\" --post_status=publish --post_type=mytheme_feature"
-
-# menu
-wp-env run cli "wp menu create head"
-wp-env run cli "wp menu location assign head page-head-menu"
-# https://github.com/wp-cli/entity-command/issues/214
-# wp menu item add-archive ...
-
-wp-env run cli "wp menu create foot"
-wp-env run cli "wp menu location assign foot page-foot-menu"
-# https://github.com/wp-cli/entity-command/issues/214
-# wp menu item add-archive ...
-wp-env run cli "wp menu item add-post foot 3"
+# execution
+wp-env run "$cli_command" bash _wp-setup/setup.sh
