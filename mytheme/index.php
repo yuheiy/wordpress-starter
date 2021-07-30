@@ -2,7 +2,7 @@
 
 $context = Timber::context();
 
-$context["mytheme_feature_posts"] = Timber::get_posts([
+$context["feature_posts"] = Timber::get_posts([
 	"post_type" => "mytheme_feature",
 	"posts_per_page" => 5,
 ]);
