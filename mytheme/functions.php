@@ -44,10 +44,8 @@ add_filter(
 				true
 			)
 		) {
-			$type_attr = " type='module'";
 			$tag = sprintf(
-				"<script%s src='%s' id='%s-js'></script>\n",
-				$type_attr,
+				"<script type='module' src='%s' id='%s-js'></script>\n",
 				$src,
 				esc_attr($handle)
 			);
