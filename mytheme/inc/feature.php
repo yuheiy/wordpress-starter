@@ -17,7 +17,6 @@ add_action("init", function () {
 			"label" => "カテゴリー",
 			"show_in_rest" => true,
 			"rewrite" => ["slug" => "features/categories"],
-			"hierarchical" => true,
 		]
 	);
 
