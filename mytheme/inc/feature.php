@@ -7,7 +7,7 @@ add_action("init", function () {
 		"supports" => ["title", "editor", "thumbnail"],
 		"has_archive" => true,
 		"show_in_rest" => true,
-		"rewrite" => ["slug" => "features"],
+		"rewrite" => ["slug" => "feature"],
 	]);
 
 	register_taxonomy(
@@ -16,12 +16,12 @@ add_action("init", function () {
 		[
 			"label" => "カテゴリー",
 			"show_in_rest" => true,
-			"rewrite" => ["slug" => "features/categories"],
+			"rewrite" => ["slug" => "feature/category"],
 		]
 	);
 
 	add_rewrite_rule(
-		'features/categories/([^/]+)/?$',
+		'feature/category/([^/]+)/?$',
 		'index.php?post_type=mytheme_feature&mytheme_feature_category=$matches[1]',
 		"top"
 	);
