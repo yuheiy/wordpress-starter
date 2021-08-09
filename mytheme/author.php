@@ -11,4 +11,4 @@ if (isset($wp_query->query_vars["author"])) {
 	$context["title"] = "Author Archives: " . $author->name();
 }
 
-Timber::render(["author.twig", "archive.twig"], $context);
+Timber::render(["pages/author.twig", "pages/archive.twig"], $context);

@@ -1,4 +1,4 @@
-{% extends 'base.twig' %}
+{% extends 'pages/base.twig' %}
 
 {% block content %}
 	<main>
@@ -6,6 +6,9 @@
 			<h1>
 				{{ post.title }}
 			</h1>
+			<p>
+				{{ post.post_date|date('F j, Y') }}
+			</p>
 			<div class="s-post-content">
 				{{ post.content }}
 			</div>
