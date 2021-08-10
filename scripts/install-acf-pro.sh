@@ -2,6 +2,10 @@
 
 set -e
 
+if [ -n "$CI" ]; then
+  exit 0
+fi
+
 root_dir="$(dirname "$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null && pwd)")"
 plugin_dir="$root_dir/plugins"
 acf_plugin_dir="$plugin_dir/advanced-custom-fields-pro"
