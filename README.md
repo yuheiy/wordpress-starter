@@ -54,8 +54,8 @@ WordPress 環境が http://localhost:8888 に起動されます。
 ```diff
 {
 	"plugins": [
++		"./plugins/advanced-custom-fields-pro",
 		"https://downloads.wordpress.org/plugin/timber-library.1.18.2.zip"
-+		"./plugins/advanced-custom-fields-pro"
 	],
 	...
 }
