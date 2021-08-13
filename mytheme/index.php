@@ -10,7 +10,11 @@ $context["feature_posts"] = Timber::get_posts([
 $templates = ["templates/index.twig"];
 
 if (is_home()) {
-	array_unshift($templates, "templates/front-page.twig", "templates/home.twig");
+	array_unshift(
+		$templates,
+		"templates/front-page.twig",
+		"templates/home.twig"
+	);
 }
 
 Timber::render($templates, $context);
