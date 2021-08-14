@@ -1,7 +1,8 @@
 import "./main.scss";
 
 // to prevent Vite’s syntax errors, enclosed in parentheses
-((_) => {})(
+((_1, _2) => {})(
+	import.meta.globEager("./blocks/**/script.ts"),
 	import.meta.globEager("./{components,controllers}/**/*.controller.ts")
 );
 
