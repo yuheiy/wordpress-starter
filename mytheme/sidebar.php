@@ -1,3 +1,3 @@
 <?php
 
-Timber::render(["templates/sidebar.twig"], $data);
+Timber::render(["sidebar.twig"], $data);

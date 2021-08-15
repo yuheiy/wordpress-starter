@@ -1,6 +1,6 @@
 <?php
 
-Timber::$dirname = ["assets"];
+Timber::$dirname = ["templates", "assets"];
 
 if (!isset($content_width)) {
 	$content_width = 1280;
