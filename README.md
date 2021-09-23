@@ -4,7 +4,7 @@ WordPress テーマ構築のための開発環境です。[wp-env](https://ja.wo
 
 ## 導入
 
-要求開発環境:
+要求環境:
 
 - [Docker クライアント](https://hub.docker.com/editions/community/docker-ce-desktop-mac/)
 - Node.js 16
@@ -23,7 +23,7 @@ wp-env start
 npm run dev
 ```
 
-WordPress 環境が http://localhost:8888 に起動されます。
+WordPress 環境は http://localhost:8888 に起動されます。
 
 ### [ACF Pro](https://www.advancedcustomfields.com/pro/) の設定
 
@@ -62,7 +62,7 @@ npm install
 
 ## wp-env の使い方
 
-wp-env は、WordPress の Docker 環境を簡単に構築するためのツールです。基本的な利用方法については[公式ドキュメント](https://ja.wordpress.org/team/handbook/block-editor/reference-guides/packages/packages-env/)を参照してください。
+wp-env は、Docker を使った WordPress 環境を簡単に構築するためのツールです。基本的な利用方法については[公式ドキュメント](https://ja.wordpress.org/team/handbook/block-editor/reference-guides/packages/packages-env/)を参照してください。
 
 ### セットアップ
 
@@ -75,7 +75,7 @@ bash scripts/wp-setup.sh
 
 ### データベースおよびメディアファイルのエクスポート
 
-WordPress ローカル環境のデータベースとメディアファイルの状態を `scripts/snapshot` ディレクトリに出力できます。これを Git リポジトリにコミットすることによって、別のローカル環境でも同様の状態を再現できるようになります。
+WordPress ローカル環境のデータベースとメディアファイルの状態を `scripts/snapshot` ディレクトリに出力できます。これを Git リポジトリにコミットすることで、別のローカル環境でも同様の状態を再現できるようになります。
 
 ```bash
 wp-env start
@@ -93,6 +93,8 @@ bash scripts/wp-import.sh
 
 ### ダッシュボードへのアクセス
 
+wp-env の起動後に次の URL を開いてください。
+
 http://localhost:8888/wp-admin/
 
 - ユーザー名: `admin`
@@ -106,7 +108,7 @@ http://localhost:8888/wp-admin/
 npm run build
 ```
 
-デプロイの際には、必要に応じて不要なソースファイルを削除してください。
+デプロイの際には、好みに応じて不要なソースファイルを削除してください。
 
 ## 関連リソース
 
