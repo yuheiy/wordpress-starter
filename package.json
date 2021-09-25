@@ -5,9 +5,7 @@
 		"format": "prettier . --write",
 		"//postinstall": "bash scripts/install-acf-pro.sh"
 	},
-	"dependencies": {
-		"@github/catalyst": "^1.1.4"
-	},
+	"dependencies": {},
 	"devDependencies": {
 		"@prettier/plugin-php": "^0.17.3",
 		"concurrently": "^6.2.1",

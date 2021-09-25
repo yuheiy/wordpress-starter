@@ -1,10 +1,7 @@
 import "./main.scss";
 
 // to prevent Vite’s syntax errors, enclosed in square brackets
-[
-	import.meta.globEager("./blocks/**/script.ts"),
-	import.meta.globEager("./{components,controllers}/**/*.controller.ts"),
-];
+[import.meta.globEager("./blocks/**/script.ts")];
 
 // https://vitejs.dev/guide/env-and-mode.html#env-variables
 if (import.meta.env.DEV) {
