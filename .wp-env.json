@@ -1,6 +1,6 @@
 {
 	"plugins": [
-		"https://downloads.wordpress.org/plugin/timber-library.1.18.2.zip"
+		"https://downloads.wordpress.org/plugin/timber-library.1.19.0.zip"
 	],
 	"themes": ["./mytheme"],
 	"config": {
