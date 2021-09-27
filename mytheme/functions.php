@@ -114,7 +114,7 @@ add_action("wp_head", function () {
 		$type = "website";
 	}
 
-	$image = get_theme_file_uri("assets/ogp.png");
+	$image = get_theme_file_uri("assets/images/ogp.png");
 
 	$site_name = get_bloginfo("name");
 
