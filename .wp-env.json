@@ -2,15 +2,5 @@
 	"plugins": [
 		"https://downloads.wordpress.org/plugin/timber-library.1.19.0.zip"
 	],
-	"themes": ["./mytheme"],
-	"config": {
-		"IS_DEVELOPMENT": false
-	},
-	"env": {
-		"development": {
-			"config": {
-				"IS_DEVELOPMENT": true
-			}
-		}
-	}
+	"themes": ["./mytheme"]
 }

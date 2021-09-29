@@ -58,7 +58,7 @@ add_filter(
 	3
 );
 
-if (IS_DEVELOPMENT) {
+if (wp_get_environment_type() === "local" && SCRIPT_DEBUG) {
 	add_action("wp_enqueue_scripts", function () {
 		wp_enqueue_script(
 			"mytheme-vite-script",
