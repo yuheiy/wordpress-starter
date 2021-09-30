@@ -29,18 +29,5 @@ module.exports = {
 				},
 			],
 		},
-		...["settings", "tools", "objects", "scopes", "themes"].map((type) => ({
-			name: `scss/${type}`,
-			dependencies: [
-				`mytheme/assets/styles/${type}/**/*.scss`,
-				`!mytheme/assets/styles/${type}.scss`,
-			],
-			outputs: [
-				{
-					path: `mytheme/assets/styles/${type}.scss`,
-					template: "mytheme/assets/styles/import.scss.ejs",
-				},
-			],
-		})),
 	],
 };
