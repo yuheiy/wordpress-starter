@@ -21,7 +21,7 @@
 		"vite-plugin-live-reload": "^2.1.0"
 	},
 	"engines": {
-		"node": ">=16.0.0"
+		"node": "16"
 	},
 	"private": true
 }
