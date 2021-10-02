@@ -1,4 +1,5 @@
 {
+	"core": "https://ja.wordpress.org/latest-ja.zip",
 	"plugins": [
 		"https://downloads.wordpress.org/plugin/timber-library.1.19.0.zip"
 	],
