@@ -2,35 +2,13 @@
 
 {% block content %}
 	<main>
-		<p>
-			<img src="{{ theme.link }}/assets/images/ogp.png"
-				alt=""
-				decoding="async" />
-		</p>
-
 		<h1>
-			Home
+			ホーム
 		</h1>
 
 		<section>
 			<h2>
-				{{ feature_post_type.label }}
-			</h2>
-
-			<ol>
-				{% for post in feature_posts %}
-					<li><a href="{{ post.link }}">{{ post.title }}</a></li>
-				{% endfor %}
-			</ol>
-
-			<p>
-				<a href="{{ feature_post_type.archive_link }}">さらに表示</a>
-			</p>
-		</section>
-
-		<section>
-			<h2>
-				最新記事
+				投稿
 			</h2>
 
 			<ol>
@@ -38,6 +16,22 @@
 					<li><a href="{{ post.link }}">{{ post.title }}</a></li>
 				{% endfor %}
 			</ol>
+		</section>
+
+		<section>
+			<h2>
+				{{ work_post_type.label }}
+			</h2>
+
+			<ol>
+				{% for post in work_posts %}
+					<li><a href="{{ post.link }}">{{ post.title }}</a></li>
+				{% endfor %}
+			</ol>
+
+			<p>
+				<a href="{{ work_post_type.link }}">さらに表示</a>
+			</p>
 		</section>
 	</main>
 {% endblock %}

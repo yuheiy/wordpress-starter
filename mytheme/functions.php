@@ -12,11 +12,11 @@ add_action("after_setup_theme", function () {
 	add_theme_support("title-tag");
 
 	add_theme_support("post-thumbnails");
+	set_post_thumbnail_size(1280, 720);
 	add_image_size("ogp", 1200, 630);
 
 	register_nav_menus([
-		"page-head-menu" => "Menu in page-head",
-		"page-foot-menu" => "Menu in page-foot",
+		"page-foot-menu" => "フッターメニュー",
 	]);
 
 	add_theme_support("html5", [
@@ -76,7 +76,7 @@ if (wp_get_environment_type() === "local" && SCRIPT_DEBUG) {
 	});
 } else {
 	add_action("wp_enqueue_scripts", function () {
-		$manifest = mytheme_vite_manifest();
+		$manifest = mytheme_get_vite_manifest();
 
 		foreach (
 			$manifest["mytheme/assets/scripts/main.ts"]["css"]
@@ -137,10 +137,18 @@ add_action("wp_head", function () {
 	<?php
 });
 
-add_action("timber/context", function ($context) {
-	$context["feature_post_type"] = new MyPostType("mytheme_feature");
+add_filter("timber/twig", function ($twig) {
+	$twig->addFilter(
+		new Timber\Twig_Filter("is_external", function ($url) {
+			return Timber\URLHelper::is_external($url);
+		})
+	);
 
-	$context["page_head_menu"] = new Timber\Menu("page-head-menu");
+	return $twig;
+});
+
+add_action("timber/context", function ($context) {
+	$context["work_post_type"] = new MyPostType("mytheme_work");
 
 	$context["page_foot_menu"] = new Timber\Menu("page-foot-menu");
 
@@ -149,18 +157,26 @@ add_action("timber/context", function ($context) {
 
 class MyPostType extends Timber\PostType
 {
-	public function archive_link()
+	public function link()
 	{
 		return get_post_type_archive_link($this->slug);
 	}
 }
 
-function mytheme_vite_manifest()
+function mytheme_get_vite_manifest()
 {
-	return json_decode(
-		file_get_contents(get_theme_file_path("assets/build/manifest.json")),
-		true
-	);
+	static $vite_manifest;
+
+	if (!$vite_manifest) {
+		$vite_manifest = json_decode(
+			file_get_contents(
+				get_theme_file_path("assets/build/manifest.json")
+			),
+			true
+		);
+	}
+
+	return $vite_manifest;
 }
 
-require get_theme_file_path("inc/feature.php");
+require get_theme_file_path("inc/work.php");

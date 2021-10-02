@@ -6,12 +6,26 @@
 			<h1>
 				{{ post.title }}
 			</h1>
+
 			<p>
-				{{ post.post_date|date('F j, Y') }}
+				{{ post.post_date|date('Y年n月j日') }}
 			</p>
-			<div class="s-post-content">
-				{{ post.content }}
-			</div>
+
+			<figure>
+				{{
+					function(
+						'wp_get_attachment_image',
+						post.thumbnail.id,
+						'post-thumbnail',
+						false,
+						{
+							style: 'width: 100%;'
+						}
+					)
+				}}
+			</figure>
+
+			{{ post.content }}
 		</article>
 	</main>
 {% endblock %}
