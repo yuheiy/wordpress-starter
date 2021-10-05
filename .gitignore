@@ -120,7 +120,7 @@ out
 # Project specific outputs
 /plugins/advanced-custom-fields-pro/
 /mytheme/assets/build/
-/mytheme/assets/blocks/style.scss
-/mytheme/assets/blocks/editor.scss
-/mytheme/assets/components/components.scss
+/mytheme/assets/styles/blocks/style.scss
+/mytheme/assets/styles/blocks/editor.scss
+/mytheme/templates/components/components.scss
 /stats.html
