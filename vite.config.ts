@@ -9,7 +9,7 @@ export default defineConfig({
 		outDir: "mytheme/assets/build",
 		assetsDir: ".",
 		rollupOptions: {
-			input: "mytheme/assets/scripts/main.ts",
+			input: "mytheme/assets/ts/main.ts",
 		},
 		manifest: true,
 	},

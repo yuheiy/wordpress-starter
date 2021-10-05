@@ -69,7 +69,7 @@ if (wp_get_environment_type() === "local" && SCRIPT_DEBUG) {
 
 		wp_enqueue_script(
 			"mytheme-main-script",
-			"http://localhost:3000/mytheme/assets/scripts/main.ts",
+			"http://localhost:3000/mytheme/assets/ts/main.ts",
 			["mytheme-vite-script"],
 			null
 		);
@@ -79,7 +79,7 @@ if (wp_get_environment_type() === "local" && SCRIPT_DEBUG) {
 		$manifest = mytheme_get_vite_manifest();
 
 		foreach (
-			$manifest["mytheme/assets/scripts/main.ts"]["css"]
+			$manifest["mytheme/assets/ts/main.ts"]["css"]
 			as $key => $css_path
 		) {
 			wp_enqueue_style(
@@ -93,8 +93,7 @@ if (wp_get_environment_type() === "local" && SCRIPT_DEBUG) {
 		wp_enqueue_script(
 			"mytheme-main-script",
 			get_theme_file_uri(
-				"assets/build/" .
-					$manifest["mytheme/assets/scripts/main.ts"]["file"]
+				"assets/build/" . $manifest["mytheme/assets/ts/main.ts"]["file"]
 			),
 			[],
 			null

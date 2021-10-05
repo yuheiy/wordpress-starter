@@ -1,4 +1,4 @@
-import "../styles/main.scss";
+import "../scss/main.scss";
 
 // https://vitejs.dev/guide/env-and-mode.html#env-variables
 if (import.meta.env.DEV) {

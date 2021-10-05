@@ -6,13 +6,13 @@ module.exports = {
 		...["style", "editor"].map((type) => ({
 			name: `scss/blocks/${type}`,
 			dependencies: [
-				`mytheme/assets/styles/blocks/**/${type}.scss`,
-				`!mytheme/assets/styles/blocks/${type}.scss`,
+				`mytheme/assets/scss/blocks/**/${type}.scss`,
+				`!mytheme/assets/scss/blocks/${type}.scss`,
 			],
 			outputs: [
 				{
-					path: `mytheme/assets/styles/blocks/${type}.scss`,
-					template: "mytheme/assets/styles/blocks/import.scss.ejs",
+					path: `mytheme/assets/scss/blocks/${type}.scss`,
+					template: "mytheme/assets/scss/blocks/import.scss.ejs",
 				},
 			],
 		})),
@@ -25,7 +25,7 @@ module.exports = {
 			outputs: [
 				{
 					path: "mytheme/templates/components/components.scss",
-					template: "mytheme/assets/styles/import.scss.ejs",
+					template: "mytheme/assets/scss/import.scss.ejs",
 				},
 			],
 		},
