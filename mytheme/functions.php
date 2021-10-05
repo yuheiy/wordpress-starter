@@ -12,8 +12,8 @@ add_action("after_setup_theme", function () {
 	add_theme_support("title-tag");
 
 	add_theme_support("post-thumbnails");
-	set_post_thumbnail_size(1280, 720);
-	add_image_size("ogp", 1200, 630);
+	set_post_thumbnail_size(1280, 720, true);
+	add_image_size("ogp", 1200, 630, true);
 
 	register_nav_menus([
 		"page-foot-menu" => "フッターメニュー",
