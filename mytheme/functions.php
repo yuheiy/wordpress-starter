@@ -84,7 +84,7 @@ if (wp_get_environment_type() === "local" && SCRIPT_DEBUG) {
 		) {
 			wp_enqueue_style(
 				sprintf("mytheme-main-%s-style", $key),
-				get_theme_file_uri("assets/build/" . $css_path),
+				get_theme_file_uri("build/" . $css_path),
 				[],
 				null
 			);
@@ -93,7 +93,7 @@ if (wp_get_environment_type() === "local" && SCRIPT_DEBUG) {
 		wp_enqueue_script(
 			"mytheme-main-script",
 			get_theme_file_uri(
-				"assets/build/" . $manifest["mytheme/assets/ts/main.ts"]["file"]
+				"build/" . $manifest["mytheme/assets/ts/main.ts"]["file"]
 			),
 			[],
 			null
@@ -284,9 +284,7 @@ function mytheme_get_vite_manifest()
 
 	if (!$vite_manifest) {
 		$vite_manifest = json_decode(
-			file_get_contents(
-				get_theme_file_path("assets/build/manifest.json")
-			),
+			file_get_contents(get_theme_file_path("build/manifest.json")),
 			true
 		);
 	}

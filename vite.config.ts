@@ -6,7 +6,7 @@ export default defineConfig({
 	plugins: [liveReload("mytheme/**/*.twig"), visualizer()],
 	logLevel: "warn",
 	build: {
-		outDir: "mytheme/assets/build",
+		outDir: "mytheme/build",
 		assetsDir: ".",
 		rollupOptions: {
 			input: "mytheme/assets/ts/main.ts",
