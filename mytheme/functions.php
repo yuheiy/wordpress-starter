@@ -130,18 +130,17 @@ add_action("wp_head", function () {
 	// Set the card type.
 	$default_type = "article";
 
-	// Get our custom logo URL. We'll use this on archives and when no featured image is found.
-	$logo_id = get_theme_mod("custom_logo");
-	$logo_image = $logo_id ? wp_get_attachment_image_src($logo_id, "full") : "";
-	$logo_url = $logo_id ? $logo_image[0] : "";
+	// Get the base image.
+	$default_image_url = get_theme_file_uri("assets/images/ogp.png");
 
 	// Set our final defaults.
 	$card_title = $default_title;
 	$card_description = $default_base_description;
 	$card_long_description = $default_base_description;
 	$card_url = $default_url;
-	$card_image = $logo_url;
+	$card_image = $default_image_url;
 	$card_type = $default_type;
+	$card_twitter_card = "summary_large_image";
 
 	$locale = get_locale();
 
@@ -235,7 +234,9 @@ add_action("wp_head", function () {
 	<meta name="description" content="<?php echo esc_attr(
  	$card_long_description
  ); ?>" />
- 	<meta name="twitter:card" content="summary_large_image">
+ 	<meta name="twitter:card" content="<?php echo esc_attr(
+  	$card_twitter_card
+  ); ?>">
 	<meta property="og:title" content="<?php echo esc_attr($card_title); ?>" />
 	<meta property="og:description" content="<?php echo esc_attr(
  	$card_description
