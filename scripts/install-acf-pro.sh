@@ -3,7 +3,7 @@
 set -e
 
 if [ -n "$CI" ]; then
-  exit 0
+    exit 0
 fi
 
 cd "$(dirname "$(dirname "${BASH_SOURCE[0]}")")"
@@ -13,8 +13,8 @@ acf_plugin_dir="$plugin_dir/advanced-custom-fields-pro"
 acf_zip_file="advanced-custom-fields-pro.zip"
 
 if [ -e "$acf_plugin_dir" ]; then
-  echo "Advanced Custom Fields PRO is already installed"
-  exit 0
+    echo "Advanced Custom Fields PRO is already installed"
+    exit 0
 fi
 
 # shellcheck disable=SC1091
