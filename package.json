@@ -1,24 +1,22 @@
 {
 	"scripts": {
-		"dev": "concurrently --raw \"vite\" \"drygen --watch\"",
-		"build": "tsc && drygen && vite build",
+		"dev": "concurrently --raw \"npm:dev:*\" \"drygen --watch\"",
+		"dev:scripts": "wp-scripts start mytheme/assets/ts/main.ts --output-path=mytheme/build",
+		"dev:sync": "browser-sync start --proxy \"http://localhost:8888\" --no-open --files \"mytheme/build, **/*.twig, **/*.php\"",
+		"build": "drygen && npm run build:scripts",
+		"build:scripts": "wp-scripts build mytheme/assets/ts/main.ts --output-path=mytheme/build",
 		"format": "prettier . --write",
 		"//postinstall": "bash scripts/install-acf-pro.sh"
 	},
 	"dependencies": {},
 	"devDependencies": {
 		"@prettier/plugin-php": "^0.17.5",
-		"concurrently": "^6.2.1",
+		"@wordpress/scripts": "^18.1.0",
+		"browser-sync": "^2.27.5",
+		"concurrently": "^6.3.0",
 		"drygen": "^0.0.4",
-		"postcss-sort-media-queries": "^4.1.0",
-		"prettier": "^2.4.1",
 		"prettier-plugin-organize-imports": "^2.3.4",
-		"prettier-plugin-twig-melody": "^0.4.6",
-		"rollup-plugin-visualizer": "^5.5.2",
-		"sass": "^1.42.1",
-		"typescript": "^4.4.3",
-		"vite": "^2.5.10",
-		"vite-plugin-live-reload": "^2.1.0"
+		"prettier-plugin-twig-melody": "^0.4.6"
 	},
 	"engines": {
 		"node": "16"

@@ -38,15 +38,9 @@ add_action("after_setup_theme", function () {
 add_filter(
 	"script_loader_tag",
 	function ($tag, $handle, $src) {
-		if (
-			in_array(
-				$handle,
-				["mytheme-vite-script", "mytheme-main-script"],
-				true
-			)
-		) {
+		if (in_array($handle, ["mytheme-main"], true)) {
 			$tag = sprintf(
-				"<script type='module' src='%s' id='%s-js'></script>\n",
+				"<script defer src='%s' id='%s-js'></script>\n",
 				$src,
 				esc_attr($handle)
 			);
@@ -58,48 +52,31 @@ add_filter(
 	3
 );
 
-if (wp_get_environment_type() === "local" && SCRIPT_DEBUG) {
-	add_action("wp_enqueue_scripts", function () {
-		wp_enqueue_script(
-			"mytheme-vite-script",
-			"http://localhost:3000/@vite/client",
-			[],
-			null
-		);
+add_action("wp_enqueue_scripts", function () {
+	$asset_file_path = get_stylesheet_directory() . "/build/main.ts.asset.php";
 
-		wp_enqueue_script(
-			"mytheme-main-script",
-			"http://localhost:3000/mytheme/assets/ts/main.ts",
-			["mytheme-vite-script"],
-			null
-		);
-	});
-} else {
-	add_action("wp_enqueue_scripts", function () {
-		$manifest = mytheme_get_vite_manifest();
+	if (is_readable($asset_file_path)) {
+		$asset_file = include $asset_file_path;
+	} else {
+		$asset_file = [
+			"version" => "1.0.0",
+			"dependencies" => [],
+		];
+	}
 
-		foreach (
-			$manifest["mytheme/assets/ts/main.ts"]["css"]
-			as $key => $css_path
-		) {
-			wp_enqueue_style(
-				sprintf("mytheme-main-%s-style", $key),
-				get_theme_file_uri("build/" . $css_path),
-				[],
-				null
-			);
-		}
-
-		wp_enqueue_script(
-			"mytheme-main-script",
-			get_theme_file_uri(
-				"build/" . $manifest["mytheme/assets/ts/main.ts"]["file"]
-			),
-			[],
-			null
-		);
-	});
-}
+	wp_enqueue_style(
+		"mytheme-main",
+		get_theme_file_uri("/build/main.ts.css"),
+		[],
+		$asset_file["version"]
+	);
+	wp_enqueue_script(
+		"mytheme-main",
+		get_theme_file_uri("/build/main.ts.js"),
+		$asset_file["dependencies"],
+		$asset_file["version"]
+	);
+});
 
 // https://github.com/WebDevStudios/wd_s/blob/3c94e66861e12632d47a7450c9011dc60e62caff/inc/hooks.php#L228-L358
 add_action("wp_head", function () {

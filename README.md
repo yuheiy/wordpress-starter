@@ -1,6 +1,6 @@
 # boilerplate-wordpress
 
-WordPress テーマ構築のための開発環境です。[wp-env](https://ja.wordpress.org/team/handbook/block-editor/reference-guides/packages/packages-env/) と [Vite](https://vitejs.dev/) を利用したローカル開発環境が組み込まれています。[Timber](https://upstatement.com/timber/) の採用によって、[Twig](https://twig.symfony.com/) を利用したテンプレートの記述ができるようになっています。
+WordPress テーマ構築のための開発環境です。[wp-env](https://ja.wordpress.org/team/handbook/block-editor/reference-guides/packages/packages-env/) と [wp-scripts](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-scripts/) を利用したローカル開発環境が組み込まれています。[Timber](https://upstatement.com/timber/) の採用によって、[Twig](https://twig.symfony.com/) を利用したテンプレートの記述ができるようになっています。
 
 ## 導入
 
@@ -22,8 +22,6 @@ npm install
 wp-env start
 npm run dev
 ```
-
-WordPress 環境は http://localhost:8888 に起動されます。
 
 ### [ACF Pro](https://www.advancedcustomfields.com/pro/) の設定
 
