@@ -1,7 +1,5 @@
 <?php
 
-Timber::$dirname = ["templates"];
-
 if (!isset($content_width)) {
 	$content_width = 1280;
 }
@@ -27,6 +25,7 @@ add_action("after_setup_theme", function () {
 		"caption",
 		"style",
 		"script",
+		"navigation-widgets",
 	]);
 
 	add_theme_support("customize-selective-refresh-widgets");
@@ -52,19 +51,18 @@ add_filter(
 );
 
 add_action("wp_enqueue_scripts", function () {
-	$asset_file = include get_stylesheet_directory() .
-		"/build/main.ts.asset.php";
+	$asset_file = include get_template_directory() . "/build/main.ts.asset.php";
 
 	wp_enqueue_style(
 		"mytheme-main-style",
-		get_stylesheet_directory_uri() . "/build/main.ts.css",
+		get_template_directory_uri() . "/build/main.ts.css",
 		[],
 		$asset_file["version"]
 	);
 
 	wp_enqueue_script(
 		"mytheme-main-script",
-		get_stylesheet_directory_uri() . "/build/main.ts.js",
+		get_template_directory_uri() . "/build/main.ts.js",
 		$asset_file["dependencies"],
 		$asset_file["version"]
 	);
@@ -222,30 +220,5 @@ add_action("wp_head", function () {
 	<?php
 });
 
-add_filter("timber/twig", function ($twig) {
-	$twig->addFilter(
-		new Timber\Twig_Filter("is_external", function ($url) {
-			return Timber\URLHelper::is_external($url);
-		})
-	);
-
-	return $twig;
-});
-
-add_action("timber/context", function ($context) {
-	$context["work_post_type"] = new MyPostType("mytheme_work");
-
-	$context["page_foot_menu"] = new Timber\Menu("page-foot-menu");
-
-	return $context;
-});
-
-class MyPostType extends Timber\PostType
-{
-	public function link()
-	{
-		return get_post_type_archive_link($this->slug);
-	}
-}
-
-require get_stylesheet_directory() . "inc/work.php";
+require get_template_directory() . "/inc/timber.php";
+require get_template_directory() . "/inc/work.php";
