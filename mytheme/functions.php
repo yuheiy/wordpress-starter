@@ -27,7 +27,6 @@ add_action("after_setup_theme", function () {
 		"caption",
 		"style",
 		"script",
-		"navigation-widgets",
 	]);
 
 	add_theme_support("customize-selective-refresh-widgets");
@@ -53,26 +52,19 @@ add_filter(
 );
 
 add_action("wp_enqueue_scripts", function () {
-	$asset_file_path = get_stylesheet_directory() . "/build/main.ts.asset.php";
-
-	if (is_readable($asset_file_path)) {
-		$asset_file = include $asset_file_path;
-	} else {
-		$asset_file = [
-			"version" => "1.0.0",
-			"dependencies" => [],
-		];
-	}
+	$asset_file = include get_stylesheet_directory() .
+		"/build/main.ts.asset.php";
 
 	wp_enqueue_style(
-		"mytheme-main",
-		get_theme_file_uri("/build/main.ts.css"),
+		"mytheme-main-style",
+		get_stylesheet_directory_uri() . "/build/main.ts.css",
 		[],
 		$asset_file["version"]
 	);
+
 	wp_enqueue_script(
-		"mytheme-main",
-		get_theme_file_uri("/build/main.ts.js"),
+		"mytheme-main-script",
+		get_stylesheet_directory_uri() . "/build/main.ts.js",
 		$asset_file["dependencies"],
 		$asset_file["version"]
 	);
@@ -256,18 +248,4 @@ class MyPostType extends Timber\PostType
 	}
 }
 
-function mytheme_get_vite_manifest()
-{
-	static $vite_manifest;
-
-	if (!$vite_manifest) {
-		$vite_manifest = json_decode(
-			file_get_contents(get_theme_file_path("build/manifest.json")),
-			true
-		);
-	}
-
-	return $vite_manifest;
-}
-
-require get_theme_file_path("inc/work.php");
+require get_stylesheet_directory() . "inc/work.php";
