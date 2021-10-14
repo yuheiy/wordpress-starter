@@ -1,10 +1,10 @@
 {
 	"scripts": {
 		"dev": "concurrently --raw \"npm:dev:*\" \"drygen --watch\"",
-		"dev:scripts": "wp-scripts start mytheme/assets/ts/main.ts --output-path=mytheme/build",
+		"dev:scripts": "wp-scripts start mytheme/assets/ts/main.ts mytheme/templates/blocks/blocks.ts --output-path=mytheme/build",
 		"dev:sync": "browser-sync start --proxy \"http://localhost:8888\" --no-open --files \"mytheme/build, **/*.twig, **/*.php\"",
 		"build": "drygen && npm run build:scripts",
-		"build:scripts": "wp-scripts build mytheme/assets/ts/main.ts --output-path=mytheme/build",
+		"build:scripts": "wp-scripts build mytheme/assets/ts/main.ts mytheme/templates/blocks/blocks.ts --output-path=mytheme/build",
 		"format": "prettier . --write",
 		"//postinstall": "bash scripts/install-acf-pro.sh"
 	},

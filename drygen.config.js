@@ -3,19 +3,19 @@
  */
 module.exports = {
 	rules: [
-		...["style", "editor"].map((type) => ({
-			name: `scss/blocks/${type}`,
+		{
+			name: "scss/blocks/style",
 			dependencies: [
-				`mytheme/assets/scss/blocks/**/${type}.scss`,
-				`!mytheme/assets/scss/blocks/${type}.scss`,
+				"mytheme/assets/scss/blocks/**/style.scss",
+				"!mytheme/assets/scss/blocks/style.scss",
 			],
 			outputs: [
 				{
-					path: `mytheme/assets/scss/blocks/${type}.scss`,
+					path: "mytheme/assets/scss/blocks/style.scss",
 					template: "mytheme/assets/scss/blocks/import.scss.ejs",
 				},
 			],
-		})),
+		},
 		{
 			name: "scss/components",
 			dependencies: [

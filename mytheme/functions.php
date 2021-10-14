@@ -221,4 +221,5 @@ add_action("wp_head", function () {
 });
 
 require get_template_directory() . "/inc/timber.php";
+require get_template_directory() . "/templates/blocks/blocks.php";
 require get_template_directory() . "/inc/work.php";

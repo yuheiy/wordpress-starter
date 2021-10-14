@@ -1,7 +1,7 @@
 const defaultConfig = require("@wordpress/scripts/config/webpack.config");
 
 const defaultJSRule = defaultConfig.module.rules.find(
-	(rule) => rule.test.toString() === "/.jsx?$/"
+	(rule) => rule.test.toString() === /\.jsx?$/.toString()
 );
 
 module.exports = {
