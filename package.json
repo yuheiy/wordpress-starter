@@ -8,7 +8,9 @@
 		"format": "prettier . --write",
 		"//postinstall": "bash scripts/install-acf-pro.sh"
 	},
-	"dependencies": {},
+	"dependencies": {
+		"@hotwired/stimulus": "^3.0.1"
+	},
 	"devDependencies": {
 		"@prettier/plugin-php": "^0.17.5",
 		"@wordpress/scripts": "^18.1.0",

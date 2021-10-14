@@ -23,5 +23,18 @@ module.exports = {
 				},
 			],
 		},
+		{
+			name: "ts/controllers",
+			dependencies: [
+				"mytheme/assets/ts/controllers/*.controller.ts",
+				"mytheme/templates/components/*/*.controller.ts",
+			],
+			outputs: [
+				{
+					path: "mytheme/assets/ts/controllers/index.ts",
+					template: "mytheme/assets/ts/controllers/import.ts.ejs",
+				},
+			],
+		},
 	],
 };

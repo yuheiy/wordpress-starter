@@ -120,5 +120,6 @@ out
 # Project specific outputs
 /plugins/advanced-custom-fields-pro/
 /mytheme/assets/scss/blocks.scss
+/mytheme/assets/ts/controllers/index.ts
 /mytheme/build/
 /mytheme/templates/components/components.scss
