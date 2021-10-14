@@ -4,7 +4,7 @@
 module.exports = {
 	rules: [
 		{
-			name: "scss/blocks/style",
+			name: "scss/blocks",
 			dependencies: [
 				"mytheme/assets/scss/blocks/**/style.scss",
 				"!mytheme/assets/scss/blocks/style.scss",
