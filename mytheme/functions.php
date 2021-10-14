@@ -51,18 +51,18 @@ add_filter(
 );
 
 add_action("wp_enqueue_scripts", function () {
-	$asset_file = include get_template_directory() . "/build/main.ts.asset.php";
+	$asset_file = include get_theme_file_path("/build/main.ts.asset.php");
 
 	wp_enqueue_style(
 		"mytheme-main-style",
-		get_template_directory_uri() . "/build/main.ts.css",
+		get_theme_file_uri("/build/main.ts.css"),
 		[],
 		$asset_file["version"]
 	);
 
 	wp_enqueue_script(
 		"mytheme-main-script",
-		get_template_directory_uri() . "/build/main.ts.js",
+		get_theme_file_uri("/build/main.ts.js"),
 		$asset_file["dependencies"],
 		$asset_file["version"]
 	);
@@ -220,6 +220,6 @@ add_action("wp_head", function () {
 	<?php
 });
 
-require get_template_directory() . "/inc/timber.php";
-require get_template_directory() . "/templates/blocks/blocks.php";
-require get_template_directory() . "/inc/work.php";
+require get_theme_file_path("/inc/timber.php");
+require get_theme_file_path("/templates/blocks/blocks.php");
+require get_theme_file_path("/inc/work.php");
