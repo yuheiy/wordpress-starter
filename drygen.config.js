@@ -5,23 +5,17 @@ module.exports = {
 	rules: [
 		{
 			name: "scss/blocks",
-			dependencies: [
-				"mytheme/assets/scss/blocks/**/style.scss",
-				"!mytheme/assets/scss/blocks/style.scss",
-			],
+			dependencies: ["mytheme/assets/scss/blocks/**/style.scss"],
 			outputs: [
 				{
-					path: "mytheme/assets/scss/blocks/style.scss",
+					path: "mytheme/assets/scss/blocks.scss",
 					template: "mytheme/assets/scss/blocks/import.scss.ejs",
 				},
 			],
 		},
 		{
 			name: "scss/components",
-			dependencies: [
-				"mytheme/templates/components/**/*.scss",
-				"!mytheme/templates/components/components.scss",
-			],
+			dependencies: ["mytheme/templates/components/*/*.scss"],
 			outputs: [
 				{
 					path: "mytheme/templates/components/components.scss",

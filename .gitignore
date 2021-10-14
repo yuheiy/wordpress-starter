@@ -119,6 +119,6 @@ out
 
 # Project specific outputs
 /plugins/advanced-custom-fields-pro/
-/mytheme/assets/scss/blocks/style.scss
+/mytheme/assets/scss/blocks.scss
 /mytheme/build/
 /mytheme/templates/components/components.scss
