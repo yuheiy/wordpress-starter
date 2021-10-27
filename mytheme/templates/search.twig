@@ -1,0 +1,26 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+	<main>
+		<div class="content-wrapper">
+			<ol>
+				{% for post in posts %}
+					<li><a href="{{ post.link }}">{{ post.title }}</a></li>
+				{% endfor %}
+			</ol>
+
+			{{
+				include(
+					'partial/pagination.twig',
+					{
+						pagination: posts.pagination({
+							show_all: false,
+							mid_size: 3,
+							end_size: 2
+						})
+					}
+				)
+			}}
+		</div>
+	</main>
+{% endblock %}

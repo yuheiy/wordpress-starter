@@ -1,6 +1,6 @@
 <?php
 
-$templates = ["archive.twig", "index.twig"];
+$templates = ["archive.twig"];
 
 $context = Timber::context();
 

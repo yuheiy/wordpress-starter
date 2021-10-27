@@ -2,13 +2,17 @@
 
 {% block content %}
 	<main>
-		<article>
-			<h1>
-				{{ post.title }}
-			</h1>
-			<div class="s-post-content">
-				{{ post.content }}
-			</div>
-		</article>
+		<div class="content-wrapper">
+			<article class="post-type-{{ post.post_type }}" id="post-{{ post.ID }}">
+				<section class="article-content">
+					<h1 class="article-h1">
+						{{ post.title }}
+					</h1>
+					<div class="article-body">
+						{{ post.content }}
+					</div>
+				</section>
+			</article>
+		</div>
 	</main>
 {% endblock %}

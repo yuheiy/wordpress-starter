@@ -1,0 +1,11 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+	<main>
+		<ul>
+			{% for post in posts %}
+				<li><a href="{{ post.link }}">{{ post.title }}</a></li>
+			{% endfor %}
+		</ul>
+	</main>
+{% endblock %}
