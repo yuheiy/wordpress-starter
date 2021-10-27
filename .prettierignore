@@ -1,5 +1,5 @@
 *.ejs
+_templates/
 plugins/advanced-custom-fields-pro/
 mytheme/acf-json/
 mytheme/build/
-stats.html
