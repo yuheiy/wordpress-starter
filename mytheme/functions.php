@@ -221,6 +221,8 @@ add_action("wp_head", function () {
 	<?php
 });
 
+add_filter("xmlrpc_enabled", "__return_false");
+
 require get_theme_file_path("/inc/timber.php");
 require get_theme_file_path("/templates/blocks/editor.php");
 require get_theme_file_path("/inc/work.php");
