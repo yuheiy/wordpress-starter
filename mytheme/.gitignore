@@ -130,7 +130,5 @@ dist
 .pnp.*
 
 # Project specific outputs
-/assets/scss/blocks.scss
-/assets/ts/controllers/index.ts
+/src/scripts/controllers/index.ts
 /build/
-/templates/components/components.scss

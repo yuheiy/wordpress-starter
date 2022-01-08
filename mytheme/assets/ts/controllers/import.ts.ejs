@@ -1,5 +1,0 @@
-export default {
-<% dependencies.forEach((dep) => { -%>
-	"<%- dep.dir.includes("components") ? "c-" : "" %><%- dep.name.replace(/\.controller$/, "") %>": () => import("./<%- relative(replaceExt(dep.path, "")) %>"),
-<% }); -%>
-}

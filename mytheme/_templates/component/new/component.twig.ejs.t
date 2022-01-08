@@ -1,5 +1,5 @@
 ---
-to: templates/components/<%- h.changeCase.param(name) %>/<%- h.changeCase.param(name) %>.twig
+to: templates/components/<%- h.changeCase.param(name) %>.twig
 ---
-<div class="c-<%- h.changeCase.param(name) %>"<%- locals.controller ? ` data-controller="c-${h.changeCase.param(name)}"` : '' %>>
+<div class=""<%- locals.controller ? ` data-controller="${h.changeCase.param(name)}"` : '' %>>
 </div>

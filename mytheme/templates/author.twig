@@ -1,7 +1,7 @@
 {% extends 'base.twig' %}
 
 {% block content %}
-	<main>
+	<main class="p-4">
 		<ul>
 			{% for post in posts %}
 				<li><a href="{{ post.link }}">{{ post.title }}</a></li>

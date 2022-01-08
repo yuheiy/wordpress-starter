@@ -11,13 +11,27 @@
 	<body class="{{ body_class }}">
 		{{ function('wp_body_open') }}
 
-		{{ include('components/page-head/page-head.twig') }}
+		<header class="p-4 bg-gray-200">
+			<p>
+				<a href="{{ site.link }}">{{ site.name }}</a>
+			</p>
+			{{ function('get_search_form') }}
+		</header>
 
 		{% block content %}
 
 		{% endblock %}
 
-		{{ include('components/page-foot/page-foot.twig') }}
+		<footer class="p-4 bg-gray-200">
+			<p>
+				<a href="{{ site.link }}">{{ site.name }}</a>
+			</p>
+			<ul>
+				{% for item in page_foot_menu.items %}
+					<li><a href="{{ item.link }}">{{ item.title }}</a></li>
+				{% endfor %}
+			</ul>
+		</footer>
 
 		{{ function('wp_footer') }}
 	</body>

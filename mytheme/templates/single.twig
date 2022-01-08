@@ -1,38 +1,34 @@
 {% extends 'base.twig' %}
 
 {% block content %}
-	<main>
-		<div class="content-wrapper">
-			<article class="post-type-{{ post.post_type }}" id="post-{{ post.ID }}">
-				{{
-					function(
-						'wp_get_attachment_image',
-						post.thumbnail.id,
-						'full-width',
-						false,
-						{
-							style: 'width: 100%;'
-						}
-					)
-				}}
-				<section class="article-content">
-					<h1 class="article-h1">
-						{{ post.title }}
-					</h1>
-					<a href="{{ post.link }}">{{ _e('edit') }}</a>
-					<p class="blog-author">
-						<span>By</span><a href="{{ post.author.path }}">
-							{{ post.author.name }}
-						</a><span>&bull;</span>
-						<time datetime="{{ post.date|date('Y-m-d H:i:s') }}">
-							{{ post.date }}
-						</time>
-					</p>
-					<div class="article-body">
-						{{ post.content }}
-					</div>
-				</section>
-			</article>
-		</div>
+	<main class="p-4">
+		<article id="post-{{ post.ID }}">
+			{{
+				function(
+					'wp_get_attachment_image',
+					post.thumbnail.id,
+					'full-width',
+					false,
+					{
+						style: 'width: 100%;'
+					}
+				)
+			}}
+			<section>
+				<h1>
+					{{ post.title }}
+				</h1>
+				<a href="{{ post.link }}">{{ _e('edit') }}</a>
+				<p>
+					<span>By</span><a href="{{ post.author.path }}">
+						{{ post.author.name }}
+					</a><span>&bull;</span>
+					<time datetime="{{ post.date|date('Y-m-d H:i:s') }}">
+						{{ post.date }}
+					</time>
+				</p>
+				{{ post.content }}
+			</section>
+		</article>
 	</main>
 {% endblock %}

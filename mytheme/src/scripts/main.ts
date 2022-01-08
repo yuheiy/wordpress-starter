@@ -1,4 +1,3 @@
-import "../scss/main.scss";
 import "./lib/stimulus-autoloader";
 
 if (process.env.NODE_ENV !== "production") {

@@ -52,18 +52,13 @@ add_filter(
 );
 
 add_action("wp_enqueue_scripts", function () {
-	$asset_file = include get_theme_file_path("/build/main.ts.asset.php");
+	$asset_file = include get_theme_file_path("/build/index.asset.php");
 
-	wp_enqueue_style(
-		"mytheme-main-style",
-		get_theme_file_uri("/build/main.ts.css"),
-		[],
-		$asset_file["version"]
-	);
+	wp_enqueue_style("mytheme", get_theme_file_uri("/build/index.css"), [], $asset_file["version"]);
 
 	wp_enqueue_script(
-		"mytheme-main-script",
-		get_theme_file_uri("/build/main.ts.js"),
+		"mytheme-scripts",
+		get_theme_file_uri("/build/index.js"),
 		$asset_file["dependencies"],
 		$asset_file["version"]
 	);
@@ -159,10 +154,7 @@ add_action("wp_head", function () {
 		$card_type = "website";
 
 		// Translators: get the search term.
-		$card_long_description = sprintf(
-			esc_html__("Search results for %s.", "_s"),
-			$search_term
-		);
+		$card_long_description = sprintf(esc_html__("Search results for %s.", "_s"), $search_term);
 		$card_description = $card_long_description;
 	}
 
@@ -199,23 +191,15 @@ add_action("wp_head", function () {
 			: $card_image;
 	}
 	?>
-	<meta name="description" content="<?php echo esc_attr(
- 	$card_long_description
- ); ?>" />
- 	<meta name="twitter:card" content="<?php echo esc_attr(
-  	$card_twitter_card
-  ); ?>">
+	<meta name="description" content="<?php echo esc_attr($card_long_description); ?>" />
+ 	<meta name="twitter:card" content="<?php echo esc_attr($card_twitter_card); ?>">
 	<meta property="og:title" content="<?php echo esc_attr($card_title); ?>" />
-	<meta property="og:description" content="<?php echo esc_attr(
- 	$card_description
- ); ?>" />
+	<meta property="og:description" content="<?php echo esc_attr($card_description); ?>" />
 	<meta property="og:url" content="<?php echo esc_url($card_url); ?>" />
 	<?php if ($card_image): ?>
 		<meta property="og:image" content="<?php echo esc_url($card_image); ?>" />
 	<?php endif; ?>
-	<meta property="og:site_name" content="<?php echo esc_attr(
- 	$default_title
- ); ?>" />
+	<meta property="og:site_name" content="<?php echo esc_attr($default_title); ?>" />
 	<meta property="og:type" content="<?php echo esc_attr($card_type); ?>" />
 	<meta property="og:locale" content="<?= esc_attr($locale) ?>">
 	<?php
@@ -224,5 +208,4 @@ add_action("wp_head", function () {
 add_filter("xmlrpc_enabled", "__return_false");
 
 require get_theme_file_path("/inc/timber.php");
-require get_theme_file_path("/templates/blocks/editor.php");
 require get_theme_file_path("/inc/work.php");
