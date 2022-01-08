@@ -2,6 +2,8 @@
 	"recommendations": [
 		"felixfbecker.php-debug",
 		"bajdzis.vscode-twig-pack",
-		"esbenp.prettier-vscode"
+		"esbenp.prettier-vscode",
+		"csstools.postcss",
+		"bradlc.vscode-tailwindcss"
 	]
 }
