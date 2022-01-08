@@ -107,8 +107,6 @@ http://localhost:8888/wp-admin/
 npm run build --prefix mytheme
 ```
 
-デプロイの際には、好みに応じて不要なソースファイルを削除してください。
-
 ## 関連リソース
 
 - [@wordpress/env](https://ja.wordpress.org/team/handbook/block-editor/reference-guides/packages/packages-env/): wp-env の公式ドキュメント
