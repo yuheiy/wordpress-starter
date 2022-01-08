@@ -1,5 +1,5 @@
 ---
-to: mytheme/assets/ts/controllers/<%- h.changeCase.param(name) %>.controller.ts
+to: assets/ts/controllers/<%- h.changeCase.param(name) %>.controller.ts
 ---
 import { Controller } from "@hotwired/stimulus";
 

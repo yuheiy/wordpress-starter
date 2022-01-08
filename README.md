@@ -14,13 +14,14 @@ WordPress テーマ構築のための開発環境です。[wp-env](https://ja.wo
 ```bash
 npm install --global @wordpress/env
 npm install
+npm install --prefix mytheme
 ```
 
 ローカルサーバーの起動:
 
 ```bash
 wp-env start
-npm run dev
+npm run dev --prefix mytheme
 ```
 
 ### [ACF Pro](https://www.advancedcustomfields.com/pro/) の設定
@@ -103,7 +104,7 @@ http://localhost:8888/wp-admin/
 次のコマンドを実行すると、ビルド済みのファイルが `mytheme/build` ディレクトリに出力されます。
 
 ```bash
-npm run build
+npm run build --prefix mytheme
 ```
 
 デプロイの際には、好みに応じて不要なソースファイルを削除してください。

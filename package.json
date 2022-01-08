@@ -1,27 +1,5 @@
 {
 	"scripts": {
-		"dev": "concurrently --raw \"npm:dev:*\" \"drygen --watch\"",
-		"dev:scripts": "wp-scripts start mytheme/assets/ts/main.ts mytheme/templates/blocks/editor.ts --output-path=mytheme/build",
-		"dev:sync": "browser-sync start --proxy \"http://localhost:8888\" --no-open --files \"mytheme/build, **/*.twig, **/*.php\"",
-		"build": "drygen && npm run build:scripts",
-		"build:scripts": "wp-scripts build mytheme/assets/ts/main.ts mytheme/templates/blocks/editor.ts --output-path=mytheme/build",
-		"format": "prettier . --write",
 		"//postinstall": "bash scripts/install-acf-pro.sh"
-	},
-	"dependencies": {
-		"@hotwired/stimulus": "^3.0.1"
-	},
-	"devDependencies": {
-		"@prettier/plugin-php": "^0.17.5",
-		"@wordpress/scripts": "^19.0.0",
-		"browser-sync": "^2.27.5",
-		"concurrently": "^6.3.0",
-		"drygen": "^0.0.4",
-		"prettier-plugin-organize-imports": "^2.3.4",
-		"prettier-plugin-twig-melody": "^0.4.6"
-	},
-	"engines": {
-		"node": "16"
-	},
-	"private": true
+	}
 }
