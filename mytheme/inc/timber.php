@@ -15,9 +15,7 @@ add_filter("timber/twig", function ($twig) {
 add_action("timber/context", function ($context) {
 	$context["work_post_type"] = new My_Theme_Post_Type("mytheme_work");
 
-	$context["work_category_terms"] = Timber::get_terms(
-		"mytheme_work_category"
-	);
+	$context["work_category_terms"] = Timber::get_terms("mytheme_work_category");
 
 	$context["page_foot_menu"] = new Timber\Menu("page-foot-menu");
 

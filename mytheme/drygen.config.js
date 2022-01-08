@@ -4,7 +4,7 @@
 module.exports = {
 	rules: [
 		{
-			name: "ts/controllers",
+			name: "controllers",
 			dependencies: ["src/scripts/controllers/*.controller.ts"],
 			outputs: [
 				{

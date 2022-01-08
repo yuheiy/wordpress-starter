@@ -32,10 +32,7 @@ add_action("pre_get_posts", function ($query) {
 		return;
 	}
 
-	if (
-		is_post_type_archive("mytheme_work") ||
-		is_tax("mytheme_work_category")
-	) {
+	if (is_post_type_archive("mytheme_work") || is_tax("mytheme_work_category")) {
 		$query->set("posts_per_page", 12);
 	}
 });

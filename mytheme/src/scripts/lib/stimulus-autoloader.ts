@@ -31,9 +31,7 @@ function loadController(name: string) {
 
 	fetchingModule
 		.then((module) => registerController(name, module))
-		.catch((error) =>
-			console.error(`Failed to autoload controller: ${name}`, error)
-		);
+		.catch((error) => console.error(`Failed to autoload controller: ${name}`, error));
 }
 
 function registerController(name: string, module: any) {
@@ -49,10 +47,7 @@ new MutationObserver((mutationsList) => {
 
 		switch (type) {
 			case "attributes": {
-				if (
-					attributeName == controllerAttribute &&
-					target.getAttribute(controllerAttribute)
-				) {
+				if (attributeName == controllerAttribute && target.getAttribute(controllerAttribute)) {
 					extractControllerNamesFrom(target).forEach(loadController);
 				}
 			}
