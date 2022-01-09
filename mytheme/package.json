@@ -1,7 +1,7 @@
 {
 	"scripts": {
 		"dev": "concurrently --raw \"wp-scripts start\" \"npm:sync\" \"drygen --watch\"",
-		"sync": "browser-sync start --proxy \"http://localhost:8888\" --no-open --files \"build, **/*.twig, **/*.php\"",
+		"sync": "browser-sync start --config bs-config.js",
 		"build": "drygen && wp-scripts build",
 		"format": "prettier . --write"
 	},
