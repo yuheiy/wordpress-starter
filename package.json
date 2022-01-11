@@ -1,5 +1,12 @@
 {
 	"scripts": {
 		"//postinstall": "bash scripts/install-acf-pro.sh"
-	}
+	},
+	"engines": {
+		"node": "16"
+	},
+	"private": true,
+	"workspaces": [
+		"mytheme"
+	]
 }
