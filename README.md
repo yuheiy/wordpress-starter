@@ -27,17 +27,21 @@ npm run dev -w mytheme
 
 ソースコードを次のように変更してください。
 
-`.env`:
+`.wp-env.override.json`:
 
 ```diff
-+ACF_KEY=SET_YOUR_KEY
++{
++	"config": {
++		"ACF_PRO_LICENSE": "SET_YOUR_KEY"
++	}
++}
 ```
 
 `package.json`:
 
 ```diff
--	"//postinstall": "bash scripts/install-acf-pro.sh"
-+	"postinstall": "bash scripts/install-acf-pro.sh"
+-	"//postinstall": "node scripts/install-acf-pro.mjs"
++	"postinstall": "node scripts/install-acf-pro.mjs"
 ```
 
 `.wp-env.json`:

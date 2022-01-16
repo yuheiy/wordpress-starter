@@ -131,3 +131,4 @@ dist
 
 # Project specific outputs
 /plugins/advanced-custom-fields-pro/
+.wp-env.override.json

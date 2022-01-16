@@ -1,6 +1,9 @@
 {
 	"scripts": {
-		"//postinstall": "bash scripts/install-acf-pro.sh"
+		"//postinstall": "node scripts/install-acf-pro.mjs"
+	},
+	"devDependencies": {
+		"zx": "^4.2.0"
 	},
 	"engines": {
 		"node": "16"
