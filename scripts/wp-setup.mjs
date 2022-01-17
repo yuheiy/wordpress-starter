@@ -3,6 +3,7 @@
 import path from "path";
 import url from "url";
 import { $ } from "zx";
+import { readConfig } from "@wordpress/env/lib/config/index.js";
 
 const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -13,19 +14,21 @@ if (!["development", "tests"].includes(environment)) {
 	throw new Error(`Unable to set "${environment}" for environment`);
 }
 
-const container_id =
-	environment === "development"
-		? await $`docker ps -f name=_wordpress_ -q`
-		: await $`docker ps -f name=_tests-wordpress_ -q`;
+const configPath = path.join(__dirname, "..", ".wp-env.json");
+const { workDirectoryPath } = await readConfig(configPath);
+const containerId =
+	await $`docker-compose --project-directory ${workDirectoryPath} ps -q ${
+		environment === "development" ? "wordpress" : "tests-wordpress"
+	}`;
 
-const cli_command = environment === "development" ? "cli" : "tests-cli";
+const cliCommand = environment === "development" ? "cli" : "tests-cli";
 
 // cleanup
 await $`wp-env clean ${environment}`;
 
 // preparation
 await $`rm -rf /var/www/html/_wp-setup/`;
-await $`docker cp ${__dirname}/_wp-setup/ "${container_id}:/var/www/html/_wp-setup/"`;
+await $`docker cp ${__dirname}/_wp-setup/ "${containerId}:/var/www/html/_wp-setup/"`;
 
 // execution
-await $`wp-env run ${cli_command} bash /var/www/html/_wp-setup/main.sh`;
+await $`wp-env run ${cliCommand} bash /var/www/html/_wp-setup/main.sh`;

@@ -3,12 +3,17 @@
 import path from "path";
 import url from "url";
 import { $ } from "zx";
+import { readConfig } from "@wordpress/env/lib/config/index.js";
 
 const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const snapshotDir = path.join(__dirname, "snapshot");
-const containerId = await $`docker ps -f name=_wordpress_ -q`;
+
+const configPath = path.join(__dirname, "..", ".wp-env.json");
+const { workDirectoryPath } = await readConfig(configPath);
+const containerId =
+	await $`docker-compose --project-directory ${workDirectoryPath} ps -q wordpress`;
 
 // import database
 const dumpFilePaths = {

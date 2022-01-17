@@ -12,14 +12,13 @@ WordPress テーマ構築のための開発環境です。[wp-env](https://ja.wo
 依存パッケージのインストール:
 
 ```bash
-npm install --global @wordpress/env
 npm install
 ```
 
 ローカルサーバーの起動:
 
 ```bash
-wp-env start
+npx wp-env start
 npm run dev -w mytheme
 ```
 
@@ -71,7 +70,7 @@ wp-env は、Docker を使った WordPress 環境を簡単に構築するため�
 次のコマンドを実行すると、自動的に WordPress の初期設定が行われます:
 
 ```bash
-wp-env start
+npx wp-env start
 scripts/wp-setup.mjs
 ```
 
@@ -80,7 +79,7 @@ scripts/wp-setup.mjs
 WordPress ローカル環境のデータベースとメディアファイルの状態を `scripts/snapshot` ディレクトリに出力できます。これを Git リポジトリにコミットすることで、別のローカル環境でも同様の状態を再現できるようになります。
 
 ```bash
-wp-env start
+npx wp-env start
 scripts/wp-export.mjs
 ```
 
@@ -89,7 +88,7 @@ scripts/wp-export.mjs
 `scripts/snapshot` ディレクトリに前回の状態が保存されていれば、データベースとメディアファイルを復元できます。
 
 ```bash
-wp-env start
+npx wp-env start
 scripts/wp-import.mjs
 ```
 
