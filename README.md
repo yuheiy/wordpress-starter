@@ -40,8 +40,8 @@ npm run dev -w mytheme
 `package.json`:
 
 ```diff
--	"//postinstall": "node scripts/install-acf-pro.mjs"
-+	"postinstall": "node scripts/install-acf-pro.mjs"
+-	"//postinstall": "scripts/install-acf-pro.mjs"
++	"postinstall": "scripts/install-acf-pro.mjs"
 ```
 
 `.wp-env.json`:
@@ -72,7 +72,7 @@ wp-env は、Docker を使った WordPress 環境を簡単に構築するため�
 
 ```bash
 wp-env start
-bash scripts/wp-setup.sh
+scripts/wp-setup.mjs
 ```
 
 ### データベースおよびメディアファイルのエクスポート
@@ -81,7 +81,7 @@ WordPress ローカル環境のデータベースとメディアファイルの�
 
 ```bash
 wp-env start
-bash scripts/wp-export.sh
+scripts/wp-export.mjs
 ```
 
 ### データベースおよびメディアファイルのインポート
@@ -90,7 +90,7 @@ bash scripts/wp-export.sh
 
 ```bash
 wp-env start
-bash scripts/wp-import.sh
+scripts/wp-import.mjs
 ```
 
 ### ダッシュボードへのアクセス
