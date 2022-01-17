@@ -11,9 +11,9 @@ const __dirname = path.dirname(__filename);
 const snapshotDir = path.join(__dirname, "snapshot");
 
 const configPath = path.join(__dirname, "..", ".wp-env.json");
-const { workDirectoryPath } = await readConfig(configPath);
+const { dockerComposeConfigPath } = await readConfig(configPath);
 const containerId =
-	await $`docker-compose --project-directory ${workDirectoryPath} ps -q wordpress`;
+	await $`docker-compose --file ${dockerComposeConfigPath} ps -q wordpress`;
 
 // cleanup
 await $`rm -rf ${snapshotDir}`;

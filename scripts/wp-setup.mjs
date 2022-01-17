@@ -15,9 +15,9 @@ if (!["development", "tests"].includes(environment)) {
 }
 
 const configPath = path.join(__dirname, "..", ".wp-env.json");
-const { workDirectoryPath } = await readConfig(configPath);
+const { dockerComposeConfigPath } = await readConfig(configPath);
 const containerId =
-	await $`docker-compose --project-directory ${workDirectoryPath} ps -q ${
+	await $`docker-compose --file ${dockerComposeConfigPath} ps -q ${
 		environment === "development" ? "wordpress" : "tests-wordpress"
 	}`;
 
