@@ -21,14 +21,18 @@ const containerId =
 		environment === "development" ? "wordpress" : "tests-wordpress"
 	}`;
 
-const cliCommand = environment === "development" ? "cli" : "tests-cli";
+const setupDirs = {
+	local: path.join(__dirname, "wp-setup"),
+	container: "/var/www/html/.wp-setup",
+};
 
 // cleanup
 await $`wp-env clean ${environment}`;
 
 // preparation
-await $`rm -rf /var/www/html/_wp-setup/`;
-await $`docker cp ${__dirname}/_wp-setup/ "${containerId}:/var/www/html/_wp-setup/"`;
+await $`rm -rf ${setupDirs.container}`;
+await $`docker cp ${setupDirs.local} "${containerId}:${setupDirs.container}"`;
 
 // execution
-await $`wp-env run ${cliCommand} bash /var/www/html/_wp-setup/main.sh`;
+const service = environment === "development" ? "cli" : "tests-cli";
+await $`docker-compose --file ${dockerComposeConfigPath} run -T ${service} php ${setupDirs.container}/setup.php`;
