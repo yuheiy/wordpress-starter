@@ -30,7 +30,7 @@ const setupDirs = {
 await $`wp-env clean ${environment}`;
 
 // preparation
-await $`rm -rf ${setupDirs.container}`;
+await $`wp-env run cli "rm -rf ${setupDirs.container}"`;
 await $`docker cp ${setupDirs.local} "${containerId}:${setupDirs.container}"`;
 
 // execution

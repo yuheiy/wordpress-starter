@@ -35,5 +35,4 @@ const uploadsDirs = {
 	container: "/var/www/html/wp-content/uploads",
 };
 
-await $`rm -rf ${uploadsDirs.local}`;
 await $`docker cp "${containerId}:${uploadsDirs.container}" ${uploadsDirs.local}`;
