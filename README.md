@@ -39,8 +39,8 @@ npm run dev -w mytheme
 `package.json`:
 
 ```diff
--	"//postinstall": "scripts/install-acf-pro.mjs"
-+	"postinstall": "scripts/install-acf-pro.mjs"
+-	"//postinstall": "bin/install-acf-pro.mjs"
++	"postinstall": "bin/install-acf-pro.mjs"
 ```
 
 `.wp-env.json`:
@@ -71,25 +71,25 @@ wp-env は、Docker を使った WordPress 環境を簡単に構築するため�
 
 ```bash
 npx wp-env start
-scripts/wp-setup.mjs
+bin/wp-setup.mjs
 ```
 
 ### データベースおよびメディアファイルのエクスポート
 
-WordPress ローカル環境のデータベースとメディアファイルの状態を `scripts/snapshot` ディレクトリに出力できます。これを Git リポジトリにコミットすることで、別のローカル環境でも同様の状態を再現できるようになります。
+WordPress ローカル環境のデータベースとメディアファイルの状態を `bin/snapshot` ディレクトリに出力できます。これを Git リポジトリにコミットすることで、別のローカル環境でも同様の状態を再現できるようになります。
 
 ```bash
 npx wp-env start
-scripts/wp-export.mjs
+bin/wp-export.mjs
 ```
 
 ### データベースおよびメディアファイルのインポート
 
-`scripts/snapshot` ディレクトリに前回の状態が保存されていれば、データベースとメディアファイルを復元できます。
+`bin/snapshot` ディレクトリに前回の状態が保存されていれば、データベースとメディアファイルを復元できます。
 
 ```bash
 npx wp-env start
-scripts/wp-import.mjs
+bin/wp-import.mjs
 ```
 
 ### ダッシュボードへのアクセス

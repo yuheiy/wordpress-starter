@@ -1,6 +1,6 @@
 {
 	"scripts": {
-		"//postinstall": "scripts/install-acf-pro.mjs"
+		"//postinstall": "bin/install-acf-pro.mjs"
 	},
 	"devDependencies": {
 		"@wordpress/env": "^4.1.3",
