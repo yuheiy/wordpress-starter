@@ -16,7 +16,7 @@ const containerId = await readWpContainerId(wpConfig);
 // import database
 const dumpPaths = {
 	local: path.join(snapshotDir, "wordpress.sql"),
-	container: "/var/www/html/wordpress.sql",
+	container: "/var/www/html/.wordpress.sql",
 };
 
 await $`docker cp ${dumpPaths.local} "${containerId}:${dumpPaths.container}"`;

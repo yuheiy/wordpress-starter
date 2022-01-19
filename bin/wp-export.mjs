@@ -20,12 +20,13 @@ await $`mkdir ${snapshotDir}`;
 // export database
 const dumpPaths = {
 	local: path.join(snapshotDir, "wordpress.sql"),
-	container: "/var/www/html/wordpress.sql",
+	container: "/var/www/html/.wordpress.sql",
 };
 
 await $`wp-env run cli "rm -f ${dumpPaths.container}"`;
 await $`wp-env run cli "wp db export ${dumpPaths.container}"`;
 await $`docker cp "${containerId}:${dumpPaths.container}" ${dumpPaths.local}`;
+await $`wp-env run cli "rm -f ${dumpPaths.container}"`;
 
 // export uploads
 const uploadsDirs = {
