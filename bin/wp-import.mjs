@@ -21,6 +21,7 @@ const dumpPaths = {
 
 await $`docker cp ${dumpPaths.local} "${containerId}:${dumpPaths.container}"`;
 await $`wp-env run cli "wp db import ${dumpPaths.container}"`;
+await $`wp-env run cli "rm -f ${dumpPaths.container}"`;
 
 // import uploads
 const uploadsDirs = {
