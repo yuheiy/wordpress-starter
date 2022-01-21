@@ -1,6 +1,6 @@
 {
 	"recommendations": [
-		"felixfbecker.php-debug",
+		"xdebug.php-debug",
 		"bajdzis.vscode-twig-pack",
 		"esbenp.prettier-vscode",
 		"csstools.postcss",
