@@ -205,6 +205,11 @@ add_action("wp_head", function () {
 	<?php
 });
 
+add_filter("wp_get_attachment_image_attributes", function ($attrs) {
+	$attrs["decoding"] = "async";
+	return $attrs;
+});
+
 add_filter("xmlrpc_enabled", "__return_false");
 
 require get_theme_file_path("/inc/blocks.php");
