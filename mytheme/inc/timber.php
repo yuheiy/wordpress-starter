@@ -1,6 +1,6 @@
 <?php
 
-Timber::$dirname = ["templates"];
+Timber::$dirname = ["views"];
 
 add_filter("timber/twig", function ($twig) {
 	$twig->addFilter(
