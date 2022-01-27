@@ -10,7 +10,6 @@ add_action("after_setup_theme", function () {
 	add_theme_support("title-tag");
 
 	add_theme_support("post-thumbnails");
-	add_image_size("ogp", 1200, 630, true);
 
 	register_nav_menus([
 		"page-foot-menu" => "フッターメニュー",
