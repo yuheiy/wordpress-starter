@@ -5,6 +5,8 @@ if (!isset($content_width)) {
 }
 
 add_action("after_setup_theme", function () {
+	load_theme_textdomain("mytheme", get_template_directory() . "/languages");
+
 	add_theme_support("automatic-feed-links");
 
 	add_theme_support("title-tag");
