@@ -219,5 +219,5 @@ add_filter("wp_get_attachment_image_attributes", function ($attrs) {
 add_filter("xmlrpc_enabled", "__return_false");
 
 require get_theme_file_path("/inc/blocks.php");
-require get_theme_file_path("/inc/timber.php");
 require get_theme_file_path("/inc/work.php");
+require get_theme_file_path("/inc/timber.php");
