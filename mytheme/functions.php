@@ -10,7 +10,6 @@ add_action("after_setup_theme", function () {
 	add_theme_support("title-tag");
 
 	add_theme_support("post-thumbnails");
-
 	add_image_size("ogp", 1200, 630, true);
 
 	register_nav_menus([
@@ -18,9 +17,9 @@ add_action("after_setup_theme", function () {
 	]);
 
 	add_theme_support("html5", [
-		"search-form",
 		"comment-form",
 		"comment-list",
+		"search-form",
 		"gallery",
 		"caption",
 		"style",
@@ -36,6 +35,8 @@ add_action("after_setup_theme", function () {
 	add_editor_style();
 
 	add_theme_support("responsive-embeds");
+
+	add_filter("should_load_separate_core_block_assets", "__return_true");
 });
 
 add_filter(
