@@ -2,7 +2,6 @@
 	"$schema": "https://raw.githubusercontent.com/WordPress/gutenberg/trunk/schemas/json/theme.json",
 	"version": 2,
 	"settings": {
-		"border": {},
 		"color": {
 			"background": false,
 			"custom": false,
@@ -15,7 +14,10 @@
 			"palette": [],
 			"text": false
 		},
-		"layout": {},
+		"layout": {
+			"contentSize": "650px",
+			"wideSize": "1000px"
+		},
 		"spacing": {},
 		"typography": {
 			"customFontSize": false,
@@ -27,6 +29,19 @@
 			"dropCap": false,
 			"fontSizes": [],
 			"fontFamilies": []
-		}
-	}
+		},
+		"border": {},
+		"custom": {},
+		"blocks": {}
+	},
+	"styles": {
+		"border": {},
+		"color": {},
+		"spacing": {},
+		"typography": {},
+		"elements": {},
+		"blocks": {}
+	},
+	"customTemplates": [],
+	"templateParts": []
 }
