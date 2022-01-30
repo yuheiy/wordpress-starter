@@ -3,8 +3,8 @@
 		"//postinstall": "bin/install-acf-pro.mjs"
 	},
 	"devDependencies": {
-		"@wordpress/env": "^4.1.3",
-		"zx": "^4.2.0"
+		"@wordpress/env": "^4.2.0",
+		"zx": "^4.3.0"
 	},
 	"engines": {
 		"node": "16"
