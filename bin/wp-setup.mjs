@@ -18,7 +18,7 @@ const wpConfig = await readConfig();
 const containerId = await readWpContainerId(wpConfig, environment);
 
 const setupDirs = {
-	local: path.join(__dirname, "wp-setup"),
+	local: path.join(__dirname, "_wp-setup"),
 	container: "/var/www/html/.wp-setup",
 };
 
