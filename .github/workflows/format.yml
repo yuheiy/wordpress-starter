@@ -11,7 +11,7 @@ jobs:
               with:
                   node-version-file: ".nvmrc"
             - run: npm install
-            - run: npm run format -w mytheme
+            - run: npm run format
             - uses: stefanzweifel/git-auto-commit-action@v4
               with:
                   commit_message: "[ci] npm run format"

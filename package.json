@@ -1,5 +1,8 @@
 {
 	"scripts": {
+		"dev": "npm run dev --workspaces --if-present",
+		"build": "npm run build --workspaces --if-present",
+		"format": "npm run format --workspaces --if-present",
 		"//postinstall": "bin/install-acf-pro.mjs"
 	},
 	"devDependencies": {

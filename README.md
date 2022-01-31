@@ -19,7 +19,7 @@ npm install
 
 ```bash
 npx wp-env start
-npm run dev -w mytheme
+npm run dev
 ```
 
 ### [ACF Pro](https://www.advancedcustomfields.com/pro/) の設定
@@ -106,7 +106,7 @@ http://localhost:8888/wp-admin/
 次のコマンドを実行すると、ビルド済みのファイルが `mytheme/build` ディレクトリに出力されます。
 
 ```bash
-npm run build -w mytheme
+npm run build
 ```
 
 ## 関連リソース
