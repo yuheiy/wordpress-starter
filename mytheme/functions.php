@@ -43,7 +43,7 @@ add_action("after_setup_theme", function () {
 add_filter(
 	"script_loader_tag",
 	function ($tag, $handle, $src) {
-		if ("mytheme-scripts" === $handle) {
+		if ("mytheme-script" === $handle) {
 			$tag = sprintf(
 				"<script defer src='%s' id='%s-js'></script>\n",
 				$src,
@@ -60,10 +60,15 @@ add_filter(
 add_action("wp_enqueue_scripts", function () {
 	$asset_file = include get_theme_file_path("/build/index.asset.php");
 
-	wp_enqueue_style("mytheme", get_theme_file_uri("/build/index.css"), [], $asset_file["version"]);
+	wp_enqueue_style(
+		"mytheme-style",
+		get_theme_file_uri("/build/index.css"),
+		[],
+		$asset_file["version"]
+	);
 
 	wp_enqueue_script(
-		"mytheme-scripts",
+		"mytheme-script",
 		get_theme_file_uri("/build/index.js"),
 		$asset_file["dependencies"],
 		$asset_file["version"]
