@@ -9,7 +9,7 @@ module.exports = {
 			outputs: [
 				{
 					path: "src/scripts/controllers/index.ts",
-					template: "src/scripts/controllers/import.ts.ejs",
+					template: "src/scripts/controllers/.import.ts.ejs",
 				},
 			],
 		},
