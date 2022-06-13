@@ -13,7 +13,7 @@
 
 		<header class="p-4 bg-gray-200">
 			<p>
-				<a href="{{ site.link }}">{{ site.name }}</a>
+				<a href="{{ site.url }}">{{ site.name }}</a>
 			</p>
 			{{ function('get_search_form') }}
 		</header>
@@ -24,7 +24,7 @@
 
 		<footer class="p-4 bg-gray-200">
 			<p>
-				<a href="{{ site.link }}">{{ site.name }}</a>
+				<a href="{{ site.url }}">{{ site.name }}</a>
 			</p>
 			<ul>
 				{% for item in page_foot_menu.items %}
