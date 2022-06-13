@@ -23,10 +23,10 @@ const setupDirs = {
 };
 
 // cleanup
-await $`wp-env clean ${environment}`;
+await $`npx wp-env clean ${environment}`;
 
 // preparation
-await $`wp-env run cli "rm -rf ${setupDirs.container}"`;
+await $`npx wp-env run cli "rm -rf ${setupDirs.container}"`;
 await $`docker cp ${setupDirs.local} "${containerId}:${setupDirs.container}"`;
 
 // execution

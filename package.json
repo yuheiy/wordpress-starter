@@ -1,8 +1,8 @@
 {
 	"scripts": {
-		"dev": "npm run dev --workspaces --if-present",
-		"build": "npm run build --workspaces --if-present",
-		"format": "npm run format --workspaces --if-present",
+		"dev": "npm run dev --workspace=mytheme",
+		"build": "npm run build --workspace=mytheme",
+		"format": "npm run format --workspace=mytheme",
 		"//postinstall": "bin/install-acf-pro.mjs"
 	},
 	"devDependencies": {
@@ -14,6 +14,6 @@
 	},
 	"private": true,
 	"workspaces": [
-		"mytheme"
+		"themes/mytheme"
 	]
 }
