@@ -1,28 +1,46 @@
 {% extends 'base.twig' %}
 
 {% block content %}
-	<main class="p-4">
-		<h1>
-			This is my archive
-		</h1>
-
-		<ol>
-			{% for post in posts %}
-				<li><a href="{{ post.link }}">{{ post.title }}</a></li>
-			{% endfor %}
-		</ol>
-
+	<main>
 		{{
 			include(
-				'partial/pagination.twig',
-				{
-					pagination: posts.pagination({
-						show_all: false,
-						mid_size: 3,
-						end_size: 2
-					})
-				}
+				"partial/page-header.twig",
+				{ title: title }
 			)
 		}}
+
+		<div class="container max-w-4xl">
+			<ol class="divide-y">
+				{% for post in posts %}
+					<li>
+						<a
+							class="flex justify-between items-center gap-x-6 py-3"
+							href="{{ post.link }}"
+						>
+							{{ post.title }}
+							<time
+								class="text-sm"
+								datetime="{{ post.date|date('Y-m-d H:i:s') }}"
+							>
+								{{ post.date }}
+							</time>
+						</a>
+					</li>
+				{% endfor %}
+			</ol>
+		</div>
 	</main>
+
+	{{
+		include(
+			'partial/base-pagination.twig',
+			{
+				pagination: posts.pagination({
+					show_all: false,
+					mid_size: 3,
+					end_size: 2
+				})
+			}
+		)
+	}}
 {% endblock %}

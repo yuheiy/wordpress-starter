@@ -1,0 +1,62 @@
+html {
+	hyphens: auto;
+	line-break: normal;
+	text-underline-offset: 0.125em;
+	overflow-wrap: break-word;
+}
+
+/* https://schepp.dev/posts/smooth-scrolling-and-page-search/ */
+html:focus-within {
+	@media (prefers-reduced-motion: no-preference) {
+		scroll-behavior: smooth;
+	}
+}
+
+:lang(ja) {
+	font-kerning: none;
+}
+
+:lang(en) {
+	font-kerning: auto;
+}
+
+body {
+	padding-top: var(--height-site-head);
+}
+
+/* https://css-tricks.com/a-clever-sticky-footer-technique/ */
+html,
+body {
+	height: 100%;
+}
+
+/* https://github.com/WICG/focus-visible#2-update-your-css */
+.js-focus-visible :focus:not(.focus-visible) {
+	outline: none;
+}
+
+svg {
+	max-width: 100%;
+	height: auto;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+	font: inherit;
+	letter-spacing: inherit;
+}
+
+select {
+	appearance: none;
+}
+
+[id] {
+	scroll-margin-top: calc(var(--height-site-head) + 1rem);
+}
+
+[x-cloak] {
+	display: none !important;
+}

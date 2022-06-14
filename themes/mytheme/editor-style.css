@@ -1,4 +1,6 @@
-.wp-block-acf-testimonial {
-	padding: 1rem;
+.acf-block-component {
+	margin-bottom: 1em;
+	padding: 1em;
 	border: 1px solid;
+	border-radius: 2px;
 }

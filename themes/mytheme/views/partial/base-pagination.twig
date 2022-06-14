@@ -1,0 +1,70 @@
+{% if posts.pagination.pages is not empty %}
+	<nav aria-label="ページ">
+		<ul>
+			{# First #}
+			{% if (posts.pagination.pages|first) and posts.pagination.pages|first.current != true %}
+				<li>
+					<a href="{{ posts.pagination.pages|first.link }}">First</a>
+				</li>
+			{% else %}
+				<li>
+					<a>First</a>
+				</li>
+			{% endif %}
+
+			{# Previous #}
+			{% if posts.pagination.prev %}
+				<li>
+					<a href="{{ posts.pagination.prev.link }}">Previous</a>
+				</li>
+			{% else %}
+				<li>
+					<a>Previous</a>
+				</li>
+			{% endif %}
+
+			{# Pages #}
+			{% for page in posts.pagination.pages %}
+				{% if page.link %}
+					<li>
+						<a class="{{ page.class }}" href="{{ page.link }}">
+							{{ page.title }}
+						</a>
+					</li>
+				{% elseif page.current %}
+					<li>
+						<a class="{{ page.class }}" aria-current="true">
+							{{ page.title }}
+						</a>
+					</li>
+				{% else %}
+					<li>
+						<a class="{{ page.class }}">{{ page.title }}</a>
+					</li>
+				{% endif %}
+			{% endfor %}
+
+			{# Next #}
+			{% if posts.pagination.next %}
+				<li>
+					<a href="{{ posts.pagination.next.link }}">Next</a>
+				</li>
+			{% else %}
+				<li>
+					<a>Next</a>
+				</li>
+			{% endif %}
+
+			{# Last #}
+			{% if (posts.pagination.pages|last) and posts.pagination.pages|last.current != true %}
+				<li>
+					<a href="{{ posts.pagination.pages|last.link }}">Last</a>
+				</li>
+			{% else %}
+				<li>
+					<a>Last</a>
+				</li>
+			{% endif %}
+		</ul>
+	</nav>
+{% endif %}

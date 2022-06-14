@@ -1,21 +1,38 @@
 <?php
 
+$composer_autoload = __DIR__ . "/vendor/autoload.php";
+if (file_exists($composer_autoload)) {
+	require_once $composer_autoload;
+}
+
 if (!isset($content_width)) {
 	$content_width = 1280;
 }
 
+remove_action("wp_head", "rest_output_link_wp_head", 10);
+remove_action("wp_head", "feed_links_extra", 3);
+remove_action("wp_head", "rsd_link");
+remove_action("wp_head", "wlwmanifest_link");
+remove_action("wp_head", "print_emoji_detection_script", 7);
+remove_action("wp_head", "wp_generator");
+remove_action("wp_head", "wp_shortlink_wp_head", 10);
+remove_action("wp_print_styles", "print_emoji_styles");
+remove_action("wp_head", "wp_oembed_add_discovery_links");
+
+add_filter("emoji_svg_url", "__return_false");
+add_filter("show_admin_bar", "__return_false");
+add_filter("xmlrpc_enabled", "__return_false");
+
 add_action("after_setup_theme", function () {
 	load_theme_textdomain("mytheme", get_template_directory() . "/languages");
-
-	add_theme_support("automatic-feed-links");
 
 	add_theme_support("title-tag");
 
 	add_theme_support("post-thumbnails");
 
-	register_nav_menus([
-		"page-foot-menu" => "フッターメニュー",
-	]);
+	// register_nav_menus([
+	// 	"site-menu" => "サイトメニュー",
+	// ]);
 
 	add_theme_support("html5", [
 		"comment-form",
@@ -29,8 +46,6 @@ add_action("after_setup_theme", function () {
 	]);
 
 	add_theme_support("customize-selective-refresh-widgets");
-
-	add_theme_support("align-wide");
 
 	add_theme_support("editor-styles");
 	add_editor_style();
@@ -105,18 +120,24 @@ add_action("wp_head", function () {
 	$default_type = "article";
 
 	// Get the base image.
-	$default_image_url = get_theme_file_uri("assets/images/ogp.png");
+	$default_image_url = get_theme_file_uri("build/images/ogp.png");
+
+	// Set the twitter card type.
+	$default_twitter_card = "summary_large_image";
+
+	// Get the locale.
+	$default_locale = get_locale();
+
+	if ($default_locale === "ja") {
+		$default_locale = "ja_JP";
+	}
 
 	// Set our final defaults.
 	$card_title = $default_title;
 	$card_description = $default_base_description;
-	$card_long_description = $default_base_description;
 	$card_url = $default_url;
 	$card_image = $default_image_url;
 	$card_type = $default_type;
-	$card_twitter_card = "summary_large_image";
-
-	$locale = get_locale();
 
 	// Let's start overriding!
 	// All singles.
@@ -202,27 +223,94 @@ add_action("wp_head", function () {
 			: $card_image;
 	}
 	?>
-	<meta name="description" content="<?php echo esc_attr($card_long_description); ?>" />
- 	<meta name="twitter:card" content="<?php echo esc_attr($card_twitter_card); ?>">
-	<meta property="og:title" content="<?php echo esc_attr($card_title); ?>" />
-	<meta property="og:description" content="<?php echo esc_attr($card_description); ?>" />
-	<meta property="og:url" content="<?php echo esc_url($card_url); ?>" />
-	<?php if ($card_image): ?>
-		<meta property="og:image" content="<?php echo esc_url($card_image); ?>" />
-	<?php endif; ?>
-	<meta property="og:site_name" content="<?php echo esc_attr($default_title); ?>" />
-	<meta property="og:type" content="<?php echo esc_attr($card_type); ?>" />
-	<meta property="og:locale" content="<?= esc_attr($locale) ?>">
+	<meta name="description" content="<?php echo esc_attr($card_description); ?>">
+	<meta property="og:title" content="<?php echo esc_attr($card_title); ?>">
+	<meta property="og:description" content="<?php echo esc_attr($card_description); ?>">
+	<meta property="og:url" content="<?php echo esc_url($card_url); ?>">
+	<meta property="og:image" content="<?php echo esc_url($card_image); ?>">
+	<meta property="og:site_name" content="<?php echo esc_attr($default_title); ?>">
+	<meta property="og:type" content="<?php echo esc_attr($card_type); ?>">
+	<meta property="og:locale" content="<?= esc_attr($default_locale) ?>">
+	<meta name="twitter:card" content="<?php echo esc_attr($default_twitter_card); ?>">
 	<?php
 });
+
+add_action("admin_enqueue_scripts", function () {
+	wp_enqueue_style("mytheme-admin", get_theme_file_uri("/admin.css"));
+});
+
+add_action("admin_menu", function () {
+	remove_menu_page("edit.php");
+	remove_menu_page("edit-comments.php");
+});
+
+add_filter("wp_lazy_loading_enabled", "__return_false");
 
 add_filter("wp_get_attachment_image_attributes", function ($attrs) {
 	$attrs["decoding"] = "async";
 	return $attrs;
 });
 
-add_filter("xmlrpc_enabled", "__return_false");
+add_filter(
+	"allowed_block_types_all",
+	function ($allowed_block_types, $block_editor_context) {
+		return $allowed_block_types;
+	},
+	10,
+	2
+);
 
-require get_theme_file_path("/inc/blocks.php");
-require get_theme_file_path("/inc/work.php");
+require get_theme_file_path("/inc/acf.php");
+require get_theme_file_path("/inc/acp.php");
 require get_theme_file_path("/inc/timber.php");
+
+require get_theme_file_path("/inc/news.php");
+
+function mytheme_wp_get_attachment_source(
+	$attachment_id,
+	$size = "thumbnail",
+	$icon = false,
+	$attr = ""
+) {
+	$html = "";
+	$image = wp_get_attachment_image_src($attachment_id, $size, $icon);
+
+	if ($image) {
+		list($src, $width, $height) = $image;
+
+		$attachment = get_post($attachment_id);
+		$hwstring = image_hwstring($width, $height);
+
+		$attr = wp_parse_args($attr);
+
+		// Generate 'srcset' and 'sizes' if not already present.
+		if (empty($attr["srcset"])) {
+			$image_meta = wp_get_attachment_metadata($attachment_id);
+
+			if (is_array($image_meta)) {
+				$size_array = [absint($width), absint($height)];
+				$srcset = wp_calculate_image_srcset($size_array, $src, $image_meta, $attachment_id);
+				$sizes = wp_calculate_image_sizes($size_array, $src, $image_meta, $attachment_id);
+
+				if ($srcset && ($sizes || !empty($attr["sizes"]))) {
+					$attr["srcset"] = $srcset;
+
+					if (empty($attr["sizes"])) {
+						$attr["sizes"] = $sizes;
+					}
+				}
+			}
+		}
+
+		$attr = array_map("esc_attr", $attr);
+		$html = rtrim("<source $hwstring");
+
+		foreach ($attr as $name => $value) {
+			$html .= " $name=" . '"' . $value . '"';
+		}
+
+		$html .= " />";
+	}
+
+	return $html;
+}

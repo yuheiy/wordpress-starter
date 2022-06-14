@@ -1,11 +1,15 @@
 {% extends 'base.twig' %}
 
 {% block content %}
-	<main class="p-4">
-		<ul>
-			{% for post in posts %}
-				<li><a href="{{ post.link }}">{{ post.title }}</a></li>
-			{% endfor %}
-		</ul>
+	<main>
+		<div class="container max-w-4xl">
+			<ol class="divide-y">
+				{% for post in posts %}
+					<li>
+						<a class="py-3" href="{{ post.link }}">{{ post.title }}</a>
+					</li>
+				{% endfor %}
+			</ol>
+		</div>
 	</main>
 {% endblock %}

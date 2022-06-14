@@ -1,2 +1,3 @@
-/src/scripts/controllers/index.ts
 /build/
+/src/scripts/components/index.ts
+/src/scripts/stores/index.ts

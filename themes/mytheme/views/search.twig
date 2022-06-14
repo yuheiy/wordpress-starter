@@ -1,24 +1,28 @@
 {% extends 'base.twig' %}
 
 {% block content %}
-	<main class="p-4">
-		<ol>
-			{% for post in posts %}
-				<li><a href="{{ post.link }}">{{ post.title }}</a></li>
-			{% endfor %}
-		</ol>
-
-		{{
-			include(
-				'partial/pagination.twig',
-				{
-					pagination: posts.pagination({
-						show_all: false,
-						mid_size: 3,
-						end_size: 2
-					})
-				}
-			)
-		}}
+	<main>
+		<div class="container max-w-4xl">
+			<ol class="divide-y">
+				{% for post in posts %}
+					<li>
+						<a class="py-3" href="{{ post.link }}">{{ post.title }}</a>
+					</li>
+				{% endfor %}
+			</ol>
+		</div>
 	</main>
+
+	{{
+		include(
+			'partial/pagination.twig',
+			{
+				pagination: posts.pagination({
+					show_all: false,
+					mid_size: 3,
+					end_size: 2
+				})
+			}
+		)
+	}}
 {% endblock %}

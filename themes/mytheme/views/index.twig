@@ -1,37 +1,73 @@
 {% extends 'base.twig' %}
 
 {% block content %}
-	<main class="p-4 space-y-8">
-		<h1>
-			ホーム
-		</h1>
+	<main>
+		{{
+			include(
+				"partial/page-header.twig",
+				{ title: site.name, description: site.description }
+			)
+		}}
 
-		<section>
-			<h2>
-				投稿
-			</h2>
+		<img
+			class="w-full min-h-[14rem] object-cover aspect-[3/1]"
+			src="https://source.unsplash.com/random"
+			alt=""
+			decoding="async"
+		/>
 
-			<ol>
-				{% for post in posts %}
-					<li><a href="{{ post.link }}">{{ post.title }}</a></li>
-				{% endfor %}
-			</ol>
+		<section class="container max-w-4xl mt-16">
+			<h2 class="font-bold">{{ about_post.title }}</h2>
+
+			<div class="mt-8 space-y-6 text-xl">
+				{{ about_post.preview.read_more(false).strip(false) }}
+			</div>
+
+			<div class="flex justify-center mt-8">
+				{{
+					include(
+						'partial/base-button.twig',
+						{
+							content: 'さらに詳しく',
+							attrs: 'href="%s"'|format(about_post.link)
+						})
+					}}
+			</div>
 		</section>
 
-		<section>
-			<h2>
-				{{ work_post_type.label }}
+		<section class="container max-w-4xl mt-16">
+			<h2 class="font-bold">
+				{{ function('get_post_type_object', 'mytheme_news').labels.name }}
 			</h2>
 
-			<ol>
-				{% for post in work_posts %}
-					<li><a href="{{ post.link }}">{{ post.title }}</a></li>
+			<ol class="mt-8 divide-y">
+				{% for post in get_posts({ post_type: 'mytheme_news' }) %}
+				<li>
+					<a
+						class="flex justify-between items-center gap-x-6 py-3"
+						href="{{ post.link }}"
+					>
+						{{ post.title }}
+						<time class="text-sm" datetime="{{ post.date|date('Y-m-d H:i:s') }}">
+							{{ post.date }}
+						</time>
+					</a>
+				</li>
 				{% endfor %}
 			</ol>
 
-			<p>
-				<a href="{{ work_post_type.link }}">さらに表示</a>
-			</p>
+			<div class="flex justify-center mt-8">
+				{{
+					include(
+						'partial/base-button.twig',
+						{
+							content: 'さらに表示',
+							attrs: 'href="%s"'
+								|format(function('get_post_type_archive_link', 'mytheme_news'))
+						}
+					)
+				}}
+			</div>
 		</section>
 	</main>
 {% endblock %}

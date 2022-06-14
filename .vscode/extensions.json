@@ -1,9 +1,11 @@
 {
 	"recommendations": [
-		"xdebug.php-debug",
+		"adrianwilczynski.alpine-js-intellisense",
 		"bajdzis.vscode-twig-pack",
+		"bradlc.vscode-tailwindcss",
+		"editorconfig.editorconfig",
 		"esbenp.prettier-vscode",
-		"csstools.postcss",
-		"bradlc.vscode-tailwindcss"
+		"tungvn.wordpress-snippet",
+		"xdebug.php-debug"
 	]
 }

@@ -1,34 +1,20 @@
 #!/usr/bin/env node
 
-import path from "path";
-import url from "url";
-import { $ } from "zx";
-import { readConfig, readWpContainerId } from "./wp-env.mjs";
-
-const __filename = url.fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-const environment = process.argv[2] || "development";
-
-if (!["development", "tests"].includes(environment)) {
-	throw new Error(`Unable to set "${environment}" for environment`);
-}
+import "zx/globals";
+import { wpCliServices, readConfig } from "./wp-env.mjs";
 
 const wpConfig = await readConfig();
-const containerId = await readWpContainerId(wpConfig, environment);
 
-const setupDirs = {
-	local: path.join(__dirname, "_wp-setup"),
-	container: "/var/www/html/.wp-setup",
-};
+const environmentName = argv._[0] || "development";
 
-// cleanup
-await $`npx wp-env clean ${environment}`;
+if (!Object.keys(wpConfig.env).includes(environmentName)) {
+	throw new Error(`"${environmentName}" is not a valid environment name`);
+}
 
-// preparation
-await $`npx wp-env run cli "rm -rf ${setupDirs.container}"`;
-await $`docker cp ${setupDirs.local} "${containerId}:${setupDirs.container}"`;
+const wpCliService = wpCliServices[environmentName];
+const uploadsDir = "/var/www/html/wp-content/uploads";
+const setupPath = "/var/www/html/.wp-setup/setup.php";
 
-// execution
-const service = environment === "development" ? "cli" : "tests-cli";
-await $`docker-compose --file ${wpConfig.dockerComposeConfigPath} run -T ${service} php ${setupDirs.container}/setup.php`;
+await $`npx wp-env clean ${environmentName}`;
+await $`npx wp-env run ${wpCliService} "rm -rf ${uploadsDir}/2022/"`; // fixme: glob not work
+await $`docker-compose --file ${wpConfig.dockerComposeConfigPath} run -T ${wpCliService} php ${setupPath}`;

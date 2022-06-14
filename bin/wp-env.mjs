@@ -1,23 +1,26 @@
-import path from "path";
-import url from "url";
-import { $ } from "zx";
+import "zx/globals";
+import { packageDirectory } from "pkg-dir";
 import { readConfig as _readConfig } from "@wordpress/env/lib/config/index.js";
 
-const __filename = url.fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+export const wpServices = {
+	development: "wordpress",
+	tests: "tests-wordpress",
+};
 
-const rootDir = path.join(__dirname, "..");
-const configPath = path.join(rootDir, ".wp-env.json");
+export const wpCliServices = {
+	development: "cli",
+	tests: "tests-cli",
+};
 
-export function readConfig() {
-	return Promise.resolve(_readConfig(configPath));
+export async function readConfig() {
+	const projectDir = await packageDirectory();
+	const configPath = path.join(projectDir, ".wp-env.json");
+
+	return _readConfig(configPath);
 }
 
-export function readWpContainerId(
-	{ dockerComposeConfigPath },
-	environment = "development"
-) {
-	const service =
-		environment === "development" ? "wordpress" : "tests-wordpress";
-	return $`docker-compose --file "${dockerComposeConfigPath}" ps -q "${service}"`;
+export function readWpContainerId({ dockerComposeConfigPath }, environmentName = "development") {
+	const service = wpServices[environmentName];
+
+	return $`docker-compose --file ${dockerComposeConfigPath} ps -q ${service}`;
 }

@@ -1,37 +1,103 @@
-<!DOCTYPE html>
+<!doctype html>
 <html {{ site.language_attributes }}>
 	<head>
-		<meta charset="{{ site.charset }}" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta name="format-detection" content="telephone=no" />
+		<meta charset="{{ site.charset }}">
+		<meta name="viewport" content="width=device-width">
+		<meta name="format-detection" content="telephone=no">
 
 		{{ function('wp_head') }}
 	</head>
 
-	<body class="{{ body_class }}">
+	<body class="{{ body_class }} text-slate-500 bg-white">
 		{{ function('wp_body_open') }}
 
-		<header class="p-4 bg-gray-200">
-			<p>
-				<a href="{{ site.url }}">{{ site.name }}</a>
-			</p>
-			{{ function('get_search_form') }}
+		<header
+			class="fixed top-0 inset-x-0 z-10 text-sm font-bold bg-white border-b border-slate-300"
+			x-data
+			x-init="
+				new ResizeObserver(([entry]) => {
+					document.documentElement.style.setProperty(
+						'--height-site-head',
+						`${entry.contentRect.height}px`
+					);
+				}).observe($el);
+			"
+		>
+			<div class="container flex gap-x-6 justify-between" x-data="dialog" x-id="['menu-trigger']">
+				<a class="py-3" href="{{ site.url }}">{{ site.name }}</a>
+				<button
+					class="py-3"
+					type="button"
+					:id="$id('menu-trigger')"
+					@click="isOpen = true"
+				>
+					メニュー
+				</button>
+
+				<template x-teleport="#js-overlay-container">
+					<div>
+						<div
+							class="fixed inset-0 z-20 bg-black/50"
+							x-show="isOpen"
+							x-transition.opacity
+						></div>
+						<div
+							class="fixed inset-0 left-16 z-20 overflow-auto max-w-2xl ml-auto py-5 bg-white"
+							role="dialog"
+							:aria-labelledby="$id('menu-trigger')"
+							x-bind="root"
+							x-show="isOpen"
+							x-transition:enter="transition duration-200"
+							x-transition:enter-start="translate-x-full"
+							x-transition:enter-end="translate-x-0"
+							x-transition:leave="transition duration-200"
+							x-transition:leave-start="translate-x-0"
+							x-transition:leave-end="translate-x-full"
+							@click.outside="isOpen = false"
+						>
+							<ul class="divide-y">
+								{% for item in [
+									['ホーム', site.url],
+									[about_post.title, about_post.link],
+									[
+										function('get_post_type_object', 'mytheme_news').labels.name,
+										function('get_post_type_archive_link', 'mytheme_news')
+									]
+								] %}
+								<li>
+									<a class="block px-5 py-3" href="{{ item[1] }}">{{ item[0] }}</a>
+								</li>
+								{% endfor %}
+							</ul>
+						</div>
+					</div>
+				</template>
+			</div>
 		</header>
 
-		{% block content %}
+		{% block content %}{% endblock %}
 
-		{% endblock %}
-
-		<footer class="p-4 bg-gray-200">
-			<p>
-				<a href="{{ site.url }}">{{ site.name }}</a>
-			</p>
-			<ul>
-				{% for item in page_foot_menu.items %}
-					<li><a href="{{ item.link }}">{{ item.title }}</a></li>
-				{% endfor %}
-			</ul>
+		<footer class="sticky top-full mt-20 py-2 text-sm bg-slate-100">
+			<nav>
+				<ul class="container flex gap-x-6">
+					{% for item in [
+						['ホーム', site.url],
+						[about_post.title, about_post.link],
+						[
+							function('get_post_type_object', 'mytheme_news').labels.name,
+							function('get_post_type_archive_link', 'mytheme_news')
+						]
+					] %}
+					<li>
+						<a class="block py-3" href="{{ item[1] }}">{{ item[0] }}</a>
+					</li>
+					{% endfor %}
+				</ul>
+			</nav>
 		</footer>
+
+		{# https://atfzl.com/don-t-attach-tooltips-to-document-body #}
+		<div id="js-overlay-container"></div>
 
 		{{ function('wp_footer') }}
 	</body>

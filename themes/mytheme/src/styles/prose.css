@@ -1,0 +1,8 @@
+.prose {
+	@apply space-y-6 text-base text-slate-700 leading-relaxed;
+
+	* + :is(hr, figure),
+	:is(hr, figure) + * {
+		@apply !mt-10;
+	}
+}

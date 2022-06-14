@@ -1,4 +1,4 @@
-# boilerplate-wordpress
+# wordpress-starter
 
 WordPress テーマ構築のための開発環境です。[wp-env](https://ja.wordpress.org/team/handbook/block-editor/reference-guides/packages/packages-env/) と [wp-scripts](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-scripts/) を利用したローカル開発環境が組み込まれています。[Timber](https://upstatement.com/timber/) の採用によって、[Twig](https://twig.symfony.com/) を利用したテンプレートの記述ができるようになっています。
 
@@ -8,11 +8,33 @@ WordPress テーマ構築のための開発環境です。[wp-env](https://ja.wo
 
 - [Docker クライアント](https://hub.docker.com/editions/community/docker-ce-desktop-mac/)
 - Node.js 16
+- [Composer](https://getcomposer.org/)
+- [WP-CLI](https://wp-cli.org/)
+
+`.env` の作成:
+
+```bash
+ACF_PRO_KEY=PUT_YOUR_LISENCE_KEY
+```
+
+[ACF Pro](https://www.advancedcustomfields.com/pro/) の[ライセンスキー](https://www.advancedcustomfields.com/resources/how-to-activate/)を入力します。
+
+`auth.json` の作成:
+
+```json
+{
+	"bearer": {
+		"composer.admincolumns.com": "PUT_YOUR_AUTHENTICATION_TOKEN"
+	}
+}
+```
+
+[Admin Columns Pro](https://www.admincolumns.com/) の [Authentication Token](https://docs.admincolumns.com/article/95-installing-via-composer#authentication-token) を入力します。
 
 依存パッケージのインストール:
 
 ```bash
-npm install
+npm ci
 ```
 
 ローカルサーバーの起動:
@@ -20,45 +42,6 @@ npm install
 ```bash
 npx wp-env start
 npm run dev
-```
-
-### [ACF Pro](https://www.advancedcustomfields.com/pro/) の設定
-
-ソースコードを次のように変更してください。
-
-`.wp-env.override.json`:
-
-```diff
-+{
-+	"config": {
-+		"ACF_PRO_LICENSE": "SET_YOUR_KEY"
-+	}
-+}
-```
-
-`package.json`:
-
-```diff
--	"//postinstall": "bin/install-acf-pro.mjs"
-+	"postinstall": "bin/install-acf-pro.mjs"
-```
-
-`.wp-env.json`:
-
-```diff
-{
-	"plugins": [
-+		"./plugins/advanced-custom-fields-pro",
-		"..."
-	],
-	...
-}
-```
-
-設定後に次のコマンドを実行します。
-
-```bash
-npm install
 ```
 
 ## wp-env の使い方
@@ -74,22 +57,28 @@ npx wp-env start
 bin/wp-setup.mjs
 ```
 
-### データベースおよびメディアファイルのエクスポート
+### データベースと uploads ディレクトリのバックアップ
 
-WordPress ローカル環境のデータベースとメディアファイルの状態を `bin/snapshot` ディレクトリに出力できます。これを Git リポジトリにコミットすることで、別のローカル環境でも同様の状態を再現できるようになります。
+WordPress のデータベースと uploads ディレクトリは、プロジェクトの `.wp-backup` ディレクトリにバックアップできます。デフォルトでは、wp-env の development 環境がバックアップされます。
 
 ```bash
 npx wp-env start
-bin/wp-export.mjs
+bin/wp-backup.mjs save
 ```
 
-### データベースおよびメディアファイルのインポート
-
-`bin/snapshot` ディレクトリに前回の状態が保存されていれば、データベースとメディアファイルを復元できます。
+指定したリモート環境をバックアップすることもできます。
 
 ```bash
 npx wp-env start
-bin/wp-import.mjs
+bin/wp-backup.mjs save remote production
+```
+
+`.wp-backup` ディレクトリに出力されたファイルを Git リポジトリにコミットすることで、WordPress の状態を別の開発者とも共有できるようになります。
+
+次のようなコマンドを実行すれば、バックアップした状態を復元できます。これによって、現在の環境は上書きされます。
+
+```bash
+bin/wp-backup.mjs restore
 ```
 
 ### ダッシュボードへのアクセス
@@ -103,7 +92,7 @@ http://localhost:8888/wp-admin/
 
 ## 本番用ビルド
 
-次のコマンドを実行すると、ビルド済みのファイルが `mytheme/build` ディレクトリに出力されます。
+次のコマンドを実行すると、ビルド済みのファイルが `themes/mytheme/build` ディレクトリに出力されます。
 
 ```bash
 npm run build
@@ -115,4 +104,4 @@ npm run build
 - [Timber Docs for v1 – Timber Documentation](https://timber.github.io/docs/): Timber の公式ドキュメント
 - [The Timber Starter Theme](https://github.com/timber/starter-theme): Timber の公式スターターテーマ
 - [Twig - The flexible, fast, and secure PHP template engine](https://twig.symfony.com/): Twig の公式ドキュメント
-- [shifted](https://github.com/yuheiy/shifted): CSS や JavaScript など、フロントエンドのリソースの運用方法についてのより詳細な例
+- [shifted](https://github.com/yuheiy/shifted): 静的サイト構築のためのフロントエンド開発環境

@@ -1,14 +1,28 @@
 {% extends 'base.twig' %}
 
 {% block content %}
-	<main class="p-4">
-		<article id="post-{{ post.ID }}">
-			<section>
-				<h1>
-					{{ post.title }}
-				</h1>
-				{{ post.content }}
-			</section>
-		</article>
+	<main>
+		{{
+			include(
+				'partial/page-header.twig',
+				{ title: post.title }
+			)
+		}}
+
+		{{
+			function(
+				'wp_get_attachment_image',
+				post.thumbnail.id,
+				'full',
+				false,
+				{
+					class: 'w-full min-h-[14rem] object-cover aspect-[3/1]'
+				}
+			)
+		}}
+
+		<div class="container max-w-xl mt-16 prose">
+			{{ post.content }}
+		</div>
 	</main>
 {% endblock %}

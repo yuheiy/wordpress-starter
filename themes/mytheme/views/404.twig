@@ -1,7 +1,12 @@
 {% extends 'base.twig' %}
 
 {% block content %}
-	<main class="p-4">
-		Sorry, we couldn't find what you're looking for.
+	<main>
+		{{
+			include(
+				"partial/page-header.twig",
+				{ title: "ページが見つかりません" }
+			)
+		}}
 	</main>
 {% endblock %}

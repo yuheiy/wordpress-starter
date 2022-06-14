@@ -1,0 +1,9 @@
+vendor/
+composer.lock
+/plugins/*
+/themes/twenty*/
+/themes/mytheme/**/*.ejs
+/themes/mytheme/**/*.twig
+/themes/mytheme/acf-json/
+/themes/mytheme/acp-settings/
+/themes/mytheme/build/
