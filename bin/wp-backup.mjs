@@ -6,7 +6,9 @@ import { wpCliServices, readConfig, readWpContainerId } from "./wp-env.mjs";
 
 const wpConfig = await readConfig();
 const projectDir = await packageDirectory();
-const remoteConfig = await fs.readJson(path.join(projectDir, "wp-remote-config.json"));
+const remoteConfig = await fs
+	.readJson(path.join(projectDir, "wp-remote-config.json"))
+	.catch(() => {});
 
 let [command, environmentType, environmentName] = argv._;
 
@@ -29,7 +31,9 @@ const isRemoteMode = environmentType === "remote";
 if (
 	!(
 		(isLocalMode && Object.keys(wpConfig.env).includes(environmentName)) ||
-		(isRemoteMode && Object.keys(remoteConfig).includes(environmentName))
+		(isRemoteMode &&
+			typeof remoteConfig === "object" &&
+			Object.keys(remoteConfig).includes(environmentName))
 	)
 ) {
 	throw new Error(`"${environmentName}" is not a valid environment name for "${environmentType}"`);
