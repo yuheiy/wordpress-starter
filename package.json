@@ -12,7 +12,7 @@
 		"pkg-dir": "^6.0.1",
 		"prettier": "^2.7.0",
 		"prettier-plugin-css-order": "^1.2.0",
-		"zx": "^6.2.5"
+		"zx": "^7.0.0"
 	},
 	"engines": {
 		"node": "16.x"
