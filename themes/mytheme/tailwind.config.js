@@ -1,11 +1,11 @@
 const glob = require("glob");
 const { container, fluidText, kerning } = require("./tailwind-plugins");
 
+// https://github.com/WebDevStudios/wd_s/pull/804#issuecomment-997018146
 const topLevelPhpFiles = glob.sync("./*.php");
 
 /** @type {import('tailwindcss/types').Config} */
 module.exports = {
-	// https://github.com/WebDevStudios/wd_s/pull/804#issuecomment-997018146
 	content: [
 		...topLevelPhpFiles,
 		"./inc/**/*.php",
