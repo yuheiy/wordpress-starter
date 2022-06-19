@@ -3,7 +3,7 @@
 		"dev": "npm run dev --workspace=mytheme",
 		"build": "npm run build --workspace=mytheme",
 		"format": "prettier . --write",
-		"translate": "npx wp-env run cli \"wp i18n make-mo wp-content/themes/mytheme/languages\"",
+		"translate": "wp-env run cli \"wp i18n make-mo wp-content/themes/mytheme/languages\"",
 		"postinstall": "composer install --quiet"
 	},
 	"devDependencies": {
