@@ -3,6 +3,8 @@
 		"dev": "concurrently --raw \"wp-scripts start\" \"npm:sync\" \"drygen --watch\"",
 		"sync": "browser-sync start --config bs-config.js",
 		"build": "drygen && tsc && wp-scripts build --config webpack.prod.js",
+		"test:e2e": "wp-scripts test-e2e",
+		"test:unit": "wp-scripts test-unit-js",
 		"postinstall": "composer install --quiet"
 	},
 	"dependencies": {
