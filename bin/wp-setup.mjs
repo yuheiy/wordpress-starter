@@ -12,9 +12,12 @@ if (!Object.keys(wpConfig.env).includes(environmentName)) {
 }
 
 const wpCliService = wpCliServices[environmentName];
-const uploadsDir = "/var/www/html/wp-content/uploads";
-const setupPath = "/var/www/html/.wp-setup/setup.php";
+
+const containerPaths = {
+	uploads: "/var/www/html/wp-content/uploads",
+	setup: "/var/www/html/.wp-setup/setup.php",
+};
 
 await $`npx wp-env clean ${environmentName}`;
-await $`npx wp-env run ${wpCliService} "rm -rf ${uploadsDir}/2022/"`; // fixme: glob not work
-await $`docker-compose --file ${wpConfig.dockerComposeConfigPath} run -T ${wpCliService} php ${setupPath}`;
+await $`npx wp-env run ${wpCliService} "rm -rf ${`${containerPaths.uploads}/*/`}"`;
+await $`docker-compose --file ${wpConfig.dockerComposeConfigPath} run -T ${wpCliService} php ${containerPaths.setup}`;
