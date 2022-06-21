@@ -46,7 +46,7 @@ function plugin()
 	$exclude_plugins = ["akismet", "hello"];
 
 	foreach ($plugins as $plugin) {
-		if (!in_array($plugin["name"], $exclude_plugins)) {
+		if (!in_array($plugin["name"], $exclude_plugins) && $plugin["status"] === "inactive") {
 			wp(sprintf("plugin activate %s", $plugin["name"]));
 		}
 	}
