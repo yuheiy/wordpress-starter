@@ -22,6 +22,7 @@ remove_action("wp_head", "wp_oembed_add_discovery_links");
 add_filter("emoji_svg_url", "__return_false");
 add_filter("show_admin_bar", "__return_false");
 add_filter("xmlrpc_enabled", "__return_false");
+add_filter("should_load_separate_core_block_assets", "__return_true");
 
 add_action("after_setup_theme", function () {
 	load_theme_textdomain("mytheme", get_template_directory() . "/languages");
@@ -51,8 +52,6 @@ add_action("after_setup_theme", function () {
 	add_editor_style();
 
 	add_theme_support("responsive-embeds");
-
-	add_filter("should_load_separate_core_block_assets", "__return_true");
 });
 
 add_filter(
