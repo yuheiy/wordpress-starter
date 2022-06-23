@@ -18,6 +18,7 @@ module.exports = {
 					from: "**",
 					to: "images/[path][name][ext]",
 					context: "src/images",
+					noErrorOnMissing: true,
 				},
 				{
 					from: "**",
