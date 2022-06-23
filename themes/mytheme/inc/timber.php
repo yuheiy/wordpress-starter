@@ -126,7 +126,7 @@ add_filter("timber/context", function ($context) {
 	$context["options"] = get_fields("options");
 
 	$context["about_post"] = Timber::get_post([
-		"post_name" => "about",
+		"name" => "about",
 		"post_type" => "page",
 	]);
 
