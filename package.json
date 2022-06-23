@@ -8,11 +8,11 @@
 	},
 	"devDependencies": {
 		"@prettier/plugin-php": "^0.18.8",
-		"@wordpress/env": "^4.8.0",
+		"@wordpress/env": "^4.9.0",
 		"pkg-dir": "^6.0.1",
-		"prettier": "^2.7.0",
+		"prettier": "^2.7.1",
 		"prettier-plugin-css-order": "^1.2.0",
-		"zx": "^7.0.0"
+		"zx": "^7.0.2"
 	},
 	"engines": {
 		"node": "16.x"
