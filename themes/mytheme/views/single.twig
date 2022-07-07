@@ -6,7 +6,7 @@
 			<header>
 				<h1 class="mt-16 text-xl font-bold kerning">{{ post.title }}</h1>
 				<p class="mt-2 text-sm">
-					<time datetime="{{ post.date|date('Y-m-d H:i:s') }}">{{ post.date }}</time>
+					<time datetime="{{ post.date('Y-m-d H:i:s') }}">{{ post.date }}</time>
 				</p>
 			</header>
 

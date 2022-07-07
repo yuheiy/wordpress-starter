@@ -48,7 +48,7 @@
 						href="{{ post.link }}"
 					>
 						{{ post.title }}
-						<time class="text-sm" datetime="{{ post.date|date('Y-m-d H:i:s') }}">
+						<time class="text-sm" datetime="{{ post.date('Y-m-d H:i:s') }}">
 							{{ post.date }}
 						</time>
 					</a>
