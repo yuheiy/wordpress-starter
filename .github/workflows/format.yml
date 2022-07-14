@@ -34,6 +34,9 @@ jobs:
                   key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
                   restore-keys: ${{ runner.os }}-composer-
 
+            - run: echo "ACF_PRO_KEY=${{ secrets.ACF_PRO_KEY }}" > .env
+            - run: echo '${{ secrets.AUTH_JSON_CONTENT }}' > auth.json
+
             - run: npm ci
 
             - run: npm run format
