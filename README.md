@@ -11,36 +11,13 @@ WordPress テーマ構築のための開発環境です。[wp-env](https://ja.wo
 - [Composer](https://getcomposer.org/)
 - [WP-CLI](https://wp-cli.org/)
 
-依存パッケージのインストール:
-
-```bash
-npm ci
-```
-
-ローカルサーバーの起動:
-
-```bash
-npx wp-env start
-npm run dev
-```
-
-### [ACF Pro](https://www.advancedcustomfields.com/pro/) のインストール
-
 `.env` の作成:
 
 ```bash
 ACF_PRO_KEY=PUT_YOUR_LISENCE_KEY
 ```
 
-[ライセンスキー](https://www.advancedcustomfields.com/resources/how-to-activate/)を入力します。
-
-パッケージの追加:
-
-```bash
-composer require advanced-custom-fields/advanced-custom-fields-pro
-```
-
-### [Admin Columns Pro](https://www.admincolumns.com/) のインストール
+[ACF Pro](https://www.advancedcustomfields.com/pro/) の[ライセンスキー](https://www.advancedcustomfields.com/resources/how-to-activate/)を入力します。
 
 `auth.json` の作成:
 
@@ -52,12 +29,19 @@ composer require advanced-custom-fields/advanced-custom-fields-pro
 }
 ```
 
-[Authentication Token](https://docs.admincolumns.com/article/95-installing-via-composer#authentication-token) を入力します。
+[Admin Columns Pro](https://www.admincolumns.com/) の [Authentication Token](https://docs.admincolumns.com/article/95-installing-via-composer#authentication-token) を入力します。
 
-パッケージの追加:
+依存パッケージのインストール:
 
 ```bash
-composer require admin-columns/admin-columns-pro admin-columns/ac-addon-acf
+npm ci
+```
+
+ローカルサーバーの起動:
+
+```bash
+npx wp-env start
+npm run dev
 ```
 
 ## wp-env の使い方
