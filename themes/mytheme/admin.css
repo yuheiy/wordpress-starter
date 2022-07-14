@@ -1,0 +1,3 @@
+[data-toolbar-item="true"]:is([aria-label="イタリック"]) {
+	display: none !important;
+}
