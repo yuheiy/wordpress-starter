@@ -75,7 +75,7 @@ add_filter("timber/twig", function ($twig) {
 			$sprite_file_path = sprintf("/build/images/sprites/%s.svg", $context);
 
 			$sprite = simplexml_load_string(
-				file_get_contents(get_theme_file_path($sprite_file_path))
+				file_get_contents(get_template_directory() . $sprite_file_path)
 			);
 
 			$default_attr = [];
@@ -110,7 +110,7 @@ add_filter("timber/twig", function ($twig) {
 
 			$html .= ">";
 
-			$use_href = get_theme_file_uri($sprite_file_path) . "#" . $id;
+			$use_href = get_template_directory_uri() . $sprite_file_path . "#" . $id;
 			$html .= '<use href="' . $use_href . '" />';
 
 			$html .= "</svg>";

@@ -72,18 +72,18 @@ add_filter(
 );
 
 add_action("wp_enqueue_scripts", function () {
-	$asset_file = include get_theme_file_path("/build/index.asset.php");
+	$asset_file = include get_template_directory() . "/build/index.asset.php";
 
 	wp_enqueue_style(
 		"mytheme-style",
-		get_theme_file_uri("/build/index.css"),
+		get_template_directory_uri() . "/build/index.css",
 		[],
 		$asset_file["version"]
 	);
 
 	wp_enqueue_script(
 		"mytheme-script",
-		get_theme_file_uri("/build/index.js"),
+		get_template_directory_uri() . "/build/index.js",
 		$asset_file["dependencies"],
 		$asset_file["version"]
 	);
@@ -119,7 +119,7 @@ add_action("wp_head", function () {
 	$default_type = "article";
 
 	// Get the base image.
-	$default_image_url = get_theme_file_uri("build/images/ogp.png");
+	$default_image_url = get_template_directory_uri() . "build/images/ogp.png";
 
 	// Set the twitter card type.
 	$default_twitter_card = "summary_large_image";
@@ -235,7 +235,7 @@ add_action("wp_head", function () {
 });
 
 add_action("admin_enqueue_scripts", function () {
-	wp_enqueue_style("mytheme-admin", get_theme_file_uri("/admin.css"));
+	wp_enqueue_style("mytheme-admin", get_template_directory_uri() . "/admin.css");
 });
 
 add_action("admin_menu", function () {
@@ -259,10 +259,10 @@ add_filter(
 	2
 );
 
-require get_theme_file_path("/inc/acf.php");
-require get_theme_file_path("/inc/acp.php");
-require get_theme_file_path("/inc/timber.php");
+require get_template_directory() . "/inc/acf.php";
+require get_template_directory() . "/inc/acp.php";
+require get_template_directory() . "/inc/timber.php";
 
-require get_theme_file_path("/inc/news.php");
+require get_template_directory() . "/inc/news.php";
 
-require get_theme_file_path("/inc/template-tags.php");
+require get_template_directory() . "/inc/template-tags.php";
