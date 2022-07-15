@@ -1,5 +1,5 @@
 const glob = require("glob");
-const { container, fluidText, kerning } = require("./tailwind-plugins");
+const { container, kerning } = require("./tailwind-plugins");
 
 // https://github.com/WebDevStudios/wd_s/pull/804#issuecomment-997018146
 const topLevelPhpFiles = glob.sync("./*.php");
@@ -27,5 +27,5 @@ module.exports = {
 	corePlugins: {
 		container: false,
 	},
-	plugins: [container, fluidText, kerning],
+	plugins: [container, kerning],
 };
