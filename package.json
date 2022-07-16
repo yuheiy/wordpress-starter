@@ -7,12 +7,12 @@
 		"postinstall": "composer install --quiet"
 	},
 	"devDependencies": {
-		"@prettier/plugin-php": "^0.18.8",
+		"@prettier/plugin-php": "^0.18.9",
 		"@wordpress/env": "^4.9.0",
 		"pkg-dir": "^6.0.1",
 		"prettier": "^2.7.1",
 		"prettier-plugin-css-order": "^1.2.0",
-		"zx": "^7.0.2"
+		"zx": "^7.0.7"
 	},
 	"engines": {
 		"node": "16.x"

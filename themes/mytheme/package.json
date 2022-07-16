@@ -15,15 +15,15 @@
 	},
 	"devDependencies": {
 		"@wordpress/browserslist-config": "^4.1.2",
-		"@wordpress/scripts": "^23.3.0",
+		"@wordpress/scripts": "^23.5.0",
 		"autoprefixer": "^10.4.7",
 		"browser-sync": "^2.27.10",
 		"concurrently": "^7.2.2",
 		"css-minimizer-webpack-plugin": "^4.0.0",
 		"drygen": "^0.0.5",
 		"postcss-import": "^14.1.0",
-		"svg-spritemap-webpack-plugin": "^4.4.1",
-		"tailwindcss": "^3.1.4"
+		"svg-spritemap-webpack-plugin": "^4.5.0",
+		"tailwindcss": "^3.1.6"
 	},
 	"private": true
 }

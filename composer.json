@@ -8,11 +8,7 @@
 	"repositories": [
 		{
 			"type": "composer",
-			"url": "https://wpackagist.org",
-			"only": [
-				"wpackagist-plugin/*",
-				"wpackagist-theme/*"
-			]
+			"url": "https://composer.admincolumns.com"
 		},
 		{
 			"type": "composer",
@@ -20,7 +16,11 @@
 		},
 		{
 			"type": "composer",
-			"url": "https://composer.admincolumns.com"
+			"url": "https://wpackagist.org",
+			"only": [
+				"wpackagist-plugin/*",
+				"wpackagist-theme/*"
+			]
 		}
 	],
 	"extra": {

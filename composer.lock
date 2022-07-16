@@ -32,10 +32,10 @@
         },
         {
             "name": "advanced-custom-fields/advanced-custom-fields-pro",
-            "version": "5.12.2",
+            "version": "5.12.3",
             "dist": {
                 "type": "zip",
-                "url": "https://connect.advancedcustomfields.com/v2/plugins/download?p=pro&t=5.12.2"
+                "url": "https://connect.advancedcustomfields.com/v2/plugins/download?p=pro&t=5.12.3"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0",
