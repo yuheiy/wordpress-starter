@@ -4,7 +4,7 @@
 	<main>
 		{{
 			include(
-				"partial/page-header.twig",
+				"partials/page-header.twig",
 				{ title: title }
 			)
 		}}
@@ -33,7 +33,7 @@
 
 	{{
 		include(
-			'partial/base-pagination.twig',
+			'partials/base-pagination.twig',
 			{
 				pagination: posts.pagination({
 					show_all: false,
