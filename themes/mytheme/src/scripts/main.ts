@@ -4,6 +4,7 @@ import "wicg-inert";
 import "./stores";
 import Alpine from "alpinejs";
 import components from "./components";
+import stores from "./stores";
 
 declare global {
 	interface HTMLElement {
@@ -16,6 +17,7 @@ if (process.env.NODE_ENV !== "production") {
 }
 
 Alpine.plugin(components);
+Alpine.plugin(stores);
 
 (window as any).Alpine = Alpine;
 Alpine.start();
