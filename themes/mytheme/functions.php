@@ -243,6 +243,14 @@ add_action("admin_menu", function () {
 	remove_menu_page("edit-comments.php");
 });
 
+add_filter("body_class", function ($classes) {
+	if (is_page()) {
+		$classes[] = "page-" . basename(get_permalink());
+	}
+
+	return $classes;
+});
+
 add_filter("wp_lazy_loading_enabled", "__return_false");
 
 add_filter("wp_get_attachment_image_attributes", function ($attrs) {
