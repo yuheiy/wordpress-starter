@@ -1,5 +1,5 @@
 export default function (Alpine) {
-<% dependencies.forEach((dep) => { -%>
+<% for (const dep of dependencies) { -%>
 	Alpine.store("<%- camelCase(dep.name) %>", require("./<%- relative(replaceExt(dep.path, "")) %>").default());
-<% }); -%>
+<% } -%>
 }
