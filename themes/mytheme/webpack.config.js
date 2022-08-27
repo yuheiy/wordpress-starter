@@ -44,8 +44,6 @@ module.exports = {
 				})
 		),
 
-		new CleanWebpackPlugin({
-			cleanAfterEveryBuildPatterns: ["!fonts/**"],
-		}),
+		new CleanWebpackPlugin(),
 	],
 };
