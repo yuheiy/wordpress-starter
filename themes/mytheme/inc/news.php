@@ -15,6 +15,7 @@ add_action("init", function () {
 		["mytheme_news"],
 		[
 			"label" => "カテゴリー",
+			"hierarchical" => true,
 			"show_in_rest" => true,
 			"rewrite" => ["slug" => "news/category"],
 		]
