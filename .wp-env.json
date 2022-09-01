@@ -2,6 +2,7 @@
 	"mappings": {
 		"wp-content/plugins": "./source/wp-content/plugins",
 		"wp-content/themes": "./source/wp-content/themes",
-		".wp-setup": "./.wp-setup"
+		".wp-setup": "./.wp-setup",
+		"wp-cli.local.yml": "./wp-cli.local.yml"
 	}
 }
