@@ -45,7 +45,7 @@ const dbPaths = {
 };
 
 const pluginsDirs = {
-	local: path.join(projectDir, "plugins"),
+	local: path.join(projectDir, "source", "wp-content", "plugins"),
 	remote: path.join(server.path, "wp-content", "plugins"),
 };
 

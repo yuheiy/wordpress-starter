@@ -1,9 +1,7 @@
 vendor/
 composer.lock
-/plugins/*
-/themes/twenty*/
-/themes/mytheme/**/*.ejs
-/themes/mytheme/**/*.twig
-/themes/mytheme/acf-json/
-/themes/mytheme/acp-settings/
-/themes/mytheme/build/
+/source/wp-content/plugins/*
+/source/wp-content/themes/mytheme/**/*.twig
+/source/wp-content/themes/mytheme/acf-json/
+/source/wp-content/themes/mytheme/acp-settings/
+/source/wp-content/themes/mytheme/build/

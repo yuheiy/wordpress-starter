@@ -2,5 +2,5 @@
 	"printWidth": 100,
 	"order": "smacss",
 	"keepOverrides": false,
-	"tailwindConfig": "./themes/mytheme/tailwind.config.js"
+	"tailwindConfig": "./source/wp-content/themes/mytheme/tailwind.config.js"
 }

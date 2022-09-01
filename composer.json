@@ -25,10 +25,10 @@
 	],
 	"extra": {
 		"installer-paths": {
-			"plugins/{$name}/": [
+			"source/wp-content/plugins/{$name}/": [
 				"type:wordpress-plugin"
 			],
-			"themes/{$name}/": [
+			"source/wp-content/themes/{$name}/": [
 				"type:wordpress-theme"
 			]
 		}

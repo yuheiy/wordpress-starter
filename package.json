@@ -20,6 +20,6 @@
 	},
 	"private": true,
 	"workspaces": [
-		"themes/mytheme"
+		"source/wp-content/themes/mytheme"
 	]
 }

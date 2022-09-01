@@ -3,11 +3,12 @@ npm-debug.log*
 vendor/
 .env
 
+/source/wp-content/*
+/source/wp-content/themes/*
+!/source/wp-content/themes
+!/source/wp-content/themes/mytheme
+
 /.wp-setup/.image-cache/
-/plugins/*
-!/plugins/.gitkeep
-/themes/index.php
-/themes/twenty*/
 /auth.json
 /wp-config.php
 /wp-remote-config.json
