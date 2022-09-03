@@ -1,5 +1,6 @@
 {
 	"scripts": {
+		"wp-env": "wp-env",
 		"dev": "concurrently --raw \"npm run dev --workspace=mytheme\" \"browser-sync start --config bs-config.js\"",
 		"build": "npm run build --workspace=mytheme",
 		"format": "prettier . --write",
