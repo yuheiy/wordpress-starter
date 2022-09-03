@@ -1,8 +1,12 @@
 {
+	"themes": ["./source/wp-content/themes/mytheme"],
+	"config": {
+		"JETPACK_DEV_DEBUG": true
+	},
 	"mappings": {
-		"wp-content/plugins": "./source/wp-content/plugins",
-		"wp-content/themes": "./source/wp-content/themes",
 		".wp-setup": "./.wp-setup",
+		"wp-content/mu-plugins": "./source/wp-content/mu-plugins",
+		"wp-content/plugins": "./source/wp-content/plugins",
 		"wp-cli.local.yml": "./wp-cli.local.yml"
 	}
 }

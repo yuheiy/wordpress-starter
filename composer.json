@@ -1,9 +1,10 @@
 {
 	"require": {
-		"admin-columns/admin-columns-pro": "^5.7",
-		"admin-columns/ac-addon-acf": "^3.0",
-		"advanced-custom-fields/advanced-custom-fields-pro": "^5.12",
-		"wpackagist-plugin/wp-multibyte-patch": "^2.9"
+		"admin-columns/admin-columns-pro": "*",
+		"admin-columns/ac-addon-acf": "*",
+		"advanced-custom-fields/advanced-custom-fields-pro": "*",
+		"wpackagist-plugin/wp-multibyte-patch": "*",
+		"wpackagist-plugin/jetpack": "*"
 	},
 	"repositories": [
 		{

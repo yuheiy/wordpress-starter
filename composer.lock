@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "21ac3b7a06a14590b49a3ca74ce2cf0c",
+    "content-hash": "4655c43d28e6579018cad00d968c7ac6",
     "packages": [
         {
             "name": "admin-columns/ac-addon-acf",
@@ -736,6 +736,24 @@
                 }
             ],
             "time": "2021-12-12T23:22:04+00:00"
+        },
+        {
+            "name": "wpackagist-plugin/jetpack",
+            "version": "11.2",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/jetpack/",
+                "reference": "tags/11.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/jetpack.11.2.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/jetpack/"
         },
         {
             "name": "wpackagist-plugin/wp-multibyte-patch",
