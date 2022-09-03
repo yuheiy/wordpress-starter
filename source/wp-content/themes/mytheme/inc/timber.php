@@ -72,11 +72,9 @@ add_filter("timber/twig", function ($twig) {
 
 	$twig->addFunction(
 		new Timber\Twig_Function("sprite", function ($context, $id, $attr = "") {
-			$sprite_path = sprintf("/build/images/sprites/%s.svg", $context);
+			$sprite_path = sprintf("/build/sprites/%s.svg", $context);
 
-			$sprite = simplexml_load_string(
-				file_get_contents(get_template_directory() . $sprite_path)
-			);
+			$sprite = simplexml_load_string(file_get_contents(dirname(__DIR__) . $sprite_path));
 
 			$default_attr = [];
 
