@@ -134,7 +134,7 @@ function news()
 function site_menu()
 {
 	$menu_name = "サイト";
-	$menu_location = "site-menu";
+	$menu_location = "site_menu";
 
 	wp(sprintf('menu create "%s"', $menu_name));
 	wp(sprintf('menu location assign "%s" %s', $menu_name, $menu_location));

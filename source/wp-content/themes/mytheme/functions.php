@@ -28,14 +28,14 @@ add_filter("jetpack_enable_open_graph", "__return_true");
 // https://jetpack.com/blog/add-a-default-image-open-graph-tag-on-home-page/
 
 add_action("after_setup_theme", function () {
-	load_theme_textdomain("mytheme", get_template_directory() . "/languages");
+	load_theme_textdomain("mytheme", __DIR__ . "/languages");
 
 	add_theme_support("title-tag");
 
 	add_theme_support("post-thumbnails");
 
 	// register_nav_menus([
-	// 	"site-menu" => "サイトメニュー",
+	// 	"site_menu" => "サイトメニュー",
 	// ]);
 
 	add_theme_support("html5", [
@@ -54,6 +54,7 @@ add_action("after_setup_theme", function () {
 	add_theme_support("editor-styles");
 	add_editor_style();
 
+	add_theme_support("align-wide");
 	add_theme_support("responsive-embeds");
 });
 
@@ -75,7 +76,7 @@ add_filter(
 );
 
 add_action("wp_enqueue_scripts", function () {
-	$asset_file = include get_template_directory() . "/build/index.asset.php";
+	$asset_file = include __DIR__ . "/build/index.asset.php";
 
 	wp_enqueue_style(
 		"mytheme-style",
@@ -125,10 +126,14 @@ add_filter(
 	2
 );
 
-require get_template_directory() . "/inc/acf.php";
-require get_template_directory() . "/inc/acp.php";
-require get_template_directory() . "/inc/timber.php";
+add_filter("big_image_size_threshold", function () {
+	return 1920 * 2;
+});
 
-require get_template_directory() . "/inc/news.php";
+require_once __DIR__ . "/inc/acf.php";
+require_once __DIR__ . "/inc/acp.php";
+require_once __DIR__ . "/inc/timber.php";
 
-require get_template_directory() . "/inc/template-tags.php";
+require_once __DIR__ . "/inc/news.php";
+
+require_once __DIR__ . "/inc/template-tags.php";

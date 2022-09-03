@@ -1,11 +1,7 @@
 <?php
 
-function mytheme_wp_get_attachment_source(
-	$attachment_id,
-	$size = "thumbnail",
-	$icon = false,
-	$attr = ""
-) {
+function wp_get_attachment_source($attachment_id, $size = "thumbnail", $icon = false, $attr = "")
+{
 	$html = "";
 	$image = wp_get_attachment_image_src($attachment_id, $size, $icon);
 
