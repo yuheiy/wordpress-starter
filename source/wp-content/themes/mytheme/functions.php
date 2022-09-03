@@ -25,7 +25,14 @@ add_filter("xmlrpc_enabled", "__return_false");
 add_filter("should_load_separate_core_block_assets", "__return_true");
 
 add_filter("jetpack_enable_open_graph", "__return_true");
-// https://jetpack.com/blog/add-a-default-image-open-graph-tag-on-home-page/
+add_filter("jetpack_open_graph_tags", function ($tags) {
+	$tags["og:image"] = esc_url(get_template_directory_uri() . "/images/ogp.png");
+	unset($tags["og:image:width"]);
+	unset($tags["og:image:height"]);
+	unset($tags["og:image:alt"]);
+
+	return $tags;
+});
 
 add_action("after_setup_theme", function () {
 	load_theme_textdomain("mytheme", __DIR__ . "/languages");
