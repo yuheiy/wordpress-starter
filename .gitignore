@@ -1,14 +1,16 @@
+build/
 node_modules/
-npm-debug.log*
 vendor/
-.env
-
-/source/wp-content/*
-/source/wp-content/themes/*
-!/source/wp-content/themes
-!/source/wp-content/themes/mytheme
+npm-debug.log*
 
 /.wp-setup/.image-cache/
+/.env
 /auth.json
 /wp-config.php
 /wp-remote-config.json
+/.wp-env.override.json
+
+/source/wp-content/*
+/source/wp-content/themes/*
+!/source/wp-content/themes/
+!/source/wp-content/themes/mytheme/
