@@ -3,8 +3,8 @@
 		"wp-env": "wp-env",
 		"dev": "concurrently --raw \"npm run dev --workspace=mytheme\" \"browser-sync start --config bs-config.js\"",
 		"build": "npm run build --workspace=mytheme",
+		"build:pot": "wp-env run cli \"wp i18n make-mo wp-content/themes/mytheme/languages\"",
 		"format": "prettier . --write",
-		"translate": "wp-env run cli \"wp i18n make-mo wp-content/themes/mytheme/languages\"",
 		"postinstall": "composer install --quiet"
 	},
 	"devDependencies": {
