@@ -1,5 +1,5 @@
 {
-	"require": {
+	"require-dev": {
 		"admin-columns/admin-columns-pro": "*",
 		"admin-columns/ac-addon-acf": "*",
 		"advanced-custom-fields/advanced-custom-fields-pro": "*",

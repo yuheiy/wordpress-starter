@@ -4,8 +4,9 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d8810aa8fc1acd71acc8076edab2b173",
-    "packages": [
+    "content-hash": "f13ae52f4c39fc3af34146b408242339",
+    "packages": [],
+    "packages-dev": [
         {
             "name": "admin-columns/ac-addon-acf",
             "version": "3.0.3",
@@ -1484,7 +1485,6 @@
             "homepage": "https://wordpress.org/plugins/wp-multibyte-patch/"
         }
     ],
-    "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": [],
