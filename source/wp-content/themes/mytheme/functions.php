@@ -96,5 +96,6 @@ require_once __DIR__ . "/inc/acp.php";
 require_once __DIR__ . "/inc/admin.php";
 require_once __DIR__ . "/inc/blocks.php";
 require_once __DIR__ . "/inc/news.php";
+require_once __DIR__ . "/inc/page-meta-description.php";
 require_once __DIR__ . "/inc/template-tags.php";
 require_once __DIR__ . "/inc/timber.php";
