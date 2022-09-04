@@ -1,6 +1,6 @@
 <?php
 
-namespace WordPressStarter\Theme\Main;
+namespace WordPressStarter\Theme;
 
 add_action("init", function () {
 	register_post_type("main_news", [
