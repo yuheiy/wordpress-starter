@@ -10,7 +10,7 @@ option();
 rewrite();
 about();
 news();
-// site_menu();
+// menu();
 
 function cleanup()
 {
@@ -131,10 +131,10 @@ function news()
 	}
 }
 
-function site_menu()
+function menu()
 {
-	$menu_name = "サイト";
-	$menu_location = "site_menu";
+	$menu_name = "Primary";
+	$menu_location = "primary";
 
 	wp(sprintf('menu create "%s"', $menu_name));
 	wp(sprintf('menu location assign "%s" %s', $menu_name, $menu_location));

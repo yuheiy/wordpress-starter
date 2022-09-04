@@ -42,7 +42,7 @@ add_action("after_setup_theme", function () {
 	add_theme_support("post-thumbnails");
 
 	// register_nav_menus([
-	// 	"site_menu" => "サイトメニュー",
+	// 	"primary" => "Primary",
 	// ]);
 
 	add_theme_support("html5", [
