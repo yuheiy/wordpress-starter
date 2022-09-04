@@ -1,5 +1,7 @@
 <?php
 
+namespace WordPressStarter\Theme\MyTheme;
+
 add_filter("acp/storage/file/directory", function () {
 	return get_stylesheet_directory() . "/acp-settings";
 });

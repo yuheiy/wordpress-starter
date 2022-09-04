@@ -1,5 +1,9 @@
 <?php
 
+namespace WordPressStarter\Theme\MyTheme;
+
+use Timber;
+
 $context = Timber::context();
 
 $templates = ["index.twig"];

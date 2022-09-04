@@ -1,5 +1,9 @@
 <?php
 
+namespace WordPressStarter\Theme\MyTheme;
+
+use Timber;
+
 $timber = new Timber\Timber();
 
 if (!class_exists("Timber")) {

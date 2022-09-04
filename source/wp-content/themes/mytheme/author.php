@@ -1,5 +1,9 @@
 <?php
 
+namespace WordPressStarter\Theme\MyTheme;
+
+use Timber;
+
 global $wp_query;
 
 $context = Timber::context();

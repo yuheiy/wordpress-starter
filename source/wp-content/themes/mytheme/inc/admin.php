@@ -1,5 +1,7 @@
 <?php
 
+namespace WordPressStarter\Theme\MyTheme;
+
 add_action("admin_enqueue_scripts", function () {
 	wp_enqueue_style("mytheme-admin", get_template_directory_uri() . "/admin.css");
 });

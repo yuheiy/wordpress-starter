@@ -1,5 +1,9 @@
 <?php
 
+namespace WordPressStarter\Theme\MyTheme;
+
+use Timber;
+
 $templates = ["archive.twig"];
 
 $context = Timber::context();

@@ -1,5 +1,9 @@
 <?php
 
+namespace WordPressStarter\Theme\MyTheme;
+
+use Timber;
+
 add_filter(
 	"allowed_block_types_all",
 	function ($allowed_block_types, $block_editor_context) {
