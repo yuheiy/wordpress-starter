@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4655c43d28e6579018cad00d968c7ac6",
+    "content-hash": "e53284c16e3d2902160c89b9c0419514",
     "packages": [
         {
             "name": "admin-columns/ac-addon-acf",
@@ -269,6 +269,734 @@
                 }
             ],
             "time": "2021-11-21T21:41:47+00:00"
+        },
+        {
+            "name": "koodimonni-language/ja",
+            "version": "6.0.2",
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/translation/core/6.0.2/ja.zip"
+            },
+            "require": {
+                "koodimonni-plugin-language/advanced-rich-text-tools-ja": "*",
+                "koodimonni-plugin-language/akismet-ja": "*",
+                "koodimonni-plugin-language/bbpress-ja": "*",
+                "koodimonni-plugin-language/blogger-importer-ja": "*",
+                "koodimonni-plugin-language/buddypress-ja": "*",
+                "koodimonni-plugin-language/classic-editor-ja": "*",
+                "koodimonni-plugin-language/classic-widgets-ja": "*",
+                "koodimonni-plugin-language/debug-bar-ja": "*",
+                "koodimonni-plugin-language/enable-jquery-migrate-helper-ja": "*",
+                "koodimonni-plugin-language/health-check-ja": "*",
+                "koodimonni-plugin-language/hello-dolly-ja": "*",
+                "koodimonni-plugin-language/livejournal-importer-ja": "*",
+                "koodimonni-plugin-language/movabletype-importer-ja": "*",
+                "koodimonni-plugin-language/press-this-ja": "*",
+                "koodimonni-plugin-language/tumblr-importer-ja": "*",
+                "koodimonni-plugin-language/woocommerce-ja": "*",
+                "koodimonni-plugin-language/wordpress-importer-ja": "*",
+                "koodimonni-plugin-language/wp-front-end-editor-ja": "*",
+                "koodimonni-plugin-language/wp-jquery-update-test-ja": "*",
+                "koodimonni-plugin-language/wpcat2tag-importer-ja": "*",
+                "koodimonni-theme-language/tt1-blocks-ja": "*",
+                "koodimonni-theme-language/twentyeleven-ja": "*",
+                "koodimonni-theme-language/twentyfifteen-ja": "*",
+                "koodimonni-theme-language/twentyfourteen-ja": "*",
+                "koodimonni-theme-language/twentynineteen-ja": "*",
+                "koodimonni-theme-language/twentyseventeen-ja": "*",
+                "koodimonni-theme-language/twentysixteen-ja": "*",
+                "koodimonni-theme-language/twentyten-ja": "*",
+                "koodimonni-theme-language/twentythirteen-ja": "*",
+                "koodimonni-theme-language/twentytwelve-ja": "*",
+                "koodimonni-theme-language/twentytwenty-ja": "*",
+                "koodimonni-theme-language/twentytwentyone-ja": "*",
+                "koodimonni-theme-language/twentytwentytwo-ja": "*",
+                "koodimonni/composer-dropin-installer": ">=0.2.3"
+            },
+            "type": "wordpress-language",
+            "description": "Full WordPress translation (including themes and core plugins) for Japanese - ja",
+            "keywords": [
+                "Full-Package",
+                "Japanese",
+                "Translation",
+                "WordPress",
+                "ja"
+            ]
+        },
+        {
+            "name": "koodimonni-plugin-language/advanced-rich-text-tools-ja",
+            "version": "1.2.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/translation/plugin/advanced-rich-text-tools/1.2.0/ja.zip"
+            },
+            "require": {
+                "koodimonni/composer-dropin-installer": ">=0.2.3"
+            },
+            "type": "wordpress-language",
+            "description": "WordPress advanced-rich-text-tools translations for Japanese - ja",
+            "keywords": [
+                "Translation",
+                "WordPress",
+                "advanced-rich-text-tools",
+                "ja"
+            ]
+        },
+        {
+            "name": "koodimonni-plugin-language/akismet-ja",
+            "version": "5.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/translation/plugin/akismet/5.0/ja.zip"
+            },
+            "require": {
+                "koodimonni/composer-dropin-installer": ">=0.2.3"
+            },
+            "type": "wordpress-language",
+            "description": "WordPress akismet translations for Japanese - ja",
+            "keywords": [
+                "Translation",
+                "WordPress",
+                "akismet",
+                "ja"
+            ]
+        },
+        {
+            "name": "koodimonni-plugin-language/bbpress-ja",
+            "version": "2.6.9",
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/translation/plugin/bbpress/2.6.9/ja.zip"
+            },
+            "require": {
+                "koodimonni/composer-dropin-installer": ">=0.2.3"
+            },
+            "type": "wordpress-language",
+            "description": "WordPress bbpress translations for Japanese - ja",
+            "keywords": [
+                "Translation",
+                "WordPress",
+                "bbpress",
+                "ja"
+            ]
+        },
+        {
+            "name": "koodimonni-plugin-language/blogger-importer-ja",
+            "version": "0.9",
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/translation/plugin/blogger-importer/0.9/ja.zip"
+            },
+            "require": {
+                "koodimonni/composer-dropin-installer": ">=0.2.3"
+            },
+            "type": "wordpress-language",
+            "description": "WordPress blogger-importer translations for Japanese - ja",
+            "keywords": [
+                "Translation",
+                "WordPress",
+                "blogger-importer",
+                "ja"
+            ]
+        },
+        {
+            "name": "koodimonni-plugin-language/buddypress-ja",
+            "version": "10.4.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/translation/plugin/buddypress/10.4.0/ja.zip"
+            },
+            "require": {
+                "koodimonni/composer-dropin-installer": ">=0.2.3"
+            },
+            "type": "wordpress-language",
+            "description": "WordPress buddypress translations for Japanese - ja",
+            "keywords": [
+                "Translation",
+                "WordPress",
+                "buddypress",
+                "ja"
+            ]
+        },
+        {
+            "name": "koodimonni-plugin-language/classic-editor-ja",
+            "version": "1.6.2",
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/translation/plugin/classic-editor/1.6.2/ja.zip"
+            },
+            "require": {
+                "koodimonni/composer-dropin-installer": ">=0.2.3"
+            },
+            "type": "wordpress-language",
+            "description": "WordPress classic-editor translations for Japanese - ja",
+            "keywords": [
+                "Translation",
+                "WordPress",
+                "classic-editor",
+                "ja"
+            ]
+        },
+        {
+            "name": "koodimonni-plugin-language/classic-widgets-ja",
+            "version": "0.3",
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/translation/plugin/classic-widgets/0.3/ja.zip"
+            },
+            "require": {
+                "koodimonni/composer-dropin-installer": ">=0.2.3"
+            },
+            "type": "wordpress-language",
+            "description": "WordPress classic-widgets translations for Japanese - ja",
+            "keywords": [
+                "Translation",
+                "WordPress",
+                "classic-widgets",
+                "ja"
+            ]
+        },
+        {
+            "name": "koodimonni-plugin-language/debug-bar-ja",
+            "version": "1.1.3",
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/translation/plugin/debug-bar/1.1.3/ja.zip"
+            },
+            "require": {
+                "koodimonni/composer-dropin-installer": ">=0.2.3"
+            },
+            "type": "wordpress-language",
+            "description": "WordPress debug-bar translations for Japanese - ja",
+            "keywords": [
+                "Translation",
+                "WordPress",
+                "debug-bar",
+                "ja"
+            ]
+        },
+        {
+            "name": "koodimonni-plugin-language/enable-jquery-migrate-helper-ja",
+            "version": "1.3.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/translation/plugin/enable-jquery-migrate-helper/1.3.0/ja.zip"
+            },
+            "require": {
+                "koodimonni/composer-dropin-installer": ">=0.2.3"
+            },
+            "type": "wordpress-language",
+            "description": "WordPress enable-jquery-migrate-helper translations for Japanese - ja",
+            "keywords": [
+                "Translation",
+                "WordPress",
+                "enable-jquery-migrate-helper",
+                "ja"
+            ]
+        },
+        {
+            "name": "koodimonni-plugin-language/health-check-ja",
+            "version": "1.4.5",
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/translation/plugin/health-check/1.4.5/ja.zip"
+            },
+            "require": {
+                "koodimonni/composer-dropin-installer": ">=0.2.3"
+            },
+            "type": "wordpress-language",
+            "description": "WordPress health-check translations for Japanese - ja",
+            "keywords": [
+                "Translation",
+                "WordPress",
+                "health-check",
+                "ja"
+            ]
+        },
+        {
+            "name": "koodimonni-plugin-language/hello-dolly-ja",
+            "version": "1.7.2",
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/translation/plugin/hello-dolly/1.7.2/ja.zip"
+            },
+            "require": {
+                "koodimonni/composer-dropin-installer": ">=0.2.3"
+            },
+            "type": "wordpress-language",
+            "description": "WordPress hello-dolly translations for Japanese - ja",
+            "keywords": [
+                "Translation",
+                "WordPress",
+                "hello-dolly",
+                "ja"
+            ]
+        },
+        {
+            "name": "koodimonni-plugin-language/livejournal-importer-ja",
+            "version": "0.5",
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/translation/plugin/livejournal-importer/0.5/ja.zip"
+            },
+            "require": {
+                "koodimonni/composer-dropin-installer": ">=0.2.3"
+            },
+            "type": "wordpress-language",
+            "description": "WordPress livejournal-importer translations for Japanese - ja",
+            "keywords": [
+                "Translation",
+                "WordPress",
+                "ja",
+                "livejournal-importer"
+            ]
+        },
+        {
+            "name": "koodimonni-plugin-language/movabletype-importer-ja",
+            "version": "0.4",
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/translation/plugin/movabletype-importer/0.4/ja.zip"
+            },
+            "require": {
+                "koodimonni/composer-dropin-installer": ">=0.2.3"
+            },
+            "type": "wordpress-language",
+            "description": "WordPress movabletype-importer translations for Japanese - ja",
+            "keywords": [
+                "Translation",
+                "WordPress",
+                "ja",
+                "movabletype-importer"
+            ]
+        },
+        {
+            "name": "koodimonni-plugin-language/press-this-ja",
+            "version": "1.1.1",
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/translation/plugin/press-this/1.1.1/ja.zip"
+            },
+            "require": {
+                "koodimonni/composer-dropin-installer": ">=0.2.3"
+            },
+            "type": "wordpress-language",
+            "description": "WordPress press-this translations for Japanese - ja",
+            "keywords": [
+                "Translation",
+                "WordPress",
+                "ja",
+                "press-this"
+            ]
+        },
+        {
+            "name": "koodimonni-plugin-language/tumblr-importer-ja",
+            "version": "0.8",
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/translation/plugin/tumblr-importer/0.8/ja.zip"
+            },
+            "require": {
+                "koodimonni/composer-dropin-installer": ">=0.2.3"
+            },
+            "type": "wordpress-language",
+            "description": "WordPress tumblr-importer translations for Japanese - ja",
+            "keywords": [
+                "Translation",
+                "WordPress",
+                "ja",
+                "tumblr-importer"
+            ]
+        },
+        {
+            "name": "koodimonni-plugin-language/woocommerce-ja",
+            "version": "6.8.2",
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/translation/plugin/woocommerce/6.8.2/ja.zip"
+            },
+            "require": {
+                "koodimonni/composer-dropin-installer": ">=0.2.3"
+            },
+            "type": "wordpress-language",
+            "description": "WordPress woocommerce translations for Japanese - ja",
+            "keywords": [
+                "Translation",
+                "WordPress",
+                "ja",
+                "woocommerce"
+            ]
+        },
+        {
+            "name": "koodimonni-plugin-language/wordpress-importer-ja",
+            "version": "0.7",
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/translation/plugin/wordpress-importer/0.7/ja.zip"
+            },
+            "require": {
+                "koodimonni/composer-dropin-installer": ">=0.2.3"
+            },
+            "type": "wordpress-language",
+            "description": "WordPress wordpress-importer translations for Japanese - ja",
+            "keywords": [
+                "Translation",
+                "WordPress",
+                "ja",
+                "wordpress-importer"
+            ]
+        },
+        {
+            "name": "koodimonni-plugin-language/wp-front-end-editor-ja",
+            "version": "2.2.1",
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/translation/plugin/wp-front-end-editor/2.2.1/ja.zip"
+            },
+            "require": {
+                "koodimonni/composer-dropin-installer": ">=0.2.3"
+            },
+            "type": "wordpress-language",
+            "description": "WordPress wp-front-end-editor translations for Japanese - ja",
+            "keywords": [
+                "Translation",
+                "WordPress",
+                "ja",
+                "wp-front-end-editor"
+            ]
+        },
+        {
+            "name": "koodimonni-plugin-language/wp-jquery-update-test-ja",
+            "version": "2.0.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/translation/plugin/wp-jquery-update-test/2.0.0/ja.zip"
+            },
+            "require": {
+                "koodimonni/composer-dropin-installer": ">=0.2.3"
+            },
+            "type": "wordpress-language",
+            "description": "WordPress wp-jquery-update-test translations for Japanese - ja",
+            "keywords": [
+                "Translation",
+                "WordPress",
+                "ja",
+                "wp-jquery-update-test"
+            ]
+        },
+        {
+            "name": "koodimonni-plugin-language/wpcat2tag-importer-ja",
+            "version": "0.5",
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/translation/plugin/wpcat2tag-importer/0.5/ja.zip"
+            },
+            "require": {
+                "koodimonni/composer-dropin-installer": ">=0.2.3"
+            },
+            "type": "wordpress-language",
+            "description": "WordPress wpcat2tag-importer translations for Japanese - ja",
+            "keywords": [
+                "Translation",
+                "WordPress",
+                "ja",
+                "wpcat2tag-importer"
+            ]
+        },
+        {
+            "name": "koodimonni-theme-language/tt1-blocks-ja",
+            "version": "0.4.8",
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/translation/theme/tt1-blocks/0.4.8/ja.zip"
+            },
+            "require": {
+                "koodimonni/composer-dropin-installer": ">=0.2.3"
+            },
+            "type": "wordpress-language",
+            "description": "WordPress tt1-blocks translations for Japanese - ja",
+            "keywords": [
+                "Translation",
+                "WordPress",
+                "ja",
+                "tt1-blocks"
+            ]
+        },
+        {
+            "name": "koodimonni-theme-language/twentyeleven-ja",
+            "version": "4.1",
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/translation/theme/twentyeleven/4.1/ja.zip"
+            },
+            "require": {
+                "koodimonni/composer-dropin-installer": ">=0.2.3"
+            },
+            "type": "wordpress-language",
+            "description": "WordPress twentyeleven translations for Japanese - ja",
+            "keywords": [
+                "Translation",
+                "WordPress",
+                "ja",
+                "twentyeleven"
+            ]
+        },
+        {
+            "name": "koodimonni-theme-language/twentyfifteen-ja",
+            "version": "3.2",
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/translation/theme/twentyfifteen/3.2/ja.zip"
+            },
+            "require": {
+                "koodimonni/composer-dropin-installer": ">=0.2.3"
+            },
+            "type": "wordpress-language",
+            "description": "WordPress twentyfifteen translations for Japanese - ja",
+            "keywords": [
+                "Translation",
+                "WordPress",
+                "ja",
+                "twentyfifteen"
+            ]
+        },
+        {
+            "name": "koodimonni-theme-language/twentyfourteen-ja",
+            "version": "3.4",
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/translation/theme/twentyfourteen/3.4/ja.zip"
+            },
+            "require": {
+                "koodimonni/composer-dropin-installer": ">=0.2.3"
+            },
+            "type": "wordpress-language",
+            "description": "WordPress twentyfourteen translations for Japanese - ja",
+            "keywords": [
+                "Translation",
+                "WordPress",
+                "ja",
+                "twentyfourteen"
+            ]
+        },
+        {
+            "name": "koodimonni-theme-language/twentynineteen-ja",
+            "version": "2.3",
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/translation/theme/twentynineteen/2.3/ja.zip"
+            },
+            "require": {
+                "koodimonni/composer-dropin-installer": ">=0.2.3"
+            },
+            "type": "wordpress-language",
+            "description": "WordPress twentynineteen translations for Japanese - ja",
+            "keywords": [
+                "Translation",
+                "WordPress",
+                "ja",
+                "twentynineteen"
+            ]
+        },
+        {
+            "name": "koodimonni-theme-language/twentyseventeen-ja",
+            "version": "3.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/translation/theme/twentyseventeen/3.0/ja.zip"
+            },
+            "require": {
+                "koodimonni/composer-dropin-installer": ">=0.2.3"
+            },
+            "type": "wordpress-language",
+            "description": "WordPress twentyseventeen translations for Japanese - ja",
+            "keywords": [
+                "Translation",
+                "WordPress",
+                "ja",
+                "twentyseventeen"
+            ]
+        },
+        {
+            "name": "koodimonni-theme-language/twentysixteen-ja",
+            "version": "2.7",
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/translation/theme/twentysixteen/2.7/ja.zip"
+            },
+            "require": {
+                "koodimonni/composer-dropin-installer": ">=0.2.3"
+            },
+            "type": "wordpress-language",
+            "description": "WordPress twentysixteen translations for Japanese - ja",
+            "keywords": [
+                "Translation",
+                "WordPress",
+                "ja",
+                "twentysixteen"
+            ]
+        },
+        {
+            "name": "koodimonni-theme-language/twentyten-ja",
+            "version": "3.6",
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/translation/theme/twentyten/3.6/ja.zip"
+            },
+            "require": {
+                "koodimonni/composer-dropin-installer": ">=0.2.3"
+            },
+            "type": "wordpress-language",
+            "description": "WordPress twentyten translations for Japanese - ja",
+            "keywords": [
+                "Translation",
+                "WordPress",
+                "ja",
+                "twentyten"
+            ]
+        },
+        {
+            "name": "koodimonni-theme-language/twentythirteen-ja",
+            "version": "3.6",
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/translation/theme/twentythirteen/3.6/ja.zip"
+            },
+            "require": {
+                "koodimonni/composer-dropin-installer": ">=0.2.3"
+            },
+            "type": "wordpress-language",
+            "description": "WordPress twentythirteen translations for Japanese - ja",
+            "keywords": [
+                "Translation",
+                "WordPress",
+                "ja",
+                "twentythirteen"
+            ]
+        },
+        {
+            "name": "koodimonni-theme-language/twentytwelve-ja",
+            "version": "3.7",
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/translation/theme/twentytwelve/3.7/ja.zip"
+            },
+            "require": {
+                "koodimonni/composer-dropin-installer": ">=0.2.3"
+            },
+            "type": "wordpress-language",
+            "description": "WordPress twentytwelve translations for Japanese - ja",
+            "keywords": [
+                "Translation",
+                "WordPress",
+                "ja",
+                "twentytwelve"
+            ]
+        },
+        {
+            "name": "koodimonni-theme-language/twentytwenty-ja",
+            "version": "2.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/translation/theme/twentytwenty/2.0/ja.zip"
+            },
+            "require": {
+                "koodimonni/composer-dropin-installer": ">=0.2.3"
+            },
+            "type": "wordpress-language",
+            "description": "WordPress twentytwenty translations for Japanese - ja",
+            "keywords": [
+                "Translation",
+                "WordPress",
+                "ja",
+                "twentytwenty"
+            ]
+        },
+        {
+            "name": "koodimonni-theme-language/twentytwentyone-ja",
+            "version": "1.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/translation/theme/twentytwentyone/1.0/ja.zip"
+            },
+            "require": {
+                "koodimonni/composer-dropin-installer": ">=0.2.3"
+            },
+            "type": "wordpress-language",
+            "description": "WordPress twentytwentyone translations for Japanese - ja",
+            "keywords": [
+                "Translation",
+                "WordPress",
+                "ja",
+                "twentytwentyone"
+            ]
+        },
+        {
+            "name": "koodimonni-theme-language/twentytwentytwo-ja",
+            "version": "1.2",
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/translation/theme/twentytwentytwo/1.2/ja.zip"
+            },
+            "require": {
+                "koodimonni/composer-dropin-installer": ">=0.2.3"
+            },
+            "type": "wordpress-language",
+            "description": "WordPress twentytwentytwo translations for Japanese - ja",
+            "keywords": [
+                "Translation",
+                "WordPress",
+                "ja",
+                "twentytwentytwo"
+            ]
+        },
+        {
+            "name": "koodimonni/composer-dropin-installer",
+            "version": "1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Koodimonni/Composer-Dropin-Installer.git",
+                "reference": "9596ef8f50cbba2cdc707ca3b1f5e4a0e9fa7e7e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Koodimonni/Composer-Dropin-Installer/zipball/9596ef8f50cbba2cdc707ca3b1f5e4a0e9fa7e7e",
+                "reference": "9596ef8f50cbba2cdc707ca3b1f5e4a0e9fa7e7e",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.0 | ^2.0",
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.7"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "Koodimonni\\Composer\\Dropin"
+            },
+            "autoload": {
+                "psr-4": {
+                    "Koodimonni\\Composer\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "WTFPL"
+            ],
+            "authors": [
+                {
+                    "name": "Onni Hakala",
+                    "email": "onni@keksi.io",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Install packages or a few files from packages into custom paths without overwriting existing stuff.",
+            "support": {
+                "issues": "https://github.com/Koodimonni/Composer-Dropin-Installer/issues",
+                "source": "https://github.com/Koodimonni/Composer-Dropin-Installer/tree/1.4"
+            },
+            "time": "2022-02-02T11:42:57+00:00"
         },
         {
             "name": "phpoption/phpoption",

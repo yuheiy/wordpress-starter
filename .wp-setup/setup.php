@@ -22,16 +22,7 @@ function cleanup()
 
 function language()
 {
-	$language = "ja";
-
-	wp(sprintf("language core install %s --activate", $language));
-
-	$plugins = wp("plugin list --format=json");
-	$plugins = json_decode($plugins, true);
-
-	foreach ($plugins as $plugin) {
-		wp(sprintf("language plugin install %s %s", $plugin["name"], $language));
-	}
+	wp("site switch-language ja");
 }
 
 function theme()

@@ -5,6 +5,7 @@
 	},
 	"mappings": {
 		".wp-setup": "./.wp-setup",
+		"wp-content/languages": "./source/wp-content/languages",
 		"wp-content/mu-plugins": "./source/wp-content/mu-plugins",
 		"wp-content/plugins": "./source/wp-content/plugins",
 		"wp-cli.local.yml": "./wp-cli.local.yml"

@@ -3,8 +3,9 @@
 		"admin-columns/admin-columns-pro": "*",
 		"admin-columns/ac-addon-acf": "*",
 		"advanced-custom-fields/advanced-custom-fields-pro": "*",
-		"wpackagist-plugin/wp-multibyte-patch": "*",
-		"wpackagist-plugin/jetpack": "*"
+		"koodimonni-language/ja": "*",
+		"wpackagist-plugin/jetpack": "*",
+		"wpackagist-plugin/wp-multibyte-patch": "*"
 	},
 	"repositories": [
 		{
@@ -18,9 +19,36 @@
 		{
 			"type": "composer",
 			"url": "https://wpackagist.org"
+		},
+		{
+			"type": "composer",
+			"url": "https://wp-languages.github.io",
+			"only": [
+				"koodimonni-language/*",
+				"koodimonni-plugin-language/*",
+				"koodimonni-theme-language/*"
+			]
 		}
 	],
+	"config": {
+		"allow-plugins": {
+			"composer/installers": true,
+			"koodimonni/composer-dropin-installer": true,
+			"pivvenit/acf-pro-installer": true
+		}
+	},
 	"extra": {
+		"dropin-paths": {
+			"source/wp-content/languages/": [
+				"vendor:koodimonni-language"
+			],
+			"source/wp-content/languages/plugins/": [
+				"vendor:koodimonni-plugin-language"
+			],
+			"source/wp-content/languages/themes/": [
+				"vendor:koodimonni-theme-language"
+			]
+		},
 		"installer-paths": {
 			"source/wp-content/mu-plugins/{$name}/": [
 				"type:wordpress-muplugin"
@@ -31,12 +59,6 @@
 			"source/wp-content/themes/{$name}/": [
 				"type:wordpress-theme"
 			]
-		}
-	},
-	"config": {
-		"allow-plugins": {
-			"composer/installers": true,
-			"pivvenit/acf-pro-installer": true
 		}
 	}
 }
