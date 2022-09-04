@@ -42,7 +42,7 @@ add_action("after_setup_theme", function () {
 add_filter(
 	"script_loader_tag",
 	function ($tag, $handle, $src) {
-		if ("mytheme-script" === $handle) {
+		if ($handle === "mytheme-script") {
 			$tag = sprintf(
 				"<script defer src='%s' id='%s-js'></script>\n",
 				$src,

@@ -3,7 +3,7 @@
 namespace WordPressStarter\Theme;
 
 add_filter("acp/storage/file/directory", function () {
-	return get_stylesheet_directory() . "/acp-settings";
+	return dirname(__DIR__) . "/acp-settings";
 });
 
 if (wp_get_environment_type() === "local") {
