@@ -1,6 +1,6 @@
 <?php
 
-namespace WordPressStarter\Theme\MyTheme;
+namespace WordPressStarter\Theme\Main;
 
 require_once __DIR__ . "/vendor/autoload.php";
 
@@ -9,7 +9,7 @@ if (!isset($content_width)) {
 }
 
 add_action("after_setup_theme", function () {
-	load_theme_textdomain("mytheme", __DIR__ . "/languages");
+	load_theme_textdomain("main", __DIR__ . "/languages");
 
 	add_theme_support("title-tag");
 
@@ -42,7 +42,7 @@ add_action("after_setup_theme", function () {
 add_filter(
 	"script_loader_tag",
 	function ($tag, $handle, $src) {
-		if ("mytheme-script" === $handle) {
+		if ("main-script" === $handle) {
 			$tag = sprintf(
 				"<script defer src='%s' id='%s-js'></script>\n",
 				$src,
@@ -60,14 +60,14 @@ add_action("wp_enqueue_scripts", function () {
 	$asset_file = include __DIR__ . "/build/index.asset.php";
 
 	wp_enqueue_style(
-		"mytheme-style",
+		"main-style",
 		get_template_directory_uri() . "/build/index.css",
 		[],
 		$asset_file["version"]
 	);
 
 	wp_enqueue_script(
-		"mytheme-script",
+		"main-script",
 		get_template_directory_uri() . "/build/index.js",
 		$asset_file["dependencies"],
 		$asset_file["version"]

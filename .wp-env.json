@@ -1,5 +1,5 @@
 {
-	"themes": ["./source/wp-content/themes/mytheme"],
+	"themes": ["./source/wp-content/themes/main"],
 	"config": {
 		"JETPACK_DEV_DEBUG": true
 	},

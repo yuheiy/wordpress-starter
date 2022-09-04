@@ -27,7 +27,7 @@ function language()
 
 function theme()
 {
-	wp("theme activate mytheme");
+	wp("theme activate main");
 }
 
 function plugin()
@@ -89,16 +89,16 @@ function news()
 	];
 
 	foreach ($category_terms as $term) {
-		wp(sprintf('term create mytheme_news_category %s --slug="%s"', $term[0], $term[1]));
+		wp(sprintf('term create main_news_category %s --slug="%s"', $term[0], $term[1]));
 	}
 
 	$posts = [
 		[
 			"post_title" => "睡そうに眼をこすってのぞいて",
-			"post_type" => "mytheme_news",
+			"post_type" => "main_news",
 			"content" => fixture_path("news-content.txt"),
 			"tax" => [
-				"mytheme_news_category" => ["イベント"],
+				"main_news_category" => ["イベント"],
 			],
 			"meta" => [
 				"_thumbnail_id" => image_id(1920, ceil(1920 * (9 / 16))),
@@ -106,10 +106,10 @@ function news()
 		],
 		[
 			"post_title" => "黒いびろうどばかりひかっていました",
-			"post_type" => "mytheme_news",
+			"post_type" => "main_news",
 			"content" => fixture_path("news-content.txt"),
 			"tax" => [
-				"mytheme_news_category" => ["メディア"],
+				"main_news_category" => ["メディア"],
 			],
 			"meta" => [
 				"_thumbnail_id" => image_id(1920, ceil(1920 * (9 / 16))),

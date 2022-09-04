@@ -1,6 +1,6 @@
 <?php
 
-namespace WordPressStarter\Theme\MyTheme;
+namespace WordPressStarter\Theme\Main;
 
 use Timber;
 
