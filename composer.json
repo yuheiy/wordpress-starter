@@ -4,7 +4,6 @@
 		"admin-columns/ac-addon-acf": "*",
 		"advanced-custom-fields/advanced-custom-fields-pro": "*",
 		"koodimonni-language/ja": "*",
-		"wpackagist-plugin/jetpack": "*",
 		"wpackagist-plugin/wp-multibyte-patch": "*"
 	},
 	"repositories": [

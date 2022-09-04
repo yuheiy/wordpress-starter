@@ -1,8 +1,5 @@
 {
 	"themes": ["./source/wp-content/themes/mytheme"],
-	"config": {
-		"JETPACK_DEV_DEBUG": true
-	},
 	"mappings": {
 		".wp-setup": "./.wp-setup",
 		"wp-content/languages": "./source/wp-content/languages",
