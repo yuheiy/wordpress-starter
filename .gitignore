@@ -11,4 +11,5 @@ npm-debug.log*
 /.wp-env.override.json
 
 /source/wp-content/*
+!/source/wp-content/mu-plugins
 !/source/wp-content/themes
