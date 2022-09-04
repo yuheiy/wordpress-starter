@@ -1,7 +1,10 @@
+acf-json/
+acp-settings/
+build/
 vendor/
 composer.lock
-/source/wp-content/plugins/*
-/source/wp-content/themes/main/**/*.twig
-/source/wp-content/themes/main/acf-json/
-/source/wp-content/themes/main/acp-settings/
-/source/wp-content/themes/main/build/
+*.twig
+
+/source/wp-content/*
+!/source/wp-content/mu-plugins
+!/source/wp-content/themes
