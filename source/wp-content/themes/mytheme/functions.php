@@ -74,7 +74,6 @@ add_action("wp_enqueue_scripts", function () {
 	);
 });
 
-add_filter("show_admin_bar", "__return_false");
 add_filter("should_load_separate_core_block_assets", "__return_true");
 
 add_filter("body_class", function ($classes) {
@@ -85,14 +84,15 @@ add_filter("body_class", function ($classes) {
 	return $classes;
 });
 
-add_filter("wp_lazy_loading_enabled", "__return_false");
-
 add_filter("wp_get_attachment_image_attributes", function ($attrs) {
 	$attrs["decoding"] = "async";
 	return $attrs;
 });
 
-require_once __DIR__ . "/inc/acp.php";
+add_filter("wp_lazy_loading_enabled", "__return_false");
+
+add_filter("show_admin_bar", "__return_false");
+
 require_once __DIR__ . "/inc/admin.php";
 require_once __DIR__ . "/inc/blocks.php";
 require_once __DIR__ . "/inc/news.php";
