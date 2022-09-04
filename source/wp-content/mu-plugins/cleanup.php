@@ -1,6 +1,6 @@
 <?php
 
-namespace WordPressStarter\MU_Plugins\Cleanup;
+namespace Wpstarter\MU_Plugins\Cleanup;
 
 add_action("init", __NAMESPACE__ . "\init");
 

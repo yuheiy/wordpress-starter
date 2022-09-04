@@ -1,6 +1,6 @@
 <?php
 
-namespace WordPressStarter\Theme;
+namespace Wpstarter\Theme;
 
 add_filter("acp/storage/file/directory", function () {
 	return get_stylesheet_directory() . "/acp-settings";

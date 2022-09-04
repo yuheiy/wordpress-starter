@@ -1,6 +1,6 @@
 <?php
 
-namespace WordPressStarter\Theme;
+namespace Wpstarter\Theme;
 
 add_action("admin_enqueue_scripts", function () {
 	wp_enqueue_style("main-admin", get_template_directory_uri() . "/admin.css");
