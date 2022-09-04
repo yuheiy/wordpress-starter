@@ -1,20 +1,13 @@
 <?php
 
-add_action("acf/init", function () {
-	$parent = acf_add_options_page([
-		"page_title" => "テーマ全般設定",
-		"menu_title" => "テーマ設定",
-		"menu_slug" => "theme-general-settings",
-		"position" => "5.5",
-		"redirect" => false,
-	]);
-
-	acf_add_options_page([
-		"page_title" => "ホーム",
-		"menu_slug" => "theme-home-settings",
-		"parent_slug" => $parent["menu_slug"],
-	]);
-});
+add_filter(
+	"allowed_block_types_all",
+	function ($allowed_block_types, $block_editor_context) {
+		return $allowed_block_types;
+	},
+	10,
+	2
+);
 
 add_action("acf/init", function () {
 	$block_types = [

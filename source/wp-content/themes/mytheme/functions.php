@@ -1,9 +1,6 @@
 <?php
 
-$composer_autoload = __DIR__ . "/vendor/autoload.php";
-if (file_exists($composer_autoload)) {
-	require_once $composer_autoload;
-}
+require_once __DIR__ . "/vendor/autoload.php";
 
 if (!isset($content_width)) {
 	$content_width = 1280;
@@ -124,23 +121,13 @@ add_filter("wp_get_attachment_image_attributes", function ($attrs) {
 	return $attrs;
 });
 
-add_filter(
-	"allowed_block_types_all",
-	function ($allowed_block_types, $block_editor_context) {
-		return $allowed_block_types;
-	},
-	10,
-	2
-);
-
 add_filter("big_image_size_threshold", function () {
 	return 1920 * 2;
 });
 
-require_once __DIR__ . "/inc/acf.php";
 require_once __DIR__ . "/inc/acp.php";
-require_once __DIR__ . "/inc/timber.php";
-
+require_once __DIR__ . "/inc/admin.php";
+require_once __DIR__ . "/inc/blocks.php";
 require_once __DIR__ . "/inc/news.php";
-
 require_once __DIR__ . "/inc/template-tags.php";
+require_once __DIR__ . "/inc/timber.php";

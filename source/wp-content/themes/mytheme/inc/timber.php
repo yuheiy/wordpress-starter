@@ -1,8 +1,6 @@
 <?php
 
-if (file_exists($composer_autoload)) {
-	$timber = new Timber\Timber();
-}
+$timber = new Timber\Timber();
 
 if (!class_exists("Timber")) {
 	add_action("admin_notices", function () {
@@ -14,7 +12,7 @@ if (!class_exists("Timber")) {
 	});
 
 	add_filter("template_include", function ($template) {
-		return get_stylesheet_directory() . "/static/no-timber.html";
+		return dirname(__DIR__) . "/static/no-timber.html";
 	});
 	return;
 }
