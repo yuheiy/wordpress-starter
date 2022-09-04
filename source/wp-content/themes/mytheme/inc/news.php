@@ -3,7 +3,7 @@
 namespace WordPressStarter\Theme;
 
 add_action("init", function () {
-	register_post_type("main_news", [
+	register_post_type("mytheme_news", [
 		"label" => "お知らせ",
 		"public" => true,
 		"supports" => ["title", "editor", "thumbnail"],
@@ -13,8 +13,8 @@ add_action("init", function () {
 	]);
 
 	register_taxonomy(
-		"main_news_category",
-		["main_news"],
+		"mytheme_news_category",
+		["mytheme_news"],
 		[
 			"label" => "カテゴリー",
 			"hierarchical" => true,
@@ -25,7 +25,7 @@ add_action("init", function () {
 
 	add_rewrite_rule(
 		'news/category/([^/]+)/?$',
-		'index.php?post_type=main_news&main_news_category=$matches[1]',
+		'index.php?post_type=mytheme_news&mytheme_news_category=$matches[1]',
 		"top"
 	);
 });
@@ -35,7 +35,7 @@ add_action("pre_get_posts", function ($query) {
 		return;
 	}
 
-	if (is_post_type_archive("main_news") || is_tax("main_news_category")) {
+	if (is_post_type_archive("mytheme_news") || is_tax("mytheme_news_category")) {
 		$query->set("posts_per_page", 12);
 	}
 });
