@@ -4,7 +4,7 @@ namespace WordPressStarter\Theme;
 
 use Timber;
 
-$timber = new Timber\Timber();
+new Timber\Timber();
 
 Timber::$dirname = ["views"];
 
