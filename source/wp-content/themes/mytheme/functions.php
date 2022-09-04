@@ -1,6 +1,6 @@
 <?php
 
-namespace Wpstarter\Theme;
+namespace WordPressStarter\Theme;
 
 require_once __DIR__ . "/vendor/autoload.php";
 

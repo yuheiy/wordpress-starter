@@ -1,6 +1,6 @@
 <?php
 
-namespace Wpstarter\MU_Plugins\Disable_Trackbacks;
+namespace WordPressStarter\MU_Plugins\Disable_Trackbacks;
 
 add_action("init", __NAMESPACE__ . "\init");
 
