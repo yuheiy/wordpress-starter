@@ -11,6 +11,10 @@ add_action("admin_menu", function () {
 	remove_menu_page("edit-comments.php");
 });
 
+add_filter("big_image_size_threshold", function () {
+	return 1920 * 2;
+});
+
 add_action("acf/init", function () {
 	$parent = acf_add_options_page([
 		"page_title" => "テーマ全般設定",

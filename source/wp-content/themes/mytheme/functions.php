@@ -92,10 +92,6 @@ add_filter("wp_get_attachment_image_attributes", function ($attrs) {
 	return $attrs;
 });
 
-add_filter("big_image_size_threshold", function () {
-	return 1920 * 2;
-});
-
 require_once __DIR__ . "/inc/acp.php";
 require_once __DIR__ . "/inc/admin.php";
 require_once __DIR__ . "/inc/blocks.php";
