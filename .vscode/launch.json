@@ -7,8 +7,10 @@
 			"request": "launch",
 			"port": 9003,
 			"pathMappings": {
+				"/var/www/html/wp-content/languages": "${workspaceRoot}/source/wp-content/languages",
+				"/var/www/html/wp-content/mu-plugins": "${workspaceRoot}/source/wp-content/mu-plugins",
 				"/var/www/html/wp-content/plugins": "${workspaceRoot}/source/wp-content/plugins",
-				"/var/www/html/wp-content/themes": "${workspaceRoot}/source/wp-content/themes"
+				"/var/www/html/wp-content/themes/mytheme": "${workspaceRoot}/source/wp-content/themes/mytheme"
 			}
 		}
 	]
