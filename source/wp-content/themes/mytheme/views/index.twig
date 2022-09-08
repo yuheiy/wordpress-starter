@@ -5,7 +5,10 @@
 		{{
 			include(
 				"partials/page-title.twig",
-				{ title: site.name, description: site.description }
+				{
+					title: site.name,
+					description: site.description
+				}
 			)
 		}}
 
@@ -30,8 +33,9 @@
 						{
 							content: 'さらに詳しく',
 							attrs: 'href="%s"'|format(about_post.link)
-						})
-					}}
+						}
+					)
+				}}
 			</div>
 		</section>
 

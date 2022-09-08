@@ -25,11 +25,20 @@
 
 	{% if image %}
 		<p>
-			{{ function('wp_get_attachment_image', image, 'full') }}
+			{{
+				function(
+					'wp_get_attachment_image',
+					image,
+					'full'
+				)
+			}}
 		</p>
 	{% endif %}
 
 	<style>
-		#{{ id }} { background: {{ background_color }}; color: {{ text_color }}; }
+		#{{ id }} {
+			background: {{ background_color }};
+			color: {{ text_color }};
+		}
 	</style>
 </div>
