@@ -8,12 +8,6 @@ import ui from "@alpinejs/ui";
 import components from "./components";
 import stores from "./stores";
 
-declare global {
-	interface HTMLElement {
-		inert: boolean;
-	}
-}
-
 if (process.env.NODE_ENV !== "production") {
 	console.log({ NODE_ENV: process.env.NODE_ENV });
 }
