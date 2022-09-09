@@ -7,6 +7,8 @@
 		"postinstall": "composer install --quiet"
 	},
 	"dependencies": {
+		"@alpinejs/focus": "^3.10.3",
+		"@alpinejs/ui": "^3.10.3-beta.2",
 		"alpinejs": "^3.10.3",
 		"camelcase": "^7.0.0",
 		"focus-options-polyfill": "^1.6.0",

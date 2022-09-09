@@ -15,15 +15,8 @@
 			<div class="container flex gap-x-6 justify-between">
 				<a class="py-3" href="{{ site.url }}">{{ site.name }}</a>
 
-				<div class="contents" x-data="dialog" x-id="['menu-trigger']">
-					<button
-						class="py-3"
-						type="button"
-						:id="$id('menu-trigger')"
-						@click="isOpen = true"
-					>
-						メニュー
-					</button>
+				<div class="contents" x-data="{ open: false }">
+					<button class="py-3" type="button" @click="open = true">メニュー</button>
 
 					<template x-teleport="#js-overlay-container">
 						{{ include('partials/site-menu.twig') }}
