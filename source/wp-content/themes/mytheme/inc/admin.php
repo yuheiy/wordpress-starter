@@ -7,12 +7,11 @@ add_action("admin_enqueue_scripts", function () {
 });
 
 add_action("admin_menu", function () {
-	remove_menu_page("edit.php");
 	remove_menu_page("edit-comments.php");
 });
 
 add_filter("big_image_size_threshold", function () {
-	return 1920 * 2;
+	return 2 * 1920;
 });
 
 add_action("acf/init", function () {

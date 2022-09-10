@@ -4,6 +4,12 @@ namespace WordPressStarter\Theme;
 
 require_once __DIR__ . "/vendor/autoload.php";
 
+require_once __DIR__ . "/inc/admin.php";
+require_once __DIR__ . "/inc/blocks.php";
+require_once __DIR__ . "/inc/news.php";
+require_once __DIR__ . "/inc/template-tags.php";
+require_once __DIR__ . "/inc/timber.php";
+
 if (!isset($content_width)) {
 	$content_width = 1280;
 }
@@ -57,20 +63,20 @@ add_filter(
 );
 
 add_action("wp_enqueue_scripts", function () {
-	$asset_file = include __DIR__ . "/build/index.asset.php";
+	$script_info = include __DIR__ . "/build/index.asset.php";
 
 	wp_enqueue_style(
 		"mytheme-style",
 		get_template_directory_uri() . "/build/index.css",
 		[],
-		$asset_file["version"]
+		$script_info["version"]
 	);
 
 	wp_enqueue_script(
 		"mytheme-script",
 		get_template_directory_uri() . "/build/index.js",
-		$asset_file["dependencies"],
-		$asset_file["version"]
+		$script_info["dependencies"],
+		$script_info["version"]
 	);
 });
 
@@ -103,9 +109,3 @@ add_filter(
 );
 
 add_filter("show_admin_bar", "__return_false");
-
-require_once __DIR__ . "/inc/admin.php";
-require_once __DIR__ . "/inc/blocks.php";
-require_once __DIR__ . "/inc/news.php";
-require_once __DIR__ . "/inc/template-tags.php";
-require_once __DIR__ . "/inc/timber.php";
