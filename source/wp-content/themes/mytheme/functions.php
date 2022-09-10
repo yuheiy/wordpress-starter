@@ -89,13 +89,18 @@ add_filter("wp_get_attachment_image_attributes", function ($attrs) {
 	return $attrs;
 });
 
-add_filter("wp_lazy_loading_enabled", function ($default, $tag_name, $context) {
-	if ($tag_name === "img") {
-		return false;
-	}
+add_filter(
+	"wp_lazy_loading_enabled",
+	function ($default, $tag_name, $context) {
+		if ($tag_name === "img") {
+			return false;
+		}
 
-	return $default;
-});
+		return $default;
+	},
+	10,
+	3
+);
 
 add_filter("show_admin_bar", "__return_false");
 
