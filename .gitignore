@@ -3,11 +3,10 @@ node_modules/
 vendor/
 npm-debug.log*
 
+/env/data.edited.xml
 /.env
 /.wp-env.override.json
 /auth.json
-/wp-config.php
-/env/data.edited.xml
 
 /source/wp-content/*
 !/source/wp-content/mu-plugins
