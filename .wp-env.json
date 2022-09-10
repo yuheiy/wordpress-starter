@@ -4,6 +4,7 @@
 		"./source/wp-content/plugins/admin-columns-pro",
 		"./source/wp-content/plugins/advanced-custom-fields-pro",
 		"./source/wp-content/plugins/wordpress-importer",
+		"./source/wp-content/plugins/wordpress-seo",
 		"./source/wp-content/plugins/wp-multibyte-patch"
 	],
 	"themes": ["./source/wp-content/themes/mytheme"],

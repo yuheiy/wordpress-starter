@@ -23,3 +23,6 @@ wp option update timezone_string "Asia/Tokyo"
 wp option update date_format "Y年n月j日"
 wp option update time_format "H:i"
 wp option update site_icon 21
+
+wp option patch update wpseo_social og_default_image "http://localhost:8888/wp-content/uploads/2022/09/ogp.png"
+wp option patch update wpseo_social og_default_image_id 23

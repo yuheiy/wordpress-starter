@@ -20,13 +20,13 @@
 <rss version="2.0" xmlns:excerpt="http://wordpress.org/export/1.2/excerpt/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:wfw="http://wellformedweb.org/CommentAPI/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:wp="http://wordpress.org/export/1.2/">
   <channel>
 <title>wordpress-starter</title>
-<link>http://localhost:8888</link>
+<link>http://localhost:8888/</link>
 <description>WordPressテーマ構築のための開発環境</description>
-<pubDate>Sat, 10 Sep 2022 08:23:07 +0000</pubDate>
+<pubDate>Sat, 10 Sep 2022 09:08:57 +0000</pubDate>
 <language>ja</language>
 <wp:wxr_version>1.2</wp:wxr_version>
-<wp:base_site_url>http://localhost:8888</wp:base_site_url>
-<wp:base_blog_url>http://localhost:8888</wp:base_blog_url>
+<wp:base_site_url>http://localhost:8888/</wp:base_site_url>
+<wp:base_blog_url>http://localhost:8888/</wp:base_blog_url>
 <wp:author>
   <wp:author_id>1</wp:author_id>
   <wp:author_login>admin</wp:author_login>
@@ -67,7 +67,7 @@
 <image>
 	<url>http://localhost:8888/wp-content/uploads/2022/09/cropped-site-icon-2-32x32.png</url>
 	<title>wordpress-starter</title>
-	<link>http://localhost:8888</link>
+	<link>http://localhost:8888/</link>
 	<width>32</width>
 	<height>32</height>
 </image> 
@@ -808,6 +808,39 @@ Commenter avatars come from <a href="https://en.gravatar.com/" rel="nofollow ugc
   <wp:postmeta>
     <wp:meta_key>_wp_attachment_metadata</wp:meta_key>
     <wp:meta_value><![CDATA[a:6:{s:5:"width";i:512;s:6:"height";i:512;s:4:"file";s:31:"2022/09/cropped-site-icon-2.png";s:8:"filesize";i:111;s:5:"sizes";a:6:{s:6:"medium";a:5:{s:4:"file";s:31:"cropped-site-icon-2-300x300.png";s:5:"width";i:300;s:6:"height";i:300;s:9:"mime-type";s:9:"image/png";s:8:"filesize";i:91;}s:9:"thumbnail";a:5:{s:4:"file";s:31:"cropped-site-icon-2-150x150.png";s:5:"width";i:150;s:6:"height";i:150;s:9:"mime-type";s:9:"image/png";s:8:"filesize";i:83;}s:13:"site_icon-270";a:5:{s:4:"file";s:31:"cropped-site-icon-2-270x270.png";s:5:"width";i:270;s:6:"height";i:270;s:9:"mime-type";s:9:"image/png";s:8:"filesize";i:89;}s:13:"site_icon-192";a:5:{s:4:"file";s:31:"cropped-site-icon-2-192x192.png";s:5:"width";i:192;s:6:"height";i:192;s:9:"mime-type";s:9:"image/png";s:8:"filesize";i:85;}s:13:"site_icon-180";a:5:{s:4:"file";s:31:"cropped-site-icon-2-180x180.png";s:5:"width";i:180;s:6:"height";i:180;s:9:"mime-type";s:9:"image/png";s:8:"filesize";i:84;}s:12:"site_icon-32";a:5:{s:4:"file";s:29:"cropped-site-icon-2-32x32.png";s:5:"width";i:32;s:6:"height";i:32;s:9:"mime-type";s:9:"image/png";s:8:"filesize";i:69;}}s:10:"image_meta";a:12:{s:8:"aperture";s:1:"0";s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";s:1:"0";s:9:"copyright";s:0:"";s:12:"focal_length";s:1:"0";s:3:"iso";s:1:"0";s:13:"shutter_speed";s:1:"0";s:5:"title";s:0:"";s:11:"orientation";s:1:"0";s:8:"keywords";a:0:{}}}]]></wp:meta_value>
+  </wp:postmeta>
+</item>
+<item>
+  <title><![CDATA[ogp]]></title>
+  <link>http://localhost:8888/ogp/</link>
+  <pubDate>Sat, 10 Sep 2022 09:07:30 +0000</pubDate>
+  <dc:creator>admin</dc:creator>
+  <guid isPermaLink="false">http://localhost:8888/wp-content/uploads/2022/09/ogp.png</guid>
+  <description/>
+  <content:encoded><![CDATA[]]></content:encoded>
+  <excerpt:encoded><![CDATA[]]></excerpt:encoded>
+  <wp:post_id>23</wp:post_id>
+  <wp:post_date>2022-09-10 18:07:30</wp:post_date>
+  <wp:post_date_gmt>2022-09-10 09:07:30</wp:post_date_gmt>
+  <wp:post_modified>2022-09-10 18:07:30</wp:post_modified>
+  <wp:post_modified_gmt>2022-09-10 09:07:30</wp:post_modified_gmt>
+  <wp:comment_status>open</wp:comment_status>
+  <wp:ping_status>closed</wp:ping_status>
+  <wp:post_name>ogp</wp:post_name>
+  <wp:status>inherit</wp:status>
+  <wp:post_parent>0</wp:post_parent>
+  <wp:menu_order>0</wp:menu_order>
+  <wp:post_type>attachment</wp:post_type>
+  <wp:post_password/>
+  <wp:is_sticky>0</wp:is_sticky>
+  <wp:attachment_url>http://localhost:8888/wp-content/uploads/2022/09/ogp.png</wp:attachment_url>
+  <wp:postmeta>
+    <wp:meta_key>_wp_attached_file</wp:meta_key>
+    <wp:meta_value><![CDATA[2022/09/ogp.png]]></wp:meta_value>
+  </wp:postmeta>
+  <wp:postmeta>
+    <wp:meta_key>_wp_attachment_metadata</wp:meta_key>
+    <wp:meta_value><![CDATA[a:6:{s:5:"width";i:1200;s:6:"height";i:630;s:4:"file";s:15:"2022/09/ogp.png";s:8:"filesize";i:4464;s:5:"sizes";a:4:{s:6:"medium";a:5:{s:4:"file";s:15:"ogp-300x158.png";s:5:"width";i:300;s:6:"height";i:158;s:9:"mime-type";s:9:"image/png";s:8:"filesize";i:85;}s:5:"large";a:5:{s:4:"file";s:16:"ogp-1024x538.png";s:5:"width";i:1024;s:6:"height";i:538;s:9:"mime-type";s:9:"image/png";s:8:"filesize";i:146;}s:9:"thumbnail";a:5:{s:4:"file";s:15:"ogp-150x150.png";s:5:"width";i:150;s:6:"height";i:150;s:9:"mime-type";s:9:"image/png";s:8:"filesize";i:83;}s:12:"medium_large";a:5:{s:4:"file";s:15:"ogp-768x403.png";s:5:"width";i:768;s:6:"height";i:403;s:9:"mime-type";s:9:"image/png";s:8:"filesize";i:118;}}s:10:"image_meta";a:12:{s:8:"aperture";s:1:"0";s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";s:1:"0";s:9:"copyright";s:0:"";s:12:"focal_length";s:1:"0";s:3:"iso";s:1:"0";s:13:"shutter_speed";s:1:"0";s:5:"title";s:0:"";s:11:"orientation";s:1:"0";s:8:"keywords";a:0:{}}}]]></wp:meta_value>
   </wp:postmeta>
 </item>
   </channel>

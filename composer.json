@@ -6,6 +6,7 @@
 		"cweagans/composer-patches": "~1.0",
 		"koodimonni-language/ja": "*",
 		"wpackagist-plugin/wordpress-importer": "*",
+		"wpackagist-plugin/wordpress-seo": "*",
 		"wpackagist-plugin/wp-multibyte-patch": "*"
 	},
 	"repositories": [
