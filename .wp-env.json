@@ -1,10 +1,15 @@
 {
+	"plugins": [
+		"./source/wp-content/plugins/ac-addon-acf",
+		"./source/wp-content/plugins/admin-columns-pro",
+		"./source/wp-content/plugins/advanced-custom-fields-pro",
+		"./source/wp-content/plugins/wordpress-importer",
+		"./source/wp-content/plugins/wp-multibyte-patch"
+	],
 	"themes": ["./source/wp-content/themes/mytheme"],
 	"mappings": {
-		".wp-setup": "./.wp-setup",
 		"wp-content/languages": "./source/wp-content/languages",
 		"wp-content/mu-plugins": "./source/wp-content/mu-plugins",
-		"wp-content/plugins": "./source/wp-content/plugins",
 		"wp-cli.local.yml": "./wp-cli.local.yml"
 	}
 }

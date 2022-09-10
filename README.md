@@ -48,39 +48,6 @@ npm run dev
 
 wp-env は、Docker を使った WordPress 環境を簡単に構築するためのツールです。基本的な利用方法については[公式ドキュメント](https://ja.wordpress.org/team/handbook/block-editor/reference-guides/packages/packages-env/)を参照してください。
 
-### セットアップ
-
-次のコマンドを実行すると、自動的に WordPress の初期設定が行われます:
-
-```bash
-npx wp-env start
-bin/wp-setup.mjs
-```
-
-### データベースと uploads ディレクトリのバックアップ
-
-WordPress のデータベースと uploads ディレクトリは、プロジェクトの `.wp-backup` ディレクトリにバックアップできます。デフォルトでは、wp-env の development 環境がバックアップされます。
-
-```bash
-npx wp-env start
-bin/wp-backup.mjs save
-```
-
-指定したリモート環境をバックアップすることもできます。
-
-```bash
-npx wp-env start
-bin/wp-backup.mjs save remote production
-```
-
-`.wp-backup` ディレクトリに出力されたファイルを Git リポジトリにコミットすることで、WordPress の状態を別の開発者とも共有できるようになります。
-
-次のようなコマンドを実行すれば、バックアップした状態を復元できます。これによって、現在の環境は上書きされます。
-
-```bash
-bin/wp-backup.mjs restore
-```
-
 ### ダッシュボードへのアクセス
 
 wp-env の起動後に次の URL を開いてください。

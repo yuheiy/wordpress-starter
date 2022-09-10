@@ -3,12 +3,10 @@ node_modules/
 vendor/
 npm-debug.log*
 
-/.wp-setup/.image-cache/
 /.env
+/.wp-env.override.json
 /auth.json
 /wp-config.php
-/wp-remote-config.json
-/.wp-env.override.json
 
 /source/wp-content/*
 !/source/wp-content/mu-plugins
