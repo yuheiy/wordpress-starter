@@ -7,6 +7,7 @@ npm-debug.log*
 /.wp-env.override.json
 /auth.json
 /wp-config.php
+/env/data.edited.xml
 
 /source/wp-content/*
 !/source/wp-content/mu-plugins

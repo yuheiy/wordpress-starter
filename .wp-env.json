@@ -8,6 +8,7 @@
 	],
 	"themes": ["./source/wp-content/themes/mytheme"],
 	"mappings": {
+		"env": "./env",
 		"wp-content/languages": "./source/wp-content/languages",
 		"wp-content/mu-plugins": "./source/wp-content/mu-plugins",
 		"wp-cli.local.yml": "./wp-cli.local.yml"

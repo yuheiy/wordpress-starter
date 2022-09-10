@@ -1,9 +1,11 @@
 {
 	"require-dev": {
-		"admin-columns/admin-columns-pro": "*",
-		"admin-columns/ac-addon-acf": "*",
-		"advanced-custom-fields/advanced-custom-fields-pro": "*",
+		"admin-columns/ac-addon-acf": "3.*",
+		"admin-columns/admin-columns-pro": "5.*",
+		"advanced-custom-fields/advanced-custom-fields-pro": "5.*",
+		"cweagans/composer-patches": "~1.0",
 		"koodimonni-language/ja": "*",
+		"wpackagist-plugin/wordpress-importer": "*",
 		"wpackagist-plugin/wp-multibyte-patch": "*"
 	},
 	"repositories": [
@@ -33,7 +35,8 @@
 		"allow-plugins": {
 			"composer/installers": true,
 			"koodimonni/composer-dropin-installer": true,
-			"pivvenit/acf-pro-installer": true
+			"pivvenit/acf-pro-installer": true,
+			"cweagans/composer-patches": true
 		}
 	},
 	"extra": {
@@ -58,6 +61,11 @@
 			"source/wp-content/themes/{$name}/": [
 				"type:wordpress-theme"
 			]
+		},
+		"patches": {
+			"wpackagist-plugin/wordpress-importer": {
+				"Allow unsale URLs in fetch_remote_file to import from attachment_url": "patches/wpackagist-plugin/wordpress-importer/class-wp-import.php.patch"
+			}
 		}
 	}
 }

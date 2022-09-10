@@ -1,0 +1,11 @@
+--- source/wp-content/plugins/wordpress-importer/class-wp-import.php.old	2022-09-10 14:22:25.000000000 +0900
++++ source/wp-content/plugins/wordpress-importer/class-wp-import.php	2022-09-10 14:22:36.000000000 +0900
+@@ -1001,7 +1001,7 @@
+ 		}
+ 
+ 		// Fetch the remote URL and write it to the placeholder file.
+-		$remote_response = wp_safe_remote_get( $url, array(
++		$remote_response = wp_remote_request( $url, array(
+ 			'timeout'    => 300,
+ 			'stream'     => true,
+ 			'filename'   => $tmp_file_name,

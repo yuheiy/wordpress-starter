@@ -48,6 +48,26 @@ npm run dev
 
 wp-env は、Docker を使った WordPress 環境を簡単に構築するためのツールです。基本的な利用方法については[公式ドキュメント](https://ja.wordpress.org/team/handbook/block-editor/reference-guides/packages/packages-env/)を参照してください。
 
+### セットアップ
+
+WordPress の初期設定は自動で行うことができます。これまでにエクスポートされたデータがあれば、それを基にして復元します。
+
+```bash
+npx wp-env start
+npm run setup
+```
+
+設定方法を変更する場合は、`env/setup.sh` を編集してください。
+
+### コンテンツと uploads ディレクトリのエクスポート
+
+WordPress のコンテンツおよび uploads ディレクトリは、`env` ディレクトリにエクスポートすることができます。
+
+```bash
+npx wp-env start
+npm run export
+```
+
 ### ダッシュボードへのアクセス
 
 wp-env の起動後に次の URL を開いてください。
