@@ -65,7 +65,7 @@
 		},
 		"patches": {
 			"wpackagist-plugin/wordpress-importer": {
-				"Allow unsale URLs in fetch_remote_file to import from attachment_url": "patches/wpackagist-plugin/wordpress-importer/class-wp-import.php.patch"
+				"Allow unsafe URLs in fetch_remote_file to import from attachment_url": "patches/wpackagist-plugin/wordpress-importer/class-wp-import.php.patch"
 			}
 		}
 	}
