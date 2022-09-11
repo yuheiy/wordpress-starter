@@ -1,6 +1,4 @@
-import "focus-options-polyfill";
 import "focus-visible";
-import "wicg-inert";
 import "./stores";
 import Alpine from "alpinejs";
 import focus from "@alpinejs/focus";
