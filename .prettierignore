@@ -2,8 +2,8 @@ acf-json/
 acp-settings/
 build/
 vendor/
-composer.lock
 *.twig
+composer.lock
 
 /source/wp-content/*
 !/source/wp-content/mu-plugins
