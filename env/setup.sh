@@ -13,6 +13,7 @@ wp rewrite flush --hard
 rm -rf "${root}/wp-content/uploads/*/"
 cp -r "${root}/env/uploads/." "${root}/wp-content/uploads/"
 
+# rewrite localhost to internal IP address because localhost causes cURL error 7
 sed -e "s/<wp:attachment_url>http:\/\/localhost:8888\//<wp:attachment_url>http:\/\/${ip_address}:8888\//g" "${root}/env/data.xml" >"${root}/env/data.edited.xml"
 wp import "${root}/env/data.edited.xml" --authors=create
 rm "${root}/env/data.edited.xml"
