@@ -3,45 +3,45 @@ name: Format Code
 on: push
 
 concurrency:
-    group: ${{ github.workflow }}-${{ github.ref }}
-    cancel-in-progress: true
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
-    format:
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v2
+  format:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
 
-            - name: Setup node
-              uses: actions/setup-node@v2
-              with:
-                  node-version-file: .nvmrc
-                  cache: npm
+      - name: Setup node
+        uses: actions/setup-node@v2
+        with:
+          node-version-file: .nvmrc
+          cache: npm
 
-            - name: Setup PHP
-              uses: shivammathur/setup-php@v2
-              with:
-                  php-version: latest
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: latest
 
-            - name: Get composer cache directory
-              id: composer-cache
-              run: echo "::set-output name=dir::$(composer config cache-files-dir)"
+      - name: Get composer cache directory
+        id: composer-cache
+        run: echo "::set-output name=dir::$(composer config cache-files-dir)"
 
-            - name: Cache dependencies
-              uses: actions/cache@v2
-              with:
-                  path: ${{ steps.composer-cache.outputs.dir }}
-                  key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
-                  restore-keys: ${{ runner.os }}-composer-
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: ${{ runner.os }}-composer-
 
-            - run: echo "ACF_PRO_KEY=${{ secrets.ACF_PRO_KEY }}" > .env
-            - run: echo '${{ secrets.AUTH_JSON_CONTENT }}' > auth.json
+      - run: echo "ACF_PRO_KEY=${{ secrets.ACF_PRO_KEY }}" > .env
+      - run: echo '${{ secrets.AUTH_JSON_CONTENT }}' > auth.json
 
-            - run: npm ci
+      - run: npm ci
 
-            - run: npm run format
+      - run: npm run format
 
-            - name: Commit changes
-              uses: stefanzweifel/git-auto-commit-action@v4
-              with:
-                  commit_message: "[ci] format"
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "[ci] format"

@@ -23,9 +23,9 @@ ACF_PRO_KEY=PUT_YOUR_LISENCE_KEY
 
 ```json
 {
-  "bearer": {
-    "composer.admincolumns.com": "PUT_YOUR_AUTHENTICATION_TOKEN"
-  }
+	"bearer": {
+		"composer.admincolumns.com": "PUT_YOUR_AUTHENTICATION_TOKEN"
+	}
 }
 ```
 
