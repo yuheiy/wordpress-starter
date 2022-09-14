@@ -3,8 +3,10 @@
 		"admin-columns/ac-addon-acf": "3.*",
 		"admin-columns/admin-columns-pro": "5.*",
 		"advanced-custom-fields/advanced-custom-fields-pro": "5.*",
-		"cweagans/composer-patches": "~1.0",
+		"cweagans/composer-patches": "1.*",
 		"koodimonni-language/ja": "*",
+		"wpackagist-plugin/debug-bar": "*",
+		"wpackagist-plugin/debug-bar-console": "*",
 		"wpackagist-plugin/wordpress-importer": "*",
 		"wpackagist-plugin/wordpress-seo": "*",
 		"wpackagist-plugin/wp-multibyte-patch": "*"
