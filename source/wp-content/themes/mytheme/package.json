@@ -3,8 +3,7 @@
 		"dev": "wp-scripts start",
 		"build": "tsc && wp-scripts build --config webpack.prod.js",
 		"test:e2e": "wp-scripts test-e2e",
-		"test:unit": "wp-scripts test-unit-js",
-		"postinstall": "composer install --quiet"
+		"test:unit": "wp-scripts test-unit-js"
 	},
 	"dependencies": {
 		"@alpinejs/focus": "^3.10.3",

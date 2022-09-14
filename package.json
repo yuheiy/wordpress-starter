@@ -1,13 +1,13 @@
 {
 	"scripts": {
-		"setup": "wp-env run cli \"bash env/setup.sh \"$(internal-ip --ipv4)\"\"",
+		"setup:tools": "npm ci && composer install && composer install --working-dir source/wp-content/themes/mytheme",
+		"setup:wp": "wp-env run cli \"bash env/setup.sh \"$(internal-ip --ipv4)\"\"",
 		"export": "wp-env run cli \"bash env/export.sh\"",
 		"wp-env": "wp-env",
 		"dev": "concurrently --raw \"npm run dev --workspace=mytheme\" \"browser-sync start --config bs-config.js\"",
 		"build": "npm run build --workspace=mytheme",
 		"build:pot": "wp-env run cli \"wp i18n make-mo wp-content/themes/mytheme/languages\"",
-		"format": "prettier . --write",
-		"postinstall": "composer install --quiet"
+		"format": "prettier . --write"
 	},
 	"devDependencies": {
 		"@prettier/plugin-php": "^0.19.0",

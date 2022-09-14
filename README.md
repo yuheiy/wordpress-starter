@@ -34,7 +34,7 @@ ACF_PRO_KEY=PUT_YOUR_LISENCE_KEY
 依存パッケージのインストール:
 
 ```bash
-npm ci
+npm run setup:tools
 ```
 
 ローカルサーバーの起動:
@@ -54,7 +54,7 @@ WordPress の初期設定は自動で行うことができます。これまで�
 
 ```bash
 npx wp-env start
-npm run setup
+npm run setup:wp
 ```
 
 設定方法を変更する場合は、`env/setup.sh` を編集してください。
