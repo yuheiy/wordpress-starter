@@ -53,18 +53,16 @@ wp-env は、Docker を使った WordPress 環境を簡単に構築するため�
 WordPress の初期設定は自動で行うことができます。これまでにエクスポートされたデータがあれば、それを基にして復元します。
 
 ```bash
-npx wp-env start
 npm run setup:wp
 ```
 
-設定方法を変更する場合は、`env/setup.sh` を編集してください。
+設定内容を変更するには、`env/setup.sh` を編集してください。
 
 ### コンテンツと uploads ディレクトリのエクスポート
 
 WordPress のコンテンツおよび uploads ディレクトリは、`env` ディレクトリにエクスポートすることができます。
 
 ```bash
-npx wp-env start
 npm run export
 ```
 
