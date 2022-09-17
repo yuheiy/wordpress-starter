@@ -4,6 +4,7 @@ build/
 vendor/
 *.twig
 composer.lock
+lzb-export-blocks.json
 
 /source/wp-content/*
 !/source/wp-content/mu-plugins

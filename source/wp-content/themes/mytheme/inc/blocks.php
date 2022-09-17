@@ -4,6 +4,15 @@ namespace WordPressStarter\Theme;
 
 use Timber;
 
+add_action("init", function () {
+	$json = file_get_contents(dirname(__DIR__) . "/data/lzb-export-blocks.json");
+	$export_blocks = json_decode($json, true);
+
+	foreach ($export_blocks as $block) {
+		lazyblocks()->add_block($block);
+	}
+});
+
 add_filter(
 	"allowed_block_types_all",
 	function ($allowed_block_types, $block_editor_context) {
@@ -13,40 +22,38 @@ add_filter(
 	2
 );
 
-add_action("acf/init", function () {
-	$block_types = [
-		[
-			"name" => "testimonial",
-			"title" => "お客様の声",
-			"category" => "formatting",
-			"icon" => "admin-comments",
-			"keywords" => ["testimonial", "quote"],
-		],
-	];
+foreach (glob(dirname(__DIR__) . "/views/blocks/lazyblock/*", GLOB_ONLYDIR) as $dir) {
+	$block = basename($dir);
 
-	$create_render_callback = function ($block_name) {
-		return function ($block, $content = "", $is_preview = false) use ($block_name) {
-			$context = Timber::context();
+	add_filter(
+		"lazyblock/$block/frontend_callback",
+		__NAMESPACE__ . "\\frontend_block_output",
+		10,
+		2
+	);
+	add_filter("lazyblock/$block/editor_callback", __NAMESPACE__ . "\\editor_block_output", 10, 2);
+}
 
-			// Store block values.
-			$context["block"] = $block;
+function frontend_block_output($output, $attributes)
+{
+	ob_start();
 
-			// Store field values.
-			$context["fields"] = get_fields();
+	$context = Timber::context();
+	$context["attributes"] = $attributes;
 
-			// Store $is_preview value.
-			$context["is_preview"] = $is_preview;
+	Timber::render("blocks/" . $attributes["lazyblock"]["slug"] . "/block.twig", $context);
 
-			// Render the block.
-			Timber::render("blocks/" . $block_name . ".twig", $context);
-		};
-	};
+	return ob_get_clean();
+}
 
-	foreach ($block_types as $block_type) {
-		acf_register_block_type(
-			array_merge($block_type, [
-				"render_callback" => $create_render_callback($block_type["name"]),
-			])
-		);
-	}
-});
+function editor_block_output($output, $attributes)
+{
+	ob_start();
+
+	$context = Timber::context();
+	$context["attributes"] = $attributes;
+
+	Timber::render("blocks/" . $attributes["lazyblock"]["slug"] . "/editor.twig", $context);
+
+	return ob_get_clean();
+}

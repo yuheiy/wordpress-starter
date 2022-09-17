@@ -38,9 +38,6 @@ add_action("after_setup_theme", function () {
 
 	add_theme_support("customize-selective-refresh-widgets");
 
-	add_theme_support("editor-styles");
-	add_editor_style();
-
 	add_theme_support("align-wide");
 	add_theme_support("responsive-embeds");
 });
@@ -90,6 +87,8 @@ add_filter("body_class", function ($classes) {
 	return $classes;
 });
 
+// merged to core 6.1
+// https://github.com/WordPress/performance/issues/86#issuecomment-1151244992
 add_filter("wp_get_attachment_image_attributes", function ($attrs) {
 	$attrs["decoding"] = "async";
 	return $attrs;

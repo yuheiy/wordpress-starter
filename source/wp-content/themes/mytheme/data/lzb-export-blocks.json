@@ -1,0 +1,102 @@
+[
+    {
+        "id": 12,
+        "title": "カルーセル",
+        "icon": "<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><path d=\"M7 19h10V4H7v15zm-5-2h4V6H2v11zM18 6v11h4V6h-4z\" \/><\/svg>",
+        "keywords": [],
+        "slug": "lazyblock\/carousel",
+        "description": "",
+        "category": "design",
+        "category_label": "design",
+        "supports": {
+            "customClassName": true,
+            "anchor": false,
+            "align": [
+                "wide",
+                "full"
+            ],
+            "html": false,
+            "multiple": true,
+            "inserter": true
+        },
+        "ghostkit": {
+            "supports": {
+                "spacings": false,
+                "display": false,
+                "scrollReveal": false,
+                "frame": false,
+                "customCSS": false
+            }
+        },
+        "controls": {
+            "control_aa797d48c0": {
+                "type": "repeater",
+                "name": "slides",
+                "default": "",
+                "label": "スライド",
+                "help": "",
+                "child_of": "",
+                "placement": "content",
+                "width": "100",
+                "hide_if_not_selected": "false",
+                "save_in_meta": "false",
+                "save_in_meta_name": "",
+                "required": "false",
+                "rows_min": "",
+                "rows_max": "",
+                "rows_label": "",
+                "rows_add_button_label": "",
+                "rows_collapsible": "true",
+                "rows_collapsed": "true",
+                "placeholder": "",
+                "characters_limit": ""
+            },
+            "control_5b28b443c1": {
+                "type": "image",
+                "name": "image",
+                "default": "",
+                "label": "画像",
+                "help": "",
+                "child_of": "control_aa797d48c0",
+                "placement": "content",
+                "width": "100",
+                "hide_if_not_selected": "false",
+                "save_in_meta": "false",
+                "save_in_meta_name": "",
+                "required": "false",
+                "preview_size": "medium",
+                "placeholder": "",
+                "characters_limit": ""
+            },
+            "control_9429714fe6": {
+                "type": "rich_text",
+                "name": "caption",
+                "default": "",
+                "label": "キャプション",
+                "help": "",
+                "child_of": "control_aa797d48c0",
+                "placement": "content",
+                "width": "100",
+                "hide_if_not_selected": "false",
+                "save_in_meta": "false",
+                "save_in_meta_name": "",
+                "required": "false",
+                "multiline": "false",
+                "placeholder": "",
+                "characters_limit": ""
+            }
+        },
+        "code": {
+            "output_method": "html",
+            "editor_html": "",
+            "editor_callback": "",
+            "editor_css": "",
+            "frontend_html": "",
+            "frontend_callback": "",
+            "frontend_css": "",
+            "show_preview": "always",
+            "single_output": false
+        },
+        "condition": []
+    }
+]
