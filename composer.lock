@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5f30612d9368eb220282e4fb62f533a8",
+    "content-hash": "346eea49d1cfee7634778a34e9651b7e",
     "packages": [],
     "packages-dev": [
         {
@@ -660,10 +660,10 @@
         },
         {
             "name": "koodimonni-plugin-language/woocommerce-ja",
-            "version": "6.9.0",
+            "version": "6.9.2",
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/translation/plugin/woocommerce/6.9.0/ja.zip"
+                "url": "https://downloads.wordpress.org/translation/plugin/woocommerce/6.9.2/ja.zip"
             },
             "require": {
                 "koodimonni/composer-dropin-installer": ">=0.2.3"
