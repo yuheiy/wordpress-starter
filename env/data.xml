@@ -22,7 +22,7 @@
 <title>wordpress-starter</title>
 <link>http://localhost:8888/</link>
 <description>WordPressテーマ構築のための開発環境</description>
-<pubDate>Sat, 17 Sep 2022 10:38:21 +0000</pubDate>
+<pubDate>Sat, 17 Sep 2022 10:56:23 +0000</pubDate>
 <language>ja</language>
 <wp:wxr_version>1.2</wp:wxr_version>
 <wp:base_site_url>http://localhost:8888/</wp:base_site_url>
@@ -76,6 +76,22 @@
   <wp:post_password/>
   <wp:is_sticky>0</wp:is_sticky>
   <category domain="category" nicename="uncategorized"><![CDATA[Uncategorized]]></category>
+  <wp:postmeta>
+    <wp:meta_key>_wp_trash_meta_status</wp:meta_key>
+    <wp:meta_value><![CDATA[publish]]></wp:meta_value>
+  </wp:postmeta>
+  <wp:postmeta>
+    <wp:meta_key>_wp_trash_meta_time</wp:meta_key>
+    <wp:meta_value><![CDATA[1663410624]]></wp:meta_value>
+  </wp:postmeta>
+  <wp:postmeta>
+    <wp:meta_key>_wp_desired_post_slug</wp:meta_key>
+    <wp:meta_value><![CDATA[hello-world]]></wp:meta_value>
+  </wp:postmeta>
+  <wp:postmeta>
+    <wp:meta_key>_wp_trash_meta_comments_status</wp:meta_key>
+    <wp:meta_value><![CDATA[a:1:{i:1;s:1:"1";}]]></wp:meta_value>
+  </wp:postmeta>
   <wp:postmeta>
     <wp:meta_key>_wp_trash_meta_status</wp:meta_key>
     <wp:meta_value><![CDATA[publish]]></wp:meta_value>
@@ -166,6 +182,22 @@ Commenter avatars come from <a href="https://en.gravatar.com/">Gravatar</a>.]]><
     <wp:meta_key>_wp_desired_post_slug</wp:meta_key>
     <wp:meta_value><![CDATA[sample-page]]></wp:meta_value>
   </wp:postmeta>
+  <wp:postmeta>
+    <wp:meta_key>_wp_page_template</wp:meta_key>
+    <wp:meta_value><![CDATA[default]]></wp:meta_value>
+  </wp:postmeta>
+  <wp:postmeta>
+    <wp:meta_key>_wp_trash_meta_status</wp:meta_key>
+    <wp:meta_value><![CDATA[publish]]></wp:meta_value>
+  </wp:postmeta>
+  <wp:postmeta>
+    <wp:meta_key>_wp_trash_meta_time</wp:meta_key>
+    <wp:meta_value><![CDATA[1663410631]]></wp:meta_value>
+  </wp:postmeta>
+  <wp:postmeta>
+    <wp:meta_key>_wp_desired_post_slug</wp:meta_key>
+    <wp:meta_value><![CDATA[sample-page]]></wp:meta_value>
+  </wp:postmeta>
 </item>
 <item>
   <title><![CDATA[Privacy Policy]]></title>
@@ -206,6 +238,22 @@ Commenter avatars come from <a href="https://en.gravatar.com/">Gravatar</a>.]]><
     <wp:meta_key>_wp_desired_post_slug</wp:meta_key>
     <wp:meta_value><![CDATA[privacy-policy]]></wp:meta_value>
   </wp:postmeta>
+  <wp:postmeta>
+    <wp:meta_key>_wp_page_template</wp:meta_key>
+    <wp:meta_value><![CDATA[default]]></wp:meta_value>
+  </wp:postmeta>
+  <wp:postmeta>
+    <wp:meta_key>_wp_trash_meta_status</wp:meta_key>
+    <wp:meta_value><![CDATA[draft]]></wp:meta_value>
+  </wp:postmeta>
+  <wp:postmeta>
+    <wp:meta_key>_wp_trash_meta_time</wp:meta_key>
+    <wp:meta_value><![CDATA[1663410631]]></wp:meta_value>
+  </wp:postmeta>
+  <wp:postmeta>
+    <wp:meta_key>_wp_desired_post_slug</wp:meta_key>
+    <wp:meta_value><![CDATA[privacy-policy]]></wp:meta_value>
+  </wp:postmeta>
 </item>
 <item>
   <title><![CDATA[Example Block]]></title>
@@ -230,6 +278,84 @@ Commenter avatars come from <a href="https://en.gravatar.com/">Gravatar</a>.]]><
   <wp:post_type>lazyblocks</wp:post_type>
   <wp:post_password/>
   <wp:is_sticky>0</wp:is_sticky>
+  <wp:postmeta>
+    <wp:meta_key>lazyblocks_controls</wp:meta_key>
+    <wp:meta_value><![CDATA[a:3:{s:18:"control_005ad74de2";a:14:{s:4:"type";s:5:"image";s:4:"name";s:5:"image";s:7:"default";s:0:"";s:5:"label";s:5:"Image";s:4:"help";s:0:"";s:8:"child_of";s:0:"";s:9:"placement";s:9:"inspector";s:5:"width";s:3:"100";s:20:"hide_if_not_selected";s:5:"false";s:12:"save_in_meta";s:5:"false";s:17:"save_in_meta_name";s:0:"";s:8:"required";s:5:"false";s:11:"placeholder";s:0:"";s:16:"characters_limit";s:0:"";}s:18:"control_1729664f06";a:14:{s:4:"type";s:4:"text";s:4:"name";s:12:"button-label";s:7:"default";s:0:"";s:5:"label";s:12:"Button Label";s:4:"help";s:0:"";s:8:"child_of";s:0:"";s:9:"placement";s:9:"inspector";s:5:"width";s:3:"100";s:20:"hide_if_not_selected";s:5:"false";s:12:"save_in_meta";s:5:"false";s:17:"save_in_meta_name";s:0:"";s:8:"required";s:5:"false";s:11:"placeholder";s:0:"";s:16:"characters_limit";s:0:"";}s:18:"control_8b591545a2";a:14:{s:4:"type";s:3:"url";s:4:"name";s:10:"button-url";s:7:"default";s:0:"";s:5:"label";s:10:"Button URL";s:4:"help";s:0:"";s:8:"child_of";s:0:"";s:9:"placement";s:9:"inspector";s:5:"width";s:3:"100";s:20:"hide_if_not_selected";s:5:"false";s:12:"save_in_meta";s:5:"false";s:17:"save_in_meta_name";s:0:"";s:8:"required";s:5:"false";s:11:"placeholder";s:0:"";s:16:"characters_limit";s:0:"";}}]]></wp:meta_value>
+  </wp:postmeta>
+  <wp:postmeta>
+    <wp:meta_key>lazyblocks_slug</wp:meta_key>
+    <wp:meta_value><![CDATA[example-block]]></wp:meta_value>
+  </wp:postmeta>
+  <wp:postmeta>
+    <wp:meta_key>lazyblocks_icon</wp:meta_key>
+    <wp:meta_value><![CDATA[<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect opacity="0.25" width="15" height="15" rx="4" transform="matrix(-1 0 0 1 22 7)" fill="currentColor" /><rect width="15" height="15" rx="4" transform="matrix(-1 0 0 1 17 2)" fill="currentColor" /></svg>]]></wp:meta_value>
+  </wp:postmeta>
+  <wp:postmeta>
+    <wp:meta_key>lazyblocks_description</wp:meta_key>
+    <wp:meta_value><![CDATA[Example block that helps you to get started with Lazy Blocks plugin]]></wp:meta_value>
+  </wp:postmeta>
+  <wp:postmeta>
+    <wp:meta_key>lazyblocks_keywords</wp:meta_key>
+    <wp:meta_value><![CDATA[example,sample,template]]></wp:meta_value>
+  </wp:postmeta>
+  <wp:postmeta>
+    <wp:meta_key>lazyblocks_category</wp:meta_key>
+    <wp:meta_value><![CDATA[common]]></wp:meta_value>
+  </wp:postmeta>
+  <wp:postmeta>
+    <wp:meta_key>lazyblocks_code_show_preview</wp:meta_key>
+    <wp:meta_value><![CDATA[always]]></wp:meta_value>
+  </wp:postmeta>
+  <wp:postmeta>
+    <wp:meta_key>lazyblocks_code_single_output</wp:meta_key>
+    <wp:meta_value><![CDATA[true]]></wp:meta_value>
+  </wp:postmeta>
+  <wp:postmeta>
+    <wp:meta_key>lazyblocks_code_output_method</wp:meta_key>
+    <wp:meta_value><![CDATA[php]]></wp:meta_value>
+  </wp:postmeta>
+  <wp:postmeta>
+    <wp:meta_key>lazyblocks_code_frontend_html</wp:meta_key>
+    <wp:meta_value><![CDATA[<?php if ( isset( $attributes['image']['url'] ) ) : ?>
+    <p>
+        <img src="<?php echo esc_url( $attributes['image']['url'] ); ?>" alt="<?php echo esc_attr( $attributes['image']['alt'] ); ?>">
+    </p>
+
+    <?php if ( isset( $attributes['button-label'] ) ) : ?>
+        <p>
+            <a href="<?php echo esc_url( $attributes['button-url'] ); ?>" class="button button-primary">
+                <?php echo esc_html( $attributes['button-label'] ); ?>
+            </a>
+        </p>
+    <?php endif; ?>
+<?php else: ?>
+    <p>Image is required to show this block content.</p>
+<?php endif; ?>]]></wp:meta_value>
+  </wp:postmeta>
+  <wp:postmeta>
+    <wp:meta_key>lazyblocks_supports_multiple</wp:meta_key>
+    <wp:meta_value><![CDATA[true]]></wp:meta_value>
+  </wp:postmeta>
+  <wp:postmeta>
+    <wp:meta_key>lazyblocks_supports_classname</wp:meta_key>
+    <wp:meta_value><![CDATA[true]]></wp:meta_value>
+  </wp:postmeta>
+  <wp:postmeta>
+    <wp:meta_key>lazyblocks_supports_anchor</wp:meta_key>
+    <wp:meta_value><![CDATA[false]]></wp:meta_value>
+  </wp:postmeta>
+  <wp:postmeta>
+    <wp:meta_key>_wp_trash_meta_status</wp:meta_key>
+    <wp:meta_value><![CDATA[draft]]></wp:meta_value>
+  </wp:postmeta>
+  <wp:postmeta>
+    <wp:meta_key>_wp_trash_meta_time</wp:meta_key>
+    <wp:meta_value><![CDATA[1663411090]]></wp:meta_value>
+  </wp:postmeta>
+  <wp:postmeta>
+    <wp:meta_key>_wp_desired_post_slug</wp:meta_key>
+    <wp:meta_value><![CDATA[]]></wp:meta_value>
+  </wp:postmeta>
   <wp:postmeta>
     <wp:meta_key>lazyblocks_controls</wp:meta_key>
     <wp:meta_value><![CDATA[a:3:{s:18:"control_005ad74de2";a:14:{s:4:"type";s:5:"image";s:4:"name";s:5:"image";s:7:"default";s:0:"";s:5:"label";s:5:"Image";s:4:"help";s:0:"";s:8:"child_of";s:0:"";s:9:"placement";s:9:"inspector";s:5:"width";s:3:"100";s:20:"hide_if_not_selected";s:5:"false";s:12:"save_in_meta";s:5:"false";s:17:"save_in_meta_name";s:0:"";s:8:"required";s:5:"false";s:11:"placeholder";s:0:"";s:16:"characters_limit";s:0:"";}s:18:"control_1729664f06";a:14:{s:4:"type";s:4:"text";s:4:"name";s:12:"button-label";s:7:"default";s:0:"";s:5:"label";s:12:"Button Label";s:4:"help";s:0:"";s:8:"child_of";s:0:"";s:9:"placement";s:9:"inspector";s:5:"width";s:3:"100";s:20:"hide_if_not_selected";s:5:"false";s:12:"save_in_meta";s:5:"false";s:17:"save_in_meta_name";s:0:"";s:8:"required";s:5:"false";s:11:"placeholder";s:0:"";s:16:"characters_limit";s:0:"";}s:18:"control_8b591545a2";a:14:{s:4:"type";s:3:"url";s:4:"name";s:10:"button-url";s:7:"default";s:0:"";s:5:"label";s:10:"Button URL";s:4:"help";s:0:"";s:8:"child_of";s:0:"";s:9:"placement";s:9:"inspector";s:5:"width";s:3:"100";s:20:"hide_if_not_selected";s:5:"false";s:12:"save_in_meta";s:5:"false";s:17:"save_in_meta_name";s:0:"";s:8:"required";s:5:"false";s:11:"placeholder";s:0:"";s:16:"characters_limit";s:0:"";}}]]></wp:meta_value>
@@ -452,6 +578,22 @@ Commenter avatars come from <a href="https://en.gravatar.com/">Gravatar</a>.]]><
     <wp:meta_key>_yoast_wpseo_wordproof_timestamp</wp:meta_key>
     <wp:meta_value><![CDATA[]]></wp:meta_value>
   </wp:postmeta>
+  <wp:postmeta>
+    <wp:meta_key>_thumbnail_id</wp:meta_key>
+    <wp:meta_value><![CDATA[15]]></wp:meta_value>
+  </wp:postmeta>
+  <wp:postmeta>
+    <wp:meta_key>_edit_last</wp:meta_key>
+    <wp:meta_value><![CDATA[1]]></wp:meta_value>
+  </wp:postmeta>
+  <wp:postmeta>
+    <wp:meta_key>_yoast_wpseo_estimated-reading-time-minutes</wp:meta_key>
+    <wp:meta_value><![CDATA[]]></wp:meta_value>
+  </wp:postmeta>
+  <wp:postmeta>
+    <wp:meta_key>_yoast_wpseo_wordproof_timestamp</wp:meta_key>
+    <wp:meta_value><![CDATA[]]></wp:meta_value>
+  </wp:postmeta>
 </item>
 <item>
   <title><![CDATA[Custom Styles]]></title>
@@ -579,6 +721,18 @@ Commenter avatars come from <a href="https://en.gravatar.com/">Gravatar</a>.]]><
   <wp:post_type>mytheme_news</wp:post_type>
   <wp:post_password/>
   <wp:is_sticky>0</wp:is_sticky>
+  <wp:postmeta>
+    <wp:meta_key>_edit_last</wp:meta_key>
+    <wp:meta_value><![CDATA[1]]></wp:meta_value>
+  </wp:postmeta>
+  <wp:postmeta>
+    <wp:meta_key>_yoast_wpseo_estimated-reading-time-minutes</wp:meta_key>
+    <wp:meta_value><![CDATA[]]></wp:meta_value>
+  </wp:postmeta>
+  <wp:postmeta>
+    <wp:meta_key>_yoast_wpseo_wordproof_timestamp</wp:meta_key>
+    <wp:meta_value><![CDATA[]]></wp:meta_value>
+  </wp:postmeta>
   <wp:postmeta>
     <wp:meta_key>_edit_last</wp:meta_key>
     <wp:meta_value><![CDATA[1]]></wp:meta_value>
@@ -738,6 +892,18 @@ Commenter avatars come from <a href="https://en.gravatar.com/">Gravatar</a>.]]><
     <wp:meta_key>_yoast_wpseo_wordproof_timestamp</wp:meta_key>
     <wp:meta_value><![CDATA[]]></wp:meta_value>
   </wp:postmeta>
+  <wp:postmeta>
+    <wp:meta_key>_edit_last</wp:meta_key>
+    <wp:meta_value><![CDATA[1]]></wp:meta_value>
+  </wp:postmeta>
+  <wp:postmeta>
+    <wp:meta_key>_yoast_wpseo_estimated-reading-time-minutes</wp:meta_key>
+    <wp:meta_value><![CDATA[]]></wp:meta_value>
+  </wp:postmeta>
+  <wp:postmeta>
+    <wp:meta_key>_yoast_wpseo_wordproof_timestamp</wp:meta_key>
+    <wp:meta_value><![CDATA[]]></wp:meta_value>
+  </wp:postmeta>
 </item>
 <item>
   <title><![CDATA[お知らせ 3]]></title>
@@ -774,6 +940,18 @@ Commenter avatars come from <a href="https://en.gravatar.com/">Gravatar</a>.]]><
   <wp:post_type>mytheme_news</wp:post_type>
   <wp:post_password/>
   <wp:is_sticky>0</wp:is_sticky>
+  <wp:postmeta>
+    <wp:meta_key>_edit_last</wp:meta_key>
+    <wp:meta_value><![CDATA[1]]></wp:meta_value>
+  </wp:postmeta>
+  <wp:postmeta>
+    <wp:meta_key>_yoast_wpseo_estimated-reading-time-minutes</wp:meta_key>
+    <wp:meta_value><![CDATA[]]></wp:meta_value>
+  </wp:postmeta>
+  <wp:postmeta>
+    <wp:meta_key>_yoast_wpseo_wordproof_timestamp</wp:meta_key>
+    <wp:meta_value><![CDATA[]]></wp:meta_value>
+  </wp:postmeta>
   <wp:postmeta>
     <wp:meta_key>_edit_last</wp:meta_key>
     <wp:meta_value><![CDATA[1]]></wp:meta_value>
