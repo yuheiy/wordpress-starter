@@ -13,10 +13,9 @@
 
 		{{
 			function(
-				'wp_get_attachment_image',
-				post.thumbnail.id,
+				'get_the_post_thumbnail',
+				null,
 				'full',
-				false,
 				{
 					class: 'w-full min-h-[14rem] object-cover aspect-[3/1]'
 				}
