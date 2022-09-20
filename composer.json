@@ -5,9 +5,8 @@
 		"advanced-custom-fields/advanced-custom-fields-pro": "5.*",
 		"cweagans/composer-patches": "1.*",
 		"koodimonni-language/ja": "*",
-		"wpackagist-plugin/debug-bar": "*",
-		"wpackagist-plugin/debug-bar-console": "*",
 		"wpackagist-plugin/lazy-blocks": "*",
+		"wpackagist-plugin/query-monitor": "*",
 		"wpackagist-plugin/wordpress-importer": "*",
 		"wpackagist-plugin/wordpress-seo": "*",
 		"wpackagist-plugin/wp-multibyte-patch": "*"
