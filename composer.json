@@ -37,9 +37,9 @@
 	"config": {
 		"allow-plugins": {
 			"composer/installers": true,
+			"cweagans/composer-patches": true,
 			"koodimonni/composer-dropin-installer": true,
-			"pivvenit/acf-pro-installer": true,
-			"cweagans/composer-patches": true
+			"pivvenit/acf-pro-installer": true
 		}
 	},
 	"extra": {
