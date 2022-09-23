@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1fbaf9b5b6c04cb3b1ab5589685dbb34",
+    "content-hash": "96b74775fd0ab54f32a15b4743dbec57",
     "packages": [],
     "packages-dev": [
         {
@@ -33,10 +33,10 @@
         },
         {
             "name": "advanced-custom-fields/advanced-custom-fields-pro",
-            "version": "5.12.3",
+            "version": "6.0.0",
             "dist": {
                 "type": "zip",
-                "url": "https://connect.advancedcustomfields.com/v2/plugins/download?p=pro&t=5.12.3"
+                "url": "https://connect.advancedcustomfields.com/v2/plugins/download?p=pro&t=6.0.0"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0",
@@ -660,10 +660,10 @@
         },
         {
             "name": "koodimonni-plugin-language/woocommerce-ja",
-            "version": "6.9.2",
+            "version": "6.9.3",
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/translation/plugin/woocommerce/6.9.2/ja.zip"
+                "url": "https://downloads.wordpress.org/translation/plugin/woocommerce/6.9.3/ja.zip"
             },
             "require": {
                 "koodimonni/composer-dropin-installer": ">=0.2.3"
