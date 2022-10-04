@@ -1,4 +1,3 @@
-import "focus-visible";
 import "./stores";
 import Alpine from "alpinejs";
 import focus from "@alpinejs/focus";
