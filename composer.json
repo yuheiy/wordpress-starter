@@ -3,7 +3,7 @@
 		"admin-columns/ac-addon-acf": "3.*",
 		"admin-columns/admin-columns-pro": "5.*",
 		"advanced-custom-fields/advanced-custom-fields-pro": "*",
-		"cweagans/composer-patches": "1.*",
+		"cweagans/composer-patches": "^1.7",
 		"koodimonni-language/ja": "*",
 		"wpackagist-plugin/lazy-blocks": "*",
 		"wpackagist-plugin/query-monitor": "*",

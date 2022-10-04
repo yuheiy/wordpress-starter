@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "96b74775fd0ab54f32a15b4743dbec57",
+    "content-hash": "aa319f643595b23f57d5848193087ce4",
     "packages": [],
     "packages-dev": [
         {
@@ -33,10 +33,10 @@
         },
         {
             "name": "advanced-custom-fields/advanced-custom-fields-pro",
-            "version": "6.0.0",
+            "version": "6.0.2",
             "dist": {
                 "type": "zip",
-                "url": "https://connect.advancedcustomfields.com/v2/plugins/download?p=pro&t=6.0.0"
+                "url": "https://connect.advancedcustomfields.com/v2/plugins/download?p=pro&t=6.0.2"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0",
@@ -394,10 +394,10 @@
         },
         {
             "name": "koodimonni-plugin-language/akismet-ja",
-            "version": "5.0",
+            "version": "5.0.1",
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/translation/plugin/akismet/5.0/ja.zip"
+                "url": "https://downloads.wordpress.org/translation/plugin/akismet/5.0.1/ja.zip"
             },
             "require": {
                 "koodimonni/composer-dropin-installer": ">=0.2.3"
@@ -660,10 +660,10 @@
         },
         {
             "name": "koodimonni-plugin-language/woocommerce-ja",
-            "version": "6.9.3",
+            "version": "6.9.4",
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/translation/plugin/woocommerce/6.9.3/ja.zip"
+                "url": "https://downloads.wordpress.org/translation/plugin/woocommerce/6.9.4/ja.zip"
             },
             "require": {
                 "koodimonni/composer-dropin-installer": ">=0.2.3"
@@ -679,10 +679,10 @@
         },
         {
             "name": "koodimonni-plugin-language/wordpress-importer-ja",
-            "version": "0.7",
+            "version": "0.8",
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/translation/plugin/wordpress-importer/0.7/ja.zip"
+                "url": "https://downloads.wordpress.org/translation/plugin/wordpress-importer/0.8/ja.zip"
             },
             "require": {
                 "koodimonni/composer-dropin-installer": ">=0.2.3"
@@ -1557,15 +1557,15 @@
         },
         {
             "name": "wpackagist-plugin/wordpress-importer",
-            "version": "0.7",
+            "version": "0.8",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/wordpress-importer/",
-                "reference": "tags/0.7"
+                "reference": "tags/0.8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wordpress-importer.0.7.zip"
+                "url": "https://downloads.wordpress.org/plugin/wordpress-importer.0.8.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
