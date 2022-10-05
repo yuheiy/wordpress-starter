@@ -1,0 +1,15 @@
+{
+	"name": "acf/testimonial",
+	"title": "Testimonial",
+	"description": "A custom testimonial block.",
+	"category": "formatting",
+	"icon": "admin-comments",
+	"keywords": ["testimonial", "quote"],
+	"supports": {
+		"customClassName": false
+	},
+	"acf": {
+		"mode": "edit",
+		"renderCallback": "acf_block_render_callback"
+	}
+}

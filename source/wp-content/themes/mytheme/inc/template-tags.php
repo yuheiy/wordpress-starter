@@ -1,5 +1,28 @@
 <?php
 
+function acf_block_render_callback($block, $content, $is_preview, $post_id, $wp_block, $context)
+{
+	$block_slug = str_replace("acf/", "", $block["name"]);
+
+	$timber_context = Timber::context();
+	foreach (
+		[
+			"block" => $block,
+			"content" => $content,
+			"is_preview" => $is_preview,
+			"post_id" => $post_id,
+			"wp_block" => $wp_block,
+			"context" => $context,
+			"fields" => get_fields(),
+		]
+		as $key => $value
+	) {
+		$timber_context[$key] = $value;
+	}
+
+	Timber::render("blocks/" . $block_slug . ".twig", $timber_context);
+}
+
 function get_attachment_source($attachment_id, $size = "thumbnail", $icon = false, $attr = "")
 {
 	$html = "";

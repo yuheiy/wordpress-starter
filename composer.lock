@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "aa319f643595b23f57d5848193087ce4",
+    "content-hash": "9de3bb8d8c1f777daacf18871171f83c",
     "packages": [],
     "packages-dev": [
         {
@@ -1518,24 +1518,6 @@
                 }
             ],
             "time": "2021-12-12T23:22:04+00:00"
-        },
-        {
-            "name": "wpackagist-plugin/lazy-blocks",
-            "version": "2.5.3",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/lazy-blocks/",
-                "reference": "tags/2.5.3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/lazy-blocks.2.5.3.zip"
-            },
-            "require": {
-                "composer/installers": "^1.0 || ^2.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/lazy-blocks/"
         },
         {
             "name": "wpackagist-plugin/query-monitor",
