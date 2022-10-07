@@ -4,33 +4,9 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9de3bb8d8c1f777daacf18871171f83c",
+    "content-hash": "e72498717c59d76966af8fce6d49cdc8",
     "packages": [],
     "packages-dev": [
-        {
-            "name": "admin-columns/ac-addon-acf",
-            "version": "3.0.3",
-            "dist": {
-                "type": "zip",
-                "url": "https://composer.admincolumns.com/download?package=admin-columns/ac-addon-acf&version=3.0.3"
-            },
-            "require": {
-                "composer/installers": "~1.0|~2.0"
-            },
-            "type": "wordpress-plugin"
-        },
-        {
-            "name": "admin-columns/admin-columns-pro",
-            "version": "5.7.4",
-            "dist": {
-                "type": "zip",
-                "url": "https://composer.admincolumns.com/download?package=admin-columns/admin-columns-pro&version=5.7.4"
-            },
-            "require": {
-                "composer/installers": "~1.0|~2.0"
-            },
-            "type": "wordpress-plugin"
-        },
         {
             "name": "advanced-custom-fields/advanced-custom-fields-pro",
             "version": "6.0.2",

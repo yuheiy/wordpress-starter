@@ -1,7 +1,5 @@
 {
 	"require-dev": {
-		"admin-columns/ac-addon-acf": "3.*",
-		"admin-columns/admin-columns-pro": "5.*",
 		"advanced-custom-fields/advanced-custom-fields-pro": "*",
 		"cweagans/composer-patches": "^1.7",
 		"koodimonni-language/ja": "*",
@@ -11,10 +9,6 @@
 		"wpackagist-plugin/wp-multibyte-patch": "*"
 	},
 	"repositories": [
-		{
-			"type": "composer",
-			"url": "https://composer.admincolumns.com"
-		},
 		{
 			"type": "composer",
 			"url": "https://pivvenit.github.io/acf-composer-bridge/composer/v3/wordpress-plugin/"

@@ -19,18 +19,6 @@ ACF_PRO_KEY=PUT_YOUR_LISENCE_KEY
 
 [ACF Pro](https://www.advancedcustomfields.com/pro/) の[ライセンスキー](https://www.advancedcustomfields.com/resources/how-to-activate/)を入力します。
 
-`auth.json` の作成:
-
-```json
-{
-	"bearer": {
-		"composer.admincolumns.com": "PUT_YOUR_AUTHENTICATION_TOKEN"
-	}
-}
-```
-
-[Admin Columns Pro](https://www.admincolumns.com/) の [Authentication Token](https://docs.admincolumns.com/article/95-installing-via-composer#authentication-token) を入力します。
-
 依存パッケージのインストール:
 
 ```bash

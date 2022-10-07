@@ -1,5 +1,4 @@
 acf-json/
-acp-settings/
 build/
 vendor/
 *.twig
