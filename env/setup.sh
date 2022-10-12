@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 root=$(dirname "$(wp config path)")
 ip_address=$1
 
