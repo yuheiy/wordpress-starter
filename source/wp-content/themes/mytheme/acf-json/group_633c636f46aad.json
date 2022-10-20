@@ -15,7 +15,7 @@
                 "class": "",
                 "id": ""
             },
-            "message": "<h2>Testimonial Block<\/h2>",
+            "message": "<h2>Testimonial<\/h2>",
             "new_lines": "wpautop",
             "esc_html": 0
         },
@@ -119,5 +119,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1666246316
+    "modified": 1666256071
 }
