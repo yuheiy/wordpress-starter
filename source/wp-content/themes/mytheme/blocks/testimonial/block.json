@@ -11,6 +11,6 @@
 	},
 	"acf": {
 		"mode": "edit",
-		"renderCallback": "acf_block_render_callback"
+		"renderCallback": "my_acf_block_render_callback"
 	}
 }

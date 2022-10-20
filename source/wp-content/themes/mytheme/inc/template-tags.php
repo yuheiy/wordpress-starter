@@ -7,7 +7,7 @@
  * @param   string $content    The block content (empty string).
  * @param   bool   $is_preview True during AJAX preview.
  */
-function acf_block_render_callback($block, $content, $is_preview)
+function my_acf_block_render_callback($block, $content, $is_preview)
 {
 	$block_slug = str_replace("acf/", "", $block["name"]);
 
@@ -29,7 +29,7 @@ function acf_block_render_callback($block, $content, $is_preview)
 	Timber::render("blocks/" . $block_slug . ".twig", $context);
 }
 
-function get_attachment_source($attachment_id, $size = "thumbnail", $icon = false, $attr = "")
+function my_get_attachment_source($attachment_id, $size = "thumbnail", $icon = false, $attr = "")
 {
 	$html = "";
 	$image = wp_get_attachment_image_src($attachment_id, $size, $icon);
