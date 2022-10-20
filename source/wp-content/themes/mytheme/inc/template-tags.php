@@ -1,7 +1,7 @@
 <?php
 
 /**
- *  This is the callback that displays the block.
+ * This is the callback that displays the block.
  *
  * @param   array  $block      The block settings and attributes.
  * @param   string $content    The block content (empty string).
