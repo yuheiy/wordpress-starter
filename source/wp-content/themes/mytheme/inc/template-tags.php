@@ -1,26 +1,32 @@
 <?php
 
-function acf_block_render_callback($block, $content, $is_preview, $post_id, $wp_block, $context)
+/**
+ *  This is the callback that displays the block.
+ *
+ * @param   array  $block      The block settings and attributes.
+ * @param   string $content    The block content (empty string).
+ * @param   bool   $is_preview True during AJAX preview.
+ */
+function acf_block_render_callback($block, $content, $is_preview)
 {
 	$block_slug = str_replace("acf/", "", $block["name"]);
 
-	$timber_context = Timber::context();
+	$context = Timber::context();
 	foreach (
 		[
+			// Store block values.
 			"block" => $block,
-			"content" => $content,
-			"is_preview" => $is_preview,
-			"post_id" => $post_id,
-			"wp_block" => $wp_block,
-			"context" => $context,
+			// Store field values.
 			"fields" => get_fields(),
+			// Store $is_preview value.
+			"is_preview" => $is_preview,
 		]
 		as $key => $value
 	) {
-		$timber_context[$key] = $value;
+		$context[$key] = $value;
 	}
 
-	Timber::render("blocks/" . $block_slug . ".twig", $timber_context);
+	Timber::render("blocks/" . $block_slug . ".twig", $context);
 }
 
 function get_attachment_source($attachment_id, $size = "thumbnail", $icon = false, $attr = "")
