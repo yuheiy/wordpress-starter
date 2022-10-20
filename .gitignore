@@ -3,7 +3,7 @@ node_modules/
 vendor/
 npm-debug.log*
 
-/env/data.edited.xml
+/env/wordpress.*.xml.edited
 /.env
 /.wp-env.override.json
 

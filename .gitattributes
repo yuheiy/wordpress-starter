@@ -1,3 +1,2 @@
 * text=auto eol=lf
-/env/uploads/ linguist-generated=true
-/env/data.xml linguist-generated=true
+/env/wordpress.*.xml linguist-generated=true
