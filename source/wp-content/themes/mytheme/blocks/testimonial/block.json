@@ -7,7 +7,8 @@
 	"keywords": ["testimonial", "quote"],
 	"supports": {
 		"align": false,
-		"customClassName": false
+		"customClassName": false,
+		"mode": false
 	},
 	"acf": {
 		"mode": "edit",
