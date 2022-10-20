@@ -1,25 +1,9 @@
-{# Support custom "anchor" values. #}
-{% set anchor = '' %}
-{% if block.anchor %}
-	{% set anchor = 'id="' ~ block.anchor|e('html_attr') ~ '" ' %}
-{% endif %}
-
-{# Create class attribute allowing for custom "className" and "align" values. #}
-{% set class_name = 'acf-block-testimonial' %}
-{% if block.className %}
-	{% set class_name = class_name ~ ' ' ~ block.className %}
-{% endif %}
-{% if block.align %}
-	{% set class_name = class_name ~ ' align' ~ block.align %}
-{% endif %}
-
-{# Load values and assign defaults. #}
 {% set text = fields.testimonial ?: 'Your testimonial here...' %}
 {% set author = fields.author ?: 'Author name' %}
 {% set author_role = fields.role ?: 'Author role' %}
 {% set image = fields.image %}
 
-<div {{ anchor }}class="{{ class_name|e('html_attr') }} bg-gray-100">
+<div class="acf-block-testimonial bg-gray-100">
 	{{
 		function(
 			'wp_get_attachment_image',
