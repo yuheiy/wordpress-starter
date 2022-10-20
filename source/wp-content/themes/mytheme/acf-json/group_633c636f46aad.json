@@ -99,57 +99,6 @@
             "max_size": "",
             "mime_types": "",
             "preview_size": "medium"
-        },
-        {
-            "key": "field_633d5f5d6b6b9",
-            "label": "Color Settings",
-            "name": "",
-            "type": "accordion",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "open": 0,
-            "multi_expand": 0,
-            "endpoint": 0
-        },
-        {
-            "key": "field_633d5f826b6ba",
-            "label": "Background Color",
-            "name": "background_color",
-            "type": "color_picker",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "#8631EA",
-            "enable_opacity": 0,
-            "return_format": "string"
-        },
-        {
-            "key": "field_633d5fb16b6bb",
-            "label": "Text Color",
-            "name": "text_color",
-            "type": "color_picker",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "#FFFFFF",
-            "enable_opacity": 0,
-            "return_format": "string"
         }
     ],
     "location": [
@@ -170,5 +119,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1664969945
+    "modified": 1666246316
 }

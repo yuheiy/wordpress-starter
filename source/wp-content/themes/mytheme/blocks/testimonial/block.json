@@ -6,6 +6,7 @@
 	"icon": "admin-comments",
 	"keywords": ["testimonial", "quote"],
 	"supports": {
+		"align": false,
 		"customClassName": false
 	},
 	"acf": {
