@@ -19,7 +19,7 @@
 {% set author_role = fields.role ?: 'Author role' %}
 {% set image = fields.image %}
 
-<div {{ anchor }} class="{{ class_name|e('html_attr') }} bg-gray-100">
+<div {{ anchor }}class="{{ class_name|e('html_attr') }} bg-gray-100">
 	{{
 		function(
 			'wp_get_attachment_image',
